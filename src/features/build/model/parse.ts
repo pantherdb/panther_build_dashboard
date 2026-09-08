@@ -30,6 +30,7 @@ import {
   absentOtherReports,
   absentPipeline,
   absentPreviousLibrary,
+  absentProteomes,
   absentSpecies,
   absentTrees,
   unknownFreshness,
@@ -46,6 +47,7 @@ import {
   extractOtherReports,
   extractPipeline,
   extractPreviousLibrary,
+  extractProteomes,
   extractTrees,
   buildRegistryEntry,
   readPhaseIds,
@@ -70,6 +72,7 @@ import type { NoteSink } from './notes'
 /** Section ids this model has a specialised extractor for. Anything else renders generically. */
 export const KNOWN_SECTION_IDS: readonly string[] = [
   'config_ledger',
+  'proteomes',
   'progress',
   'mapping',
   'node_tracking',
@@ -370,6 +373,12 @@ export function parseBuildState(raw: unknown): BuildReport {
     () => extractNodeTracking(pick('node_tracking'), sink),
     reason => absentNodeTracking(errorMeta('node_tracking', reason))
   )
+  const proteomes = safe(
+    sink,
+    'section:proteomes',
+    () => extractProteomes(pick('proteomes'), sink),
+    reason => absentProteomes(errorMeta('proteomes', reason))
+  )
   const library = safe(
     sink,
     'section:library',
@@ -492,6 +501,7 @@ export function parseBuildState(raw: unknown): BuildReport {
     pipeline,
     mapping,
     nodeTracking,
+    proteomes,
     library,
     trees,
     config,

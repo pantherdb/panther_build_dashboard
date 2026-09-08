@@ -65,6 +65,16 @@ const BINDINGS: readonly SectionBinding[] = [
       'The snapshot is taken at build start, which is why it also contributes to setup.',
   },
   {
+    sectionId: 'proteomes',
+    placement: 'phase',
+    primaryPhaseId: PHASE_IDS.setup,
+    contributingPhaseIds: [],
+    rationale:
+      'The roster is stamped by create_taxonomy.pl while the proteomes are downloaded, so it ' +
+      'describes setup. It is the per-proteome answer to the question the config ledger used to ' +
+      'answer once for the whole build.',
+  },
+  {
     sectionId: 'progress',
     placement: 'pipeline',
     primaryPhaseId: null,

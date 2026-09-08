@@ -23,6 +23,8 @@ import type {
   OtherReportsSummary,
   PipelineSummary,
   PreviousLibrarySummary,
+  ProteomeRosterRow,
+  ProteomesSummary,
   SpeciesCrossSection,
   SpeciesCountChange,
   SummaryMeta,
@@ -105,6 +107,40 @@ export function absentTrees(meta: SummaryMeta): TreeSummary {
     emptyTrees: null,
     usableTreePct: null,
     text: null,
+  }
+}
+
+export function absentProteomes(meta: SummaryMeta): ProteomesSummary {
+  return {
+    ...meta,
+    total: null,
+    composition: [],
+    compositionLabel: null,
+    offMajorityCount: 0,
+    changeCounts: {
+      new: null,
+      upChanged: null,
+      sourceChanged: null,
+      versionChanged: null,
+      sameUp: null,
+      unchanged: null,
+      dropped: null,
+    },
+    previousRosterStamped: false,
+    roster: absentTable<ProteomeRosterRow>(
+      'proteome-roster',
+      'Reference proteomes',
+      meta.sectionId ?? 'proteomes',
+      'The reference-proteome roster could not be read.'
+    ),
+    dropped: absentTable<ProteomeRosterRow>(
+      'proteomes-dropped',
+      'Proteomes dropped since previous library',
+      meta.sectionId ?? 'proteomes',
+      'The dropped-proteome list could not be read.'
+    ),
+    text: null,
+    warnings: [],
   }
 }
 

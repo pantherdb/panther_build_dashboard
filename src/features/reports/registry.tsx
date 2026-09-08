@@ -37,6 +37,7 @@ export interface SpecialisedRenderer {
 const MappingReport = lazy(() => import('@/features/mapping/components/MappingReport'))
 const NodeTrackingReport = lazy(() => import('@/features/nodes/components/NodeTrackingReport'))
 const ComparisonReport = lazy(() => import('@/features/comparison/components/ComparisonReport'))
+const ProteomesReport = lazy(() => import('@/features/proteomes/components/ProteomesReport'))
 
 const GenericReport = lazy(() =>
   import('@/features/reports/components/GenericReport').then(module => ({
@@ -64,6 +65,12 @@ export const SPECIALISED_RENDERERS: readonly SpecialisedRenderer[] = [
     title: 'Node forward tracking',
     sectionIds: ['node_tracking'],
     Component: NodeTrackingReport,
+  },
+  {
+    key: 'proteomes',
+    title: 'Reference proteomes',
+    sectionIds: ['proteomes'],
+    Component: ProteomesReport,
   },
   {
     key: 'comparison',

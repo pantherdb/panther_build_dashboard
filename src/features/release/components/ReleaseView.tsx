@@ -1,4 +1,3 @@
-import { Tooltip } from '@mantine/core'
 import { Panel, PanelGrid, SectionHeading, StatusChip } from '@/@panther.core/components'
 import { formatUtc } from '@/app/format'
 import { useBuildReport } from '@/features/build/hooks'
@@ -22,7 +21,7 @@ import { readCurrency, readRelease } from '@/features/release/vocabulary'
  */
 export const ReleaseView = () => {
   const report = useBuildReport()
-  const { identity, comparison, consistency } = report
+  const { identity, comparison, consistency, proteomes } = report
   const readiness = readRelease(report.pipeline)
   const currency = readCurrency(report)
 
@@ -49,36 +48,20 @@ export const ReleaseView = () => {
               {identity.previousLibraryLabel ?? 'no previous library recorded'}
             </dd>
           </div>
-          {/* The ACTIVE data directory, never the declared release version. On the captured
-              report those disagree - the build declares QfO 2026_02 and reads
-              ref_prot_2026_01 - and showing the declared value here would tell a reader the
-              library was built from proteomes it never saw. This is the audience most likely to
-              cite that number in a release note, so it shows what was used and flags the
-              disagreement rather than quietly picking one. */}
+          {/* Every release the library was actually built from, not one declared version.
+              Before pipeline issue #65 a build recorded a single QfO release; it was never true,
+              and the variable that carried it has since been retired, so on a current report it is
+              simply absent. This audience is the one most likely to copy a release number into a
+              permanent note, so it gets all of them rather than a plausible single answer. The
+              active data path stays beside it as the thing on disk. */}
           <div className="flex items-baseline gap-1.5">
             <dt className="text-ink-faint text-2xs">Reference proteomes used</dt>
             <dd className="text-ink pb-ident text-2xs">
-              {consistency.qfoActiveDataDir ?? identity.qfoDataDir ?? 'not recorded'}
+              {proteomes.compositionLabel ??
+                consistency.qfoActiveDataDir ??
+                identity.qfoDataDir ??
+                'not recorded'}
             </dd>
-            {consistency.qfoReleaseMatchesDataDir === false && (
-              <dd>
-                <Tooltip
-                  label={`The build declares reference-proteome release ${
-                    consistency.qfoDeclaredRelease ?? 'unknown'
-                  }, but read its data from the path above. The path is what the library was built from.`}
-                  withArrow
-                  multiline
-                  maw={320}
-                >
-                  <span>
-                    <StatusChip
-                      status="warn"
-                      label={`declared ${consistency.qfoDeclaredRelease ?? 'a different release'}`}
-                    />
-                  </span>
-                </Tooltip>
-              </dd>
-            )}
           </div>
           <div className="flex items-baseline gap-1.5">
             <dt className="text-ink-faint text-2xs">Page written</dt>

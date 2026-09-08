@@ -130,3 +130,28 @@ describe.each(FIXTURE_STATE_KEYS)('ReleaseView on %s', (key: FixtureStateKey) =>
     }
   })
 })
+
+/**
+ * What the library was built from, for a reader who will cite it in a release note.
+ *
+ * This audience is the one most likely to write "built from QfO 2026_02" somewhere permanent. The
+ * header used to offer a single path to copy, which invites exactly that sentence; the roster says
+ * three releases were used at once. The composition is the honest version of the same line, and it
+ * belongs here even though the 131-row roster does not.
+ */
+describe('the release header names every proteome release', () => {
+  it('lists each source and release rather than a single one', () => {
+    render()
+
+    expect(screen.getByText(/QfO 2026_02 \(67\)/)).toBeInTheDocument()
+    expect(screen.getByText(/RefProt 2026_02 \(40\)/)).toBeInTheDocument()
+    expect(screen.getByText(/RefProt 2026_01 \(24\)/)).toBeInTheDocument()
+  })
+
+  it('keeps the pipeline vocabulary out of the line', () => {
+    render()
+
+    expect(screen.queryByText(/majority/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/roster/i)).not.toBeInTheDocument()
+  })
+})

@@ -19,6 +19,7 @@ export {
   toUniRuleRow,
 } from './otherReports'
 export { extractPipeline, readPhaseIds, stepPositionLabel } from './progress'
+export { extractProteomes } from './proteomes'
 export {
   absentSectionInput,
   describeDataShape,
