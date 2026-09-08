@@ -106,3 +106,26 @@ describe('BuildPreamble config ledger', () => {
     expect(screen.getByText('config changed during the build · 2 records')).toBeInTheDocument()
   })
 })
+
+/**
+ * The header's reference-proteome claim, after pipeline issue #65.
+ *
+ * `QFO_RELEASE_VERSION` was retired: the Makefile warns it is "set but ignored", and the captured
+ * report's config ledger has no such key, so the old "QfO release declared" row renders as "not
+ * declared". A header row that is structurally empty and, when populated, could only ever name one
+ * of the three releases this build used, is worse than no row. The composition replaces it.
+ */
+describe('the reference-proteome release claim', () => {
+  it('states every release the build drew from, not one declared version', () => {
+    renderWithProviders(<BuildPreamble />)
+
+    expect(screen.getByText(/QfO 2026_02 \(67\)/)).toBeInTheDocument()
+    expect(screen.getByText(/RefProt 2026_01 \(24\)/)).toBeInTheDocument()
+  })
+
+  it('no longer claims a single declared release', () => {
+    renderWithProviders(<BuildPreamble />)
+
+    expect(screen.queryByText('QfO release declared')).not.toBeInTheDocument()
+  })
+})

@@ -1,4 +1,5 @@
 import { Tooltip } from '@mantine/core'
+import { Link } from 'react-router-dom'
 import {
   CopyButton,
   Disclosure,
@@ -9,7 +10,7 @@ import {
 import type { KeyValueItem } from '@/@panther.core/components'
 import { formatCount, formatUtc, plural } from '@/app/format'
 import { useBuildReport } from '@/features/build/hooks'
-import { formatDuration } from '@/features/build/model'
+import { formatDuration, reportRoute } from '@/features/build/model'
 import type { BuildReport } from '@/features/build/model'
 import type { StatusKey } from '@/@panther.core/vocabulary'
 import { FixtureStateNotice } from '@/features/preamble/components/FixtureStateNotice'
@@ -74,7 +75,7 @@ function freshnessDetail(report: BuildReport): string | null {
 
 export const BuildPreamble = () => {
   const report = useBuildReport()
-  const { identity, freshness, health, config, schema } = report
+  const { identity, freshness, health, config, schema, proteomes } = report
   const status = readBuildStatus(report)
   const lead = freshnessDetail(report)
   const configEntry = report.reports.find(entry => entry.sectionId === 'config_ledger') ?? null
@@ -161,10 +162,43 @@ export const BuildPreamble = () => {
       absentReason: 'not resolved',
     },
     {
-      key: 'qfo-release',
-      label: 'QfO release declared',
-      value: identity.qfoReleaseVersion,
-      absentReason: 'not declared',
+      // Issue #65 retired QFO_RELEASE_VERSION, and a single declared release could never have
+      // described a library drawn from three of them. The roster's own composition replaces it.
+      key: 'proteome-releases',
+      label: 'Proteome releases',
+      value:
+        proteomes.compositionLabel === null ? null : (
+          <Link
+            to={reportRoute('proteomes')}
+            className="hover:text-accent underline decoration-dotted underline-offset-2"
+          >
+            {proteomes.compositionLabel}
+          </Link>
+        ),
+      mono: false,
+      absentReason: 'no roster recorded',
+      attention: proteomes.offMajorityCount > 0,
+      aside:
+        proteomes.offMajorityCount > 0 ? (
+          <Tooltip
+            label={`${proteomes.offMajorityCount} ${plural(
+              proteomes.offMajorityCount,
+              'proteome'
+            )} are not on their source's majority release. Deliberate for a hand-swapped proteome; otherwise a stamping error.`}
+            withArrow
+            multiline
+            maw={300}
+          >
+            <span>
+              <StatusChip
+                status="warn"
+                label={`${proteomes.offMajorityCount} off majority`}
+                size="sm"
+                variant="plain"
+              />
+            </span>
+          </Tooltip>
+        ) : undefined,
     },
     {
       key: 'previous-library',

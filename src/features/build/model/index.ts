@@ -4,6 +4,8 @@ export * from './types'
 
 export { parseBuildState, parseBuildStateCached, KNOWN_SECTION_IDS } from './parse'
 
+export { extractProteomes } from './sections/proteomes'
+
 export {
   CURRENT_SCHEMA_VERSION,
   evaluateSchema,
@@ -127,6 +129,7 @@ export {
   readPhaseIds,
   releaseTokenOf,
   stepPositionLabel,
+  toSectionInput,
 } from './sections'
 export type { SectionInput } from './sections'
 

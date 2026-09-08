@@ -380,6 +380,70 @@ export interface LibrarySummary extends SummaryMeta {
   rows: { metric: string; value: number | null; rawValue: unknown }[]
 }
 
+/* -- Reference proteomes (per-proteome source provenance, pipeline issue #65) --------------- */
+
+/** One (source, release) bucket of the reference-proteome roster. */
+export interface ProteomeCompositionBucket {
+  /** `QfO` or `RefProt` - which store the proteome was taken from. */
+  source: string
+  /** That store's release, e.g. `2026_02`. */
+  release: string
+  count: number
+  /**
+   * True when this is the single largest release for its source. A source whose releases tie has
+   * no majority, and every one of its buckets is `false` - there is nothing to be the odd one out
+   * of.
+   */
+  isSourceMajority: boolean
+}
+
+/** One row of the reference-proteome roster, as `create_taxonomy.pl` stamped it. */
+export interface ProteomeRosterRow {
+  up: string | null
+  oscode: string | null
+  taxid: string | null
+  name: string | null
+  source: string | null
+  version: string | null
+  prevUp: string | null
+  prevSource: string | null
+  prevVersion: string | null
+  /** `new`, `up_changed`, `source_changed`, `version_changed`, `same_up`, `unchanged`. */
+  change: string | null
+}
+
+/** How each proteome changed against the previous library's roster. */
+export interface ProteomeChangeCounts {
+  new: number | null
+  upChanged: number | null
+  sourceChanged: number | null
+  versionChanged: number | null
+  sameUp: number | null
+  unchanged: number | null
+  dropped: number | null
+}
+
+export interface ProteomesSummary extends SummaryMeta {
+  total: number | null
+  /** Sources in roster order, each source's releases largest first. */
+  composition: ProteomeCompositionBucket[]
+  /** `QfO 2026_02 (67) · RefProt 2026_01 (24)`, or `null` when nothing was read. */
+  compositionLabel: string | null
+  /** Proteomes not on their source's majority release. Deliberate, or a stamping error. */
+  offMajorityCount: number
+  changeCounts: ProteomeChangeCounts
+  /**
+   * Whether the previous library's roster carried the post-#65 source/release columns. When it did
+   * not, `versionChanged: 0` means "not measurable", not "nothing moved", and the view must say so
+   * rather than let a reader read stability into it.
+   */
+  previousRosterStamped: boolean
+  roster: DerivedTable<ProteomeRosterRow>
+  dropped: DerivedTable<ProteomeRosterRow>
+  text: string | null
+  warnings: string[]
+}
+
 export interface TreeSummary extends SummaryMeta {
   booksTotal: number | null
   treesBuilt: number | null
@@ -784,6 +848,7 @@ export interface BuildReport {
   pipeline: PipelineSummary
   mapping: MappingSummary
   nodeTracking: NodeTrackingSummary
+  proteomes: ProteomesSummary
   library: LibrarySummary
   trees: TreeSummary
   config: ConfigSummary
