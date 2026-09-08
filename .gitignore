@@ -42,3 +42,4 @@ downloads
 playwright-report/
 test-results/
 playwright/.cache/
+.env.deploy
