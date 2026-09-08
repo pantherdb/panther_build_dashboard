@@ -1,0 +1,157 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  Static hosting for panther_build_dashboard. A private S3 bucket behind a CloudFront
+  distribution, reached only through Origin Access Control, gated by a shared basic-auth
+  credential checked at the edge on every viewer request.
+
+Parameters:
+  BasicAuthCredential:
+    Type: String
+    NoEcho: true
+    MinLength: 8
+    AllowedPattern: '^[A-Za-z0-9+/=]+$'
+    Description: >
+      Base64 of "panther:<password>". Generated and printed once by deploy/bootstrap.sh.
+      NoEcho keeps it out of stack output; it is not recoverable afterwards.
+
+Resources:
+  # Private origin. No website hosting, no public ACL, no bucket-level public access.
+  # CloudFront reaches it as a signed REST origin, which is also why a missing key
+  # comes back as 403 rather than 404 (see CustomErrorResponses below).
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub 'panther-build-dashboard-${AWS::AccountId}'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  OriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub '${AWS::StackName}-oac'
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  # Shared-password gate. On viewer-request, so it runs before the cache and cannot be
+  # bypassed by asking for something already at the edge. The credential is not part of
+  # the cache key, so all authorized viewers share one cached copy.
+  BasicAuthFunction:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub '${AWS::StackName}-basic-auth'
+      AutoPublish: true
+      FunctionConfig:
+        Comment: Shared-password gate, evaluated before the cache.
+        Runtime: cloudfront-js-2.0
+      FunctionCode: !Sub |
+        function handler(event) {
+            var request = event.request;
+            var headers = request.headers;
+            var expected = 'Basic ${BasicAuthCredential}';
+
+            if (!headers.authorization || headers.authorization.value !== expected) {
+                return {
+                    statusCode: 401,
+                    statusDescription: 'Unauthorized',
+                    headers: {
+                        // Without WWW-Authenticate a browser shows a blank error page
+                        // instead of a login prompt.
+                        'www-authenticate': { value: 'Basic realm="PANTHER build dashboard", charset="UTF-8"' },
+                        'cache-control': { value: 'no-store' }
+                    }
+                };
+            }
+
+            // CloudFront signs the origin request itself under OAC. A forwarded viewer
+            // Authorization header would collide with that SigV4 signature.
+            delete headers.authorization;
+
+            return request;
+        }
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub '${AWS::StackName} - PANTHER build dashboard'
+        DefaultRootObject: index.html
+        PriceClass: PriceClass_100
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        Origins:
+          - Id: s3-origin
+            DomainName: !GetAtt SiteBucket.RegionalDomainName
+            OriginAccessControlId: !GetAtt OriginAccessControl.Id
+            # Required, and required to be empty, when using OAC with an S3 origin.
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+        DefaultCacheBehavior:
+          TargetOriginId: s3-origin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD]
+          CachedMethods: [GET, HEAD]
+          Compress: true
+          # Managed-CachingOptimized. Respects origin Cache-Control, so cache lifetime is
+          # decided per object at upload time rather than here.
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          FunctionAssociations:
+            - EventType: viewer-request
+              # Not the bare '.FunctionARN' attribute: AWS lists it but its own docs
+              # redirect to this FunctionMetadata form, which is the one that resolves.
+              FunctionARN: !GetAtt BasicAuthFunction.FunctionMetadata.FunctionARN
+        # SPA fallback. 403 is the status an S3 REST origin returns for a key that does
+        # not exist, because the signing principal has no s3:ListBucket; 404 is mapped
+        # too for completeness. The status is rewritten to 200 so that monitors, crawlers
+        # and 'curl -f' do not read every client-side route as broken.
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 10
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 10
+
+  # Grants read to the CloudFront service principal, narrowed to this one distribution.
+  # Not a public policy, so it coexists with Block Public Access above.
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowCloudFrontServicePrincipalReadOnly
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub '${SiteBucket.Arn}/*'
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
+
+Outputs:
+  BucketName:
+    Description: Upload target for deploy/deploy.sh.
+    Value: !Ref SiteBucket
+  DistributionId:
+    Description: Invalidation target for deploy/deploy.sh.
+    Value: !Ref Distribution
+  SiteUrl:
+    Description: The dashboard URL. Requires the basic-auth credential.
+    Value: !Sub 'https://${Distribution.DomainName}'

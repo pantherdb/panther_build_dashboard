@@ -93,3 +93,16 @@ Path aliases: `@/*` → `src/*`, `@tests/*` → `tests/*` (configured in both `t
 
 Non-trivial work gets a plan file under `.plans/<category>/<task-name>.md`. See
 [.plans/template.md](.plans/template.md) for the template and the recovery-checkpoint convention.
+
+## Deploying
+
+The dashboard is a static bundle — no backend, no server. It is published to a private S3
+bucket behind CloudFront, gated by a shared password.
+
+```bash
+bash deploy/bootstrap.sh   # one time: create the stack, print the URL and password
+npm run deploy             # publish whatever is in docs/build_state.json right now
+```
+
+See `deploy/README.md` for setup, rotating the password, and tearing the stack down, and
+`.specs/2026-09-08-static-hosting-design.md` for why it is shaped this way.

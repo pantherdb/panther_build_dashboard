@@ -12,6 +12,8 @@
     "build": "tsc -b && vite build --mode production",
     "build:dev": "tsc -b && vite build --mode development",
     "preview": "vite preview",
+    "deploy": "bash deploy/deploy.sh",
+    "deploy:infra": "bash deploy/bootstrap.sh",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
