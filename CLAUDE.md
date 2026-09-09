@@ -23,9 +23,9 @@ web app.
   from `src/features/release/vocabulary.ts`.
 
 `docs/` holds the source material: `panther-build-dashboard-prototype-brief-v3.md` (the brief this
-was built from) and `build_state.json` (a captured report for a PANTHER 20.0 target — the only real
-fixture; the other states are transforms of it). `docs/ui-roadmap.md` records what the upstream
-pipeline repos say the UI can and cannot promise.
+was built from) and `build_state.json` (the **live** report the site ships — see "The two reports"
+below). `docs/ui-roadmap.md` records what the upstream pipeline repos say the UI can and cannot
+promise.
 
 The stack and conventions were copied from `C:/work/go/noctua-visual-pathway-editor`, minus the
 dependencies that project needs and this one does not (Apollo/GraphQL, JointJS, ReactFlow, dagre,
@@ -110,12 +110,58 @@ Do not add `@typescript-eslint/parser` or `@typescript-eslint/eslint-plugin` to 
 - Comments explain **why**, not what: a short block comment at the top of a module saying what job it
   does, and inline comments only where the reasoning is non-obvious.
 
+## The two reports
+
+There are two `build_state.json` files and they do different jobs. Confusing them is the one
+mistake in this repo that costs a day.
+
+| File | Job | Changes |
+| --- | --- | --- |
+| `docs/build_state.json` | **Live production data.** Statically imported by `src/features/build/fixtures/source.ts`, compiled into the bundle, shipped to Pages by `deploy-pages.yml`. | Every build |
+| `tests/fixtures/build_state.reference.json` | **The frozen oracle.** What every test asserts against. | Never, except by deliberate re-verification |
+
+A `test.alias` in `vite.config.ts` redirects the `source.ts` import to the reference **under Vitest
+only**. That is why `parse.appendix.test.ts` can pin 131 species and 15,795 books while the live
+file is refreshed every build. The production build is unaffected and still compiles the live JSON.
+
+**Refreshing the data** is now just:
+
+```bash
+cp /path/to/target/reports/build_state/build_state.json docs/build_state.json
+npm test        # only liveReport.contract.test.ts can object
+```
+
+No test expectation moves. If the contract suite goes red, the report contains something the
+dashboard cannot place — a new section id, an unsupported `schema_version` — and the fix is to
+integrate it (add the id to `KNOWN_SECTION_IDS` and give it a `SECTION_BINDINGS` entry), never to
+add an exception to the contract test.
+
+**Re-verifying the oracle** is a separate, rare, deliberate act — copy the live file over the
+reference, re-sanitise `target`, then expect a large red suite and recompute Appendix A of
+`.plans/feature/01-report-model.md` from the new JSON. That is the `update-test-assert-data`
+workflow, kept for when it is actually wanted.
+
+Never hand-edit either file to make a test pass. Both are generator output.
+
 ## Testing
 
 Vitest + React Testing Library + jsdom. `tests/setup.ts` stubs what jsdom lacks and Mantine needs
 (`matchMedia`, `ResizeObserver`, `scrollIntoView`). Use `renderWithProviders` from
 `tests/test-utils.tsx` — it wraps the tree in the store, `MantineProvider` and a `MemoryRouter`, and
 accepts `preloadedState`, `store` and `route`.
+
+Two suites read the **live** `docs/build_state.json` instead of the reference, both by reading it
+with `fs` so the alias cannot intercept:
+
+- `tests/features/build/model/liveReport.contract.test.ts` — invariants only, no hand-computed
+  number. Asserts the live report parses, its schema is supported, every section id is known and
+  placed, nothing degraded to an `error` ingest note, no `NaN` reaches the model, and every check
+  rule survives the data.
+- `tests/features/build/model/liveReport.render.test.tsx` — mounts the whole shell on the live
+  report and asserts only that it comes up clean.
+
+If an assertion in either starts failing on ordinary data variation, it is the wrong assertion:
+delete it, do not loosen it.
 
 ## Task Management
 

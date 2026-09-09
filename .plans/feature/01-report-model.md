@@ -203,15 +203,21 @@ Open questions to resolve while implementing, not before:
 
 ## Appendix A — Verified data facts
 
-Measured from `docs/build_state.json`, **recomputed 2026-09-08** after the fixture was replaced by
-a 9-section report from `target_2026_02_w_select_2026_01_rerun`. **These are the reference values
-for the whole prototype**; other plans link here rather than restating them. Re-verify if the
-fixture is replaced. Every figure below was derived from the JSON directly, not read out of a test
-failure.
+Measured from the frozen oracle, `tests/fixtures/build_state.reference.json` — a 9-section report
+from `target_2026_02_w_select_2026_01_rerun`, **recomputed 2026-09-08**. **These are the reference
+values for the whole prototype**; other plans link here rather than restating them. Every figure
+below was derived from the JSON directly, not read out of a test failure.
+
+**Re-verify only when the REFERENCE is replaced, which is a deliberate act.** These numbers are
+deliberately *not* measured from `docs/build_state.json`: that file is live production data and is
+refreshed on every build (a `test.alias` in `vite.config.ts` points the tests at the reference
+instead). Refreshing the live report does not invalidate anything here. What guards the live file is
+`tests/features/build/model/liveReport.contract.test.ts`, which asserts invariants and no numbers.
 
 ### A.1 Shape
 
-`schema_version: 1` · `target: "/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun"`
+`schema_version: 1` · `target: "target_2026_02_w_select_2026_01_rerun"` (sanitised in the
+reference; the live report carries the absolute `/scratch2/...` path)
 · `generated_at: 2026-09-08T17:40:14Z` · **9 sections**.
 
 | Section id      | Status     | Notes                                                            |

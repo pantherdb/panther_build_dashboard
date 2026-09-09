@@ -1,0 +1,4392 @@
+{
+  "schema_version": 1,
+  "target": "target_2026_02_w_select_2026_01_rerun",
+  "generated_at": "2026-09-08T17:40:14Z",
+  "sections": [
+    {
+      "id": "config_ledger",
+      "title": "Build configuration",
+      "data": {
+        "current": {
+          "generated_at": "2026-09-03T23:07:21Z",
+          "panther_build_git_rev": "08e5f7104459f448e8222eaa3ea2c85320a8821b",
+          "panther_build_dirty": true,
+          "config_file": "config.mk",
+          "config_file_contents": "#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n",
+          "PTHR_VERSION": "20.0",
+          "QFO_DATA_DIR": "QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome",
+          "SPECIES_TREE": "/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx",
+          "PREV_RELEASE_DIR": "/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0",
+          "PREV_NODE_DAT": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat",
+          "PREV_RP_TAX_TXT": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/RP_taxonomy_organism_lib.txt",
+          "unresolved_vars": []
+        },
+        "record_count": 1,
+        "text": "**config.mk** contents at this build:\n\n```\n#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n\n```",
+        "rows": [
+          {
+            "key": "PREV_NODE_DAT",
+            "value": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat"
+          },
+          {
+            "key": "PREV_RELEASE_DIR",
+            "value": "/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0"
+          },
+          {
+            "key": "PREV_RP_TAX_TXT",
+            "value": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/RP_taxonomy_organism_lib.txt"
+          },
+          {
+            "key": "PTHR_VERSION",
+            "value": "20.0"
+          },
+          {
+            "key": "QFO_DATA_DIR",
+            "value": "QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome"
+          },
+          {
+            "key": "SPECIES_TREE",
+            "value": "/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx"
+          },
+          {
+            "key": "config_file",
+            "value": "config.mk"
+          },
+          {
+            "key": "generated_at",
+            "value": "2026-09-03T23:07:21Z"
+          },
+          {
+            "key": "panther_build_dirty",
+            "value": true
+          },
+          {
+            "key": "panther_build_git_rev",
+            "value": "08e5f7104459f448e8222eaa3ea2c85320a8821b"
+          },
+          {
+            "key": "unresolved_vars",
+            "value": []
+          }
+        ],
+        "warnings": []
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "proteomes",
+      "title": "Reference proteomes",
+      "data": {
+        "text": "**131** reference proteomes: QfO 2026_02 · RefProt 2026_02. Previous library roster: no release recorded (144 proteomes, 15 since dropped).",
+        "rows": [
+          {
+            "metric": "proteomes_total",
+            "value": 131
+          },
+          {
+            "metric": "QfO 2026_02",
+            "value": 67
+          },
+          {
+            "metric": "RefProt 2026_01",
+            "value": 24
+          },
+          {
+            "metric": "RefProt 2026_02",
+            "value": 40
+          },
+          {
+            "metric": "proteomes_new",
+            "value": 2
+          },
+          {
+            "metric": "proteomes_up_changed",
+            "value": 8
+          },
+          {
+            "metric": "proteomes_source_changed",
+            "value": 0
+          },
+          {
+            "metric": "proteomes_version_changed",
+            "value": 0
+          },
+          {
+            "metric": "proteomes_same_up",
+            "value": 121
+          },
+          {
+            "metric": "proteomes_unchanged",
+            "value": 0
+          },
+          {
+            "metric": "proteomes_dropped",
+            "value": 15
+          }
+        ],
+        "tables": [
+          {
+            "name": "Reference proteomes",
+            "columns": [
+              "up",
+              "oscode",
+              "taxid",
+              "name",
+              "source",
+              "version",
+              "prev_up",
+              "prev_source",
+              "prev_version",
+              "change"
+            ],
+            "rows": [
+              {
+                "taxid": "35525",
+                "name": "daphnia_magna",
+                "oscode": "DAPMA",
+                "up": "UP000076858",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "new"
+              },
+              {
+                "taxid": "5270",
+                "name": "mycosarcoma_maydis",
+                "oscode": "MYCMD",
+                "up": "UP000000561",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "new"
+              },
+              {
+                "taxid": "6238",
+                "name": "caenorhabditis_briggsae",
+                "oscode": "CAEBR",
+                "up": "UP000829354",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000008549",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "up_changed"
+              },
+              {
+                "taxid": "9685",
+                "name": "felis_catus",
+                "oscode": "FELCA",
+                "up": "UP000823872",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000011712",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "up_changed"
+              },
+              {
+                "taxid": "190304",
+                "name": "fusobacterium_nucleatum_subsp._nucleatum",
+                "oscode": "FUSNN",
+                "up": "UP000241660",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000002521",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "up_changed"
+              },
+              {
+                "taxid": "3635",
+                "name": "gossypium_hirsutum",
+                "oscode": "GOSHI",
+                "up": "UP000818029",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000189702",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "up_changed"
+              },
+              {
+                "taxid": "6945",
+                "name": "ixodes_scapularis",
+                "oscode": "IXOSC",
+                "up": "UP001735580",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001555",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "up_changed"
+              },
+              {
+                "taxid": "321614",
+                "name": "phaeosphaeria_nodorum",
+                "oscode": "PHANO",
+                "up": "UP000663193",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001055",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "up_changed"
+              },
+              {
+                "taxid": "3562",
+                "name": "spinacia_oleracea",
+                "oscode": "SPIOL",
+                "up": "UP000813463",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP001155700",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "up_changed"
+              },
+              {
+                "taxid": "4097",
+                "name": "nicotiana_tabacum",
+                "oscode": "TOBAC",
+                "up": "UP000790787",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000084051",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "up_changed"
+              },
+              {
+                "taxid": "28377",
+                "name": "anolis_carolinensis",
+                "oscode": "ANOCA",
+                "up": "UP000001646",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001646",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "7165",
+                "name": "anopheles_gambiae",
+                "oscode": "ANOGA",
+                "up": "UP000007062",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000007062",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "224324",
+                "name": "aquifex_aeolicus",
+                "oscode": "AQUAE",
+                "up": "UP000000798",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000798",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3702",
+                "name": "arabidopsis_thaliana",
+                "oscode": "ARATH",
+                "up": "UP000006548",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000006548",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "330879",
+                "name": "aspergillus_fumigatus",
+                "oscode": "ASPFU",
+                "up": "UP000002530",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002530",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "226900",
+                "name": "bacillus_cereus",
+                "oscode": "BACCR",
+                "up": "UP000001417",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001417",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "224308",
+                "name": "bacillus_subtilis",
+                "oscode": "BACSU",
+                "up": "UP000001570",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001570",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "226186",
+                "name": "bacteroides_thetaiotaomicron",
+                "oscode": "BACTN",
+                "up": "UP000001414",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001414",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "684364",
+                "name": "batrachochytrium_dendrobatidis",
+                "oscode": "BATDJ",
+                "up": "UP000007241",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000007241",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "9913",
+                "name": "bos_taurus",
+                "oscode": "BOVIN",
+                "up": "UP000009136",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000009136",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3711",
+                "name": "brassica_campestris",
+                "oscode": "BRACM",
+                "up": "UP000011750",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000011750",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "15368",
+                "name": "brachypodium_distachyon",
+                "oscode": "BRADI",
+                "up": "UP000008810",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000008810",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "224911",
+                "name": "bradyrhizobium_diazoefficiens",
+                "oscode": "BRADU",
+                "up": "UP000002526",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002526",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "7739",
+                "name": "branchiostoma_floridae",
+                "oscode": "BRAFL",
+                "up": "UP000001554",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001554",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "6239",
+                "name": "caenorhabditis_elegans",
+                "oscode": "CAEEL",
+                "up": "UP000001940",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001940",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "237561",
+                "name": "candida_albicans",
+                "oscode": "CANAL",
+                "up": "UP000000559",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000559",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "9615",
+                "name": "canis_lupus_familiaris",
+                "oscode": "CANLF",
+                "up": "UP000805418",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000805418",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "9031",
+                "name": "gallus_gallus",
+                "oscode": "CHICK",
+                "up": "UP000000539",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000000539",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "324602",
+                "name": "chloroflexus_aurantiacus",
+                "oscode": "CHLAA",
+                "up": "UP000002008",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002008",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3055",
+                "name": "chlamydomonas_reinhardtii",
+                "oscode": "CHLRE",
+                "up": "UP000006906",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000006906",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "272561",
+                "name": "chlamydia_trachomatis_serovar_d",
+                "oscode": "CHLTR",
+                "up": "UP000000431",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000431",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "7719",
+                "name": "ciona_intestinalis",
+                "oscode": "CIOIN",
+                "up": "UP000008144",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000008144",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "441771",
+                "name": "clostridium_botulinum",
+                "oscode": "CLOBH",
+                "up": "UP000001986",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001986",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "227377",
+                "name": "coxiella_burnetii",
+                "oscode": "COXBU",
+                "up": "UP000002671",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000002671",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "214684",
+                "name": "cryptococcus_deneoformans",
+                "oscode": "CRYD1",
+                "up": "UP000002149",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002149",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "7955",
+                "name": "danio_rerio",
+                "oscode": "DANRE",
+                "up": "UP000000437",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000000437",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "243230",
+                "name": "deinococcus_radiodurans",
+                "oscode": "DEIRA",
+                "up": "UP000002524",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002524",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "44689",
+                "name": "dictyostelium_discoideum",
+                "oscode": "DICDI",
+                "up": "UP000002195",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002195",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "5786",
+                "name": "dictyostelium_purpureum",
+                "oscode": "DICPU",
+                "up": "UP000001064",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001064",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "515635",
+                "name": "dictyoglomus_turgidum",
+                "oscode": "DICTD",
+                "up": "UP000007719",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000007719",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "7227",
+                "name": "drosophila_melanogaster",
+                "oscode": "DROME",
+                "up": "UP000000803",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000000803",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "83333",
+                "name": "escherichia_coli",
+                "oscode": "ECOLI",
+                "up": "UP000000625",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000625",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "227321",
+                "name": "emericella_nidulans",
+                "oscode": "EMENI",
+                "up": "UP000000560",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000560",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "294381",
+                "name": "entamoeba_histolytica",
+                "oscode": "ENTH1",
+                "up": "UP000001926",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001926",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "284811",
+                "name": "eremothecium_gossypii",
+                "oscode": "EREGS",
+                "up": "UP000000591",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000591",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "243231",
+                "name": "geobacter_sulfurreducens",
+                "oscode": "GEOSL",
+                "up": "UP000000577",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000577",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "184922",
+                "name": "giardia_intestinalis",
+                "oscode": "GIAIC",
+                "up": "UP000001548",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001548",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "251221",
+                "name": "gloeobacter_violaceus",
+                "oscode": "GLOVI",
+                "up": "UP000000557",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000557",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "9595",
+                "name": "gorilla_gorilla_gorilla",
+                "oscode": "GORGO",
+                "up": "UP000001519",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001519",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "71421",
+                "name": "haemophilus_influenzae",
+                "oscode": "HAEIN",
+                "up": "UP000000579",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000579",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "64091",
+                "name": "halobacterium_salinarum",
+                "oscode": "HALSA",
+                "up": "UP000000554",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000554",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "4232",
+                "name": "helianthus_annuus",
+                "oscode": "HELAN",
+                "up": "UP000215914",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000215914",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "85962",
+                "name": "helicobacter_pylori",
+                "oscode": "HELPY",
+                "up": "UP000000429",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000429",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "6412",
+                "name": "helobdella_robusta",
+                "oscode": "HELRO",
+                "up": "UP000015101",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000015101",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "9796",
+                "name": "equus_caballus",
+                "oscode": "HORSE",
+                "up": "UP000002281",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000002281",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "112509",
+                "name": "hordeum_vulgare_subsp._vulgare",
+                "oscode": "HORVV",
+                "up": "UP000011116",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000011116",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "9606",
+                "name": "homo_sapiens",
+                "oscode": "HUMAN",
+                "up": "UP000005640",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000005640",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "51240",
+                "name": "juglans_regia",
+                "oscode": "JUGRE",
+                "up": "UP000235220",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000235220",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "105231",
+                "name": "klebsormidium_nitens",
+                "oscode": "KLENI",
+                "up": "UP000054558",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000054558",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "374847",
+                "name": "korarchaeum_cryptofilum",
+                "oscode": "KORCO",
+                "up": "UP000001686",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001686",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "4236",
+                "name": "lactuca_sativa",
+                "oscode": "LACSA",
+                "up": "UP000235145",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000235145",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "5664",
+                "name": "leishmania_major",
+                "oscode": "LEIMA",
+                "up": "UP000000542",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000542",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "189518",
+                "name": "leptospira_interrogans_serogroup_icterohaemorrhagiae_serovar_lai",
+                "oscode": "LEPIN",
+                "up": "UP000001408",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001408",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "7918",
+                "name": "lepisosteus_oculatus",
+                "oscode": "LEPOC",
+                "up": "UP000018468",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000018468",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "169963",
+                "name": "listeria_monocytogenes_serovar_1_2a",
+                "oscode": "LISMO",
+                "up": "UP000000817",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000817",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "9544",
+                "name": "macaca_mulatta",
+                "oscode": "MACMU",
+                "up": "UP000006718",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000006718",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "4577",
+                "name": "zea_mays",
+                "oscode": "MAIZE",
+                "up": "UP000007305",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000007305",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3983",
+                "name": "manihot_esculenta",
+                "oscode": "MANES",
+                "up": "UP000091857",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000091857",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3197",
+                "name": "marchantia_polymorpha",
+                "oscode": "MARPO",
+                "up": "UP000244005",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000244005",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3880",
+                "name": "medicago_truncatula",
+                "oscode": "MEDTR",
+                "up": "UP000002051",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000002051",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "188937",
+                "name": "methanosarcina_acetivorans",
+                "oscode": "METAC",
+                "up": "UP000002487",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002487",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "243232",
+                "name": "methanocaldococcus_jannaschii",
+                "oscode": "METJA",
+                "up": "UP000000805",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000805",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "81824",
+                "name": "monosiga_brevicollis",
+                "oscode": "MONBE",
+                "up": "UP000001357",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001357",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "13616",
+                "name": "monodelphis_domestica",
+                "oscode": "MONDO",
+                "up": "UP000002280",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002280",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "10090",
+                "name": "mus_musculus",
+                "oscode": "MOUSE",
+                "up": "UP000000589",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000000589",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "243273",
+                "name": "mycoplasmoides_genitalium",
+                "oscode": "MYCGE",
+                "up": "UP000000807",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000807",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "83332",
+                "name": "mycobacterium_tuberculosis",
+                "oscode": "MYCTU",
+                "up": "UP000001584",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001584",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "122586",
+                "name": "neisseria_meningitidis_serogroup_b",
+                "oscode": "NEIMB",
+                "up": "UP000000425",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000425",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "4432",
+                "name": "nelumbo_nucifera",
+                "oscode": "NELNU",
+                "up": "UP000189703",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000189703",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "45351",
+                "name": "nematostella_vectensis",
+                "oscode": "NEMVE",
+                "up": "UP000001593",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001593",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "367110",
+                "name": "neurospora_crassa",
+                "oscode": "NEUCR",
+                "up": "UP000001805",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001805",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "436308",
+                "name": "nitrosopumilus_maritimus",
+                "oscode": "NITMS",
+                "up": "UP000000792",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000792",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "9258",
+                "name": "ornithorhynchus_anatinus",
+                "oscode": "ORNAN",
+                "up": "UP000002279",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000002279",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "8090",
+                "name": "oryzias_latipes",
+                "oscode": "ORYLA",
+                "up": "UP000001038",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001038",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "39947",
+                "name": "oryza_sativa_subsp._japonica",
+                "oscode": "ORYSJ",
+                "up": "UP000059680",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000059680",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "9598",
+                "name": "pan_troglodytes",
+                "oscode": "PANTR",
+                "up": "UP000002277",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000002277",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "5888",
+                "name": "paramecium_tetraurelia",
+                "oscode": "PARTE",
+                "up": "UP000000600",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000600",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3218",
+                "name": "physcomitrium_patens",
+                "oscode": "PHYPA",
+                "up": "UP000006727",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000006727",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "164328",
+                "name": "phytophthora_ramorum",
+                "oscode": "PHYRM",
+                "up": "UP000005238",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000005238",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "9823",
+                "name": "sus_scrofa",
+                "oscode": "PIG",
+                "up": "UP000008227",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000008227",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "36329",
+                "name": "plasmodium_falciparum",
+                "oscode": "PLAF7",
+                "up": "UP000001450",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001450",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3694",
+                "name": "populus_trichocarpa",
+                "oscode": "POPTR",
+                "up": "UP000006729",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000006729",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "54126",
+                "name": "pristionchus_pacificus",
+                "oscode": "PRIPA",
+                "up": "UP000005239",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000005239",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3760",
+                "name": "prunus_persica",
+                "oscode": "PRUPE",
+                "up": "UP000006882",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000006882",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "208964",
+                "name": "pseudomonas_aeruginosa",
+                "oscode": "PSEAE",
+                "up": "UP000002438",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002438",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "418459",
+                "name": "puccinia_graminis_f._sp._tritici",
+                "oscode": "PUCGT",
+                "up": "UP000008783",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000008783",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "178306",
+                "name": "pyrobaculum_aerophilum",
+                "oscode": "PYRAE",
+                "up": "UP000002439",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000002439",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "10116",
+                "name": "rattus_norvegicus",
+                "oscode": "RAT",
+                "up": "UP000002494",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000002494",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "243090",
+                "name": "rhodopirellula_baltica",
+                "oscode": "RHOBA",
+                "up": "UP000001025",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001025",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "273057",
+                "name": "saccharolobus_solfataricus",
+                "oscode": "SACS2",
+                "up": "UP000001974",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001974",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "99287",
+                "name": "salmonella_typhimurium",
+                "oscode": "SALTY",
+                "up": "UP000001014",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001014",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "402676",
+                "name": "schizosaccharomyces_japonicus",
+                "oscode": "SCHJY",
+                "up": "UP000001744",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001744",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "284812",
+                "name": "schizosaccharomyces_pombe",
+                "oscode": "SCHPO",
+                "up": "UP000002485",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002485",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "665079",
+                "name": "sclerotinia_sclerotiorum",
+                "oscode": "SCLS1",
+                "up": "UP000001312",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001312",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "211586",
+                "name": "shewanella_oneidensis",
+                "oscode": "SHEON",
+                "up": "UP000008186",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000008186",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "4081",
+                "name": "solanum_lycopersicum",
+                "oscode": "SOLLC",
+                "up": "UP000004994",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000004994",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "4558",
+                "name": "sorghum_bicolor",
+                "oscode": "SORBI",
+                "up": "UP000000768",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000768",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3847",
+                "name": "glycine_max",
+                "oscode": "SOYBN",
+                "up": "UP000008827",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000008827",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "93061",
+                "name": "staphylococcus_aureus",
+                "oscode": "STAA8",
+                "up": "UP000008816",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000008816",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "100226",
+                "name": "streptomyces_coelicolor",
+                "oscode": "STRCO",
+                "up": "UP000001973",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001973",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "7668",
+                "name": "strongylocentrotus_purpuratus",
+                "oscode": "STRPU",
+                "up": "UP000007110",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000007110",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "171101",
+                "name": "streptococcus_pneumoniae",
+                "oscode": "STRR6",
+                "up": "UP000000586",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000586",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "1111708",
+                "name": "synechocystis_sp.",
+                "oscode": "SYNY3",
+                "up": "UP000001425",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001425",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "35128",
+                "name": "thalassiosira_pseudonana",
+                "oscode": "THAPS",
+                "up": "UP000001449",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001449",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "3641",
+                "name": "theobroma_cacao",
+                "oscode": "THECC",
+                "up": "UP000026915",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000026915",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "69014",
+                "name": "thermococcus_kodakarensis",
+                "oscode": "THEKO",
+                "up": "UP000000536",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000536",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "243274",
+                "name": "thermotoga_maritima",
+                "oscode": "THEMA",
+                "up": "UP000008183",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000008183",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "289376",
+                "name": "thermodesulfovibrio_yellowstonii",
+                "oscode": "THEYD",
+                "up": "UP000000718",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000718",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "10228",
+                "name": "trichoplax_adhaerens",
+                "oscode": "TRIAD",
+                "up": "UP000009022",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000009022",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "7070",
+                "name": "tribolium_castaneum",
+                "oscode": "TRICA",
+                "up": "UP000007266",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000007266",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "412133",
+                "name": "trichomonas_vaginalis",
+                "oscode": "TRIV3",
+                "up": "UP000001542",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001542",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "185431",
+                "name": "trypanosoma_brucei_brucei",
+                "oscode": "TRYB2",
+                "up": "UP000008524",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000008524",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "243277",
+                "name": "vibrio_cholerae_serotype_o1",
+                "oscode": "VIBCH",
+                "up": "UP000000584",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000584",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "29760",
+                "name": "vitis_vinifera",
+                "oscode": "VITVI",
+                "up": "UP000009183",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000009183",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "4565",
+                "name": "triticum_aestivum",
+                "oscode": "WHEAT",
+                "up": "UP000019116",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000019116",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "190485",
+                "name": "xanthomonas_campestris_pv._campestris",
+                "oscode": "XANCP",
+                "up": "UP000001010",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001010",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "8355",
+                "name": "xenopus_laevis",
+                "oscode": "XENLA",
+                "up": "UP000186698",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000186698",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "8364",
+                "name": "xenopus_tropicalis",
+                "oscode": "XENTR",
+                "up": "UP000008143",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000008143",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "284591",
+                "name": "yarrowia_lipolytica",
+                "oscode": "YARLI",
+                "up": "UP000001300",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001300",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "559292",
+                "name": "saccharomyces_cerevisiae",
+                "oscode": "YEAST",
+                "up": "UP000002311",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002311",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              },
+              {
+                "taxid": "632",
+                "name": "yersinia_pestis",
+                "oscode": "YERPE",
+                "up": "UP000000815",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000815",
+                "prev_source": "",
+                "prev_version": "",
+                "change": "same_up"
+              }
+            ],
+            "total_rows": 131,
+            "truncated": false
+          },
+          {
+            "name": "Proteomes dropped since previous library",
+            "columns": [
+              "up",
+              "oscode",
+              "taxid",
+              "name",
+              "source",
+              "version"
+            ],
+            "rows": [
+              {
+                "taxid": "13333",
+                "name": "amborella_trichopoda",
+                "oscode": "AMBTC",
+                "up": "UP000017836",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "3708",
+                "name": "brassica_napus",
+                "oscode": "BRANA",
+                "up": "UP000028999",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "4072",
+                "name": "capsicum_annuum",
+                "oscode": "CAPAN",
+                "up": "UP000222542",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "2711",
+                "name": "citrus_sinensis",
+                "oscode": "CITSI",
+                "up": "UP000027120",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "3659",
+                "name": "cucumis_sativus",
+                "oscode": "CUCSA",
+                "up": "UP000029981",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "6669",
+                "name": "daphnia_pulex",
+                "oscode": "DAPPU",
+                "up": "UP000000305",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "4155",
+                "name": "erythranthe_guttata",
+                "oscode": "ERYGU",
+                "up": "UP000030748",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "71139",
+                "name": "eucalyptus_grandis",
+                "oscode": "EUCGR",
+                "up": "UP000030711",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "214687",
+                "name": "musa_acuminata_subsp._malaccensis",
+                "oscode": "MUSAM",
+                "up": "UP000012960",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "3988",
+                "name": "ricinus_communis",
+                "oscode": "RICCO",
+                "up": "UP000008311",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "88036",
+                "name": "selaginella_moellendorffii",
+                "oscode": "SELML",
+                "up": "UP000001514",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "4555",
+                "name": "setaria_italica",
+                "oscode": "SETIT",
+                "up": "UP000004995",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "4113",
+                "name": "solanum_tuberosum",
+                "oscode": "SOLTU",
+                "up": "UP000011115",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "237631",
+                "name": "ustilago_maydis",
+                "oscode": "USTMA",
+                "up": "UP000000561",
+                "source": "",
+                "version": ""
+              },
+              {
+                "taxid": "29655",
+                "name": "zostera_marina",
+                "oscode": "ZOSMR",
+                "up": "UP000036987",
+                "source": "",
+                "version": ""
+              }
+            ],
+            "total_rows": 15,
+            "truncated": false
+          }
+        ],
+        "warnings": [
+          "24 proteome(s) are not on their source's majority release: ARATH (RefProt 2026_01, majority 2026_02); BOVIN (RefProt 2026_01, majority 2026_02); CANLF (RefProt 2026_01, majority 2026_02); CHICK (RefProt 2026_01, majority 2026_02); DANRE (RefProt 2026_01, majority 2026_02); DROME (RefProt 2026_01, majority 2026_02); FUSNN (RefProt 2026_01, majority 2026_02); GOSHI (RefProt 2026_01, majority 2026_02). Deliberate for a hand-swapped proteome; otherwise a stamping error.",
+          "the previous library's roster /project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/RP_taxonomy_organism_lib.txt predates issue #65 (no source/release columns), so per-proteome release changes cannot be reported: proteomes keeping their UP number are shown as same_up rather than unchanged. Point PREV_RP_TAX_TXT at a stamped roster to get release deltas.",
+          "1 proteome(s) counted as both dropped and new carry the same UP number on each side: UP000000561 (USTMA/237631 -> MYCMD/5270). The species was re-identified under a new taxID, not replaced -- do not read these as library churn."
+        ]
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "progress",
+      "title": "Pipeline progress",
+      "data": {
+        "phases": [
+          {
+            "name": "Setup & resource download",
+            "done": 2,
+            "total": 2,
+            "steps": [
+              {
+                "goal": "download_resources.touch",
+                "status": "done",
+                "mtime": 1788476841.0,
+                "attempts": []
+              },
+              {
+                "goal": "organism.dat",
+                "status": "done",
+                "mtime": 1788476527.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "Previous library rebuild",
+            "done": 3,
+            "total": 3,
+            "steps": [
+              {
+                "goal": "prev_lib_rebuilt/refProteomePANTHERmapping_split_merged_and_removed",
+                "status": "done",
+                "mtime": 1788476865.0,
+                "attempts": []
+              },
+              {
+                "goal": "prev_lib_rebuilt/refProteomePANTHERmapping_single_genome_fams_removed",
+                "status": "done",
+                "mtime": 1788476978.0,
+                "attempts": []
+              },
+              {
+                "goal": "prev_lib_rebuilt/famlib/rel/PANTHER20.0_prev_lib_rebuilt/publish_rel_books.touch",
+                "status": "done",
+                "mtime": 1788490422.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "Sequence-to-family mapping",
+            "done": 3,
+            "total": 5,
+            "steps": [
+              {
+                "goal": "validate_idmapping_step",
+                "status": "pending",
+                "mtime": null,
+                "attempts": []
+              },
+              {
+                "goal": "validate_blast_step",
+                "status": "pending",
+                "mtime": null,
+                "attempts": []
+              },
+              {
+                "goal": "refProteomePANTHERmapping_fams_corrected_by_old_long_id",
+                "status": "done",
+                "mtime": 1788501649.0,
+                "attempts": []
+              },
+              {
+                "goal": "refProteomePANTHERmapping_updated_hmm",
+                "status": "done",
+                "mtime": 1788507454.0,
+                "attempts": []
+              },
+              {
+                "goal": "tribe_mcl_reclustering.touch",
+                "status": "done",
+                "mtime": 1788512015.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "Mapping cleanup pass 1",
+            "done": 3,
+            "total": 3,
+            "steps": [
+              {
+                "goal": "refProteomePANTHERmapping_families_trimmed",
+                "status": "done",
+                "mtime": 1788512029.0,
+                "attempts": []
+              },
+              {
+                "goal": "refProteomePANTHERmapping_dropped_dup_gene_ids",
+                "status": "done",
+                "mtime": 1788512134.0,
+                "attempts": []
+              },
+              {
+                "goal": "refProteomePANTHERmapping_single_genome_fams_removed",
+                "status": "done",
+                "mtime": 1788512221.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "Exten build and scoring",
+            "done": 2,
+            "total": 2,
+            "steps": [
+              {
+                "goal": "exten_hmm.touch",
+                "status": "done",
+                "mtime": 1788519551.0,
+                "attempts": []
+              },
+              {
+                "goal": "refProteomePANTHERmapping_updated_exten",
+                "status": "done",
+                "mtime": 1788523139.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "Mapping cleanup pass 2",
+            "done": 3,
+            "total": 3,
+            "steps": [
+              {
+                "goal": "refProteomePANTHERmapping_families_trimmed_round2",
+                "status": "done",
+                "mtime": 1788523166.0,
+                "attempts": []
+              },
+              {
+                "goal": "refProteomePANTHERmapping_dropped_dup_gene_ids_round2",
+                "status": "done",
+                "mtime": 1788523218.0,
+                "attempts": []
+              },
+              {
+                "goal": "refProteomePANTHERmapping_single_genome_fams_removed_round2",
+                "status": "done",
+                "mtime": 1788523303.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "MSA build (orig)",
+            "done": 1,
+            "total": 1,
+            "steps": [
+              {
+                "goal": "famlib/dev/PANTHER20.0/lib_20.0/trim_align_seeded_orig.touch",
+                "status": "done",
+                "mtime": 1788525603.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "Tree building (GIGA)",
+            "done": 2,
+            "total": 2,
+            "steps": [
+              {
+                "goal": "famlib/dev/PANTHER20.0/lib_20.0/giga.touch",
+                "status": "done",
+                "mtime": 1788541493.0,
+                "attempts": []
+              },
+              {
+                "goal": "refProteomePANTHERmapping_post_giga",
+                "status": "done",
+                "mtime": 1788541857.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "Node forward tracking",
+            "done": 1,
+            "total": 1,
+            "steps": [
+              {
+                "goal": "nodeForwardTracking/nodeMapping_stats_by_genome.tsv",
+                "status": "done",
+                "mtime": 1788542278.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "Subfamilies, HT & orthologs",
+            "done": 5,
+            "total": 5,
+            "steps": [
+              {
+                "goal": "famlib/dev/PANTHER20.0/lib_20.0/auto_subfamily.touch",
+                "status": "done",
+                "mtime": 1788542609.0,
+                "attempts": []
+              },
+              {
+                "goal": "apply_ibd_sf_roots.touch",
+                "status": "done",
+                "mtime": 1788542685.0,
+                "attempts": []
+              },
+              {
+                "goal": "famlib/dev/PANTHER20.0/lib_20.0/listHT",
+                "status": "done",
+                "mtime": 1788542937.0,
+                "attempts": []
+              },
+              {
+                "goal": "orthologs.touch",
+                "status": "done",
+                "mtime": 1788542955.0,
+                "attempts": []
+              },
+              {
+                "goal": "enhancer_gene_link.tsv",
+                "status": "done",
+                "mtime": 1788543015.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "DB load file generation",
+            "done": 19,
+            "total": 19,
+            "steps": [
+              {
+                "goal": "DBload/organism.dat",
+                "status": "done",
+                "mtime": 1788543029.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/node.dat",
+                "status": "done",
+                "mtime": 1788543049.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/sequence_organism.dat",
+                "status": "done",
+                "mtime": 1788543060.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/identifier.dat",
+                "status": "done",
+                "mtime": 1788543174.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/annotation.dat",
+                "status": "done",
+                "mtime": 1788544120.0,
+                "attempts": []
+              },
+              {
+                "goal": "replace_pc_annotations.touch",
+                "status": "done",
+                "mtime": 1788544121.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/reactome_annotation.dat",
+                "status": "done",
+                "mtime": 1788544135.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/protein_class.dat",
+                "status": "done",
+                "mtime": 1788544135.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/protein_class_relationship.dat",
+                "status": "done",
+                "mtime": 1788544136.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/panther_slim.dat",
+                "status": "done",
+                "mtime": 1788544140.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/panther_slim_relationship.dat",
+                "status": "done",
+                "mtime": 1788544140.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/sfToSeq",
+                "status": "done",
+                "mtime": 1788544164.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/sfToPTN",
+                "status": "done",
+                "mtime": 1788549567.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/family_names.dat",
+                "status": "done",
+                "mtime": 1788549573.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/Homo_sapiens.chromosomal_location",
+                "status": "done",
+                "mtime": 1788549587.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/pathway_curation.dat",
+                "status": "done",
+                "mtime": 1788549611.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/tree_detail.dat",
+                "status": "done",
+                "mtime": 1788549617.0,
+                "attempts": []
+              },
+              {
+                "goal": "DBload/node_organism.dat",
+                "status": "done",
+                "mtime": 1788549741.0,
+                "attempts": []
+              },
+              {
+                "goal": "agg_files.touch",
+                "status": "done",
+                "mtime": 1788550160.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "New library HMM generation",
+            "done": 2,
+            "total": 2,
+            "steps": [
+              {
+                "goal": "famlib/dev/PANTHER20.0/lib_20.0/createHMM3_orig_fam_orig.touch",
+                "status": "done",
+                "mtime": 1788554066.0,
+                "attempts": []
+              },
+              {
+                "goal": "createHMM3_sf.touch",
+                "status": "done",
+                "mtime": 1788555037.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "Library export products",
+            "done": 12,
+            "total": 12,
+            "steps": [
+              {
+                "goal": "TaxonConstraintsLookupSlimPlusPC.txt",
+                "status": "done",
+                "mtime": 1788557308.0,
+                "attempts": []
+              },
+              {
+                "goal": "publish_rel_books_export.touch",
+                "status": "done",
+                "mtime": 1788564158.0,
+                "attempts": []
+              },
+              {
+                "goal": "ontology.touch",
+                "status": "done",
+                "mtime": 1788564159.0,
+                "attempts": []
+              },
+              {
+                "goal": "genome_statistics",
+                "status": "done",
+                "mtime": 1788564279.0,
+                "attempts": []
+              },
+              {
+                "goal": "tree_rules.touch",
+                "status": "done",
+                "mtime": 1788574079.0,
+                "attempts": []
+              },
+              {
+                "goal": "QfO_OrthoXML.xml",
+                "status": "done",
+                "mtime": 1788574573.0,
+                "attempts": []
+              },
+              {
+                "goal": "ftp/PANTHER_HMM_Classification_files/PANTHER20.0_HMM_classifications",
+                "status": "done",
+                "mtime": 1788574086.0,
+                "attempts": []
+              },
+              {
+                "goal": "PANTHER20.0_fasta.tgz",
+                "status": "done",
+                "mtime": 1788574529.0,
+                "attempts": []
+              },
+              {
+                "goal": "pfam.touch",
+                "status": "done",
+                "mtime": 1788574580.0,
+                "attempts": []
+              },
+              {
+                "goal": "PANTHER_altVersion_gtar.touch",
+                "status": "done",
+                "mtime": 1788584467.0,
+                "attempts": []
+              },
+              {
+                "goal": "TreeGrafter_data/PANTHER20.0_data.tar.gz",
+                "status": "done",
+                "mtime": 1788585485.0,
+                "attempts": []
+              },
+              {
+                "goal": "node_closure_files.touch",
+                "status": "done",
+                "mtime": 1788585569.0,
+                "attempts": []
+              }
+            ]
+          },
+          {
+            "name": "Final packaging",
+            "done": 1,
+            "total": 2,
+            "steps": [
+              {
+                "goal": "PTHR20.0_DBload.tar.gz",
+                "status": "done",
+                "mtime": 1788585743.0,
+                "attempts": []
+              },
+              {
+                "goal": "PANTHER20.0.tar.gz.touch",
+                "status": "pending",
+                "mtime": null,
+                "attempts": []
+              }
+            ]
+          }
+        ],
+        "headline": {
+          "phases_complete": 12,
+          "steps_complete": 59,
+          "steps_total": 62
+        },
+        "warnings": [
+          "ftp/PANTHER_HMM_Classification_files/PANTHER20.0_HMM_classifications is older than QfO_OrthoXML.xml, which precedes it in the build — possibly stale (driver-order heuristic, not a verified dependency)"
+        ]
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "mapping",
+      "title": "Sequence mapping & family assignment",
+      "data": {
+        "rows": [
+          {
+            "order": 10,
+            "stage": "id",
+            "mapping_file": "refProteomePANTHERmapping_ID",
+            "total_seqs": 2298433,
+            "assigned": 1507603,
+            "unassigned": 790830,
+            "pct_assigned": 65.6,
+            "n_families": 15682
+          },
+          {
+            "order": 20,
+            "stage": "id_pombe_syms",
+            "mapping_file": "refProteomePANTHERmapping_ID_pombe_syms",
+            "total_seqs": 2298433,
+            "assigned": 1507603,
+            "unassigned": 790830,
+            "pct_assigned": 65.6,
+            "n_families": 15682
+          },
+          {
+            "order": 30,
+            "stage": "blast",
+            "mapping_file": "refProteomePANTHERmapping_updated_blast",
+            "total_seqs": 2298433,
+            "assigned": 1608141,
+            "unassigned": 690292,
+            "pct_assigned": 70.0,
+            "n_families": 15682
+          },
+          {
+            "order": 40,
+            "stage": "fams_corrected",
+            "mapping_file": "refProteomePANTHERmapping_fams_corrected_by_old_long_id",
+            "total_seqs": 2298433,
+            "assigned": 1607742,
+            "unassigned": 690691,
+            "pct_assigned": 69.9,
+            "n_families": 15680
+          },
+          {
+            "order": 50,
+            "stage": "hmm",
+            "mapping_file": "refProteomePANTHERmapping_updated_hmm",
+            "total_seqs": 2298433,
+            "assigned": 1804850,
+            "unassigned": 493583,
+            "pct_assigned": 78.5,
+            "n_families": 15681
+          },
+          {
+            "order": 60,
+            "stage": "recluster",
+            "mapping_file": "refProteomePANTHERmapping_updated_final_after_mcl_recluster",
+            "total_seqs": 2298433,
+            "assigned": 1807673,
+            "unassigned": 490760,
+            "pct_assigned": 78.6,
+            "n_families": 15834
+          },
+          {
+            "order": 70,
+            "stage": "pass1_trim",
+            "mapping_file": "refProteomePANTHERmapping_families_trimmed",
+            "total_seqs": 2294174,
+            "assigned": 1803414,
+            "unassigned": 490760,
+            "pct_assigned": 78.6,
+            "n_families": 15834
+          },
+          {
+            "order": 80,
+            "stage": "pass1_dedup",
+            "mapping_file": "refProteomePANTHERmapping_dropped_dup_gene_ids",
+            "total_seqs": 2293251,
+            "assigned": 1802568,
+            "unassigned": 490683,
+            "pct_assigned": 78.6,
+            "n_families": 15834
+          },
+          {
+            "order": 90,
+            "stage": "pass1_single_genome",
+            "mapping_file": "refProteomePANTHERmapping_single_genome_fams_removed",
+            "total_seqs": 2292866,
+            "assigned": 1802183,
+            "unassigned": 490683,
+            "pct_assigned": 78.6,
+            "n_families": 15804
+          },
+          {
+            "order": 100,
+            "stage": "exten",
+            "mapping_file": "refProteomePANTHERmapping_updated_exten",
+            "total_seqs": 2292866,
+            "assigned": 1813943,
+            "unassigned": 478923,
+            "pct_assigned": 79.1,
+            "n_families": 15804
+          },
+          {
+            "order": 110,
+            "stage": "pass2_trim",
+            "mapping_file": "refProteomePANTHERmapping_families_trimmed_round2",
+            "total_seqs": 2292861,
+            "assigned": 1813938,
+            "unassigned": 478923,
+            "pct_assigned": 79.1,
+            "n_families": 15804
+          },
+          {
+            "order": 120,
+            "stage": "pass2_dedup",
+            "mapping_file": "refProteomePANTHERmapping_dropped_dup_gene_ids_round2",
+            "total_seqs": 2292861,
+            "assigned": 1813938,
+            "unassigned": 478923,
+            "pct_assigned": 79.1,
+            "n_families": 15804
+          },
+          {
+            "order": 130,
+            "stage": "pass2_single_genome",
+            "mapping_file": "refProteomePANTHERmapping_single_genome_fams_removed_round2",
+            "total_seqs": 2292861,
+            "assigned": 1813938,
+            "unassigned": 478923,
+            "pct_assigned": 79.1,
+            "n_families": 15804
+          },
+          {
+            "order": 140,
+            "stage": "post_giga",
+            "mapping_file": "refProteomePANTHERmapping_post_giga",
+            "total_seqs": 2292530,
+            "assigned": 1813607,
+            "unassigned": 478923,
+            "pct_assigned": 79.1,
+            "n_families": 15795
+          }
+        ],
+        "by_mechanism": [
+          {
+            "stage": "id",
+            "mechanism": "ID",
+            "count": 1507603
+          },
+          {
+            "stage": "id_pombe_syms",
+            "mechanism": "ID",
+            "count": 1507603
+          },
+          {
+            "stage": "blast",
+            "mechanism": "ID",
+            "count": 1507603
+          },
+          {
+            "stage": "blast",
+            "mechanism": "BLAST",
+            "count": 100538
+          },
+          {
+            "stage": "fams_corrected",
+            "mechanism": "ID",
+            "count": 1507256
+          },
+          {
+            "stage": "fams_corrected",
+            "mechanism": "BLAST",
+            "count": 100486
+          },
+          {
+            "stage": "hmm",
+            "mechanism": "ID",
+            "count": 1507256
+          },
+          {
+            "stage": "hmm",
+            "mechanism": "HMM_scoring",
+            "count": 197108
+          },
+          {
+            "stage": "hmm",
+            "mechanism": "BLAST",
+            "count": 100486
+          },
+          {
+            "stage": "recluster",
+            "mechanism": "ID",
+            "count": 1507256
+          },
+          {
+            "stage": "recluster",
+            "mechanism": "HMM_scoring",
+            "count": 197108
+          },
+          {
+            "stage": "recluster",
+            "mechanism": "BLAST",
+            "count": 100486
+          },
+          {
+            "stage": "recluster",
+            "mechanism": "RECLUSTER_NEW",
+            "count": 2823
+          },
+          {
+            "stage": "pass1_trim",
+            "mechanism": "ID",
+            "count": 1507256
+          },
+          {
+            "stage": "pass1_trim",
+            "mechanism": "HMM_scoring",
+            "count": 192849
+          },
+          {
+            "stage": "pass1_trim",
+            "mechanism": "BLAST",
+            "count": 100486
+          },
+          {
+            "stage": "pass1_trim",
+            "mechanism": "RECLUSTER_NEW",
+            "count": 2823
+          },
+          {
+            "stage": "pass1_dedup",
+            "mechanism": "ID",
+            "count": 1507231
+          },
+          {
+            "stage": "pass1_dedup",
+            "mechanism": "HMM_scoring",
+            "count": 192031
+          },
+          {
+            "stage": "pass1_dedup",
+            "mechanism": "BLAST",
+            "count": 100483
+          },
+          {
+            "stage": "pass1_dedup",
+            "mechanism": "RECLUSTER_NEW",
+            "count": 2823
+          },
+          {
+            "stage": "pass1_single_genome",
+            "mechanism": "ID",
+            "count": 1506866
+          },
+          {
+            "stage": "pass1_single_genome",
+            "mechanism": "HMM_scoring",
+            "count": 192014
+          },
+          {
+            "stage": "pass1_single_genome",
+            "mechanism": "BLAST",
+            "count": 100480
+          },
+          {
+            "stage": "pass1_single_genome",
+            "mechanism": "RECLUSTER_NEW",
+            "count": 2823
+          },
+          {
+            "stage": "exten",
+            "mechanism": "ID",
+            "count": 1506866
+          },
+          {
+            "stage": "exten",
+            "mechanism": "HMM_scoring",
+            "count": 203774
+          },
+          {
+            "stage": "exten",
+            "mechanism": "BLAST",
+            "count": 100480
+          },
+          {
+            "stage": "exten",
+            "mechanism": "RECLUSTER_NEW",
+            "count": 2823
+          },
+          {
+            "stage": "pass2_trim",
+            "mechanism": "ID",
+            "count": 1506866
+          },
+          {
+            "stage": "pass2_trim",
+            "mechanism": "HMM_scoring",
+            "count": 203769
+          },
+          {
+            "stage": "pass2_trim",
+            "mechanism": "BLAST",
+            "count": 100480
+          },
+          {
+            "stage": "pass2_trim",
+            "mechanism": "RECLUSTER_NEW",
+            "count": 2823
+          },
+          {
+            "stage": "pass2_dedup",
+            "mechanism": "ID",
+            "count": 1506866
+          },
+          {
+            "stage": "pass2_dedup",
+            "mechanism": "HMM_scoring",
+            "count": 203769
+          },
+          {
+            "stage": "pass2_dedup",
+            "mechanism": "BLAST",
+            "count": 100480
+          },
+          {
+            "stage": "pass2_dedup",
+            "mechanism": "RECLUSTER_NEW",
+            "count": 2823
+          },
+          {
+            "stage": "pass2_single_genome",
+            "mechanism": "ID",
+            "count": 1506866
+          },
+          {
+            "stage": "pass2_single_genome",
+            "mechanism": "HMM_scoring",
+            "count": 203769
+          },
+          {
+            "stage": "pass2_single_genome",
+            "mechanism": "BLAST",
+            "count": 100480
+          },
+          {
+            "stage": "pass2_single_genome",
+            "mechanism": "RECLUSTER_NEW",
+            "count": 2823
+          },
+          {
+            "stage": "post_giga",
+            "mechanism": "ID",
+            "count": 1506822
+          },
+          {
+            "stage": "post_giga",
+            "mechanism": "HMM_scoring",
+            "count": 203539
+          },
+          {
+            "stage": "post_giga",
+            "mechanism": "BLAST",
+            "count": 100480
+          },
+          {
+            "stage": "post_giga",
+            "mechanism": "RECLUSTER_NEW",
+            "count": 2766
+          }
+        ],
+        "headline": {
+          "final_stage": "post_giga",
+          "final_total_seqs": 2292530,
+          "final_assigned": 1813607,
+          "final_pct_assigned": 79.1,
+          "final_n_families": 15795
+        }
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "node_tracking",
+      "title": "Node forward tracking",
+      "data": {
+        "by_type": [
+          {
+            "node_type": "DUPLICATION",
+            "mapped": 277511,
+            "total": 325035,
+            "pct": 85.4
+          },
+          {
+            "node_type": "HORIZ_TRANSFER",
+            "mapped": 4769,
+            "total": 5724,
+            "pct": 83.3
+          },
+          {
+            "node_type": "LEAF",
+            "mapped": 1614152,
+            "total": 1742145,
+            "pct": 92.7
+          },
+          {
+            "node_type": "SPECIATION",
+            "mapped": 914535,
+            "total": 958465,
+            "pct": 95.4
+          },
+          {
+            "node_type": "UNKNOWN",
+            "mapped": 0,
+            "total": 347,
+            "pct": 0.0
+          }
+        ],
+        "by_species": [
+          {
+            "oscode": "DAPMA",
+            "mapped": 0,
+            "total": 10544,
+            "pct": 0.0
+          },
+          {
+            "oscode": "IXOSC",
+            "mapped": 3079,
+            "total": 18011,
+            "pct": 17.1
+          },
+          {
+            "oscode": "FELCA",
+            "mapped": 11500,
+            "total": 17711,
+            "pct": 64.9
+          },
+          {
+            "oscode": "PHANO",
+            "mapped": 5790,
+            "total": 8906,
+            "pct": 65.0
+          },
+          {
+            "oscode": "CAEBR",
+            "mapped": 8241,
+            "total": 12126,
+            "pct": 68.0
+          },
+          {
+            "oscode": "POPTR",
+            "mapped": 31334,
+            "total": 46035,
+            "pct": 68.1
+          },
+          {
+            "oscode": "TOBAC",
+            "mapped": 40029,
+            "total": 54239,
+            "pct": 73.8
+          },
+          {
+            "oscode": "SPIOL",
+            "mapped": 17961,
+            "total": 23223,
+            "pct": 77.3
+          },
+          {
+            "oscode": "BOVIN",
+            "mapped": 17487,
+            "total": 21862,
+            "pct": 80.0
+          },
+          {
+            "oscode": "GOSHI",
+            "mapped": 48526,
+            "total": 60590,
+            "pct": 80.1
+          },
+          {
+            "oscode": "MANES",
+            "mapped": 23206,
+            "total": 28809,
+            "pct": 80.6
+          },
+          {
+            "oscode": "DANRE",
+            "mapped": 21101,
+            "total": 24983,
+            "pct": 84.5
+          },
+          {
+            "oscode": "HELAN",
+            "mapped": 44230,
+            "total": 50069,
+            "pct": 88.3
+          },
+          {
+            "oscode": "HORVV",
+            "mapped": 25865,
+            "total": 28832,
+            "pct": 89.7
+          },
+          {
+            "oscode": "RAT",
+            "mapped": 19387,
+            "total": 20876,
+            "pct": 92.9
+          },
+          {
+            "oscode": "LACSA",
+            "mapped": 27572,
+            "total": 29645,
+            "pct": 93.0
+          },
+          {
+            "oscode": "XENTR",
+            "mapped": 18040,
+            "total": 19110,
+            "pct": 94.4
+          },
+          {
+            "oscode": "XENLA",
+            "mapped": 31325,
+            "total": 33140,
+            "pct": 94.5
+          },
+          {
+            "oscode": "ANOCA",
+            "mapped": 17719,
+            "total": 18570,
+            "pct": 95.4
+          },
+          {
+            "oscode": "PIG",
+            "mapped": 20163,
+            "total": 21087,
+            "pct": 95.6
+          },
+          {
+            "oscode": "FUSNN",
+            "mapped": 1371,
+            "total": 1424,
+            "pct": 96.3
+          },
+          {
+            "oscode": "THECC",
+            "mapped": 21362,
+            "total": 22116,
+            "pct": 96.6
+          },
+          {
+            "oscode": "TRIV3",
+            "mapped": 20601,
+            "total": 21282,
+            "pct": 96.8
+          },
+          {
+            "oscode": "KLENI",
+            "mapped": 9515,
+            "total": 9820,
+            "pct": 96.9
+          },
+          {
+            "oscode": "BRAFL",
+            "mapped": 19995,
+            "total": 20592,
+            "pct": 97.1
+          },
+          {
+            "oscode": "HORSE",
+            "mapped": 18775,
+            "total": 19265,
+            "pct": 97.5
+          },
+          {
+            "oscode": "MARPO",
+            "mapped": 11352,
+            "total": 11637,
+            "pct": 97.6
+          },
+          {
+            "oscode": "PANTR",
+            "mapped": 20409,
+            "total": 20844,
+            "pct": 97.9
+          },
+          {
+            "oscode": "SCHJY",
+            "mapped": 3620,
+            "total": 3694,
+            "pct": 98.0
+          },
+          {
+            "oscode": "STRPU",
+            "mapped": 20361,
+            "total": 20725,
+            "pct": 98.2
+          },
+          {
+            "oscode": "GORGO",
+            "mapped": 19143,
+            "total": 19482,
+            "pct": 98.3
+          },
+          {
+            "oscode": "PRUPE",
+            "mapped": 22378,
+            "total": 22736,
+            "pct": 98.4
+          },
+          {
+            "oscode": "CANLF",
+            "mapped": 19250,
+            "total": 19553,
+            "pct": 98.5
+          },
+          {
+            "oscode": "SORBI",
+            "mapped": 26097,
+            "total": 26456,
+            "pct": 98.6
+          },
+          {
+            "oscode": "HELRO",
+            "mapped": 12391,
+            "total": 12563,
+            "pct": 98.6
+          },
+          {
+            "oscode": "NELNU",
+            "mapped": 22249,
+            "total": 22558,
+            "pct": 98.6
+          },
+          {
+            "oscode": "MEDTR",
+            "mapped": 31684,
+            "total": 32131,
+            "pct": 98.6
+          },
+          {
+            "oscode": "MAIZE",
+            "mapped": 27980,
+            "total": 28379,
+            "pct": 98.6
+          },
+          {
+            "oscode": "CHICK",
+            "mapped": 16682,
+            "total": 16923,
+            "pct": 98.6
+          },
+          {
+            "oscode": "SOLLC",
+            "mapped": 23779,
+            "total": 24085,
+            "pct": 98.7
+          },
+          {
+            "oscode": "MACMU",
+            "mapped": 20374,
+            "total": 20644,
+            "pct": 98.7
+          },
+          {
+            "oscode": "JUGRE",
+            "mapped": 28225,
+            "total": 28604,
+            "pct": 98.7
+          },
+          {
+            "oscode": "VITVI",
+            "mapped": 21429,
+            "total": 21682,
+            "pct": 98.8
+          },
+          {
+            "oscode": "PRIPA",
+            "mapped": 13310,
+            "total": 13468,
+            "pct": 98.8
+          },
+          {
+            "oscode": "CIOIN",
+            "mapped": 8362,
+            "total": 8463,
+            "pct": 98.8
+          },
+          {
+            "oscode": "ANOGA",
+            "mapped": 10557,
+            "total": 10685,
+            "pct": 98.8
+          },
+          {
+            "oscode": "NEMVE",
+            "mapped": 15325,
+            "total": 15512,
+            "pct": 98.8
+          },
+          {
+            "oscode": "ENTH1",
+            "mapped": 4698,
+            "total": 4748,
+            "pct": 98.9
+          },
+          {
+            "oscode": "ORYSJ",
+            "mapped": 24665,
+            "total": 24905,
+            "pct": 99.0
+          },
+          {
+            "oscode": "BRACM",
+            "mapped": 34450,
+            "total": 34804,
+            "pct": 99.0
+          },
+          {
+            "oscode": "PLAF7",
+            "mapped": 3325,
+            "total": 3354,
+            "pct": 99.1
+          },
+          {
+            "oscode": "SYNY3",
+            "mapped": 2405,
+            "total": 2426,
+            "pct": 99.1
+          },
+          {
+            "oscode": "ARATH",
+            "mapped": 24095,
+            "total": 24317,
+            "pct": 99.1
+          },
+          {
+            "oscode": "PHYRM",
+            "mapped": 9979,
+            "total": 10056,
+            "pct": 99.2
+          },
+          {
+            "oscode": "THAPS",
+            "mapped": 7334,
+            "total": 7386,
+            "pct": 99.3
+          },
+          {
+            "oscode": "TRIAD",
+            "mapped": 8774,
+            "total": 8837,
+            "pct": 99.3
+          },
+          {
+            "oscode": "WHEAT",
+            "mapped": 92580,
+            "total": 93095,
+            "pct": 99.4
+          },
+          {
+            "oscode": "HUMAN",
+            "mapped": 19420,
+            "total": 19529,
+            "pct": 99.4
+          },
+          {
+            "oscode": "MYCGE",
+            "mapped": 348,
+            "total": 350,
+            "pct": 99.4
+          },
+          {
+            "oscode": "PUCGT",
+            "mapped": 7288,
+            "total": 7330,
+            "pct": 99.4
+          },
+          {
+            "oscode": "DICDI",
+            "mapped": 9172,
+            "total": 9227,
+            "pct": 99.4
+          },
+          {
+            "oscode": "MOUSE",
+            "mapped": 20981,
+            "total": 21109,
+            "pct": 99.4
+          },
+          {
+            "oscode": "MONBE",
+            "mapped": 6702,
+            "total": 6743,
+            "pct": 99.4
+          },
+          {
+            "oscode": "PARTE",
+            "mapped": 20383,
+            "total": 20515,
+            "pct": 99.4
+          },
+          {
+            "oscode": "GIAIC",
+            "mapped": 2797,
+            "total": 2810,
+            "pct": 99.5
+          },
+          {
+            "oscode": "NITMS",
+            "mapped": 1064,
+            "total": 1069,
+            "pct": 99.5
+          },
+          {
+            "oscode": "BACSU",
+            "mapped": 2969,
+            "total": 2983,
+            "pct": 99.5
+          },
+          {
+            "oscode": "LEPOC",
+            "mapped": 16782,
+            "total": 16862,
+            "pct": 99.5
+          },
+          {
+            "oscode": "CRYD1",
+            "mapped": 5348,
+            "total": 5374,
+            "pct": 99.5
+          },
+          {
+            "oscode": "BATDJ",
+            "mapped": 5871,
+            "total": 5900,
+            "pct": 99.5
+          },
+          {
+            "oscode": "MONDO",
+            "mapped": 19369,
+            "total": 19467,
+            "pct": 99.5
+          },
+          {
+            "oscode": "ORYLA",
+            "mapped": 21453,
+            "total": 21570,
+            "pct": 99.5
+          },
+          {
+            "oscode": "PHYPA",
+            "mapped": 19211,
+            "total": 19316,
+            "pct": 99.5
+          },
+          {
+            "oscode": "CAEEL",
+            "mapped": 14310,
+            "total": 14364,
+            "pct": 99.6
+          },
+          {
+            "oscode": "SOYBN",
+            "mapped": 46911,
+            "total": 47094,
+            "pct": 99.6
+          },
+          {
+            "oscode": "HELPY",
+            "mapped": 966,
+            "total": 970,
+            "pct": 99.6
+          },
+          {
+            "oscode": "CHLRE",
+            "mapped": 11995,
+            "total": 12045,
+            "pct": 99.6
+          },
+          {
+            "oscode": "DEIRA",
+            "mapped": 2084,
+            "total": 2093,
+            "pct": 99.6
+          },
+          {
+            "oscode": "TRICA",
+            "mapped": 11031,
+            "total": 11080,
+            "pct": 99.6
+          },
+          {
+            "oscode": "ORNAN",
+            "mapped": 16148,
+            "total": 16220,
+            "pct": 99.6
+          },
+          {
+            "oscode": "BRADI",
+            "mapped": 26226,
+            "total": 26295,
+            "pct": 99.7
+          },
+          {
+            "oscode": "YARLI",
+            "mapped": 5121,
+            "total": 5135,
+            "pct": 99.7
+          },
+          {
+            "oscode": "SCHPO",
+            "mapped": 4342,
+            "total": 4354,
+            "pct": 99.7
+          },
+          {
+            "oscode": "EREGS",
+            "mapped": 3958,
+            "total": 3969,
+            "pct": 99.7
+          },
+          {
+            "oscode": "MYCMD",
+            "mapped": 5364,
+            "total": 5379,
+            "pct": 99.7
+          },
+          {
+            "oscode": "LEPIN",
+            "mapped": 2144,
+            "total": 2150,
+            "pct": 99.7
+          },
+          {
+            "oscode": "SCLS1",
+            "mapped": 7176,
+            "total": 7198,
+            "pct": 99.7
+          },
+          {
+            "oscode": "CLOBH",
+            "mapped": 2529,
+            "total": 2537,
+            "pct": 99.7
+          },
+          {
+            "oscode": "DROME",
+            "mapped": 10968,
+            "total": 11004,
+            "pct": 99.7
+          },
+          {
+            "oscode": "DICPU",
+            "mapped": 8491,
+            "total": 8519,
+            "pct": 99.7
+          },
+          {
+            "oscode": "TRYB2",
+            "mapped": 4645,
+            "total": 4661,
+            "pct": 99.7
+          },
+          {
+            "oscode": "GLOVI",
+            "mapped": 2898,
+            "total": 2908,
+            "pct": 99.7
+          },
+          {
+            "oscode": "CHLTR",
+            "mapped": 613,
+            "total": 614,
+            "pct": 99.8
+          },
+          {
+            "oscode": "ASPFU",
+            "mapped": 7709,
+            "total": 7723,
+            "pct": 99.8
+          },
+          {
+            "oscode": "THEYD",
+            "mapped": 1556,
+            "total": 1559,
+            "pct": 99.8
+          },
+          {
+            "oscode": "HALSA",
+            "mapped": 1477,
+            "total": 1480,
+            "pct": 99.8
+          },
+          {
+            "oscode": "THEMA",
+            "mapped": 1474,
+            "total": 1477,
+            "pct": 99.8
+          },
+          {
+            "oscode": "THEKO",
+            "mapped": 1441,
+            "total": 1444,
+            "pct": 99.8
+          },
+          {
+            "oscode": "SACS2",
+            "mapped": 1825,
+            "total": 1829,
+            "pct": 99.8
+          },
+          {
+            "oscode": "XANCP",
+            "mapped": 3003,
+            "total": 3010,
+            "pct": 99.8
+          },
+          {
+            "oscode": "CANAL",
+            "mapped": 4812,
+            "total": 4824,
+            "pct": 99.8
+          },
+          {
+            "oscode": "PSEAE",
+            "mapped": 4402,
+            "total": 4413,
+            "pct": 99.8
+          },
+          {
+            "oscode": "STAA8",
+            "mapped": 1871,
+            "total": 1872,
+            "pct": 99.9
+          },
+          {
+            "oscode": "ECOLI",
+            "mapped": 3419,
+            "total": 3421,
+            "pct": 99.9
+          },
+          {
+            "oscode": "YERPE",
+            "mapped": 2914,
+            "total": 2916,
+            "pct": 99.9
+          },
+          {
+            "oscode": "VIBCH",
+            "mapped": 2736,
+            "total": 2738,
+            "pct": 99.9
+          },
+          {
+            "oscode": "PYRAE",
+            "mapped": 1343,
+            "total": 1344,
+            "pct": 99.9
+          },
+          {
+            "oscode": "LEIMA",
+            "mapped": 5114,
+            "total": 5118,
+            "pct": 99.9
+          },
+          {
+            "oscode": "GEOSL",
+            "mapped": 2552,
+            "total": 2554,
+            "pct": 99.9
+          },
+          {
+            "oscode": "AQUAE",
+            "mapped": 1213,
+            "total": 1214,
+            "pct": 99.9
+          },
+          {
+            "oscode": "COXBU",
+            "mapped": 1187,
+            "total": 1188,
+            "pct": 99.9
+          },
+          {
+            "oscode": "KORCO",
+            "mapped": 1172,
+            "total": 1173,
+            "pct": 99.9
+          },
+          {
+            "oscode": "SALTY",
+            "mapped": 3464,
+            "total": 3467,
+            "pct": 99.9
+          },
+          {
+            "oscode": "NEUCR",
+            "mapped": 6877,
+            "total": 6883,
+            "pct": 99.9
+          },
+          {
+            "oscode": "METJA",
+            "mapped": 1145,
+            "total": 1146,
+            "pct": 99.9
+          },
+          {
+            "oscode": "YEAST",
+            "mapped": 4762,
+            "total": 4767,
+            "pct": 99.9
+          },
+          {
+            "oscode": "BACCR",
+            "mapped": 3517,
+            "total": 3521,
+            "pct": 99.9
+          },
+          {
+            "oscode": "RHOBA",
+            "mapped": 3294,
+            "total": 3298,
+            "pct": 99.9
+          },
+          {
+            "oscode": "BACTN",
+            "mapped": 3013,
+            "total": 3017,
+            "pct": 99.9
+          },
+          {
+            "oscode": "DICTD",
+            "mapped": 1439,
+            "total": 1441,
+            "pct": 99.9
+          },
+          {
+            "oscode": "STRR6",
+            "mapped": 1437,
+            "total": 1439,
+            "pct": 99.9
+          },
+          {
+            "oscode": "HAEIN",
+            "mapped": 1405,
+            "total": 1407,
+            "pct": 99.9
+          },
+          {
+            "oscode": "BRADU",
+            "mapped": 5545,
+            "total": 5553,
+            "pct": 99.9
+          },
+          {
+            "oscode": "STRCO",
+            "mapped": 5478,
+            "total": 5486,
+            "pct": 99.9
+          },
+          {
+            "oscode": "EMENI",
+            "mapped": 8181,
+            "total": 8193,
+            "pct": 99.9
+          },
+          {
+            "oscode": "NEIMB",
+            "mapped": 1344,
+            "total": 1346,
+            "pct": 99.9
+          },
+          {
+            "oscode": "MYCTU",
+            "mapped": 2683,
+            "total": 2687,
+            "pct": 99.9
+          },
+          {
+            "oscode": "SHEON",
+            "mapped": 3004,
+            "total": 3004,
+            "pct": 100.0
+          },
+          {
+            "oscode": "LISMO",
+            "mapped": 2193,
+            "total": 2193,
+            "pct": 100.0
+          },
+          {
+            "oscode": "CHLAA",
+            "mapped": 2908,
+            "total": 2908,
+            "pct": 100.0
+          },
+          {
+            "oscode": "METAC",
+            "mapped": 2729,
+            "total": 2730,
+            "pct": 100.0
+          }
+        ],
+        "rows": [
+          {
+            "node_type": "DUPLICATION",
+            "mapped": 277511,
+            "total": 325035,
+            "pct": 85.4
+          },
+          {
+            "node_type": "HORIZ_TRANSFER",
+            "mapped": 4769,
+            "total": 5724,
+            "pct": 83.3
+          },
+          {
+            "node_type": "LEAF",
+            "mapped": 1614152,
+            "total": 1742145,
+            "pct": 92.7
+          },
+          {
+            "node_type": "SPECIATION",
+            "mapped": 914535,
+            "total": 958465,
+            "pct": 95.4
+          },
+          {
+            "node_type": "UNKNOWN",
+            "mapped": 0,
+            "total": 347,
+            "pct": 0.0
+          }
+        ],
+        "headline": {
+          "nodes_mapped": 2810967,
+          "nodes_total": 3031716,
+          "pct_mapped": 92.7,
+          "species_reported": 131
+        },
+        "warnings": []
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "library",
+      "title": "New library contents",
+      "data": {
+        "headline": {
+          "genomes": 131,
+          "sequences": 1742145,
+          "families": 15795,
+          "subfamilies": 117592
+        },
+        "rows": [
+          {
+            "metric": "genomes",
+            "value": 131
+          },
+          {
+            "metric": "sequences",
+            "value": 1742145
+          },
+          {
+            "metric": "families",
+            "value": 15795
+          },
+          {
+            "metric": "subfamilies",
+            "value": 117592
+          }
+        ]
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "prev_lib",
+      "title": "Comparison to previous library",
+      "data": null,
+      "message": "inputs not present yet",
+      "status": "absent"
+    },
+    {
+      "id": "giga",
+      "title": "Tree building (GIGA)",
+      "data": {
+        "text": "15795 of 15795 books have a usable (non-empty) tree; 0 came back empty.",
+        "headline": {
+          "books_total": 15795,
+          "trees_built": 15795,
+          "empty_trees": 0,
+          "trees_succeeded": 15795
+        },
+        "rows": [
+          {
+            "metric": "books_total",
+            "value": 15795
+          },
+          {
+            "metric": "trees_built",
+            "value": 15795
+          },
+          {
+            "metric": "empty_trees",
+            "value": 0
+          },
+          {
+            "metric": "trees_succeeded",
+            "value": 15795
+          }
+        ]
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "other_reports",
+      "title": "Other reports",
+      "data": {
+        "text": "4 of 4 report(s) shown.",
+        "rows": [
+          {
+            "metric": "prev_lib_sequences",
+            "value": 2692827
+          },
+          {
+            "metric": "new_lib_sequences",
+            "value": 2298433
+          },
+          {
+            "metric": "species_total",
+            "value": 147
+          },
+          {
+            "metric": "prev_uniprot_proteomes",
+            "value": 131
+          },
+          {
+            "metric": "prev_uniprot_total_seqs",
+            "value": 2298433
+          },
+          {
+            "metric": "prev_uniprot_same_uniprot",
+            "value": 2028319
+          },
+          {
+            "metric": "prev_uniprot_pct_same",
+            "value": 88.2
+          },
+          {
+            "metric": "unirules_in_multiple_families",
+            "value": 808
+          },
+          {
+            "metric": "blast_sequences_checked",
+            "value": 117014
+          },
+          {
+            "metric": "blast_lengths_compared",
+            "value": 87797
+          },
+          {
+            "metric": "blast_length_ratio_outliers",
+            "value": 0
+          },
+          {
+            "metric": "blast_avg_len_quotient",
+            "value": 0.9981801048910486
+          }
+        ],
+        "tables": [
+          {
+            "name": "Sequence counts by species, previous vs new",
+            "columns": [
+              "species",
+              "prev_count",
+              "new_count",
+              "count_diff",
+              "pct_change"
+            ],
+            "rows": [
+              {
+                "species": "BRANA",
+                "prev_count": "57383",
+                "new_count": "0",
+                "count_diff": "-57383",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "SOLTU",
+                "prev_count": "38894",
+                "new_count": "0",
+                "count_diff": "-38894",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "EUCGR",
+                "prev_count": "36474",
+                "new_count": "0",
+                "count_diff": "-36474",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "SETIT",
+                "prev_count": "35379",
+                "new_count": "0",
+                "count_diff": "-35379",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "CAPAN",
+                "prev_count": "35139",
+                "new_count": "0",
+                "count_diff": "-35139",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "MUSAM",
+                "prev_count": "34845",
+                "new_count": "0",
+                "count_diff": "-34845",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "SELML",
+                "prev_count": "33117",
+                "new_count": "0",
+                "count_diff": "-33117",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "RICCO",
+                "prev_count": "31154",
+                "new_count": "0",
+                "count_diff": "-31154",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "DAPPU",
+                "prev_count": "30118",
+                "new_count": "0",
+                "count_diff": "-30118",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "CITSI",
+                "prev_count": "27934",
+                "new_count": "0",
+                "count_diff": "-27934",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "ERYGU",
+                "prev_count": "27425",
+                "new_count": "0",
+                "count_diff": "-27425",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "AMBTC",
+                "prev_count": "27327",
+                "new_count": "0",
+                "count_diff": "-27327",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "DAPMA",
+                "prev_count": "0",
+                "new_count": "26600",
+                "count_diff": "26600",
+                "pct_change": "1.0"
+              },
+              {
+                "species": "CUCSA",
+                "prev_count": "23726",
+                "new_count": "0",
+                "count_diff": "-23726",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "ZOSMR",
+                "prev_count": "20338",
+                "new_count": "0",
+                "count_diff": "-20338",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "POPTR",
+                "prev_count": "42534",
+                "new_count": "58153",
+                "count_diff": "15619",
+                "pct_change": "0.36721211266281095"
+              },
+              {
+                "species": "HELAN",
+                "prev_count": "80656",
+                "new_count": "88555",
+                "count_diff": "7899",
+                "pct_change": "0.097934437611585"
+              },
+              {
+                "species": "MYCMD",
+                "prev_count": "0",
+                "new_count": "6788",
+                "count_diff": "6788",
+                "pct_change": "1.0"
+              },
+              {
+                "species": "USTMA",
+                "prev_count": "6788",
+                "new_count": "0",
+                "count_diff": "-6788",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "CRYNJ",
+                "prev_count": "6604",
+                "new_count": "0",
+                "count_diff": "-6604",
+                "pct_change": "-1.0"
+              },
+              {
+                "species": "CRYD1",
+                "prev_count": "0",
+                "new_count": "6603",
+                "count_diff": "6603",
+                "pct_change": "1.0"
+              },
+              {
+                "species": "GOSHI",
+                "prev_count": "60637",
+                "new_count": "66803",
+                "count_diff": "6166",
+                "pct_change": "0.10168708874119761"
+              },
+              {
+                "species": "IXOSC",
+                "prev_count": "20494",
+                "new_count": "25977",
+                "count_diff": "5483",
+                "pct_change": "0.26754171952766664"
+              },
+              {
+                "species": "SPIOL",
+                "prev_count": "25345",
+                "new_count": "28272",
+                "count_diff": "2927",
+                "pct_change": "0.11548628920891695"
+              },
+              {
+                "species": "CAEBR",
+                "prev_count": "21727",
+                "new_count": "19517",
+                "count_diff": "-2210",
+                "pct_change": "-0.10171675795093663"
+              },
+              {
+                "species": "JUGRE",
+                "prev_count": "32526",
+                "new_count": "30329",
+                "count_diff": "-2197",
+                "pct_change": "-0.06754596322941647"
+              },
+              {
+                "species": "WHEAT",
+                "prev_count": "103389",
+                "new_count": "105080",
+                "count_diff": "1691",
+                "pct_change": "0.01635570515238565"
+              },
+              {
+                "species": "PHANO",
+                "prev_count": "15991",
+                "new_count": "17429",
+                "count_diff": "1438",
+                "pct_change": "0.08992558314051655"
+              },
+              {
+                "species": "MANES",
+                "prev_count": "31401",
+                "new_count": "32814",
+                "count_diff": "1413",
+                "pct_change": "0.04499856692462024"
+              },
+              {
+                "species": "BOVIN",
+                "prev_count": "23835",
+                "new_count": "22666",
+                "count_diff": "-1169",
+                "pct_change": "-0.04904552129221733"
+              },
+              {
+                "species": "RAT",
+                "prev_count": "22870",
+                "new_count": "21759",
+                "count_diff": "-1111",
+                "pct_change": "-0.04857892435505028"
+              },
+              {
+                "species": "TOBAC",
+                "prev_count": "61366",
+                "new_count": "60557",
+                "count_diff": "-809",
+                "pct_change": "-0.013183195906528045"
+              },
+              {
+                "species": "DANRE",
+                "prev_count": "26248",
+                "new_count": "26900",
+                "count_diff": "652",
+                "pct_change": "0.024839987808594942"
+              },
+              {
+                "species": "XENLA",
+                "prev_count": "35860",
+                "new_count": "36461",
+                "count_diff": "601",
+                "pct_change": "0.01675962074735081"
+              },
+              {
+                "species": "FELCA",
+                "prev_count": "19653",
+                "new_count": "19179",
+                "count_diff": "-474",
+                "pct_change": "-0.024118455197679745"
+              },
+              {
+                "species": "XENTR",
+                "prev_count": "21445",
+                "new_count": "21863",
+                "count_diff": "418",
+                "pct_change": "0.019491723012357194"
+              },
+              {
+                "species": "MEDTR",
+                "prev_count": "49598",
+                "new_count": "49992",
+                "count_diff": "394",
+                "pct_change": "0.00794386870438324"
+              },
+              {
+                "species": "HORSE",
+                "prev_count": "21429",
+                "new_count": "21041",
+                "count_diff": "-388",
+                "pct_change": "-0.018106304540575855"
+              },
+              {
+                "species": "HORVV",
+                "prev_count": "34193",
+                "new_count": "34528",
+                "count_diff": "335",
+                "pct_change": "0.009797326938262218"
+              },
+              {
+                "species": "SORBI",
+                "prev_count": "33746",
+                "new_count": "34043",
+                "count_diff": "297",
+                "pct_change": "0.00880104308658804"
+              },
+              {
+                "species": "BRADU",
+                "prev_count": "8048",
+                "new_count": "8253",
+                "count_diff": "205",
+                "pct_change": "0.025472166998011928"
+              },
+              {
+                "species": "THECC",
+                "prev_count": "29032",
+                "new_count": "29235",
+                "count_diff": "203",
+                "pct_change": "0.006992284375861119"
+              },
+              {
+                "species": "VITVI",
+                "prev_count": "29570",
+                "new_count": "29757",
+                "count_diff": "187",
+                "pct_change": "0.006323977003719987"
+              },
+              {
+                "species": "MARPO",
+                "prev_count": "19120",
+                "new_count": "19274",
+                "count_diff": "154",
+                "pct_change": "0.00805439330543933"
+              },
+              {
+                "species": "BACTN",
+                "prev_count": "4667",
+                "new_count": "4782",
+                "count_diff": "115",
+                "pct_change": "0.024641097064495392"
+              },
+              {
+                "species": "PARTE",
+                "prev_count": "39461",
+                "new_count": "39350",
+                "count_diff": "-111",
+                "pct_change": "-0.002812903879780036"
+              },
+              {
+                "species": "NELNU",
+                "prev_count": "23912",
+                "new_count": "23991",
+                "count_diff": "79",
+                "pct_change": "0.0033037805286048848"
+              },
+              {
+                "species": "PRUPE",
+                "prev_count": "26693",
+                "new_count": "26772",
+                "count_diff": "79",
+                "pct_change": "0.0029595774173004157"
+              },
+              {
+                "species": "GLOVI",
+                "prev_count": "4328",
+                "new_count": "4406",
+                "count_diff": "78",
+                "pct_change": "0.018022181146025877"
+              },
+              {
+                "species": "HUMAN",
+                "prev_count": "20580",
+                "new_count": "20652",
+                "count_diff": "72",
+                "pct_change": "0.003498542274052478"
+              }
+            ],
+            "total_rows": 147,
+            "truncated": true,
+            "ragged_rows": 0
+          },
+          {
+            "name": "Previous-UniProt-ID match by proteome",
+            "columns": [
+              "oscode",
+              "total_seqs",
+              "same_uniprot",
+              "pct_same_uniprot",
+              "diff_uniprot",
+              "no_prev_match"
+            ],
+            "rows": [
+              {
+                "oscode": "DAPMA",
+                "total_seqs": "26600",
+                "same_uniprot": "0",
+                "pct_same_uniprot": "0.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "26600"
+              },
+              {
+                "oscode": "CAEBR",
+                "total_seqs": "19517",
+                "same_uniprot": "2",
+                "pct_same_uniprot": "0.0",
+                "diff_uniprot": "11027",
+                "no_prev_match": "8488"
+              },
+              {
+                "oscode": "PHANO",
+                "total_seqs": "17429",
+                "same_uniprot": "2",
+                "pct_same_uniprot": "0.0",
+                "diff_uniprot": "8143",
+                "no_prev_match": "9284"
+              },
+              {
+                "oscode": "IXOSC",
+                "total_seqs": "25977",
+                "same_uniprot": "44",
+                "pct_same_uniprot": "0.2",
+                "diff_uniprot": "3788",
+                "no_prev_match": "22145"
+              },
+              {
+                "oscode": "FELCA",
+                "total_seqs": "19179",
+                "same_uniprot": "132",
+                "pct_same_uniprot": "0.7",
+                "diff_uniprot": "12019",
+                "no_prev_match": "7028"
+              },
+              {
+                "oscode": "TOBAC",
+                "total_seqs": "60557",
+                "same_uniprot": "35680",
+                "pct_same_uniprot": "58.9",
+                "diff_uniprot": "7204",
+                "no_prev_match": "17673"
+              },
+              {
+                "oscode": "SPIOL",
+                "total_seqs": "28272",
+                "same_uniprot": "17102",
+                "pct_same_uniprot": "60.5",
+                "diff_uniprot": "2998",
+                "no_prev_match": "8172"
+              },
+              {
+                "oscode": "MANES",
+                "total_seqs": "32814",
+                "same_uniprot": "19937",
+                "pct_same_uniprot": "60.8",
+                "diff_uniprot": "4421",
+                "no_prev_match": "8456"
+              },
+              {
+                "oscode": "BOVIN",
+                "total_seqs": "22666",
+                "same_uniprot": "13966",
+                "pct_same_uniprot": "61.6",
+                "diff_uniprot": "3945",
+                "no_prev_match": "4755"
+              },
+              {
+                "oscode": "DANRE",
+                "total_seqs": "26900",
+                "same_uniprot": "16933",
+                "pct_same_uniprot": "62.9",
+                "diff_uniprot": "5487",
+                "no_prev_match": "4480"
+              },
+              {
+                "oscode": "POPTR",
+                "total_seqs": "58153",
+                "same_uniprot": "38052",
+                "pct_same_uniprot": "65.4",
+                "diff_uniprot": "2525",
+                "no_prev_match": "17576"
+              },
+              {
+                "oscode": "GOSHI",
+                "total_seqs": "66803",
+                "same_uniprot": "43926",
+                "pct_same_uniprot": "65.8",
+                "diff_uniprot": "10576",
+                "no_prev_match": "12301"
+              },
+              {
+                "oscode": "RAT",
+                "total_seqs": "21759",
+                "same_uniprot": "15835",
+                "pct_same_uniprot": "72.8",
+                "diff_uniprot": "3938",
+                "no_prev_match": "1986"
+              },
+              {
+                "oscode": "FUSNN",
+                "total_seqs": "1975",
+                "same_uniprot": "1454",
+                "pct_same_uniprot": "73.6",
+                "diff_uniprot": "418",
+                "no_prev_match": "103"
+              },
+              {
+                "oscode": "HORSE",
+                "total_seqs": "21041",
+                "same_uniprot": "17733",
+                "pct_same_uniprot": "84.3",
+                "diff_uniprot": "3305",
+                "no_prev_match": "3"
+              },
+              {
+                "oscode": "CANLF",
+                "total_seqs": "20989",
+                "same_uniprot": "17740",
+                "pct_same_uniprot": "84.5",
+                "diff_uniprot": "3225",
+                "no_prev_match": "24"
+              },
+              {
+                "oscode": "HELAN",
+                "total_seqs": "88555",
+                "same_uniprot": "80941",
+                "pct_same_uniprot": "91.4",
+                "diff_uniprot": "27",
+                "no_prev_match": "7587"
+              },
+              {
+                "oscode": "PANTR",
+                "total_seqs": "23006",
+                "same_uniprot": "21047",
+                "pct_same_uniprot": "91.5",
+                "diff_uniprot": "1947",
+                "no_prev_match": "12"
+              },
+              {
+                "oscode": "PIG",
+                "total_seqs": "22800",
+                "same_uniprot": "20937",
+                "pct_same_uniprot": "91.8",
+                "diff_uniprot": "1597",
+                "no_prev_match": "266"
+              },
+              {
+                "oscode": "TOTAL",
+                "total_seqs": "2298433",
+                "same_uniprot": "2028319",
+                "pct_same_uniprot": "88.2",
+                "diff_uniprot": "108369",
+                "no_prev_match": "161745"
+              }
+            ],
+            "total_rows": 132,
+            "truncated": true,
+            "ragged_rows": 0
+          },
+          {
+            "name": "UniRules gaining in more than one family",
+            "columns": [
+              "unirule",
+              "families",
+              "family_count"
+            ],
+            "rows": [
+              {
+                "unirule": "UR000273287",
+                "families": "PTHR10157, PTHR11873, PTHR11923, PTHR12480, PTHR12484, PTHR20851, PTHR20852, PTHR22906, PTHR23282, PTHR24139, PTHR24168, PTHR24250, PTHR24251, PTHR24252, PTHR24253, PTHR24254, PTHR24255, PTHR24256, PTHR24257, PTHR24258, PTHR24260, PTHR24261, PTHR24264, PTHR24271, PTHR24276, PTHR24278, PTHR24353, PTHR24412, PTHR45674, PTHR46184, PTHR46393, PTHR48071",
+                "family_count": 32
+              },
+              {
+                "unirule": "UR000078407",
+                "families": "PTHR10459, PTHR10494, PTHR11106, PTHR11742, PTHR13413, PTHR14453, PTHR15583, PTHR21328, PTHR23206, PTHR24125, PTHR24126, PTHR24144, PTHR24171, PTHR24180, PTHR24189, PTHR31681, PTHR32263, PTHR32470, PTHR43976, PTHR45737, PTHR45740, PTHR46530, PTHR47966",
+                "family_count": 23
+              },
+              {
+                "unirule": "UR000078420",
+                "families": "PTHR10353, PTHR12606, PTHR16719, PTHR21266, PTHR23315, PTHR27002, PTHR27006, PTHR27009, PTHR31080, PTHR32444, PTHR33178, PTHR34681, PTHR36586, PTHR45651, PTHR47926, PTHR47973, PTHR47974, PTHR47975, PTHR47976",
+                "family_count": 19
+              },
+              {
+                "unirule": "UR000736775",
+                "families": "PTHR14003, PTHR16515, PTHR19818, PTHR23226, PTHR23235, PTHR24376, PTHR24377, PTHR24379, PTHR24381, PTHR24384, PTHR24388, PTHR24390, PTHR24393, PTHR24399, PTHR24406, PTHR24408, PTHR24409, PTHR43150",
+                "family_count": 18
+              },
+              {
+                "unirule": "UR000079119",
+                "families": "PTHR10121, PTHR12246, PTHR12349, PTHR15092, PTHR18860, PTHR22814, PTHR22883, PTHR24118, PTHR24161, PTHR24166, PTHR31053, PTHR31500, PTHR31675, PTHR31942, PTHR33085, PTHR45756, PTHR47958",
+                "family_count": 17
+              },
+              {
+                "unirule": "UR000150805",
+                "families": "PTHR10739, PTHR11255, PTHR11566, PTHR11926, PTHR15744, PTHR22883, PTHR31451, PTHR34674, PTHR43205, PTHR48007, PTHR48043, PTHR48044, PTHR48045, PTHR48046, PTHR48047, PTHR48048, PTHR48049",
+                "family_count": 17
+              },
+              {
+                "unirule": "UR000000959",
+                "families": "PTHR10631, PTHR11668, PTHR12442, PTHR19961, PTHR20516, PTHR21555, PTHR24056, PTHR31973, PTHR32546, PTHR33929, PTHR45619, PTHR45668, PTHR45673, PTHR45718, PTHR46033, PTHR46422",
+                "family_count": 16
+              },
+              {
+                "unirule": "UR000095065",
+                "families": "PTHR10075, PTHR10654, PTHR11412, PTHR14336, PTHR24050, PTHR24242, PTHR26450, PTHR26451, PTHR26452, PTHR26453, PTHR26454, PTHR45944, PTHR48001, PTHR48002, PTHR48018",
+                "family_count": 15
+              },
+              {
+                "unirule": "UR000880756",
+                "families": "PTHR11040, PTHR11616, PTHR12209, PTHR15414, PTHR21646, PTHR23362, PTHR24006, PTHR24075, PTHR24347, PTHR24369, PTHR31573, PTHR35918, PTHR43982, PTHR46062, PTHR46138",
+                "family_count": 15
+              },
+              {
+                "unirule": "UR000000114",
+                "families": "PTHR13794, PTHR14064, PTHR15215, PTHR20988, PTHR24115, PTHR45659, PTHR46272, PTHR46472, PTHR47189, PTHR47968, PTHR47969, PTHR47970, PTHR47971, PTHR47972",
+                "family_count": 14
+              },
+              {
+                "unirule": "UR000000178",
+                "families": "PTHR11177, PTHR27002, PTHR27009, PTHR33199, PTHR34823, PTHR42976, PTHR45708, PTHR46066, PTHR46073, PTHR46290, PTHR46476, PTHR46635, PTHR47700",
+                "family_count": 13
+              },
+              {
+                "unirule": "UR000121065",
+                "families": "PTHR21319, PTHR22814, PTHR23155, PTHR31339, PTHR31375, PTHR31636, PTHR31736, PTHR31884, PTHR32258, PTHR43205, PTHR47926, PTHR47929, PTHR47976",
+                "family_count": 13
+              },
+              {
+                "unirule": "UR000120476",
+                "families": "PTHR12549, PTHR12815, PTHR16057, PTHR21654, PTHR23152, PTHR24093, PTHR24231, PTHR32295, PTHR42861, PTHR44395, PTHR45712, PTHR46343",
+                "family_count": 12
+              },
+              {
+                "unirule": "UR000172783",
+                "families": "PTHR11142, PTHR12191, PTHR12625, PTHR13257, PTHR14212, PTHR22776, PTHR24418, PTHR43804, PTHR45664, PTHR45742, PTHR45807, PTHR48019",
+                "family_count": 12
+              },
+              {
+                "unirule": "UR000000171",
+                "families": "PTHR11879, PTHR42691, PTHR42790, PTHR42832, PTHR42885, PTHR43144, PTHR43488, PTHR43510, PTHR43795, PTHR43807, PTHR46383",
+                "family_count": 11
+              },
+              {
+                "unirule": "UR000077155",
+                "families": "PTHR11559, PTHR14187, PTHR15606, PTHR22118, PTHR24020, PTHR43142, PTHR43903, PTHR43918, PTHR45029, PTHR45570, PTHR45580",
+                "family_count": 11
+              },
+              {
+                "unirule": "UR000359766",
+                "families": "PTHR10209, PTHR10383, PTHR12956, PTHR20981, PTHR21495, PTHR33738, PTHR46215, PTHR46442, PTHR46506, PTHR47586, PTHR48478",
+                "family_count": 11
+              },
+              {
+                "unirule": "UR000000527",
+                "families": "PTHR10110, PTHR10502, PTHR12788, PTHR18945, PTHR23115, PTHR31525, PTHR31777, PTHR45718, PTHR45954, PTHR46281",
+                "family_count": 10
+              },
+              {
+                "unirule": "UR000046434",
+                "families": "PTHR11689, PTHR11766, PTHR11814, PTHR21053, PTHR23036, PTHR43427, PTHR45711, PTHR45720, PTHR47977, PTHR47979",
+                "family_count": 10
+              },
+              {
+                "unirule": "UR000083071",
+                "families": "PTHR12416, PTHR12814, PTHR33653, PTHR35901, PTHR36173, PTHR38826, PTHR39664, PTHR39677, PTHR42188, PTHR42740",
+                "family_count": 10
+              }
+            ],
+            "total_rows": 808,
+            "truncated": true,
+            "ragged_rows": 808
+          }
+        ]
+      },
+      "message": null,
+      "status": "ok"
+    }
+  ]
+}

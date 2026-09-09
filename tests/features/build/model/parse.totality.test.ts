@@ -3,7 +3,7 @@ import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { parseBuildState } from '@/features/build/model'
 import { buildStateSource } from '@/features/build/fixtures'
-import type { BuildReport } from '@/features/build/model'
+import { expectWellFormed } from '@tests/support/reportShape'
 
 /**
  * Totality, per Phase 1 of `.plans/feature/01-report-model.md`: `parseBuildState` must not throw on
@@ -12,35 +12,6 @@ import type { BuildReport } from '@/features/build/model'
  * The malformed inputs listed in the plan are covered here, plus the two shapes the fixture itself
  * proves are realistic: numbers arriving as strings, and sections in an unexpected order.
  */
-
-const SUMMARY_KEYS = [
-  'schema',
-  'identity',
-  'health',
-  'freshness',
-  'timing',
-  'pipeline',
-  'mapping',
-  'nodeTracking',
-  'library',
-  'trees',
-  'config',
-  'comparison',
-  'species',
-  'otherReports',
-  'consistency',
-] as const
-
-function expectWellFormed(report: BuildReport): void {
-  for (const key of SUMMARY_KEYS) {
-    // Absence is a value: every sub-summary is an object, so no view null-checks one.
-    expect(report[key], `report.${key}`).toBeTypeOf('object')
-    expect(report[key], `report.${key}`).not.toBeNull()
-  }
-  expect(Array.isArray(report.ingestNotes)).toBe(true)
-  expect(Array.isArray(report.reports)).toBe(true)
-  expect(Array.isArray(report.generatorWarnings)).toBe(true)
-}
 
 const malformed: [string, unknown][] = [
   ['null', null],
