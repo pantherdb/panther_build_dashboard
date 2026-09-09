@@ -37,7 +37,7 @@ describe('SpeciesDetail — DAPMA', () => {
   it('attributes each corroborating fact to the section and table it came from', () => {
     renderDetail('DAPMA')
 
-    expect(screen.getByText(/0 of 10,504 nodes mapped forward/)).toBeInTheDocument()
+    expect(screen.getByText(/0 of 10,544 nodes mapped forward/)).toBeInTheDocument()
     expect(screen.getByText(/Previous count 0, current count 26,600/)).toBeInTheDocument()
     expect(screen.getByText(/26,600 had no previous match at all/)).toBeInTheDocument()
     // Repeated on purpose: once beside the evidence line, once as the source block's provenance.
@@ -80,8 +80,8 @@ describe('SpeciesDetail — FELCA', () => {
   it('still shows the UniProt agreement facts as context rather than as an explanation', () => {
     renderDetail('FELCA')
 
-    expect(screen.getByText(/159 of 19,179 sequences/)).toBeInTheDocument()
-    expect(screen.getByText(/7,029 had no previous match/)).toBeInTheDocument()
+    expect(screen.getByText(/132 of 19,179 sequences/)).toBeInTheDocument()
+    expect(screen.getByText(/7,028 had no previous match/)).toBeInTheDocument()
   })
 })
 

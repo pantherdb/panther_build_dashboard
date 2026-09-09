@@ -15,16 +15,18 @@ describe('BuildPreamble identity and freshness', () => {
 
     expect(screen.getByRole('heading', { level: 1, name: 'PANTHER 20.0' })).toBeInTheDocument()
     // Named beside the library in the header and again as the Build target row.
-    expect(screen.getAllByText('target')).toHaveLength(2)
+    expect(
+      screen.getAllByText('/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun')
+    ).toHaveLength(2)
     // Rendered in UTC from the report's own ISO string, so the record does not move with the reader.
-    expect(screen.getByText('2026-08-20 23:26:31 UTC')).toBeInTheDocument()
+    expect(screen.getByText('2026-09-08 17:40:14 UTC')).toBeInTheDocument()
   })
 
   it('reads freshness as positive evidence, with the lead over the newest artifact', () => {
     renderWithProviders(<BuildPreamble />, { preloadedState: preloaded('real') })
 
     expect(screen.getByText('Report current')).toBeInTheDocument()
-    expect(screen.getByText('report generated 73.7h after the newest artifact')).toBeInTheDocument()
+    expect(screen.getByText('report generated 84.3h after the newest artifact')).toBeInTheDocument()
   })
 
   it('flips freshness when an artifact is newer than the report', () => {
@@ -37,11 +39,11 @@ describe('BuildPreamble identity and freshness', () => {
   it('shows provenance: the revision, the dirty source tree and the previous library', () => {
     renderWithProviders(<BuildPreamble />, { preloadedState: preloaded('real') })
 
-    expect(screen.getByText('7f1ab73e485e5285d2ff53e512a9c3a380863dcd')).toBeInTheDocument()
+    expect(screen.getByText('08e5f7104459f448e8222eaa3ea2c85320a8821b')).toBeInTheDocument()
     expect(screen.getByText('dirty — uncommitted changes at build time')).toBeInTheDocument()
     expect(screen.getByText('PANTHER19.0')).toBeInTheDocument()
     expect(
-      screen.getByText('ref_prot_2026_01/external_data/qfo_reference_proteome')
+      screen.getByText('QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome')
     ).toBeInTheDocument()
   })
 
@@ -49,8 +51,8 @@ describe('BuildPreamble identity and freshness', () => {
     renderWithProviders(<BuildPreamble />, { preloadedState: preloaded('real') })
 
     expect(screen.getByText('Build in progress')).toBeInTheDocument()
-    expect(screen.getByText('55/61 steps · 11/14 phases')).toBeInTheDocument()
-    expect(screen.getByText('1 generator warning')).toBeInTheDocument()
+    expect(screen.getByText('59/62 steps · 12/14 phases')).toBeInTheDocument()
+    expect(screen.getByText('4 generator warnings')).toBeInTheDocument()
     expect(screen.getByText('1 section absent')).toBeInTheDocument()
     expect(screen.getByText('3 truncated tables')).toBeInTheDocument()
   })

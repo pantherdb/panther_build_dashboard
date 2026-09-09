@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { getFixtureReport } from '@/features/build/fixtures'
-import { configAnchor } from '@/features/build/model'
+import { buildStateSource, getFixtureReport, stripSection } from '@/features/build/fixtures'
+import { configAnchor, parseBuildState, reportAnchor } from '@/features/build/model'
 import { runChecks } from '@/features/checks/model'
 import type { CheckFinding } from '@/features/checks/model'
 
@@ -21,43 +21,95 @@ const find = (checks: readonly CheckFinding[], id: string): CheckFinding => {
   return finding
 }
 
+/**
+ * The `proteomes` section's own warnings removed, but its roster tables left intact. Isolates what
+ * the dashboard computes on its own from what the generator's warning also happens to say, so a
+ * test against this state cannot pass by the derived finding standing down in favour of the
+ * generator's copy.
+ */
+function withoutProteomeWarnings() {
+  const state = JSON.parse(JSON.stringify(buildStateSource)) as typeof buildStateSource
+  const sections = (state as { sections: { id?: string; data?: { warnings?: unknown } }[] }).sections
+  const section = sections.find(entry => entry.id === 'proteomes')
+  if (section?.data !== undefined) section.data.warnings = []
+  return parseBuildState(state)
+}
+
 describe('mismatch tier', () => {
-  it('detects the QfO declared release against the active data path', () => {
-    const finding = find(run().checks, 'config.qfo-release')
-
-    expect(finding.state).toBe('warn')
-    expect(finding.weight).toBe('issue')
-    expect(finding.tier).toBe('mismatch')
-    expect(finding.label).toBe('QfO release 2026_02 disagrees with the active data path')
-    expect(finding.explanation).toContain('QFO_RELEASE_VERSION declares 2026_02')
-    expect(finding.explanation).toContain('ref_prot_2026_01/external_data/qfo_reference_proteome')
-    expect(finding.explanation).toContain('which carries 2026_01')
-    expect(finding.anchor).toBe(configAnchor('QFO_DATA_DIR'))
-  })
-
-  it('retains the commented-out config.mk line as evidence, with its line number', () => {
-    const finding = find(run().checks, 'config.qfo-release')
-
-    expect(finding.evidence).toEqual([
-      'QFO_RELEASE_VERSION=2026_02',
-      'QFO_DATA_DIR=ref_prot_2026_01/external_data/qfo_reference_proteome',
-      'config.mk:1 (commented out) #export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome',
-    ])
-    expect(finding.explanation).toContain('commented-out line for 2026_02 on line 1')
-  })
-
-  it('keeps the commented line in the report model, so the evidence is not the check’s invention', () => {
-    const { qfoCommentedEvidence } = getFixtureReport('real').consistency
-    expect(qfoCommentedEvidence).toHaveLength(1)
-    expect(qfoCommentedEvidence[0].commentedOut).toBe(true)
-    expect(qfoCommentedEvidence[0].line).toBe(1)
-  })
-
-  it('holds only the two counted configuration findings', () => {
+  it('holds only the one counted configuration finding', () => {
     const mismatches = run()
       .byTier.mismatch.map(finding => finding.id)
       .sort()
-    expect(mismatches).toEqual(['config.qfo-release', 'config.source-dirty'])
+    expect(mismatches).toEqual(['config.source-dirty'])
+  })
+})
+
+describe('proteome release against its source majority', () => {
+  // Replaces `config.qfo-release`, the old mismatch tier's one real finding. QFO_RELEASE_VERSION
+  // was retired by pipeline issue #65 (see
+  // panther_build/.specs/2026-08-27-proteome-version-provenance-design.md §8) and QFO_DATA_DIR no
+  // longer disagrees with anything there is left to declare, so there is nothing left to compare.
+  // The report now stamps a source and release per proteome instead, and the comparable fact is
+  // which proteomes are not on their source's majority release - not a config-tier finding, so it
+  // carries no `tier` and sits in the `consistency` category instead of `config`.
+
+  it('computes 24 off-majority proteomes from the roster rows, independent of the generator’s own wording', () => {
+    const finding = find(
+      runChecks(withoutProteomeWarnings()).checks,
+      'consistency.proteome-majority-release'
+    )
+
+    expect(finding.state).toBe('warn')
+    expect(finding.weight).toBe('issue')
+    expect(finding.tier).toBeNull()
+    expect(finding.label).toBe("24 proteomes are off their source's majority release")
+    expect(finding.explanation).toContain(
+      "24 of 131 stamped proteomes are not on the release most of their source's roster came from"
+    )
+    expect(finding.explanation).toContain(
+      'Deliberate for a hand-swapped proteome; otherwise a stamping error'
+    )
+    expect(finding.anchor).toBe(reportAnchor('proteomes'))
+
+    // The generator's own warning names only the first eight strays and elides the rest; the
+    // dashboard's evidence, computed straight from the roster rows, names every one of the 24.
+    const named = finding.evidence.filter(line => line.includes('(majority 2026_02)'))
+    expect(named).toHaveLength(24)
+    expect(finding.evidence).toContain('QfO 2026_02: 67 (majority)')
+    expect(finding.evidence).toContain('RefProt 2026_02: 40 (majority)')
+    expect(finding.evidence).toContain('RefProt 2026_01: 24 (off majority)')
+    expect(finding.evidence).toContain('ARATH: RefProt 2026_01 (majority 2026_02)')
+  })
+
+  it('is superseded by the generator’s own warning naming the same source and majority release', () => {
+    const result = run()
+
+    expect(
+      result.checks.some(finding => finding.id === 'consistency.proteome-majority-release')
+    ).toBe(false)
+    const stoodDown = result.suppressed.find(
+      finding => finding.id === 'consistency.proteome-majority-release'
+    )
+    expect(stoodDown?.state).toBe('warn')
+    expect(stoodDown?.supersededBy).toBe('generator.warning:generator-proteomes-1')
+
+    // The generator's message survives verbatim, and names the same source and majority release
+    // the derived finding's `evidenceTokens` rest on.
+    const generator = find(result.checks, 'generator.warning:generator-proteomes-1')
+    expect(generator.explanation).toContain(
+      "24 proteome(s) are not on their source's majority release"
+    )
+    expect(generator.explanation).toContain('RefProt 2026_01, majority 2026_02')
+    expect(generator.origin).toBe('generator')
+  })
+
+  it('degrades to absent when the roster carries no per-proteome source/release stamp', () => {
+    const report = parseBuildState(stripSection('proteomes')(buildStateSource))
+    const finding = find(runChecks(report).checks, 'consistency.proteome-majority-release')
+
+    expect(finding.state).toBe('absent')
+    expect(finding.weight).toBe('absent')
+    expect(finding.absentReason).toBe('inputs-missing')
   })
 })
 
@@ -90,8 +142,17 @@ describe('lineage tier', () => {
     ]
     expect(lineageKeys).toHaveLength(21)
 
+    // Scoped to findings this dashboard derives, not to every generator warning that happens to
+    // land on a PREV_* key. The `proteomes` section's own second warning ("the previous roster
+    // predates issue #65") literally names PREV_RP_TAX_TXT - one of the 21 - and is correctly
+    // anchored to it by the generic generator-warning anchoring in anchoring.ts, but that is a
+    // genuine data-staleness warning from the generator, not the "flags every 19.0 reference"
+    // failure mode this test guards against, which is specific to the derived lineage rule.
     const warnedKeys = run()
-      .checks.filter(finding => finding.weight === 'issue' && finding.configKey !== null)
+      .checks.filter(
+        finding =>
+          finding.origin === 'dashboard' && finding.weight === 'issue' && finding.configKey !== null
+      )
       .map(finding => finding.configKey)
 
     for (const key of lineageKeys) expect(warnedKeys).not.toContain(key)
@@ -149,20 +210,8 @@ describe('notable tier', () => {
   })
 })
 
-describe('the generator’s own configuration warning', () => {
-  it('supersedes the derived QfO finding on the toWarning state', () => {
-    const result = run('warning')
-
-    expect(result.checks.some(finding => finding.id === 'config.qfo-release')).toBe(false)
-    const stoodDown = result.suppressed.find(finding => finding.id === 'config.qfo-release')
-    expect(stoodDown?.supersededBy).toBe('generator.warning:generator-config_ledger-1')
-
-    // The generator's message survives verbatim and is anchored to the key it names.
-    const generator = find(result.checks, 'generator.warning:generator-config_ledger-1')
-    expect(generator.explanation).toBe(
-      'QFO_RELEASE_VERSION=2026_02 does not appear in the active QFO_DATA_DIR path'
-    )
-    expect(generator.anchor).toBe(configAnchor('QFO_RELEASE_VERSION'))
-    expect(generator.origin).toBe('generator')
-  })
-})
+// The old "generator's own configuration warning" block tested `config.qfo-release` being
+// superseded by a synthetic QFO_RELEASE_VERSION warning on the `warning` fixture state. That
+// premise is gone along with the rule; the equivalent case for what replaced it -
+// `consistency.proteome-majority-release` standing down for the generator's own proteomes
+// warning - is covered above, on the real report, where the same warning already occurs.

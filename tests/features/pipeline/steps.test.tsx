@@ -21,7 +21,7 @@ describe('PhaseDetail for the hole', () => {
 
     expect(
       screen.getByText(
-        'Incomplete, but 10 later phases carried on past it. This is a hole behind the frontier, not the point where the build stopped.'
+        'Incomplete, but 11 later phases carried on past it. This is a hole behind the frontier, not the point where the build stopped.'
       )
     ).toBeInTheDocument()
   })
@@ -52,27 +52,30 @@ describe('PhaseDetail for the hole', () => {
       preloadedState: preloaded('real'),
     })
 
-    expect(screen.getByText('08-17 02:48')).toBeInTheDocument()
+    expect(screen.getByText('09-04 06:00')).toBeInTheDocument()
     expect(screen.getAllByText('Inferred').length).toBeGreaterThan(0)
   })
 })
 
 describe('PhaseDetail for the frontier under toFailed()', () => {
   it('opens the failed step and shows its attempt history with job ids and log references', () => {
+    // toFailed() now retracts every phase after the failure (a failed step cannot have been
+    // followed by finished later phases), so the frontier lands back on the failing phase itself,
+    // phase 12, Library export products - not phase 13, Final packaging, which is blocked instead.
     renderWithProviders(<PhaseDetail phase={phaseOf('failed', 12)} />, {
       preloadedState: preloaded('failed'),
     })
 
-    expect(screen.getByText('TreeGrafter_data/PANTHER20.0_data.tar.gz')).toBeInTheDocument()
+    expect(screen.getByText('node_closure_files.touch')).toBeInTheDocument()
     expect(screen.getByText('3 attempts')).toBeInTheDocument()
 
     const attempts = screen.getByRole('table', {
-      name: /Attempt history for TreeGrafter_data/,
+      name: /Attempt history for node_closure_files\.touch/,
     })
     expect(within(attempts).getByText('slurm-4820561')).toBeInTheDocument()
     expect(within(attempts).getByText('logs/slurm-4820613.out')).toBeInTheDocument()
     expect(
-      within(attempts).getByText('Prerequisite node_closure_files.touch is missing')
+      within(attempts).getByText('A prerequisite from an earlier phase has not completed')
     ).toBeInTheDocument()
     expect(within(attempts).getAllByText('Failed')).toHaveLength(3)
   })

@@ -19,12 +19,17 @@ const preloaded = (fixtureStateKey: FixtureStateKey) => ({
 })
 
 describe('FrontierSummary on the captured report', () => {
-  it('puts the frontier at Library export products, not at the earliest incomplete phase', () => {
+  it('puts the frontier at Final packaging, not at the earliest incomplete phase', () => {
+    // Library export products finished (12/12) since the fixture was captured, and Final
+    // packaging - the last phase - now has its first completed step, so the frontier moved there.
     renderWithProviders(<FrontierSummary />, { preloadedState: preloaded('real') })
 
-    const frontier = screen.getByText(/^The build frontier is Library export products/)
-    expect(frontier).toHaveTextContent('incomplete at 10 of 12 steps')
-    expect(frontier).toHaveTextContent('Final packaging has not started')
+    const frontier = screen.getByText(/^The build frontier is Final packaging/)
+    expect(frontier).toHaveTextContent('incomplete at 1 of 2 steps')
+
+    // Final packaging is the last declared phase, so there is no later phase left to say "has
+    // not started" about.
+    expect(frontier.textContent).not.toContain('has not started')
 
     // Phase 2 is the earliest incomplete phase and must not be named as the frontier.
     expect(frontier.textContent).not.toContain('Sequence-to-family mapping')
@@ -34,7 +39,7 @@ describe('FrontierSummary on the captured report', () => {
     renderWithProviders(<FrontierSummary />, { preloadedState: preloaded('real') })
 
     const holes = screen.getByText(/^1 phase behind the frontier is incomplete/)
-    expect(holes).toHaveTextContent(/while 10 later phases carried on past it/)
+    expect(holes).toHaveTextContent(/while 11 later phases carried on past it/)
     expect(holes).toHaveTextContent('This is a hole, not where the build stopped.')
   })
 
@@ -43,7 +48,7 @@ describe('FrontierSummary on the captured report', () => {
 
     const detail = screen.getByText(/^3 of 5 steps done\./)
     expect(detail).toHaveTextContent('Incomplete: validate_idmapping_step, validate_blast_step')
-    expect(detail).toHaveTextContent('10 later phases carried on past it')
+    expect(detail).toHaveTextContent('11 later phases carried on past it')
     expect(screen.getByRole('link', { name: 'Sequence-to-family mapping' })).toBeInTheDocument()
   })
 })
@@ -71,10 +76,10 @@ describe('FrontierSummary across the derived states', () => {
   it('toFailed() reports the failure and the phase it blocks, separately from the hole', () => {
     renderWithProviders(<FrontierSummary />, { preloadedState: preloaded('failed') })
 
+    // toFailed() now retracts every phase after the failure, so the frontier lands back on the
+    // failing phase (Library export products) instead of Final packaging, which is blocked again.
     expect(
-      screen.getByText(
-        'TreeGrafter_data/PANTHER20.0_data.tar.gz failed in Library export products after 3 attempts.'
-      )
+      screen.getByText('node_closure_files.touch failed in Library export products after 3 attempts.')
     ).toBeInTheDocument()
     expect(
       screen.getByText('1 phase is blocked behind that failure: Final packaging.')

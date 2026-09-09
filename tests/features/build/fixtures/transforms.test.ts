@@ -123,8 +123,8 @@ describe('toCompleted', () => {
     // The bug this guards against: 3/5 declared while all five steps say `done`.
     expect(report.pipeline.computedHeadline).toEqual({
       phasesComplete: 14,
-      stepsComplete: 61,
-      stepsTotal: 61,
+      stepsComplete: 62,
+      stepsTotal: 62,
     })
     expect(report.pipeline.declaredHeadline).toEqual(report.pipeline.computedHeadline)
     expect(report.pipeline.phases.every(phase => phase.status === 'complete')).toBe(true)
@@ -239,7 +239,7 @@ describe('toWarning', () => {
   it('keeps a warned section readable rather than degrading it', () => {
     expect(report.nodeTracking.reportedStatus).toBe('warn')
     expect(report.nodeTracking.availability).toBe('available')
-    expect(report.nodeTracking.nodesMapped).toBe(2830262)
+    expect(report.nodeTracking.nodesMapped).toBe(2810967)
     expect(report.health.signal).toBe('attention')
   })
 })
@@ -258,8 +258,9 @@ describe('stripSection', () => {
     expect(report.species.coverage.nodeTracking).toBe(0)
     expect(report.species.coverage.counts).toBe(50)
     expect(report.species.availability).toBe('partial')
-    // The rename pairs come from the count table, so they survive the loss.
-    expect(report.species.renames).toHaveLength(2)
+    // The rename pairs come from the count table, so they survive the loss. Appendix A.9: only one
+    // exact-count pair now (USTMA -> MYCMD); CRYNJ -> CRYD1 is off by one and no longer exact.
+    expect(report.species.renames).toHaveLength(1)
   })
 
   it('degrades the whole pipeline when the spine section itself is gone', () => {
@@ -384,7 +385,9 @@ describe('withUnknownStatus', () => {
     expect(step?.isComplete).toBe(false)
     const phase = report.pipeline.phases[step?.phaseIndex ?? 0]
     expect(phase.unknownStatusValues).toEqual([UNKNOWN_STEP_STATUS])
-    expect(report.pipeline.computedHeadline.stepsComplete).toBe(55)
+    // The re-marked step was pending, not done, so the completed count is unchanged from the real
+    // fixture's 59 (Appendix A.1).
+    expect(report.pipeline.computedHeadline.stepsComplete).toBe(59)
   })
 })
 
@@ -399,8 +402,9 @@ describe('withFutureSchema', () => {
     expect(report.health.schemaDegraded).toBe(true)
     expect(report.health.signal).toBe('degraded')
     // Still fully readable: degradation is a signal, not a refusal.
-    expect(report.pipeline.frontierIndex).toBe(12)
-    expect(report.library.sequences).toBe(1736983)
+    // Appendix A.2: the frontier is now phase 13 ("Final packaging"), and A.7's library sequences.
+    expect(report.pipeline.frontierIndex).toBe(13)
+    expect(report.library.sequences).toBe(1742145)
   })
 })
 
@@ -413,7 +417,8 @@ describe('the fully degraded state', () => {
     expect(report.reports.map(entry => entry.sectionId)).toContain('pfam_coverage')
     expect(report.health.unknownStatusValues.length).toBeGreaterThan(0)
     expect(report.comparison.availability).toBe('partial')
-    expect(report.pipeline.frontierIndex).toBe(12)
+    // Appendix A.2: the frontier is now phase 13 ("Final packaging").
+    expect(report.pipeline.frontierIndex).toBe(13)
     expect(report.ingestNotes.every(note => note.severity !== 'error')).toBe(true)
   })
 })

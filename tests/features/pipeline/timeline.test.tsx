@@ -44,11 +44,17 @@ describe('the timeline row model', () => {
       )
     }
     expect(model.rows.slice(placed.length)).toEqual(unplaced)
-    expect(unplaced.map(row => row.name)).toEqual(['Final packaging'])
+    // Every phase now has at least one completed step (Final packaging, the frontier, has
+    // produced its first artifact), so there is nothing left with no place on the clock.
+    expect(unplaced.map(row => row.name)).toEqual([])
   })
 
   it('gives a phase with no completed steps no span at all, rather than a zero-length one', () => {
-    const model = buildTimelineModel(getFixtureReport('real'))
+    // The captured report no longer has a zero-progress phase - Final packaging, the frontier,
+    // has produced its first artifact - so this behaviour is exercised against `early`, which
+    // still has phases the build has not reached at all, rather than inventing a case the real
+    // report can no longer produce.
+    const model = buildTimelineModel(getFixtureReport('early'))
     const finalPackaging = model.rows.find(row => row.name === 'Final packaging')
 
     expect(finalPackaging?.kind).toBe('none')
@@ -106,7 +112,7 @@ describe('PhaseTimeline rendering', () => {
         'Spans are inferred from artifact timestamps: elapsed activity, not measured runtime.'
       )
     ).toBeInTheDocument()
-    expect(screen.getByText(/≈ 29\.2h elapsed · artifact time order/)).toBeInTheDocument()
+    expect(screen.getByText(/≈ 30\.3h elapsed · artifact time order/)).toBeInTheDocument()
   })
 
   it('says which phases may have run concurrently instead of drawing them as a sequence', () => {
@@ -118,9 +124,12 @@ describe('PhaseTimeline rendering', () => {
   })
 
   it('marks the empty track rather than drawing an instantaneous bar', () => {
-    renderWithProviders(<PhaseTimeline />, { preloadedState: preloaded('real') })
+    // As above: the captured report has no phase left with zero completed steps, so the empty
+    // track this guards is exercised against `early`, which has eleven phases the build has not
+    // reached yet - one "no artifacts — no span" label per such phase.
+    renderWithProviders(<PhaseTimeline />, { preloadedState: preloaded('early') })
 
-    expect(screen.getByText('no artifacts — no span')).toBeInTheDocument()
+    expect(screen.getAllByText('no artifacts — no span')).toHaveLength(11)
   })
 
   it('carries a table twin naming every phase and its inferred activity', async () => {

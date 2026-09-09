@@ -54,11 +54,15 @@ describe('the rule registry', () => {
 })
 
 describe('the issue count on the captured report', () => {
-  it('counts warnings only: five issues, one of them the generator’s own', () => {
+  it('counts warnings only: seven issues, four of them the generator’s own', () => {
     const { summary } = real()
-    expect(summary.issues).toBe(5)
-    expect(summary.generatorIssues).toBe(1)
-    expect(summary.derivedIssues).toBe(4)
+    // 4 generator warnings (proteomes x3, progress x1) plus 3 kept derived issues: node-type
+    // coverage, the artifact-order pair the generator did not describe, and the dirty source tree.
+    // The fourth candidate derived issue - proteome-majority-release - stands down for
+    // generator-proteomes-1, so it is not among these seven.
+    expect(summary.issues).toBe(7)
+    expect(summary.generatorIssues).toBe(4)
+    expect(summary.derivedIssues).toBe(3)
     // Passing and notable findings are shown in full and counted separately.
     expect(summary.verified).toBe(8)
     expect(summary.notes).toBe(7)
@@ -72,9 +76,11 @@ describe('the issue count on the captured report', () => {
       .sort()
 
     expect(issues).toEqual([
-      'config.qfo-release',
       'config.source-dirty',
-      'generator.warning:generator-progress-1',
+      'generator.warning:generator-progress-4',
+      'generator.warning:generator-proteomes-1',
+      'generator.warning:generator-proteomes-2',
+      'generator.warning:generator-proteomes-3',
       'nodes.type-coverage',
       'timing.artifact-order:setup-resource-download--organism-dat',
     ])
@@ -88,10 +94,10 @@ describe('freshness', () => {
 
     expect(finding.state).toBe('pass')
     expect(finding.weight).toBe('verified')
-    // Appendix A.3: the report is 73.7 h newer than the newest artifact.
-    expect(finding.explanation).toContain('73.7h')
+    // Appendix A.3: the report is 84.3 h newer than the newest artifact.
+    expect(finding.explanation).toContain('84.3h')
     expect(finding.anchor).toBe(stepAnchor(report.freshness.newestArtifactStepId ?? ''))
-    expect(finding.evidence.join(' ')).toContain('2026-08-17 21:41:36 UTC')
+    expect(finding.evidence.join(' ')).toContain('2026-09-05 05:22:23 UTC')
   })
 
   it('warns on the stale state instead of passing', () => {
@@ -102,26 +108,26 @@ describe('freshness', () => {
 })
 
 describe('node-type coverage', () => {
-  it('warns on UNKNOWN at 0 of 362, anchored to node forward tracking', () => {
+  it('warns on UNKNOWN at 0 of 347, anchored to node forward tracking', () => {
     const finding = find(real().checks, 'nodes.type-coverage')
 
     expect(finding.state).toBe('warn')
     expect(finding.label).toContain('UNKNOWN')
     // Appendix A.6.
-    expect(finding.explanation).toContain('UNKNOWN mapped 0 of 362 nodes')
-    expect(finding.explanation).toContain('3,026,743')
+    expect(finding.explanation).toContain('UNKNOWN mapped 0 of 347 nodes')
+    expect(finding.explanation).toContain('3,031,716')
     expect(finding.anchor).toBe(reportAnchor('node_tracking'))
     expect(finding.phaseId).toBe('node-forward-tracking')
   })
 
-  it('does not warn about the other four node types, which are all above 84 %', () => {
+  it('does not warn about the other four node types, which are all above 83 %', () => {
     const finding = find(real().checks, 'nodes.type-coverage')
     expect(finding.evidence).toEqual([
-      'DUPLICATION: 280,581 of 326,455 (85.9 %)',
-      'HORIZ_TRANSFER: 4,882 of 5,794 (84.3 %)',
-      'LEAF: 1,627,862 of 1,736,983 (93.7 %)',
-      'SPECIATION: 916,937 of 957,149 (95.8 %)',
-      'UNKNOWN: 0 of 362 (0 %)',
+      'DUPLICATION: 277,511 of 325,035 (85.4 %)',
+      'HORIZ_TRANSFER: 4,769 of 5,724 (83.3 %)',
+      'LEAF: 1,614,152 of 1,742,145 (92.7 %)',
+      'SPECIATION: 914,535 of 958,465 (95.4 %)',
+      'UNKNOWN: 0 of 347 (0 %)',
     ])
   })
 })
@@ -170,7 +176,7 @@ describe('the source tree and the config ledger', () => {
     expect(finding.state).toBe('warn')
     expect(finding.tier).toBe('mismatch')
     expect(finding.anchor).toBe(configAnchor('panther_build_dirty'))
-    expect(finding.explanation).toContain('7f1ab73e485e5285d2ff53e512a9c3a380863dcd')
+    expect(finding.explanation).toContain('08e5f7104459f448e8222eaa3ea2c85320a8821b')
   })
 
   it('passes on an empty unresolved_vars, which is positive evidence', () => {

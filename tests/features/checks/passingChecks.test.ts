@@ -23,45 +23,45 @@ const find = (id: string): CheckFinding => {
 }
 
 describe('A.7 leaf/library agreement', () => {
-  it('passes with both totals at 1,736,983 exactly', () => {
+  it('passes with both totals at 1,742,145 exactly', () => {
     const finding = find('consistency.leaf-library')
 
     expect(finding.state).toBe('pass')
     expect(finding.weight).toBe('verified')
     expect(finding.label).toBe('LEAF node total matches library sequences exactly')
-    expect(finding.explanation).toContain('1,736,983')
+    expect(finding.explanation).toContain('1,742,145')
     expect(finding.evidence).toEqual([
-      'LEAF nodes: 1,736,983 (node_tracking.by_type[LEAF].total)',
-      'Library sequences: 1,736,983 (library.sequences)',
+      'LEAF nodes: 1,742,145 (node_tracking.by_type[LEAF].total)',
+      'Library sequences: 1,742,145 (library.sequences)',
     ])
     expect(finding.anchor).toBe(reportAnchor('node_tracking'))
   })
 })
 
 describe('A.7 four-way family agreement', () => {
-  it('passes at 15,797 across the final mapping stage, library, books and trees', () => {
+  it('passes at 15,795 across the final mapping stage, library, books and trees', () => {
     const finding = find('consistency.family-agreement')
 
     expect(finding.state).toBe('pass')
     expect(finding.label).toBe('Family counts agree across 4 sources')
-    expect(finding.explanation).toContain('15,797')
+    expect(finding.explanation).toContain('15,795')
     expect(finding.evidence.slice(0, 4)).toEqual([
-      'Final mapping stage: 15,797 (mapping.rows[stage=post_giga].n_families)',
-      'Library: 15,797 (library.families)',
-      'GIGA books: 15,797 (giga.books_total)',
-      'Trees succeeded: 15,797 (giga.trees_succeeded)',
+      'Final mapping stage: 15,795 (mapping.rows[stage=post_giga].n_families)',
+      'Library: 15,795 (library.families)',
+      'GIGA books: 15,795 (giga.books_total)',
+      'Trees succeeded: 15,795 (giga.trees_succeeded)',
     ])
   })
 
-  it('explains reclustering at 15,823 instead of flagging it', () => {
+  it('explains reclustering at 15,834 instead of flagging it', () => {
     const finding = find('consistency.family-agreement')
 
-    // 26 higher, and the reason is stage order: trimming runs after reclustering.
-    expect(finding.explanation).toContain('Reclustering reports 15,823, 26 higher')
+    // 39 higher, and the reason is stage order: trimming runs after reclustering.
+    expect(finding.explanation).toContain('Reclustering reports 15,834, 39 higher')
     expect(finding.explanation).toContain('expected rather than a disagreement')
     expect(finding.explanation).toContain('pass1_trim')
     expect(finding.evidence).toContain(
-      'Reclustering stage (recluster): 15,823 — mapping.rows[stage=recluster].n_families'
+      'Reclustering stage (recluster): 15,834 — mapping.rows[stage=recluster].n_families'
     )
     // It is not a warning, and it does not become one by being mentioned.
     expect(finding.weight).toBe('verified')
@@ -69,12 +69,12 @@ describe('A.7 four-way family agreement', () => {
 })
 
 describe('A.7 tree completeness', () => {
-  it('passes at 15,797 of 15,797 with 0 empty', () => {
+  it('passes at 15,795 of 15,795 with 0 empty', () => {
     const finding = find('consistency.tree-completeness')
 
     expect(finding.state).toBe('pass')
     expect(finding.explanation).toBe(
-      '15,797 of 15,797 books have a non-empty tree and 0 came back empty. Nothing was lost ' +
+      '15,795 of 15,795 books have a non-empty tree and 0 came back empty. Nothing was lost ' +
         'between family assignment and tree building.'
     )
     expect(finding.anchor).toBe(reportAnchor('giga'))
@@ -104,11 +104,11 @@ describe('sequence terminology', () => {
     // Appendix A.4, in order, each labelled from the metric definitions registry.
     expect(finding.evidence).toEqual([
       'Previous-library reference sequences: 2,692,827 (other_reports.prev_lib_sequences)',
-      'Reference-proteome input sequences: 2,297,097 (mapping.rows[0].total_seqs)',
-      'Sequences at the final mapping stage: 2,291,508 (mapping.rows[stage=post_giga].total_seqs)',
-      'Sequences assigned to a family: 1,810,099 (mapping.rows[stage=post_giga].assigned)',
-      'Sequences in the built library: 1,736,983 (library.sequences)',
-      'LEAF nodes mapped forward: 1,627,862 (node_tracking.by_type[LEAF].mapped)',
+      'Reference-proteome input sequences: 2,298,433 (mapping.rows[0].total_seqs)',
+      'Sequences at the final mapping stage: 2,292,530 (mapping.rows[stage=post_giga].total_seqs)',
+      'Sequences assigned to a family: 1,813,607 (mapping.rows[stage=post_giga].assigned)',
+      'Sequences in the built library: 1,742,145 (library.sequences)',
+      'LEAF nodes mapped forward: 1,614,152 (node_tracking.by_type[LEAF].mapped)',
     ])
     for (const line of finding.evidence) {
       expect(line.split(':')[0]).not.toBe('Sequences')

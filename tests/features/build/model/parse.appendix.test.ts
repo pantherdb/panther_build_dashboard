@@ -17,11 +17,14 @@ describe('Appendix A.1 - shape', () => {
   it('reads the schema version, target and section inventory', () => {
     expect(report.schema.version).toBe(1)
     expect(report.schema.state).toBe('supported')
-    expect(report.identity.target).toBe('target')
-    expect(report.identity.generatedAt.iso).toBe('2026-08-20T23:26:31.000Z')
-    expect(report.reports).toHaveLength(8)
+    expect(report.identity.target).toBe(
+      '/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun'
+    )
+    expect(report.identity.generatedAt.iso).toBe('2026-09-08T17:40:14.000Z')
+    expect(report.reports).toHaveLength(9)
     expect(report.reports.map(entry => entry.sectionId)).toEqual([
       'config_ledger',
+      'proteomes',
       'progress',
       'mapping',
       'node_tracking',
@@ -35,13 +38,13 @@ describe('Appendix A.1 - shape', () => {
     expect(report.comparison.previousLibrary.message).toBe('inputs not present yet')
   })
 
-  it('finds 14 phases, 61 steps and 55 done, with no populated attempts', () => {
+  it('finds 14 phases, 62 steps and 59 done, with no populated attempts', () => {
     expect(report.pipeline.phases).toHaveLength(14)
-    expect(report.pipeline.steps).toHaveLength(61)
+    expect(report.pipeline.steps).toHaveLength(62)
     expect(report.pipeline.computedHeadline).toEqual({
-      phasesComplete: 11,
-      stepsComplete: 55,
-      stepsTotal: 61,
+      phasesComplete: 12,
+      stepsComplete: 59,
+      stepsTotal: 62,
     })
     expect(report.pipeline.declaredHeadline).toEqual(report.pipeline.computedHeadline)
     expect(report.pipeline.headlineConsistent).toBe(true)
@@ -58,24 +61,25 @@ describe('Appendix A.1 - shape', () => {
     expect(report.nodeTracking.byType).toHaveLength(5)
     expect(report.nodeTracking.bySpecies).toHaveLength(131)
     expect(report.config.ledgerEntries).toHaveLength(11)
-    expect(report.trees.booksTotal).toBe(15797)
+    expect(report.trees.booksTotal).toBe(15795)
     expect(report.trees.emptyTrees).toBe(0)
     expect(report.otherReports.metrics).toHaveLength(12)
   })
 })
 
 describe('Appendix A.2 - frontier and holes', () => {
-  it('puts the frontier at phase 12, Library export products at 10/12', () => {
-    expect(report.pipeline.frontierIndex).toBe(12)
-    expect(report.pipeline.frontierPhaseName).toBe('Library export products')
-    const frontier = report.pipeline.phases[12]
-    expect(frontier.completedSteps).toBe(10)
-    expect(frontier.totalSteps).toBe(12)
+  it('puts the frontier at phase 13, Final packaging at 1/2', () => {
+    expect(report.pipeline.frontierIndex).toBe(13)
+    expect(report.pipeline.frontierPhaseName).toBe('Final packaging')
+    const frontier = report.pipeline.phases[13]
+    expect(frontier.completedSteps).toBe(1)
+    expect(frontier.totalSteps).toBe(2)
     expect(frontier.status).toBe('active')
     expect(frontier.isFrontier).toBe(true)
-    // Phase 13 has not started and is not the frontier.
-    expect(report.pipeline.phases[13].completedSteps).toBe(0)
-    expect(report.pipeline.phases[13].status).toBe('pending')
+    // Phase 12 finished in this fixture, which is what moved the frontier to the last phase.
+    expect(report.pipeline.phases[12].completedSteps).toBe(12)
+    expect(report.pipeline.phases[12].totalSteps).toBe(12)
+    expect(report.pipeline.phases[12].status).toBe('complete')
   })
 
   it('treats phase 2 as a hole, not as where the build stopped', () => {
@@ -97,12 +101,12 @@ describe('Appendix A.2 - frontier and holes', () => {
     expect(hole.index).toBeLessThan(report.pipeline.frontierIndex as number)
   })
 
-  it('counts 11 complete, 1 active, 1 hole and 1 pending phase', () => {
+  it('counts 12 complete, 1 active, 1 hole and no pending phase', () => {
     expect(report.pipeline.phaseStatusCounts).toEqual({
-      complete: 11,
+      complete: 12,
       active: 1,
       hole: 1,
-      pending: 1,
+      pending: 0,
       blocked: 0,
     })
   })
@@ -110,10 +114,10 @@ describe('Appendix A.2 - frontier and holes', () => {
 
 describe('Appendix A.3 - timing, and A.4 freshness', () => {
   it('brackets artifact activity between the oldest and newest mtime', () => {
-    expect(report.timing.oldestArtifactAt.iso).toBe('2026-08-16T16:30:32.075Z')
-    expect(report.timing.newestArtifactAt.iso).toBe('2026-08-17T21:41:36.155Z')
-    // Roughly 29 h of artifact activity, labelled as activity rather than runtime.
-    expect(Math.round((report.timing.activitySpan.seconds as number) / 3600)).toBe(29)
+    expect(report.timing.oldestArtifactAt.iso).toBe('2026-09-03T23:02:07.000Z')
+    expect(report.timing.newestArtifactAt.iso).toBe('2026-09-05T05:22:23.000Z')
+    // Roughly 30 h of artifact activity, labelled as activity rather than runtime.
+    expect(Math.round((report.timing.activitySpan.seconds as number) / 3600)).toBe(30)
     expect(report.timing.activitySpan.provenance).toBe('inferred')
     expect(report.timing.activitySpan.kind).toBe('artifact-activity')
   })
@@ -129,7 +133,7 @@ describe('Appendix A.3 - timing, and A.4 freshness', () => {
 
   it('reads the config snapshot as taken at build start, not at report time', () => {
     // config_ledger.current.generated_at equals the mtime of download_resources.touch.
-    expect(report.config.generatedAt.iso).toBe('2026-08-16T16:35:48.000Z')
+    expect(report.config.generatedAt.iso).toBe('2026-09-03T23:07:21.000Z')
     const firstStep = report.pipeline.steps[0]
     expect(firstStep.goal).toBe('download_resources.touch')
     expect(Math.round(firstStep.timing.artifactAt.epochSeconds as number)).toBe(
@@ -137,13 +141,12 @@ describe('Appendix A.3 - timing, and A.4 freshness', () => {
     )
   })
 
-  it('is Current by 73.7 hours, which is positive evidence', () => {
+  it('is Current by 84.3 hours, which is positive evidence', () => {
     expect(report.freshness.state).toBe('current')
     expect(report.freshness.label).toBe('Current')
-    expect(Math.round(((report.freshness.leadSeconds as number) / 3600) * 10) / 10).toBe(73.7)
-    expect(report.freshness.newestArtifactStepId).toBe(
-      'library-export-products--panther-altversion-gtar-touch'
-    )
+    expect(Math.round(((report.freshness.leadSeconds as number) / 3600) * 10) / 10).toBe(84.3)
+    // The newest artifact now sits in the frontier phase rather than in library export.
+    expect(report.freshness.newestArtifactStepId).toBe('final-packaging--pthr20-0-dbload-tar-gz')
   })
 
   it('has no measured timing in this fixture but supports it', () => {
@@ -159,22 +162,22 @@ describe('Appendix A.4 - the six sequence counts', () => {
       report.consistency.sequenceCounts.map(entry => [entry.metricId, entry.value])
     )
     expect(byMetric.get('prevLibSequences')).toBe(2692827)
-    expect(byMetric.get('inputReferenceSequences')).toBe(2297097)
-    expect(byMetric.get('finalStageSequences')).toBe(2291508)
-    expect(byMetric.get('assignedSequences')).toBe(1810099)
-    expect(byMetric.get('librarySequences')).toBe(1736983)
-    expect(byMetric.get('leafNodesMapped')).toBe(1627862)
+    expect(byMetric.get('inputReferenceSequences')).toBe(2298433)
+    expect(byMetric.get('finalStageSequences')).toBe(2292530)
+    expect(byMetric.get('assignedSequences')).toBe(1813607)
+    expect(byMetric.get('librarySequences')).toBe(1742145)
+    expect(byMetric.get('leafNodesMapped')).toBe(1614152)
     expect(new Set(byMetric.values()).size).toBe(6)
   })
 })
 
 describe('Appendix A.5 - mapping', () => {
-  it('moves assignment from 66.9 % to 79.0 %, a gain of 12.1 points', () => {
-    expect(report.mapping.firstPctAssigned).toBe(66.9)
-    expect(report.mapping.finalPctAssigned).toBe(79)
-    expect(report.mapping.assignmentGainPoints).toBe(12.1)
-    expect(report.mapping.stages[0].families).toBe(15683)
-    expect(report.mapping.finalFamilies).toBe(15797)
+  it('moves assignment from 65.6 % to 79.1 %, a gain of 13.5 points', () => {
+    expect(report.mapping.firstPctAssigned).toBe(65.6)
+    expect(report.mapping.finalPctAssigned).toBe(79.1)
+    expect(report.mapping.assignmentGainPoints).toBe(13.5)
+    expect(report.mapping.stages[0].families).toBe(15682)
+    expect(report.mapping.finalFamilies).toBe(15795)
   })
 
   it('has exactly four mechanisms, with extension absent because it is a stage', () => {
@@ -202,31 +205,31 @@ describe('Appendix A.5 - mapping', () => {
       const found = report.mapping.stages.find(entry => entry.stage === stage)
       return found?.byMechanism.find(entry => entry.mechanism === mechanism)?.delta ?? null
     }
-    expect(delta('blast', 'BLAST')).toBe(84440)
-    expect(delta('hmm', 'HMM_scoring')).toBe(182097)
-    expect(delta('recluster', 'RECLUSTER_NEW')).toBe(2571)
-    expect(delta('pass1_trim', 'HMM_scoring')).toBe(-4030)
+    expect(delta('blast', 'BLAST')).toBe(100538)
+    expect(delta('hmm', 'HMM_scoring')).toBe(197108)
+    expect(delta('recluster', 'RECLUSTER_NEW')).toBe(2823)
+    expect(delta('pass1_trim', 'HMM_scoring')).toBe(-4259)
     // The extension stage's gain is booked to HMM_scoring, not to a mechanism of its own.
-    expect(delta('exten', 'HMM_scoring')).toBe(9887)
-    expect(delta('post_giga', 'ID')).toBe(-20)
-    expect(delta('post_giga', 'HMM_scoring')).toBe(-154)
-    expect(delta('post_giga', 'RECLUSTER_NEW')).toBe(-35)
+    expect(delta('exten', 'HMM_scoring')).toBe(11760)
+    expect(delta('post_giga', 'ID')).toBe(-44)
+    expect(delta('post_giga', 'HMM_scoring')).toBe(-230)
+    expect(delta('post_giga', 'RECLUSTER_NEW')).toBe(-57)
   })
 
   it('never reads an unreported mechanism as zero', () => {
     const idStage = report.mapping.stages[0]
-    expect(idStage.byMechanism.find(entry => entry.mechanism === 'ID')?.cumulative).toBe(1536527)
+    expect(idStage.byMechanism.find(entry => entry.mechanism === 'ID')?.cumulative).toBe(1507603)
     expect(idStage.byMechanism.find(entry => entry.mechanism === 'BLAST')?.cumulative).toBeNull()
     expect(idStage.byMechanism.find(entry => entry.mechanism === 'BLAST')?.delta).toBeNull()
   })
 })
 
 describe('Appendix A.6 - node forward tracking', () => {
-  it('reports 2,830,262 of 3,026,743 nodes mapped', () => {
-    expect(report.nodeTracking.nodesMapped).toBe(2830262)
-    expect(report.nodeTracking.nodesTotal).toBe(3026743)
-    expect(report.nodeTracking.pctMapped).toBe(93.5)
-    expect(report.nodeTracking.recomputedPctMapped).toBe(93.5)
+  it('reports 2,810,967 of 3,031,716 nodes mapped', () => {
+    expect(report.nodeTracking.nodesMapped).toBe(2810967)
+    expect(report.nodeTracking.nodesTotal).toBe(3031716)
+    expect(report.nodeTracking.pctMapped).toBe(92.7)
+    expect(report.nodeTracking.recomputedPctMapped).toBe(92.7)
     expect(report.nodeTracking.speciesReported).toBe(131)
   })
 
@@ -234,28 +237,33 @@ describe('Appendix A.6 - node forward tracking', () => {
     const byType = new Map(
       report.nodeTracking.byType.map(entry => [entry.nodeType, [entry.mapped, entry.total]])
     )
-    expect(byType.get('SPECIATION')).toEqual([916937, 957149])
-    expect(byType.get('LEAF')).toEqual([1627862, 1736983])
-    expect(byType.get('DUPLICATION')).toEqual([280581, 326455])
-    expect(byType.get('HORIZ_TRANSFER')).toEqual([4882, 5794])
-    expect(byType.get('UNKNOWN')).toEqual([0, 362])
+    expect(byType.get('SPECIATION')).toEqual([914535, 958465])
+    expect(byType.get('LEAF')).toEqual([1614152, 1742145])
+    expect(byType.get('DUPLICATION')).toEqual([277511, 325035])
+    expect(byType.get('HORIZ_TRANSFER')).toEqual([4769, 5724])
+    expect(byType.get('UNKNOWN')).toEqual([0, 347])
   })
 
   it('describes a tight distribution with a labelled low tail', () => {
     expect(report.nodeTracking.medianPct).toBe(99.5)
     expect(report.nodeTracking.madPct).toBe(0.4)
-    expect(report.nodeTracking.atOrAbove90).toBe(120)
+    expect(report.nodeTracking.atOrAbove90).toBe(117)
     expect(report.nodeTracking.zeroPctOscodes).toEqual(['DAPMA'])
+    // IXOSC at 17.1 % is new to this fixture and is now the second-lowest by a wide margin.
+    // Every species below the 90 % threshold, ascending - 14 of them (131 - 117).
     expect(report.nodeTracking.lowOutliers.map(entry => entry.oscode)).toEqual([
       'DAPMA',
+      'IXOSC',
       'FELCA',
       'PHANO',
+      'CAEBR',
       'POPTR',
       'TOBAC',
       'SPIOL',
-      'MANES',
       'BOVIN',
       'GOSHI',
+      'MANES',
+      'DANRE',
       'HELAN',
       'HORVV',
     ])
@@ -274,24 +282,24 @@ describe('Appendix A.7 - expected passing checks', () => {
     expect(report.consistency.leafLibraryAgreement.comparable).toBe(true)
     expect(report.consistency.leafLibraryAgreement.allEqual).toBe(true)
     expect(report.consistency.leafLibraryAgreement.values.map(entry => entry.value)).toEqual([
-      1736983, 1736983,
+      1742145, 1742145,
     ])
   })
 
-  it('agrees four family counts at 15,797', () => {
+  it('agrees four family counts at 15,795', () => {
     expect(report.consistency.familyAgreement.allEqual).toBe(true)
     expect(report.consistency.familyAgreement.values.map(entry => entry.value)).toEqual([
-      15797, 15797, 15797, 15797,
+      15795, 15795, 15795, 15795,
     ])
-    // Reclustering is 26 higher, which is expected because trimming runs after it.
+    // Reclustering is 39 higher, which is expected because trimming runs after it.
     const recluster = report.mapping.stages.find(stage => stage.stage === 'recluster')
-    expect(recluster?.families).toBe(15823)
+    expect(recluster?.families).toBe(15834)
   })
 
   it('has a usable tree for every book and no unresolved config variables', () => {
     expect(report.consistency.treeCompleteness).toEqual({
-      booksTotal: 15797,
-      treesSucceeded: 15797,
+      booksTotal: 15795,
+      treesSucceeded: 15795,
       emptyTrees: 0,
       complete: true,
     })
@@ -300,12 +308,25 @@ describe('Appendix A.7 - expected passing checks', () => {
 })
 
 describe('Appendix A.8 - config tiers', () => {
-  it('surfaces the QfO release/data-dir mismatch with its literal evidence', () => {
-    expect(report.consistency.qfoDeclaredRelease).toBe('2026_02')
+  it('reports no declared QfO release, because the pipeline retired it', () => {
+    // Pipeline issue #65 retired QFO_RELEASE_VERSION: the release is now stamped per proteome in
+    // RP_taxonomy_organism_lib.txt column 8, so there is no single build-wide declaration left to
+    // compare against the active path. See
+    // panther_build/.specs/2026-08-27-proteome-version-provenance-design.md section 8.
+    expect(report.consistency.qfoDeclaredRelease).toBeNull()
+
+    // `null`, not `false`. Nothing was compared, so the honest answer is "cannot be determined"
+    // rather than "they disagree" - a false here would assert a mismatch that no data supports.
+    expect(report.consistency.qfoReleaseMatchesDataDir).toBeNull()
+
+    // The active path is still read, and note it no longer even resembles the old finding: it
+    // points at a 2026_02 release, not the ref_prot_2026_01 the retired check used to flag.
     expect(report.consistency.qfoActiveDataDir).toBe(
-      'ref_prot_2026_01/external_data/qfo_reference_proteome'
+      'QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome'
     )
-    expect(report.consistency.qfoReleaseMatchesDataDir).toBe(false)
+
+    // The commented-out predecessor line is still preserved as literal evidence, which is what
+    // lets a reviewer see which data dir was swapped out even with no mismatch to report.
     expect(report.consistency.qfoCommentedEvidence).toHaveLength(1)
     expect(report.consistency.qfoCommentedEvidence[0]).toMatchObject({
       key: 'QFO_DATA_DIR',
@@ -314,9 +335,13 @@ describe('Appendix A.8 - config tiers', () => {
     })
   })
 
+  // The replacement rule itself is asserted in the checks layer, where `runChecks` lives -
+  // tests/features/checks/configTiers.test.ts and dedupe.test.ts. This file stays on the report
+  // model deliberately, so it does not reach across into that layer to re-assert it.
+
   it('records the dirty source tree and the source revision', () => {
     expect(report.config.sourceDirty).toBe(true)
-    expect(report.config.sourceRevision).toBe('7f1ab73e485e5285d2ff53e512a9c3a380863dcd')
+    expect(report.config.sourceRevision).toBe('08e5f7104459f448e8222eaa3ea2c85320a8821b')
     expect(report.identity.pantherVersion).toBe('20.0')
     expect(report.identity.libraryLabel).toBe('PANTHER 20.0')
     expect(report.identity.previousLibraryLabel).toBe('PANTHER19.0')
@@ -348,27 +373,32 @@ describe('Appendix A.9 - species changes and renames', () => {
     expect(report.comparison.addedOscodes).toEqual(['DAPMA', 'MYCMD', 'CRYD1'])
   })
 
-  it('claims exactly the two exact-count rename pairs', () => {
+  it('claims the one exact-count rename pair', () => {
+    // CRYNJ -> CRYD1 was exact at 6,604 in the previous fixture. It is now 6,604 -> 6,603,
+    // off by one, so it no longer qualifies as a rename and demotes to a replacement below.
     expect(report.species.renames.map(link => `${link.removed}->${link.added}`)).toEqual([
       'USTMA->MYCMD',
-      'CRYNJ->CRYD1',
     ])
     expect(report.species.renames.every(link => link.confidence === 'exact')).toBe(true)
     expect(report.species.renames.every(link => link.countDelta === 0)).toBe(true)
     expect(report.species.byOscode.MYCMD.renameOf).toBe('USTMA')
     expect(report.species.byOscode.USTMA.renamedTo).toBe('MYCMD')
-    expect(report.species.byOscode.CRYD1.renameOf).toBe('CRYNJ')
+    expect(report.species.byOscode.CRYD1.renameOf).toBeNull()
   })
 
   it('keeps DAPPU/DAPMA as a lower-confidence replacement, not a rename', () => {
     expect(report.species.replacements.map(link => `${link.removed}->${link.added}`)).toEqual([
+      'CRYNJ->CRYD1',
       'DAPPU->DAPMA',
     ])
-    const link = report.species.replacements[0]
-    expect(link.confidence).toBe('likely')
-    expect(link.removedCount).toBe(30118)
-    expect(link.addedCount).toBe(26600)
+    const link = report.species.replacements.find(entry => entry.removed === 'DAPPU')
+    expect(link).toBeDefined()
+    expect(link?.confidence).toBe('likely')
+    expect(link?.removedCount).toBe(30118)
+    expect(link?.addedCount).toBe(26600)
     expect(report.species.byOscode.DAPMA.replacementOf).toBe('DAPPU')
+    // The demoted CRYNJ pair shows up here, one sequence apart rather than exact.
+    expect(report.species.byOscode.CRYD1.replacementOf).toBe('CRYNJ')
     expect(report.species.byOscode.DAPMA.renameOf).toBeNull()
     expect(report.species.byOscode.DAPPU.replacedBy).toBe('DAPMA')
   })
@@ -410,7 +440,7 @@ describe('Appendix A.9 - species changes and renames', () => {
   it('excludes the TOTAL aggregate row from the species join', () => {
     expect(report.species.byOscode.TOTAL).toBeUndefined()
     expect(report.comparison.uniprotTotals?.oscode).toBe('TOTAL')
-    expect(report.comparison.uniprotTotals?.totalSequences).toBe(2297097)
+    expect(report.comparison.uniprotTotals?.totalSequences).toBe(2298433)
     expect(report.comparison.uniprotAgreement.rows).toHaveLength(20)
   })
 })
@@ -435,11 +465,11 @@ describe('Appendix A.10 - truncation', () => {
     expect(report.otherReports.uniRules.truncation).toMatchObject({
       truncated: true,
       includedRows: 20,
-      totalRows: 813,
+      totalRows: 808,
       // A count, not a boolean.
-      raggedRows: 813,
+      raggedRows: 808,
       hasRaggedRows: true,
-      label: '20 of 813 rows included in report',
+      label: '20 of 808 rows included in report',
     })
   })
 
@@ -497,8 +527,8 @@ describe('assembled comparison and generator warnings', () => {
     )
     expect(sequences).toMatchObject({
       previous: 2692827,
-      current: 2297097,
-      delta: -395730,
+      current: 2298433,
+      delta: -394394,
       previousSource: 'other_reports.prev_lib_sequences',
       currentSource: 'other_reports.new_lib_sequences',
     })
@@ -507,13 +537,29 @@ describe('assembled comparison and generator warnings', () => {
     expect(sequences?.previousMetricId).toBe('prevLibSequences')
   })
 
-  it('carries the single generator warning with an anchor back to its section', () => {
-    expect(report.generatorWarnings).toHaveLength(1)
-    expect(report.generatorWarnings[0]).toMatchObject({
-      sectionId: 'progress',
-      origin: 'generator',
-      anchor: '#report--progress',
-    })
-    expect(report.generatorWarnings[0].message).toContain('possibly stale')
+  it('carries every generator warning with an anchor back to its section', () => {
+    // Four in this fixture: three from the new proteomes section plus the original
+    // stale-artifact warning on progress.
+    expect(report.generatorWarnings).toHaveLength(4)
+    expect(report.generatorWarnings.map(warning => warning.sectionId)).toEqual([
+      'proteomes',
+      'proteomes',
+      'proteomes',
+      'progress',
+    ])
+    expect(report.generatorWarnings.every(warning => warning.origin === 'generator')).toBe(true)
+    expect(report.generatorWarnings.map(warning => warning.anchor)).toEqual([
+      '#report--proteomes',
+      '#report--proteomes',
+      '#report--proteomes',
+      '#report--progress',
+    ])
+    const progress = report.generatorWarnings.find(warning => warning.sectionId === 'progress')
+    expect(progress?.message).toContain('possibly stale')
+    const proteomes = report.generatorWarnings.filter(
+      warning => warning.sectionId === 'proteomes'
+    )
+    expect(proteomes[0].message).toContain("not on their source's majority release")
+    expect(proteomes[2].message).toContain('re-identified under a new taxID')
   })
 })

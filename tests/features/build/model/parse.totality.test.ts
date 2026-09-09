@@ -109,9 +109,9 @@ describe('parseBuildState is total', () => {
     expect(report.mapping.availability).toBe('absent')
     expect(report.mapping.stages).toEqual([])
     // Everything else still parses.
-    expect(report.pipeline.frontierIndex).toBe(12)
-    expect(report.nodeTracking.nodesMapped).toBe(2830262)
-    expect(report.library.sequences).toBe(1736983)
+    expect(report.pipeline.frontierIndex).toBe(13)
+    expect(report.nodeTracking.nodesMapped).toBe(2810967)
+    expect(report.library.sequences).toBe(1742145)
     expect(report.ingestNotes.some(note => note.scope === 'section:mapping')).toBe(true)
     // And the payload is still available to the generic renderer.
     const entry = report.reports.find(item => item.sectionId === 'mapping')

@@ -47,16 +47,16 @@ describe('GenericReport labels', () => {
   it('labels a recognised key from the definitions registry and never writes a bare "Sequences"', () => {
     renderReport(entryFrom('real', 'library'))
 
-    // Appendix A.1/A.4: library carries genomes 131, sequences 1,736,983, families 15,797,
-    // subfamilies 111,848 - and the sequence count is one of six, so it is named.
+    // Appendix A.1/A.7: library carries genomes 131, sequences 1,742,145, families 15,795,
+    // subfamilies 117,592 - and the sequence count is one of six, so it is named.
     expect(screen.getByText('Sequences in the built library')).toBeInTheDocument()
-    expect(screen.getByText('1,736,983')).toBeInTheDocument()
+    expect(screen.getByText('1,742,145')).toBeInTheDocument()
     expect(screen.getByText('Genomes in the library')).toBeInTheDocument()
     expect(screen.getByText('131')).toBeInTheDocument()
     expect(screen.getByText('Families')).toBeInTheDocument()
-    expect(screen.getByText('15,797')).toBeInTheDocument()
+    expect(screen.getByText('15,795')).toBeInTheDocument()
     expect(screen.getByText('Subfamilies')).toBeInTheDocument()
-    expect(screen.getByText('111,848')).toBeInTheDocument()
+    expect(screen.getByText('117,592')).toBeInTheDocument()
 
     expect(screen.queryByText('Sequences')).toBeNull()
     expect(screen.queryByText('sequences')).toBeNull()
@@ -92,10 +92,10 @@ describe('GenericReport honesty', () => {
     // Appendix A.10.
     expect(screen.getByText('50 of 147 rows included in report')).toBeInTheDocument()
     expect(screen.getByText('20 of 132 rows included in report')).toBeInTheDocument()
-    expect(screen.getByText('20 of 813 rows included in report')).toBeInTheDocument()
+    expect(screen.getByText('20 of 808 rows included in report')).toBeInTheDocument()
     expect(
       screen.getByText(
-        '813 rows in the full result set have a column count that differs from the header.'
+        '808 rows in the full result set have a column count that differs from the header.'
       )
     ).toBeInTheDocument()
     expect(

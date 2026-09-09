@@ -56,11 +56,11 @@ describe('opening the palette', () => {
     const { user } = renderPalette()
     await openPalette(user)
 
-    // The counts are the scope argument: Appendix A.1 (14 phases, 61 steps, 8 sections), A.6/A.10
-    // (147 species across both releases) and A.8 (60 configuration variables).
+    // The counts are the scope argument: Appendix A.1 (14 phases, 62 steps, 9 sections), A.6/A.10
+    // (147 species across both releases) and A.8 (59 configuration variables).
     expect(
       screen.getByText(
-        /Indexed: 14 phases · 61 steps · 8 reports · 7 findings · 147 species · 60 config variables/
+        /Indexed: 14 phases · 62 steps · 9 reports · 10 findings · 147 species · 59 config variables/
       )
     ).toBeInTheDocument()
   })

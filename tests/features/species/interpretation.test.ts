@@ -31,14 +31,14 @@ describe('readSpecies — acceptance question 3', () => {
     expect(reading.headline).toContain('0 % node forward tracking is expected for DAPMA')
     expect(reading.headline).toContain('two independent sources')
     expect(reading.headline).toContain('no previous nodes to track forward')
-    expect(reading.headline).toContain('10,504')
+    expect(reading.headline).toContain('10,544')
   })
 
   it('names both sources that corroborate DAPMA being new, with their own tables', () => {
     const reading = read(report, 'DAPMA')
     const texts = reading.evidence.map(line => line.text).join(' | ')
 
-    expect(texts).toContain('0 of 10,504 nodes mapped forward')
+    expect(texts).toContain('0 of 10,544 nodes mapped forward')
     expect(texts).toContain('Previous count 0, current count 26,600')
     expect(texts).toContain('26,600 had no previous match at all')
 
@@ -53,9 +53,9 @@ describe('readSpecies — acceptance question 3', () => {
 
     expect(reading.kind).toBe('low-established')
     expect(reading.verdict).toBe('unexplained')
-    expect(reading.headline).toContain('65 %')
-    expect(reading.headline).toContain('17,677')
-    expect(reading.headline).toContain('6,179')
+    expect(reading.headline).toContain('64.9 %')
+    expect(reading.headline).toContain('17,711')
+    expect(reading.headline).toContain('6,211')
     expect(reading.headline).toContain('19,653')
     expect(reading.headline).toContain('19,179')
     expect(reading.headline).toContain('Newness does not explain this one')
@@ -86,7 +86,7 @@ describe('readSpecies — acceptance question 3', () => {
     expect(reading.kind).toBe('renamed-in')
     expect(reading.verdict).toBe('expected')
     expect(reading.headline).toContain('previous count of 0')
-    expect(reading.headline).toContain('99.8 %')
+    expect(reading.headline).toContain('99.7 %')
     expect(reading.headline).toContain('USTMA')
     expect(reading.headline).toContain('rename rather than an addition')
   })

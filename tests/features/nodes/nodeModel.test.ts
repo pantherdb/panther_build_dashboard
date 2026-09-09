@@ -22,8 +22,8 @@ describe('buildNodeTypes', () => {
       'HORIZ_TRANSFER',
       'UNKNOWN',
     ])
-    expect(model.rows.map(row => row.pct)).toEqual([95.8, 93.7, 85.9, 84.3, 0])
-    expect(model.rows.map(row => row.total)).toEqual([957_149, 1_736_983, 326_455, 5_794, 362])
+    expect(model.rows.map(row => row.pct)).toEqual([95.4, 92.7, 85.4, 83.3, 0])
+    expect(model.rows.map(row => row.total)).toEqual([958_465, 1_742_145, 325_035, 5_724, 347])
   })
 
   it('separates the measured zero so a chart can label what it cannot draw', () => {
@@ -33,8 +33,8 @@ describe('buildNodeTypes', () => {
     expect(model.unreadable).toEqual([])
     // The leader and every zero get a direct label; the middle three do not.
     expect(model.labelled).toEqual(['SPECIATION', 'UNKNOWN'])
-    expect(model.rows[4].markLabel).toBe('0 % of 362 nodes')
-    expect(zeroTypeSentence(model.rows[4])).toContain('0 of 362 nodes')
+    expect(model.rows[4].markLabel).toBe('0 % of 347 nodes')
+    expect(zeroTypeSentence(model.rows[4])).toContain('0 of 347 nodes')
     expect(zeroTypeSentence(model.rows[4])).toContain('measured zero, not a missing measurement')
   })
 
@@ -54,11 +54,11 @@ describe('trackingHeadlineSentence', () => {
     const summary = tracking()
     const sentence = trackingHeadlineSentence(summary, buildDistribution(summary))
 
-    expect(sentence).toContain('93.5 %')
-    expect(sentence).toContain('3,026,743')
+    expect(sentence).toContain('92.7 %')
+    expect(sentence).toContain('3,031,716')
     expect(sentence).toContain('median is 99.5 %')
     expect(sentence).toContain('median absolute deviation of 0.4 %')
-    expect(sentence).toContain('120 of them sit at or above 90 %')
+    expect(sentence).toContain('117 of them sit at or above 90 %')
   })
 })
 
@@ -67,10 +67,10 @@ describe('speciesCoverageFact', () => {
     const summary = tracking()
     const fact = speciesCoverageFact(summary, buildDistribution(summary))
 
-    expect(fact.speciesNodeTotal).toBe(1_736_983)
-    expect(fact.leafTotal).toBe(1_736_983)
+    expect(fact.speciesNodeTotal).toBe(1_742_145)
+    expect(fact.leafTotal).toBe(1_742_145)
     expect(fact.matchedType).toBe('LEAF')
-    expect(fact.sentence).toContain('131 species rows sum to 1,736,983')
+    expect(fact.sentence).toContain('131 species rows sum to 1,742,145')
     expect(fact.sentence).toContain('exactly the LEAF total')
     expect(fact.sentence).toContain('all 5 node types')
     expect(fact.sentence).toContain('Two different denominators, not a contradiction')

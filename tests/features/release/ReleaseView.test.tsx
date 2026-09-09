@@ -26,7 +26,7 @@ describe('ReleaseView translation', () => {
     render()
 
     expect(screen.getByText('This library is still being built.')).toBeInTheDocument()
-    expect(screen.getByText(/6 steps remain, all in packaging and export/)).toBeInTheDocument()
+    expect(screen.getByText(/3 steps remain, all in packaging and export/)).toBeInTheDocument()
   })
 
   it('translates a skipped validation step rather than dropping it', () => {
@@ -40,13 +40,17 @@ describe('ReleaseView translation', () => {
     ).toBeInTheDocument()
   })
 
-  it('names the reference proteomes the build actually read, and flags the declared release', () => {
+  it('names the reference proteomes the build actually read, not one declared release', () => {
     render()
 
-    // The captured report declares QfO 2026_02 and reads ref_prot_2026_01. Showing the declared
-    // value here would tell a reader the library was built from proteomes it never saw.
-    expect(screen.getByText(/ref_prot_2026_01/)).toBeInTheDocument()
-    expect(screen.getByText('declared 2026_02')).toBeInTheDocument()
+    // QFO_RELEASE_VERSION - the single config key a report used to declare one QfO release
+    // against - has been retired (panther_build issue #65), and QFO_DATA_DIR now points straight
+    // at the 2026_02 release: there is no declared-vs-active mismatch left to flag. What replaced
+    // it is more honest: the composition line names every release the build actually read,
+    // including a ref_prot_2026_01 that a "declared 2026_02" line would have hidden, without
+    // singling any one of them out as "the" declared value.
+    expect(screen.getByText(/RefProt 2026_01 \(24\)/)).toBeInTheDocument()
+    expect(screen.queryByText(/declared \d/)).not.toBeInTheDocument()
   })
 
   it('distinguishes a rename from a replacement', () => {
@@ -56,22 +60,32 @@ describe('ReleaseView translation', () => {
     expect(screen.getByText('CRYNJ → CRYD1')).toBeInTheDocument()
     expect(screen.getByText('DAPPU → DAPMA')).toBeInTheDocument()
 
-    // Two exact-count reclassifications, and one genus-level substitution. Conflating them would
-    // misreport the release.
-    expect(screen.getAllByText('Renamed')).toHaveLength(2)
-    expect(screen.getAllByText('Replaced')).toHaveLength(1)
+    // One exact-count reclassification (USTMA -> MYCMD, 6,788 = 6,788), and two substitutions:
+    // DAPPU -> DAPMA (12% apart) and now also CRYNJ -> CRYD1, which is off by one sequence
+    // (6,604 vs 6,603) in this report and so no longer qualifies as an exact match. Conflating
+    // any of them would misreport the release.
+    expect(screen.getAllByText('Renamed')).toHaveLength(1)
+    expect(screen.getAllByText('Replaced')).toHaveLength(2)
   })
 
-  it('keeps the exact renames out of the gain and loss rankings', () => {
+  it('keeps the exact renames out of the gain and loss rankings, but not the replacements', () => {
     render()
 
-    // USTMA and MYCMD are the same genome, so either appearing in a ranking would read as
-    // change. Each ranking row renders its oscode as its own element, while a rename renders as
-    // the single string `USTMA → MYCMD` - so a standalone match means a ranking row, and there
-    // should be none.
-    for (const oscode of ['USTMA', 'MYCMD', 'CRYNJ', 'CRYD1']) {
+    // USTMA and MYCMD are the same genome (6,788 = 6,788, still the sole exact match), so either
+    // appearing in a ranking would read as change. Each ranking row renders its oscode as its own
+    // element, while a rename renders as the single string `USTMA → MYCMD` - so a standalone match
+    // means a ranking row, and there should be none.
+    for (const oscode of ['USTMA', 'MYCMD']) {
       expect(screen.queryAllByText(oscode), `${oscode} appears in a ranking`).toHaveLength(0)
     }
+
+    // CRYNJ -> CRYD1 is off by one sequence in this report (6,604 vs 6,603), so it is no longer an
+    // exact match: it is a replacement now, like DAPPU -> DAPMA, and belongs in the rankings rather
+    // than being held out. CRYD1's +6,603 ranks 4th among increases, inside the top 10, and is
+    // rendered; CRYNJ's -6,604 ranks 15th among decreases, one place below the top-10 cutoff, so it
+    // does not appear on screen even though the exclusion rule no longer applies to it.
+    expect(screen.queryAllByText('CRYD1').length).toBeGreaterThan(0)
+    expect(screen.queryAllByText('CRYNJ')).toHaveLength(0)
 
     // DAPPU and DAPMA are a replacement, not a rename, so they DO belong in the rankings - one
     // as a loss and one as a gain.

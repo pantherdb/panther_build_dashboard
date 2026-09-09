@@ -251,15 +251,50 @@ export function toFailed(): BuildStateTransform {
     if (refs.length === 0) return next
 
     const frontier = frontierPhaseIndex(refs)
+    const lastPhaseIndex = refs.reduce((max, ref) => Math.max(max, ref.phaseIndex), 0)
     const candidates = refs.filter(ref => asString(ref.step.status) !== 'done')
+
+    // A failure is only interesting here if something is behind it to block: `blocked` requires a
+    // phase with zero completed steps after the failure. Failing an already-incomplete step at the
+    // frontier is the natural story while the frontier sits mid-pipeline, and is still preferred.
+    // But in the current report the frontier has reached the LAST declared phase (Final packaging,
+    // 1/2) and no phase has zero progress at all, so that path can no longer produce a blocked
+    // phase. The fallback fails a step in the latest phase that still has a phase after it.
+    const blocksALaterPhase = (ref: StepRef): boolean => ref.phaseIndex < lastPhaseIndex
+    const latestBlockingPhase = refs
+      .filter(blocksALaterPhase)
+      .reduce((max, ref) => Math.max(max, ref.phaseIndex), -1)
     const target =
-      candidates.find(ref => frontier !== null && ref.phaseIndex === frontier) ??
+      candidates.find(
+        ref => frontier !== null && ref.phaseIndex === frontier && blocksALaterPhase(ref)
+      ) ??
+      refs.filter(ref => ref.phaseIndex === latestBlockingPhase).pop() ??
       candidates[0] ??
       null
     if (target === null) return next
 
+    // Retract every phase after the failure. A build whose step failed cannot have gone on to
+    // finish later phases, so leaving them `done` described a state that could not exist - and it
+    // is what made `blocked` unreachable. Clearing them also recomputes the frontier back onto the
+    // failed phase, which restores this fixture's stated shape: a failed step at the frontier that
+    // blocks the phase behind it. The hole in Sequence-to-family mapping is earlier, so it stays a
+    // separate phase and failed / blocked / hole remain three distinct things.
+    for (const ref of refs) {
+      if (ref.phaseIndex <= target.phaseIndex) continue
+      ref.step.status = 'pending'
+      ref.step.mtime = null
+      delete ref.step.attempts
+      delete ref.step.started_at
+      delete ref.step.ended_at
+      delete ref.step.job_id
+    }
+
+    // Based on the phases strictly BEFORE the target, which this transform never touches. Using
+    // the target's own phase would not be idempotent: the first pass nulls the failed step's
+    // mtime, so a second pass would compute a different base and produce different attempt
+    // timestamps. `transform purity > toFailed applied twice equals applied once` covers this.
     const phaseBase =
-      maxMtime(refs.filter(ref => ref.phaseIndex === target.phaseIndex)) ?? maxMtime(refs) ?? 0
+      maxMtime(refs.filter(ref => ref.phaseIndex < target.phaseIndex)) ?? maxMtime(refs) ?? 0
 
     const attempts = [
       { offset: 600, duration: 900, job: 'slurm-4820561', reason: 'Job exceeded its memory limit' },
@@ -273,7 +308,9 @@ export function toFailed(): BuildStateTransform {
         offset: 3300,
         duration: 240,
         job: 'slurm-4820613',
-        reason: 'Prerequisite node_closure_files.touch is missing',
+        // Deliberately not naming an artifact: the step this transform fails is chosen from the
+        // data, so a hardcoded artifact name risks naming the failing step itself.
+        reason: 'A prerequisite from an earlier phase has not completed',
       },
     ]
 
@@ -321,11 +358,12 @@ export function toWarning(): BuildStateTransform {
     )
     appendWarning(
       dataOf(next, 'node_tracking'),
-      '11 species map forward below 90 %; review the low tail before release'
+      '14 species map forward below 90 %; review the low tail before release'
     )
     appendWarning(
       dataOf(next, 'config_ledger'),
-      'QFO_RELEASE_VERSION=2026_02 does not appear in the active QFO_DATA_DIR path'
+      'SPECIES_TREE has not been refreshed for the taxa swapped in this build; confirm ' +
+        'placement before using it as a baseline'
     )
 
     const nodeTracking = sectionOf(next, 'node_tracking')

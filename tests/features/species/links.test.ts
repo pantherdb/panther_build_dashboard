@@ -11,12 +11,11 @@ import { buildLinkModel } from '@/features/species/model/links'
 describe('buildLinkModel', () => {
   const model = buildLinkModel(getFixtureReport('real'))
 
-  it('finds exactly the two exact-count rename pairs from Appendix A.9', () => {
-    expect(model.renames.map(row => `${row.removed}->${row.added}`)).toEqual([
-      'USTMA->MYCMD',
-      'CRYNJ->CRYD1',
-    ])
-    expect(model.renames.map(row => row.removedCount)).toEqual([6_788, 6_604])
+  it('finds exactly the one exact-count rename pair from Appendix A.9', () => {
+    // CRYNJ 6,604 -> CRYD1 6,603 is off by one in this report and no longer an exact pair, so
+    // only USTMA -> MYCMD remains a rename; CRYNJ/CRYD1 now falls to the replacement category.
+    expect(model.renames.map(row => `${row.removed}->${row.added}`)).toEqual(['USTMA->MYCMD'])
+    expect(model.renames.map(row => row.removedCount)).toEqual([6_788])
     expect(model.renames.every(row => row.countDelta === 0)).toBe(true)
     expect(model.renames.every(row => row.confidence === 'exact')).toBe(true)
   })
@@ -34,18 +33,21 @@ describe('buildLinkModel', () => {
 
   it('classifies DAPPU/DAPMA as a replacement, not a rename', () => {
     expect(model.renames.some(row => row.added === 'DAPMA')).toBe(false)
-    expect(model.replacements).toHaveLength(1)
+    // CRYNJ->CRYD1 (off by one, no longer exact) is now also a replacement, so there are two;
+    // scope down to the DAPPU/DAPMA pair specifically.
+    expect(model.replacements).toHaveLength(2)
 
-    const [replacement] = model.replacements
-    expect(replacement.kind).toBe('replacement')
-    expect(replacement.removed).toBe('DAPPU')
-    expect(replacement.added).toBe('DAPMA')
-    expect(replacement.removedCount).toBe(30_118)
-    expect(replacement.addedCount).toBe(26_600)
-    expect(replacement.confidence).toBe('likely')
-    expect(replacement.relativeDeltaPct).toBeCloseTo(11.68, 2)
-    expect(replacement.headline).toContain('12 % apart')
-    expect(replacement.headline).toContain('replacement rather than a rename')
+    const replacement = model.replacements.find(row => row.removed === 'DAPPU')
+    expect(replacement).toBeDefined()
+    expect(replacement?.kind).toBe('replacement')
+    expect(replacement?.removed).toBe('DAPPU')
+    expect(replacement?.added).toBe('DAPMA')
+    expect(replacement?.removedCount).toBe(30_118)
+    expect(replacement?.addedCount).toBe(26_600)
+    expect(replacement?.confidence).toBe('likely')
+    expect(replacement?.relativeDeltaPct).toBeCloseTo(11.68, 2)
+    expect(replacement?.headline).toContain('12 % apart')
+    expect(replacement?.headline).toContain('replacement rather than a rename')
   })
 
   it('scopes the inference to the rows the report includes', () => {
@@ -61,8 +63,10 @@ describe('buildLinkModel', () => {
     expect([...model.addedOscodes].sort()).toEqual(['CRYD1', 'DAPMA', 'MYCMD'])
   })
 
-  it('leaves only DAPMA as an addition that is not the receiving side of a rename', () => {
-    expect(model.genuinelyNewOscodes).toEqual(['DAPMA'])
+  it('leaves CRYD1 and DAPMA as additions that are not the receiving side of a rename', () => {
+    // Only USTMA -> MYCMD is an exact rename now, so CRYD1 (the replacement receiver for CRYNJ)
+    // counts as genuinely new alongside DAPMA.
+    expect(model.genuinelyNewOscodes).toEqual(['CRYD1', 'DAPMA'])
   })
 
   it('finds no pairs at all when the comparison table is not in the report', () => {

@@ -84,7 +84,7 @@ describe('assembled comparison model', () => {
     expect(view.speciesTruncation.allowClientFilter).toBe(false)
     expect(view.speciesCompleteness).toEqual({ included: 50, total: 147, noun: 'species' })
     expect(view.uniprotCompleteness).toEqual({ included: 20, total: 132, noun: 'proteomes' })
-    expect(view.uniRuleCompleteness).toEqual({ included: 20, total: 813, noun: 'UniRules' })
+    expect(view.uniRuleCompleteness).toEqual({ included: 20, total: 808, noun: 'UniRules' })
     expect(view.speciesScope).toBe('among the 50 species rows included in the report')
     expect(view.uniprotScope).toBe('among the 20 proteome rows included in the report')
 
@@ -104,7 +104,7 @@ describe('assembled comparison model', () => {
   })
 
   it('reads ragged_rows as a count and checks the included rows independently', () => {
-    expect(view.uniRuleTruncation.raggedRows).toBe(813)
+    expect(view.uniRuleTruncation.raggedRows).toBe(808)
     expect(view.uniRuleTruncation.hasRaggedRows).toBe(true)
     // The generator flags every row, yet no included row is actually short of a column.
     expect(view.uniRuleRagged.rowsMissingColumns).toHaveLength(0)
@@ -124,18 +124,31 @@ describe('assembled comparison model', () => {
     expect(orderingOf([1, 2])).toBe('none')
   })
 
-  it('excludes the exact-count rename pairs from the rankings and keeps the replacement', () => {
-    expect(view.renames.map(link => `${link.removed}->${link.added}`)).toEqual([
-      'USTMA->MYCMD',
+  it('excludes the one exact-count rename pair from the rankings and keeps both replacements', () => {
+    // CRYNJ (6,604) -> CRYD1 (6,603) is off by one on this fixture, so it no longer qualifies as an
+    // exact-count rename; only USTMA -> MYCMD (6,788 -> 6,788) still does. CRYNJ/CRYD1 falls through
+    // to the same prefix-and-tolerance replacement matching as DAPPU/DAPMA, so it stays in the
+    // rankings, marked, rather than being excluded.
+    expect(view.renames.map(link => `${link.removed}->${link.added}`)).toEqual(['USTMA->MYCMD'])
+    expect([...view.excludedOscodes].sort()).toEqual(['MYCMD', 'USTMA'])
+    expect(view.replacements.map(link => `${link.removed}->${link.added}`)).toEqual([
       'CRYNJ->CRYD1',
+      'DAPPU->DAPMA',
     ])
-    expect([...view.excludedOscodes].sort()).toEqual(['CRYD1', 'CRYNJ', 'MYCMD', 'USTMA'])
 
     const increaseCodes = view.increases.map(row => row.oscode)
     const decreaseCodes = view.decreases.map(row => row.oscode)
     expect(increaseCodes).not.toContain('MYCMD')
-    expect(increaseCodes).not.toContain('CRYD1')
     expect(decreaseCodes).not.toContain('USTMA')
+    // CRYD1/CRYNJ are a replacement, not a rename, so `excludedFromRankings` is false for both -
+    // they are eligible for the rankings, even though CRYD1's +6,603 is large enough to place inside
+    // the top 10 increases while CRYNJ's -6,604 is not large enough to place inside the top 10
+    // decreases (14 other species dropped by more).
+    const cryd1 = view.speciesRows.find(row => row.oscode === 'CRYD1')
+    const crynj = view.speciesRows.find(row => row.oscode === 'CRYNJ')
+    expect(cryd1?.excludedFromRankings).toBe(false)
+    expect(crynj?.excludedFromRankings).toBe(false)
+    expect(increaseCodes).toContain('CRYD1')
     expect(decreaseCodes).not.toContain('CRYNJ')
 
     // Real change is what the rankings now show.
@@ -146,13 +159,20 @@ describe('assembled comparison model', () => {
     const dappu = view.decreases.find(row => row.oscode === 'DAPPU')
     expect(dappu?.link?.kind).toBe('replacement')
     expect(dappu?.link?.confidence).toBe('likely')
+
+    // CRYNJ falls outside the top-10 decreases window, but its own row (from the full species
+    // cross-section, not the truncated ranking) still carries the same replacement marking.
+    expect(cryd1?.link?.kind).toBe('replacement')
+    expect(cryd1?.link?.confidence).toBe('likely')
+    expect(crynj?.link?.kind).toBe('replacement')
+    expect(crynj?.link?.confidence).toBe('likely')
   })
 
   it('separates the UniProt table aggregate row from the proteomes', () => {
     expect(view.uniprotRows).toHaveLength(19)
     expect(view.uniprotRows.map(row => row.oscode)).not.toContain('TOTAL')
     expect(view.uniprotTotals?.oscode).toBe('TOTAL')
-    expect(view.uniprotTotals?.pctSameUniprot).toBe(90.5)
+    expect(view.uniprotTotals?.pctSameUniprot).toBe(88.2)
     expect(view.uniprotProteomes).toBe(131)
   })
 
@@ -181,15 +201,15 @@ describe('ComparisonReportView', () => {
       expect(screen.getByText('Previous-library reference sequences')).toBeInTheDocument()
       expect(screen.getByText('2,692,827')).toBeInTheDocument()
       expect(screen.getByText('Reference-proteome input sequences')).toBeInTheDocument()
-      expect(screen.getByText('-395,730')).toBeInTheDocument()
+      expect(screen.getByText('-394,394')).toBeInTheDocument()
 
       // A comparison with no previous figure keeps its current value and states the gap.
       expect(screen.getAllByText('not in this report')).toHaveLength(4)
       expect(screen.getAllByText('no previous figure to compare')).toHaveLength(4)
       expect(screen.getByText('Subfamilies')).toBeInTheDocument()
-      expect(screen.getByText('111,848')).toBeInTheDocument()
+      expect(screen.getByText('117,592')).toBeInTheDocument()
       expect(screen.getByText('Sequences in the built library')).toBeInTheDocument()
-      expect(screen.getByText('1,736,983')).toBeInTheDocument()
+      expect(screen.getByText('1,742,145')).toBeInTheDocument()
 
       // Differing species denominators, kept apart rather than read as a contradiction.
       expect(screen.getByText('Species across both releases')).toBeInTheDocument()
@@ -233,7 +253,7 @@ describe('ComparisonReportView', () => {
         screen.getAllByText('20 of 132 proteomes included in report').length
       ).toBeGreaterThanOrEqual(1)
       expect(
-        screen.getAllByText('20 of 813 UniRules included in report').length
+        screen.getAllByText('20 of 808 UniRules included in report').length
       ).toBeGreaterThanOrEqual(1)
 
       expect(headerButtons('Sequence counts by species, previous versus new')).toBe(0)
@@ -248,7 +268,7 @@ describe('ComparisonReportView', () => {
 
       // Ragged rows: the generator's count, then an independent reading of the rows present.
       expect(
-        spanningText('The report marks 813 rows of the full result set as ragged.')
+        spanningText('The report marks 808 rows of the full result set as ragged.')
       ).not.toHaveLength(0)
       expect(
         spanningText('carries all 3 declared columns, so within this subset nothing is missing')
@@ -263,10 +283,12 @@ describe('ComparisonReportView', () => {
     () => {
       renderWithProviders(withDefinitions(<ComparisonReportView report={report} />))
 
-      expect(screen.getAllByText('Rename')).toHaveLength(2)
-      expect(screen.getAllByText('Replacement')).toHaveLength(1)
+      // Only USTMA -> MYCMD is an exact-count pair on this fixture; CRYNJ -> CRYD1 is off by one
+      // and renders as the second replacement alongside DAPPU -> DAPMA.
+      expect(screen.getAllByText('Rename')).toHaveLength(1)
+      expect(screen.getAllByText('Replacement')).toHaveLength(2)
       expect(
-        spanningText('USTMA, MYCMD, CRYNJ, CRYD1 are excluded from the rankings below')
+        spanningText('USTMA, MYCMD are excluded from the rankings below')
       ).not.toHaveLength(0)
       expect(screen.getAllByText('likely replacement from DAPPU').length).toBeGreaterThanOrEqual(1)
       expect(screen.getAllByText('likely replacement to DAPMA').length).toBeGreaterThanOrEqual(1)
@@ -285,7 +307,7 @@ describe('ComparisonReportView', () => {
 
       expect(screen.getByText('Aggregate row from the report (TOTAL)')).toBeInTheDocument()
       expect(screen.getByText('Sequences keeping the same UniProt ID')).toBeInTheDocument()
-      expect(screen.getByText('2,079,348')).toBeInTheDocument()
+      expect(screen.getByText('2,028,319')).toBeInTheDocument()
       expect(screen.getAllByText('every sequence unmatched').length).toBeGreaterThanOrEqual(1)
       expect(spanningText('Every sequence unmatched: ')).not.toHaveLength(0)
 

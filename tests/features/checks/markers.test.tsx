@@ -63,15 +63,18 @@ describe('PhaseCheckMarker', () => {
 })
 
 describe('ConfigCheckMarker', () => {
-  it('marks the QfO data directory as a mismatch and links to the finding', () => {
-    renderWithProviders(<ConfigCheckMarker configKey="QFO_DATA_DIR" />, {
+  it('marks the dirty source tree as a mismatch and links to the finding', () => {
+    // `config.qfo-release` (keyed on QFO_DATA_DIR) is gone along with the rule it belonged to
+    // (Appendix A.8); `config.source-dirty` (keyed on panther_build_dirty) is now the only
+    // mismatch-tier finding with a configKey, per configTiers.test.ts.
+    renderWithProviders(<ConfigCheckMarker configKey="panther_build_dirty" />, {
       preloadedState: preloaded,
     })
 
     const link = screen.getByRole('link')
-    expect(link).toHaveAttribute('href', checkRoute('config.qfo-release'))
+    expect(link).toHaveAttribute('href', checkRoute('config.source-dirty'))
     expect(link).toHaveTextContent('Mismatch')
-    expect(link).toHaveAccessibleName(/QFO_DATA_DIR/)
+    expect(link).toHaveAccessibleName(/panther_build_dirty/)
   })
 
   it('marks a notable value as notable, not as a warning', () => {

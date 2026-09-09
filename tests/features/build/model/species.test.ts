@@ -142,7 +142,7 @@ describe('aggregate rows are not species', () => {
 
   it('keeps the UniProt TOTAL row out of the join but available as a total', () => {
     expect(report.species.records.some(record => record.oscode === 'TOTAL')).toBe(false)
-    expect(report.comparison.uniprotTotals?.sameUniprot).toBe(2079348)
+    expect(report.comparison.uniprotTotals?.sameUniprot).toBe(2028319)
     expect(report.ingestNotes.some(note => note.message.includes('aggregate row'))).toBe(true)
   })
 })
