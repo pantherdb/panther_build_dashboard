@@ -53,28 +53,28 @@ const deltaFor = (report: BuildReport, stage: string, mechanism: string): number
 
 describe('mapping stage deltas (Appendix A.5)', () => {
   it('books each stage its own per-stage mechanism gain, not the cumulative total', () => {
-    expect(deltaFor(realReport, 'blast', 'BLAST')).toBe(84440)
-    expect(deltaFor(realReport, 'hmm', 'HMM_scoring')).toBe(182097)
-    expect(deltaFor(realReport, 'recluster', 'RECLUSTER_NEW')).toBe(2571)
-    expect(deltaFor(realReport, 'pass1_trim', 'HMM_scoring')).toBe(-4030)
-    expect(deltaFor(realReport, 'exten', 'HMM_scoring')).toBe(9887)
-    expect(deltaFor(realReport, 'post_giga', 'ID')).toBe(-20)
-    expect(deltaFor(realReport, 'post_giga', 'HMM_scoring')).toBe(-154)
-    expect(deltaFor(realReport, 'post_giga', 'RECLUSTER_NEW')).toBe(-35)
+    expect(deltaFor(realReport, 'blast', 'BLAST')).toBe(100538)
+    expect(deltaFor(realReport, 'hmm', 'HMM_scoring')).toBe(197108)
+    expect(deltaFor(realReport, 'recluster', 'RECLUSTER_NEW')).toBe(2823)
+    expect(deltaFor(realReport, 'pass1_trim', 'HMM_scoring')).toBe(-4259)
+    expect(deltaFor(realReport, 'exten', 'HMM_scoring')).toBe(11760)
+    expect(deltaFor(realReport, 'post_giga', 'ID')).toBe(-44)
+    expect(deltaFor(realReport, 'post_giga', 'HMM_scoring')).toBe(-230)
+    expect(deltaFor(realReport, 'post_giga', 'RECLUSTER_NEW')).toBe(-57)
   })
 
   it('keeps a flat mechanism flat: ID does not move at the blast stage', () => {
     const view = buildMappingView(realReport)
     const blast = view.stages.find(entry => entry.stage === 'blast')
     const id = blast?.mechanisms.find(entry => entry.mechanism === 'ID')
-    expect(id?.cumulative).toBe(1536527)
+    expect(id?.cumulative).toBe(1507603)
     expect(id?.delta).toBe(0)
   })
 
   it('scales the change chart to the largest per-stage gain, not to cumulative assignment', () => {
     const view = buildMappingView(realReport)
-    expect(view.deltaDomain).toEqual([-4030, 182097])
-    // The opening balance is excluded: ID's 1,536,527 would otherwise set the domain.
+    expect(view.deltaDomain).toEqual([-4259, 197108])
+    // The opening balance is excluded: ID's 1,507,603 would otherwise set the domain.
     expect(view.deltaStages).toHaveLength(view.stages.length - 1)
     expect(view.deltaStages.some(row => row.isBaseline)).toBe(false)
   })
@@ -82,20 +82,20 @@ describe('mapping stage deltas (Appendix A.5)', () => {
   it('names the largest gain and the largest loss', () => {
     const view = buildMappingView(realReport)
     expect(view.gains[0].stage).toBe('hmm')
-    expect(view.gains[0].assignedDelta).toBe(182097)
+    expect(view.gains[0].assignedDelta).toBe(197108)
     expect(view.gains[0].isLargestGain).toBe(true)
     expect(view.losses[0].stage).toBe('pass1_trim')
-    expect(view.losses[0].assignedDelta).toBe(-4030)
+    expect(view.losses[0].assignedDelta).toBe(-4259)
     expect(view.losses[0].isLargestLoss).toBe(true)
   })
 
   it('reports the assignment gain in percentage points and the envelope loss in sequences', () => {
     const view = buildMappingView(realReport)
-    expect(view.summary.firstPctAssigned).toBe(66.9)
-    expect(view.summary.finalPctAssigned).toBe(79)
-    expect(view.summary.assignmentGainPoints).toBe(12.1)
-    expect(view.envelopeLoss).toBe(5589)
-    expect(view.envelopeLosses.map(entry => entry.loss)).toEqual([4030, 1040, 309, 1, 209])
+    expect(view.summary.firstPctAssigned).toBe(65.6)
+    expect(view.summary.finalPctAssigned).toBe(79.1)
+    expect(view.summary.assignmentGainPoints).toBe(13.5)
+    expect(view.envelopeLoss).toBe(5903)
+    expect(view.envelopeLosses.map(entry => entry.loss)).toEqual([4259, 923, 385, 5, 331])
   })
 
   it('uses the four mechanisms the data has, in a fixed slot order', () => {
@@ -104,7 +104,7 @@ describe('mapping stage deltas (Appendix A.5)', () => {
     expect(view.seriesKeys.map(key => view.scale.slotOf(key))).toEqual([1, 2, 3, 4])
     // "extension" is a stage, not a mechanism, so the booking has to be stated.
     expect(view.extensionNote).toContain('HMM scoring')
-    expect(view.extensionNote).toContain('+9,887')
+    expect(view.extensionNote).toContain('+11,760')
   })
 
   it('identifies the phase these numbers came from and that it did not finish', () => {
@@ -112,10 +112,10 @@ describe('mapping stage deltas (Appendix A.5)', () => {
     expect(view.phase?.name).toBe('Sequence-to-family mapping')
     expect(view.phase?.isHole).toBe(true)
     expect(view.incompleteStepGoals).toEqual(['validate_idmapping_step', 'validate_blast_step'])
-    // Ten, not nine: nine later phases reached `complete`, but the frontier also carried on past
-    // this hole with 10 of its 12 steps done. The spine, the phase detail and this report all state
-    // the same number.
-    expect(view.laterPhasesRan).toBe(10)
+    // Eleven, not ten: ten later phases reached `complete`, but the frontier also carried on past
+    // this hole with 1 of its 2 steps done (Final packaging). The spine, the phase detail and this
+    // report all state the same number.
+    expect(view.laterPhasesRan).toBe(11)
   })
 })
 
@@ -168,17 +168,17 @@ describe('MappingReportView on the captured report', () => {
 
       expect(screen.getByText('largest single gain')).toBeInTheDocument()
       expect(screen.getByText('largest single loss')).toBeInTheDocument()
-      expect(spanningText('HMM scoring +182,097')).not.toHaveLength(0)
-      expect(spanningText('BLAST +84,440')).not.toHaveLength(0)
-      expect(spanningText('HMM scoring +9,887')).not.toHaveLength(0)
-      expect(spanningText('HMM scoring -4,030')).not.toHaveLength(0)
-      expect(spanningText('trim 1 -4,030')).not.toHaveLength(0)
+      expect(spanningText('HMM scoring +197,108')).not.toHaveLength(0)
+      expect(spanningText('BLAST +100,538')).not.toHaveLength(0)
+      expect(spanningText('HMM scoring +11,760')).not.toHaveLength(0)
+      expect(spanningText('HMM scoring -4,259')).not.toHaveLength(0)
+      expect(spanningText('trim 1 -4,259')).not.toHaveLength(0)
 
-      expect(screen.getByText('+12.1 pp')).toBeInTheDocument()
-      expect(screen.getByText('66.9 → 79.0 %')).toBeInTheDocument()
+      expect(screen.getByText('+13.5 pp')).toBeInTheDocument()
+      expect(screen.getByText('65.6 → 79.1 %')).toBeInTheDocument()
       expect(spanningText('has no separate extension mechanism')).not.toHaveLength(0)
       // The envelope narrowing is named stage by stage rather than left as a total.
-      expect(spanningText('trim 1 -4,030 · dedup 1 -1,040')).not.toHaveLength(0)
+      expect(spanningText('trim 1 -4,259 · dedup 1 -923')).not.toHaveLength(0)
     },
     RENDER_TIMEOUT
   )
@@ -195,7 +195,7 @@ describe('MappingReportView on the captured report', () => {
       ).toBeInTheDocument()
       expect(screen.getByText('validate_idmapping_step, validate_blast_step')).toBeInTheDocument()
       expect(
-        spanningText('10 later phases carried on past it, so this is a hole behind the frontier')
+        spanningText('11 later phases carried on past it, so this is a hole behind the frontier')
       ).not.toHaveLength(0)
 
       expect(screen.queryByText('Sequences')).toBeNull()
@@ -225,8 +225,8 @@ describe('MappingReportView on the captured report', () => {
       ).toBeInTheDocument()
 
       expect(screen.getByText('Sequences checked in the BLAST QC pass')).toBeInTheDocument()
-      expect(screen.getByText('97,438')).toBeInTheDocument()
-      expect(screen.getByText('0.9986')).toBeInTheDocument()
+      expect(screen.getByText('117,014')).toBeInTheDocument()
+      expect(screen.getByText('0.9982')).toBeInTheDocument()
     },
     RENDER_TIMEOUT
   )

@@ -25,17 +25,18 @@ const renderIndex = (fixtureStateKey: FixtureStateKey) =>
   )
 
 describe('ReportsIndex on the captured report', () => {
-  it('lists all eight sections, grouped by where they belong', () => {
+  it('lists all nine sections, grouped by where they belong', () => {
     renderIndex('real')
 
-    // Appendix A.1: eight sections.
-    expect(screen.getByText('8 in this report')).toBeInTheDocument()
+    // Appendix A.1: nine sections - `proteomes` joined the report between config_ledger and progress.
+    expect(screen.getByText('9 in this report')).toBeInTheDocument()
     expect(screen.getByText('Build preamble')).toBeInTheDocument()
     expect(screen.getByText('The pipeline spine')).toBeInTheDocument()
     expect(screen.getByText('Bound to a pipeline phase')).toBeInTheDocument()
 
     for (const sectionId of [
       'config_ledger',
+      'proteomes',
       'progress',
       'mapping',
       'node_tracking',
@@ -78,7 +79,8 @@ describe('ReportsIndex with unknown sections', () => {
   it('lists a section the dashboard has never seen and marks it unrecognised', () => {
     renderIndex('unknownSection')
 
-    expect(screen.getByText('10 in this report')).toBeInTheDocument()
+    // Nine real sections plus the two synthetic unknown ones (pfam_coverage, tree_quality).
+    expect(screen.getByText('11 in this report')).toBeInTheDocument()
     expect(screen.getByText('2 unrecognised')).toBeInTheDocument()
     expect(screen.getAllByText('pfam_coverage').length).toBeGreaterThan(0)
     expect(screen.getAllByText('tree_quality').length).toBeGreaterThan(0)
@@ -114,7 +116,9 @@ describe('ReportsIndex degradation', () => {
     const { container } = renderIndex('unknownStatus')
 
     expect(container).toHaveTextContent('Unknown status: degraded')
-    expect(container).toHaveTextContent('sections[3].status')
+    // node_tracking is now sections[4]: proteomes was inserted at index 1, shifting every section
+    // after config_ledger back by one (Appendix A.1).
+    expect(container).toHaveTextContent('sections[4].status')
   })
 
   it('says a newer schema is not fully supported and still lists what it understands', () => {
@@ -126,7 +130,7 @@ describe('ReportsIndex degradation', () => {
     expect(notice).toHaveTextContent(/still listed and still render/)
 
     // The sections it does understand are still there, with their specialised views named.
-    expect(screen.getByText('8 in this report')).toBeInTheDocument()
+    expect(screen.getByText('9 in this report')).toBeInTheDocument()
     expect(screen.getByText('Sequence mapping statistics')).toBeInTheDocument()
   })
 
@@ -136,8 +140,9 @@ describe('ReportsIndex degradation', () => {
     expect(screen.getByText('Schema not fully supported')).toBeInTheDocument()
     expect(screen.getByText('2 unrecognised')).toBeInTheDocument()
     expect(container).toHaveTextContent('Unknown status: degraded')
-    // prev_lib was stripped, so nine sections remain and none of them is prev_lib.
-    expect(screen.getByText('9 in this report')).toBeInTheDocument()
+    // Nine real sections plus the two synthetic unknown ones, minus prev_lib which was stripped -
+    // ten sections remain and none of them is prev_lib.
+    expect(screen.getByText('10 in this report')).toBeInTheDocument()
     expect(screen.queryByText('prev_lib')).toBeNull()
   })
 })

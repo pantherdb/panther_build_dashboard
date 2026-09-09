@@ -198,13 +198,14 @@ describe('timing on the real report', () => {
 
   it('gives every phase with artifacts an inferred span labelled as activity', () => {
     const phase = report.pipeline.phases[12]
-    expect(phase.timing.artifactCount).toBe(10)
+    expect(phase.timing.artifactCount).toBe(12)
     expect(phase.timing.provenance).toBe('inferred')
     expect(phase.timing.kind).toBe('artifact-activity')
     expect(phase.timing.label).toMatch(/^≈ /)
-    // Final packaging has no artifacts at all.
-    expect(report.pipeline.phases[13].timing.provenance).toBe('unavailable')
-    expect(report.pipeline.phases[13].timing.artifactCount).toBe(0)
+    // Final packaging (the frontier) now has its first artifact - a single one, so it is an
+    // inferred instant rather than a span, not "no artifacts at all" any more.
+    expect(report.pipeline.phases[13].timing.provenance).toBe('inferred')
+    expect(report.pipeline.phases[13].timing.artifactCount).toBe(1)
   })
 
   it('puts the artifact-order timeline in ascending mtime order', () => {
@@ -212,12 +213,12 @@ describe('timing on the real report', () => {
     const times = report.timing.artifactOrder.map(
       id => byId.get(id)?.timing.artifactAt.epochSeconds ?? 0
     )
-    expect(times).toHaveLength(55)
+    expect(times).toHaveLength(59)
     for (let index = 1; index < times.length; index += 1) {
       expect(times[index]).toBeGreaterThanOrEqual(times[index - 1])
     }
     // The declared order is untouched by that sort.
-    expect(report.timing.declaredOrder).toHaveLength(61)
+    expect(report.timing.declaredOrder).toHaveLength(62)
     expect(report.timing.declaredOrder[0]).toBe('setup-resource-download--download-resources-touch')
   })
 })

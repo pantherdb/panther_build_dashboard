@@ -86,7 +86,7 @@ describe('useBuildReport and friends', () => {
     renderWithProviders(<Probe />)
 
     expect(screen.getByText('real')).toBeInTheDocument()
-    expect(screen.getByText('Library export products')).toBeInTheDocument()
+    expect(screen.getByText('Final packaging')).toBeInTheDocument()
     // The parse is memoised per recipe, so a view never parses per render.
     expect(getFixtureReport('real')).toBe(getFixtureReport('real'))
   })

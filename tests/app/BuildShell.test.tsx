@@ -17,7 +17,7 @@ describe('BuildShell', () => {
     renderWithProviders(<BuildShell />, { route: BUILD_ROUTE })
 
     expect(screen.getByRole('heading', { level: 1, name: 'PANTHER 20.0' })).toBeInTheDocument()
-    expect(screen.getByText(/^The build frontier is Library export products/)).toBeInTheDocument()
+    expect(screen.getByText(/^The build frontier is Final packaging/)).toBeInTheDocument()
     expect(screen.getByRole('navigation', { name: 'Build pipeline phases' })).toBeInTheDocument()
     expect(
       screen.getByText(
@@ -34,7 +34,7 @@ describe('BuildShell', () => {
     renderWithProviders(<BuildShell />, { route: BUILD_ROUTE })
 
     expect(
-      screen.getByRole('heading', { level: 3, name: 'Library export products' })
+      screen.getByRole('heading', { level: 3, name: 'Final packaging' })
     ).toBeInTheDocument()
     expect(
       screen.queryByRole('heading', { level: 3, name: 'Setup & resource download' })
@@ -54,7 +54,7 @@ describe('BuildShell', () => {
     ).toBeInTheDocument()
     expect(
       screen.getByText(
-        'Incomplete, but 10 later phases carried on past it. This is a hole behind the frontier, not the point where the build stopped.'
+        'Incomplete, but 11 later phases carried on past it. This is a hole behind the frontier, not the point where the build stopped.'
       )
     ).toBeInTheDocument()
   })

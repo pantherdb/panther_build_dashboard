@@ -44,8 +44,8 @@ describe('buildDistribution', () => {
     expect(model.speciesCount).toBe(131)
     expect(model.points).toHaveLength(131)
     expect(model.unusableOscodes).toEqual([])
-    // Appendix A.6: 120 of 131 at or above 90 %, median 99.5, MAD 0.4.
-    expect(model.atOrAboveThreshold).toBe(120)
+    // Appendix A.6: 117 of 131 at or above 90 %, median 99.5, MAD 0.4.
+    expect(model.atOrAboveThreshold).toBe(117)
     expect(model.medianPct).toBe(99.5)
     expect(model.madPct).toBe(0.4)
     expect(model.threshold).toBe(90)
@@ -54,9 +54,9 @@ describe('buildDistribution', () => {
   it('sums the species rows to the LEAF node total, not the headline total', () => {
     const model = buildDistribution(tracking())
 
-    // Appendix A.6 / A.7: LEAF total 1,736,983; the headline denominator is 3,026,743.
-    expect(model.nodesInSpeciesRows).toBe(1_736_983)
-    expect(model.unmappedInSpeciesRows).toBe(1_736_983 - 1_627_862)
+    // Appendix A.6 / A.7: LEAF total 1,742,145; the headline denominator is 3,031,716.
+    expect(model.nodesInSpeciesRows).toBe(1_742_145)
+    expect(model.unmappedInSpeciesRows).toBe(1_742_145 - 1_614_152)
   })
 
   it('lists the low tail from Appendix A.6, ascending by rate', () => {
@@ -64,14 +64,17 @@ describe('buildDistribution', () => {
 
     expect(model.low.map(point => point.oscode)).toEqual([
       'DAPMA',
+      'IXOSC',
       'FELCA',
       'PHANO',
+      'CAEBR',
       'POPTR',
       'TOBAC',
       'SPIOL',
-      'MANES',
       'BOVIN',
       'GOSHI',
+      'MANES',
+      'DANRE',
       'HELAN',
       'HORVV',
     ])
@@ -81,9 +84,10 @@ describe('buildDistribution', () => {
   it('orders the same tail by shortfall magnitude, which is a different order', () => {
     const model = buildDistribution(tracking())
 
-    // POPTR loses 14,722 nodes at 68 %; PHANO loses 3,120 at 65 %. Rate alone misranks them.
-    expect(model.lowByMagnitude[0].oscode).toBe('POPTR')
-    expect(model.lowByMagnitude[0].unmapped).toBe(14_722)
+    // IXOSC loses 14,932 nodes at 17.1 %; POPTR loses 14,701 at 68.1 %; PHANO loses 3,116 at
+    // 65.0 %. Rate alone misranks them: PHANO's rate is worse than POPTR's, but its loss is smaller.
+    expect(model.lowByMagnitude[0].oscode).toBe('IXOSC')
+    expect(model.lowByMagnitude[0].unmapped).toBe(14_932)
     expect(model.lowByMagnitude.findIndex(point => point.oscode === 'PHANO')).toBeGreaterThan(
       model.lowByMagnitude.findIndex(point => point.oscode === 'POPTR')
     )

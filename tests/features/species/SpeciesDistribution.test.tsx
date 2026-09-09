@@ -98,6 +98,6 @@ describe('SpeciesDistribution', () => {
 
     const table = screen.getByRole('table', { name: /Node forward tracking by species/ })
     expect(table).toHaveTextContent('DAPMA')
-    expect(table).toHaveTextContent('10,504')
+    expect(table).toHaveTextContent('10,544')
   })
 })

@@ -121,13 +121,13 @@ describe('readGenericSection', () => {
   })
 
   it('carries the ragged-row COUNT and the truncation totals through to the view', () => {
-    // Appendix A.10: UniRules gaining in more than one family is 20 of 813 with ragged_rows 813.
+    // Appendix A.10: UniRules gaining in more than one family is 20 of 808 with ragged_rows 808.
     const reading = readGenericSection(realEntry('other_reports'))
     const uniRules = reading.tables.find(table => table.name.startsWith('UniRules'))
 
     expect(uniRules?.includedRows).toBe(20)
-    expect(uniRules?.totalRows).toBe(813)
-    expect(uniRules?.raggedRows).toBe(813)
+    expect(uniRules?.totalRows).toBe(808)
+    expect(uniRules?.raggedRows).toBe(808)
 
     const speciesCounts = reading.tables.find(table => table.name.startsWith('Sequence counts'))
     expect(speciesCounts?.includedRows).toBe(50)

@@ -39,11 +39,11 @@ describe('NodeTrackingReport', () => {
   it('shows the overall rate with a label that is not just “Sequences” or “Nodes”', () => {
     renderReport()
 
-    // Appendix A.6: 93.5 % of 3,026,743 nodes; 2,830,262 mapped; 131 species reported.
+    // Appendix A.6: 92.7 % of 3,031,716 nodes; 2,810,967 mapped; 131 species reported.
     expect(screen.getByText('Node forward-tracking rate')).toBeInTheDocument()
-    expect(screen.getByText('93.5')).toBeInTheDocument()
-    expect(screen.getByText('3,026,743')).toBeInTheDocument()
-    expect(screen.getByText('2,830,262')).toBeInTheDocument()
+    expect(screen.getByText('92.7')).toBeInTheDocument()
+    expect(screen.getByText('3,031,716')).toBeInTheDocument()
+    expect(screen.getByText('2,810,967')).toBeInTheDocument()
     expect(screen.getByText('Species in node forward tracking')).toBeInTheDocument()
     expect(screen.queryByText(/no definition registered/)).toBeNull()
   })
@@ -51,16 +51,16 @@ describe('NodeTrackingReport', () => {
   it('says which nodes the headline covers and which the species rows cover', () => {
     renderReport()
 
-    expect(screen.getByText(/131 species rows sum to 1,736,983 nodes/)).toBeInTheDocument()
+    expect(screen.getByText(/131 species rows sum to 1,742,145 nodes/)).toBeInTheDocument()
     expect(screen.getByText(/exactly the LEAF total/)).toBeInTheDocument()
     expect(screen.getByText(/Two different denominators, not a contradiction/)).toBeInTheDocument()
   })
 
-  it('surfaces UNKNOWN at 0 % of 362 nodes, which no bar can draw', () => {
+  it('surfaces UNKNOWN at 0 % of 347 nodes, which no bar can draw', () => {
     renderReport()
 
-    expect(screen.getByText('0 % of 362 nodes')).toBeInTheDocument()
-    expect(screen.getByText(/UNKNOWN: 0 of 362 nodes tracked forward/)).toBeInTheDocument()
+    expect(screen.getByText('0 % of 347 nodes')).toBeInTheDocument()
+    expect(screen.getByText(/UNKNOWN: 0 of 347 nodes tracked forward/)).toBeInTheDocument()
     expect(screen.getByText(/measured zero, not a missing measurement/)).toBeInTheDocument()
   })
 
@@ -77,9 +77,9 @@ describe('NodeTrackingReport', () => {
     ).toBeInTheDocument()
     expect(
       within(table).getAllByText('Established previous proteome — not explained')
-    ).toHaveLength(10)
+    ).toHaveLength(13)
     expect(within(table).getAllByText('Explained').length).toBe(1)
-    expect(within(table).getAllByText('Not explained').length).toBe(10)
+    expect(within(table).getAllByText('Not explained').length).toBe(13)
   })
 
   it('orders the low tail by nodes lost rather than by rate, and says so', () => {
@@ -90,26 +90,28 @@ describe('NodeTrackingReport', () => {
     })
     const first = table.querySelectorAll('tbody tr')[0]
 
-    // POPTR loses 14,722 nodes at 68 %; DAPMA loses 10,504 at 0 %.
-    expect(first).toHaveTextContent('POPTR')
-    expect(first).toHaveTextContent('14,722')
+    // IXOSC loses 14,932 nodes at 17.1 %; DAPMA loses 10,544 at 0 %.
+    expect(first).toHaveTextContent('IXOSC')
+    expect(first).toHaveTextContent('14,932')
     expect(
       screen.getByText(/ordered by nodes not tracked forward rather than by rate/)
     ).toBeInTheDocument()
   })
 
-  it('presents the two renames and the one replacement as different categories', () => {
+  it('presents the one rename and the two replacements as different categories', () => {
     renderReport()
 
     expect(screen.getByText('Renames — exact count match')).toBeInTheDocument()
     expect(screen.getByText('Candidate replacements — counts do not match')).toBeInTheDocument()
     expect(screen.getByText(/USTMA → MYCMD, 6,788 sequences on both sides/)).toBeInTheDocument()
-    expect(screen.getByText(/CRYNJ → CRYD1, 6,604 sequences on both sides/)).toBeInTheDocument()
+    expect(
+      screen.getByText(/CRYNJ → CRYD1, 6,604 to 6,603 - 0 % apart, so a replacement/)
+    ).toBeInTheDocument()
     expect(
       screen.getByText(/DAPPU → DAPMA, 30,118 to 26,600 - 12 % apart, so a replacement/)
     ).toBeInTheDocument()
     expect(
-      screen.getByText(/Exact-count pairing finds 2 renames and 1 candidate replacement/)
+      screen.getByText(/Exact-count pairing finds 1 rename and 2 candidate replacements/)
     ).toBeInTheDocument()
   })
 

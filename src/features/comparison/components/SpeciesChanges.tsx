@@ -20,14 +20,19 @@ import type { ComparisonView, SpeciesChangeRow } from '@/features/comparison/mod
  * Species-level change: what moved, what is a rename, and what deserves investigation.
  *
  * The exclusion rule is the substance of this view. `USTMA` drops 6,788 to zero and `MYCMD` appears
- * with exactly 6,788; `CRYNJ` drops 6,604 and `CRYD1` appears with exactly 6,604. Left in the
- * rankings those four oscodes occupy four of the top slots and a reviewer reads two catastrophic
- * losses and two dramatic gains where the release has neither. They are excluded and shown as
- * renames instead.
+ * with exactly 6,788. Left in the rankings those two oscodes occupy two of the top slots and a
+ * reviewer reads a catastrophic loss and a dramatic gain where the release has neither. They are
+ * excluded and shown as a rename instead.
  *
  * `DAPPU` -> `DAPMA` is treated differently on purpose: 30,118 to 26,600 is 12 % apart, so part of
  * that change is real. It stays in the rankings and is marked inline, which is the honest reading
  * of a lower-confidence inference.
+ *
+ * `CRYNJ` -> `CRYD1` shows why the exact-count rule is drawn where it is. In the previous fixture
+ * it was 6,604 to exactly 6,604 and read as a rename; in the current one it is 6,604 to 6,603, so
+ * a single sequence of difference demotes it to the same lower-confidence replacement treatment as
+ * `DAPPU`. That is the intended behaviour, not a regression - an exact-count claim has to actually
+ * be exact.
  *
  * Everything derived here is scoped to the 50 rows the report actually carries, and the table
  * itself offers neither sort nor filter - the affordance that would let a reviewer conclude

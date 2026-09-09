@@ -26,12 +26,14 @@ describe('PipelineSpine', () => {
     expect(screen.getByRole('button', { name: /Unattached reports/ })).toBeInTheDocument()
   })
 
-  it('marks Library export products as the frontier and Sequence-to-family mapping as a hole', () => {
+  it('marks Final packaging as the frontier and Sequence-to-family mapping as a hole', () => {
+    // Library export products finished (12/12) since the fixture was captured; the frontier is
+    // now Final packaging, the last phase, at its first completed step.
     renderWithProviders(<PipelineSpine />, { preloadedState: preloaded('real') })
 
-    const frontier = screen.getByRole('button', { name: /Library export products/ })
+    const frontier = screen.getByRole('button', { name: /Final packaging/ })
     expect(frontier).toHaveTextContent('Frontier')
-    expect(frontier).toHaveTextContent('10/12')
+    expect(frontier).toHaveTextContent('1/2')
     expect(frontier).not.toHaveTextContent('Hole')
 
     const hole = screen.getByRole('button', { name: /Sequence-to-family mapping/ })

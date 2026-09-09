@@ -35,7 +35,13 @@ describe('parsing the captured config.mk', () => {
     expect(parseConfigFile(null)).toEqual({ active: [], commented: [] })
   })
 
-  it('keeps the QfO evidence line the mismatch finding rests on', () => {
+  it('keeps the commented-out QFO_DATA_DIR line, though QFO_RELEASE_VERSION no longer resolves', () => {
+    // Pipeline issue #65 retired QFO_RELEASE_VERSION (see
+    // panther_build/.specs/2026-08-27-proteome-version-provenance-design.md §8): the config ledger
+    // no longer carries it, so there is nothing left to compare the active QFO_DATA_DIR against.
+    // The commented-out line is still captured verbatim - parsing it is not conditional on anyone
+    // reading it - and `consistency.checks/model/rules/proteomeMajorityRelease.ts` is what reads
+    // the per-proteome release provenance that replaced this comparison.
     expect(report.config.commentedEntries).toHaveLength(1)
     expect(report.config.commentedEntries[0]).toMatchObject({
       key: 'QFO_DATA_DIR',
@@ -43,11 +49,11 @@ describe('parsing the captured config.mk', () => {
       commentedOut: true,
       line: 1,
     })
-    expect(report.consistency.qfoDeclaredRelease).toBe('2026_02')
+    expect(report.consistency.qfoDeclaredRelease).toBeNull()
     expect(report.consistency.qfoActiveDataDir).toBe(
-      'ref_prot_2026_01/external_data/qfo_reference_proteome'
+      'QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome'
     )
-    expect(report.consistency.qfoReleaseMatchesDataDir).toBe(false)
+    expect(report.consistency.qfoReleaseMatchesDataDir).toBeNull()
     expect(report.consistency.qfoCommentedEvidence).toHaveLength(1)
   })
 
@@ -127,19 +133,24 @@ describe('the lineage tier', () => {
 
 describe('provenance', () => {
   it('reports the source revision and the dirty tree', () => {
-    expect(report.config.sourceRevision).toBe('7f1ab73e485e5285d2ff53e512a9c3a380863dcd')
+    expect(report.config.sourceRevision).toBe('08e5f7104459f448e8222eaa3ea2c85320a8821b')
     expect(report.config.sourceDirty).toBe(true)
     expect(report.identity.sourceDirty).toBe(true)
   })
 
   it('reads the config snapshot as taken at build start, not at report time', () => {
     // Appendix A.3: it equals the mtime of the first step's artifact.
-    expect(report.config.generatedAt.iso).toBe('2026-08-16T16:35:48.000Z')
+    expect(report.config.generatedAt.iso).toBe('2026-09-03T23:07:21.000Z')
     const first = report.pipeline.steps.find(step => step.goal === 'download_resources.touch')
     expect(Math.floor(first?.timing.artifactAt.epochSeconds ?? 0)).toBe(
       report.config.generatedAt.epochSeconds
     )
-    expect(report.identity.generatedAt.iso).toBe('2026-08-20T23:26:31.000Z')
+    // And the report's own generated_at is a different, later instant - which is the whole point
+    // of the test: the config was captured when the build started, not when the report was written.
+    expect(report.identity.generatedAt.iso).toBe('2026-09-08T17:40:14.000Z')
+    expect(report.identity.generatedAt.epochSeconds as number).toBeGreaterThan(
+      report.config.generatedAt.epochSeconds as number
+    )
   })
 
   it('reports no unresolved variables, which is positive evidence', () => {

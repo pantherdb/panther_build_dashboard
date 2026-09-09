@@ -45,8 +45,11 @@ describe("stripSection('node_tracking')", () => {
     expect(find(checks, 'consistency.family-agreement').state).toBe('pass')
     expect(find(checks, 'consistency.tree-completeness').state).toBe('pass')
     expect(summary.absent).toBe(2)
-    // Four issues rather than five: the UNKNOWN node-type warning cannot be evaluated.
-    expect(summary.issues).toBe(4)
+    // Six issues rather than seven (Appendix A.6/rules.test.ts): stripping node_tracking takes
+    // out the UNKNOWN node-type warning, the one derived issue that depends on it. The 4
+    // generator issues (proteomes x3, progress x1) and the other 2 kept derived issues
+    // (artifact ordering, the dirty source tree) are unaffected.
+    expect(summary.issues).toBe(6)
   })
 
   it('says which source was missing where a check could still run on what was left', () => {

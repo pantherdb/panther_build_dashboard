@@ -19,7 +19,7 @@ import { sequenceTerminologyRule } from './sequenceTerminology'
 import { nodeTypeCoverageRule } from './nodeTypeCoverage'
 import { artifactOrderingRule } from './artifactOrdering'
 import { pipelineHolesRule } from './pipelineHoles'
-import { configQfoRule } from './configQfo'
+import { proteomeMajorityReleaseRule } from './proteomeMajorityRelease'
 import { configSourceStateRule, configUnresolvedRule } from './configSourceState'
 import { configLineageRule } from './configLineage'
 import { configNotableRule } from './configNotable'
@@ -36,7 +36,7 @@ export const CHECK_RULES: readonly CheckRule[] = [
   nodeTypeCoverageRule,
   artifactOrderingRule,
   pipelineHolesRule,
-  configQfoRule,
+  proteomeMajorityReleaseRule,
   configSourceStateRule,
   configUnresolvedRule,
   configLineageRule,
@@ -47,7 +47,6 @@ export {
   artifactOrderingRule,
   configLineageRule,
   configNotableRule,
-  configQfoRule,
   configSourceStateRule,
   configUnresolvedRule,
   familyAgreementRule,
@@ -56,6 +55,7 @@ export {
   leafLibraryRule,
   nodeTypeCoverageRule,
   pipelineHolesRule,
+  proteomeMajorityReleaseRule,
   sequenceTerminologyRule,
   speciesDenominatorRule,
   treeCompletenessRule,

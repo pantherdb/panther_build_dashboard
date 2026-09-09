@@ -31,7 +31,7 @@ describe('provenance in the rendered output', () => {
   it('marks the generator warning as Generator and a derived check as Derived', () => {
     renderWithProviders(<ChecksPanel />, { preloadedState: preloaded('real') })
 
-    const generator = rowFor('generator.warning:generator-progress-1')
+    const generator = rowFor('generator.warning:generator-progress-4')
     expect(generator.dataset.checkOrigin).toBe('generator')
     expect(within(generator).getByText('Generator')).toBeInTheDocument()
     expect(generator.querySelector('[data-provenance="generator"]')).toBeInTheDocument()
@@ -78,8 +78,8 @@ describe('passing checks', () => {
   it('shows the issue count over warnings only, and the verified count beside it', () => {
     renderWithProviders(<ChecksPanel />, { preloadedState: preloaded('real') })
 
-    expect(screen.getByText('5 issues to review')).toBeInTheDocument()
-    expect(screen.getByText('1 from the generator · 4 derived here')).toBeInTheDocument()
+    expect(screen.getByText('7 issues to review')).toBeInTheDocument()
+    expect(screen.getByText('4 from the generator · 3 derived here')).toBeInTheDocument()
     expect(screen.getByText('8 verified')).toBeInTheDocument()
     expect(screen.getByText('7 noted')).toBeInTheDocument()
   })
@@ -100,7 +100,9 @@ describe('the suppressed duplicate', () => {
   it('is shown as suppressed rather than dropped or counted', () => {
     renderWithProviders(<ChecksPanel />, { preloadedState: preloaded('real') })
 
-    expect(screen.getByText('1 duplicate finding suppressed')).toBeInTheDocument()
+    // 2 now: this artifact-order pair, and the derived proteome-majority-release finding
+    // standing down for the generator's own off-majority-release warning (configTiers.test.ts).
+    expect(screen.getByText('2 duplicate findings suppressed')).toBeInTheDocument()
     const group = document.querySelector('[data-check-group="suppressed"]')
     expect(group).not.toBeNull()
     expect(
@@ -118,7 +120,9 @@ describe('the configuration tiers', () => {
     expect(document.querySelector('[data-config-tier="mismatch"]')).not.toBeNull()
     expect(document.querySelector('[data-config-tier="notable"]')).not.toBeNull()
     expect(document.querySelector('[data-config-tier="lineage"]')).not.toBeNull()
-    expect(screen.getByText('2 mismatch · 6 notable · 21 lineage')).toBeInTheDocument()
+    // 1 mismatch now (config.source-dirty only) - the QfO release/data-dir mismatch this count
+    // used to include is gone along with the rule it belonged to (Appendix A.8).
+    expect(screen.getByText('1 mismatch · 6 notable · 21 lineage')).toBeInTheDocument()
   })
 
   it('shows the captured config.mk with the commented-out QfO line marked', () => {
@@ -156,10 +160,13 @@ describe('the configuration tiers', () => {
     expect(new Set(ids).size).toBe(ids.length)
   })
 
-  it('marks the mismatched QfO value in context, not only in the list', () => {
+  it('marks the mismatched source-tree value in context, not only in the list', () => {
+    // QFO_DATA_DIR no longer carries a mismatch marker: the rule it belonged to is gone
+    // (Appendix A.8), and its replacement is a `consistency` finding, not a config-tier one.
+    // `panther_build_dirty` is now the only mismatch-tier config key with a live marker.
     renderWithProviders(<ChecksPanel />, { preloadedState: preloaded('real') })
 
-    const row = document.getElementById('config--qfo-data-dir')
+    const row = document.getElementById('config--panther-build-dirty')
     expect(row).not.toBeNull()
     expect((row as HTMLElement).querySelector('[data-check-marker="issue"]')).not.toBeNull()
   })
@@ -171,7 +178,7 @@ describe('terminology', () => {
 
     expect(screen.queryByText('Sequences')).toBeNull()
     expect(screen.queryByText(/^Sequences:/)).toBeNull()
-    expect(screen.getByText(/Sequences in the built library: 1,736,983/)).toBeInTheDocument()
+    expect(screen.getByText(/Sequences in the built library: 1,742,145/)).toBeInTheDocument()
   })
 })
 
@@ -186,7 +193,9 @@ describe('a report missing a section', () => {
     expect(
       screen.getByText('LEAF nodes and library sequences could not be compared')
     ).toBeInTheDocument()
-    expect(screen.getByText('4 issues to review')).toBeInTheDocument()
+    // 6 rather than 7 (degradation.test.ts): stripping node_tracking removes the one derived
+    // issue that depends on it (UNKNOWN node-type coverage); the other 6 are unaffected.
+    expect(screen.getByText('6 issues to review')).toBeInTheDocument()
   })
 })
 
@@ -196,7 +205,7 @@ describe('the shared contract', () => {
 
     // Lazy behind the report registry, so the shell renders before the chunk resolves.
     expect(
-      await screen.findByText('5 issues to review', undefined, { timeout: 10000 })
+      await screen.findByText('7 issues to review', undefined, { timeout: 10000 })
     ).toBeInTheDocument()
     expect(screen.getAllByRole('heading', { name: 'Checks' })).toHaveLength(1)
     expect(

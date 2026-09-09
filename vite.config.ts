@@ -17,7 +17,13 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       tailwindcss(),
-      tsChecker({ typescript: { tsconfigPath: './tsconfig.app.json' } }),
+      // Not under vitest. The checker runs in WATCH mode, so it keeps handles open past the end
+      // of a one-shot `vitest run` and leaves pool workers behind when a run's parent exits
+      // abruptly - orphaned `node (vitest N)` processes that spin at ~25 % CPU each. Nothing is
+      // lost by skipping it here: `npm run type-check` runs tsc against this same tsconfig.
+      ...(process.env.VITEST
+        ? []
+        : [tsChecker({ typescript: { tsconfigPath: './tsconfig.app.json' } })]),
       visualizer({
         filename: `${outDir}/stats-treemap.html`,
         template: 'treemap',

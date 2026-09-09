@@ -6,8 +6,8 @@ import type { SearchEntryKind } from '@/features/search/model/searchIndex'
 /**
  * The index's scope and its ranking.
  *
- * The counts are asserted because scope is the design decision: 61 steps and 14 phases alone make a
- * nav box, and it is the 131 tracked species, the 60 configuration variables and the findings that
+ * The counts are asserted because scope is the design decision: 62 steps and 14 phases alone make a
+ * nav box, and it is the 131 tracked species, the 59 configuration variables and the findings that
  * make the palette the fastest route to a fact. If a later change quietly stops indexing the config,
  * these numbers are what notices.
  */
@@ -22,13 +22,13 @@ const first = (query: string, kind?: SearchEntryKind) => {
 }
 
 describe('index composition', () => {
-  it('covers the declared pipeline: 14 phases and 61 steps (Appendix A.1)', () => {
+  it('covers the declared pipeline: 14 phases and 62 steps (Appendix A.1)', () => {
     expect(index.countsByKind.phase).toBe(14)
-    expect(index.countsByKind.step).toBe(61)
+    expect(index.countsByKind.step).toBe(62)
   })
 
-  it('covers all eight report sections (Appendix A.1)', () => {
-    expect(index.countsByKind.report).toBe(8)
+  it('covers all nine report sections (Appendix A.1)', () => {
+    expect(index.countsByKind.report).toBe(9)
   })
 
   it('covers every species any source mentions, not only the 131 tracked ones', () => {
@@ -37,15 +37,16 @@ describe('index composition', () => {
     expect(index.countsByKind.species).toBe(147)
   })
 
-  it('covers the ~60 configuration variables (Appendix A.8)', () => {
-    expect(index.countsByKind.config).toBe(60)
+  it('covers the ~59 configuration variables (Appendix A.8)', () => {
+    expect(index.countsByKind.config).toBe(59)
   })
 
   it('covers the generator warning and the dashboard-derived facts', () => {
-    // One generator warning in this report, plus six derived consistency facts.
-    expect(index.countsByKind.check).toBe(7)
+    // Four generator warnings in this report (three from proteomes, one stale-artifact warning on
+    // progress), plus six derived consistency facts.
+    expect(index.countsByKind.check).toBe(10)
     const origins = index.entries.filter(entry => entry.kind === 'check').map(e => e.origin)
-    expect(origins.filter(origin => origin === 'generator')).toHaveLength(1)
+    expect(origins.filter(origin => origin === 'generator')).toHaveLength(4)
     expect(origins.filter(origin => origin === 'derived')).toHaveLength(6)
   })
 
@@ -86,7 +87,9 @@ describe('finding things', () => {
   it('finds a configuration variable and shows its value', () => {
     const entry = first('QFO_DATA_DIR', 'config')
     expect(entry.title).toBe('QFO_DATA_DIR')
-    expect(entry.detail).toContain('ref_prot_2026_01')
+    // QFO_DATA_DIR now points at the 2026_02 release path (the ref_prot_2026_01 mismatch this
+    // used to demonstrate no longer exists in the data - see Appendix A.8).
+    expect(entry.detail).toContain('QfO_release_2026_02')
     expect(entry.elementId).toBe('config--qfo-data-dir')
   })
 
@@ -106,8 +109,8 @@ describe('finding things', () => {
   it('finds a dashboard-derived fact and states it as a fact, not a verdict', () => {
     const entry = first('family count', 'check')
     expect(entry.origin).toBe('derived')
-    // Appendix A.7: four sources agree at 15,797.
-    expect(entry.detail).toContain('15,797')
+    // Appendix A.7: four sources agree at 15,795.
+    expect(entry.detail).toContain('15,795')
     expect(entry.detail).toContain('derived by the dashboard')
     expect(entry.detail).not.toMatch(/\bpass\b|\bwarn\b/)
   })
@@ -164,7 +167,7 @@ describe('degraded reports', () => {
     const unknown = buildSearchIndex(getFixtureReport('unknownSection'))
     const { hits } = searchEntries(unknown, 'Pfam')
     expect(hits.some(hit => hit.entry.title === 'Pfam domain coverage')).toBe(true)
-    expect(unknown.countsByKind.report).toBe(10)
+    expect(unknown.countsByKind.report).toBe(11)
   })
 
   it('drops a derived fact whose evidence section was stripped, rather than linking to nothing', () => {
