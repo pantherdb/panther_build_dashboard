@@ -65,6 +65,23 @@ export default defineConfig(({ mode }) => {
     server: { port: PORT, open: true },
     preview: { port: PORT },
     test: {
+      // `docs/build_state.json` is LIVE production data: it is regenerated every build,
+      // committed, and compiled into the shipped bundle. Tests pin numbers computed by hand
+      // from one specific report, so under Vitest every import of it resolves to the frozen
+      // oracle instead. That is what lets the live file change without touching a test.
+      //
+      // To assert against the LIVE file - `tests/features/build/model/liveReport.contract.test.ts`
+      // - read it with `fs`. This alias rewrites import specifiers and will not catch an fs read.
+      //
+      // The pattern MUST be anchored with `^.*`. Vite replaces only the matched portion of the
+      // specifier, so an unanchored /docs\/build_state\.json$/ leaves the importer's `../../../../`
+      // in front of an absolute path and the import fails to resolve.
+      alias: [
+        {
+          find: /^.*docs\/build_state\.json$/,
+          replacement: path.resolve(__dirname, './tests/fixtures/build_state.reference.json'),
+        },
+      ],
       globals: true,
       environment: 'jsdom',
       setupFiles: 'tests/setup.ts',

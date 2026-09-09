@@ -10,6 +10,12 @@
  * It is typed as `unknown` deliberately. `parseBuildState` accepts `unknown` and is the only thing
  * that decides what the payload is, so nothing downstream can accidentally trust the JSON's
  * inferred literal type as though it were validated.
+ *
+ * UNDER VITEST THIS IMPORT DOES NOT READ `docs/build_state.json`. A `test.alias` in
+ * `vite.config.ts` redirects it to the frozen `tests/fixtures/build_state.reference.json`, because
+ * `docs/build_state.json` is live production data that is regenerated on every build while the
+ * tests pin numbers computed by hand from one report. Production is unaffected. A test that needs
+ * the live file reads it with `fs` - see `tests/features/build/model/liveReport.contract.test.ts`.
  */
 
 import rawBuildState from '../../../../docs/build_state.json'

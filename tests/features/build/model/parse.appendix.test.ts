@@ -6,9 +6,14 @@ import type { BuildReport } from '@/features/build/model'
  * Arithmetic against the verified data facts in
  * `.plans/feature/01-report-model.md`, "Appendix A - Verified data facts".
  *
- * Every expectation here was computed independently from `docs/build_state.json` before the model
- * existed. If one of these fails, either the model is wrong or the fixture was replaced - in both
+ * Every expectation here was computed independently from the report before the model existed. If
+ * one of these fails, either the model is wrong or the frozen reference was replaced - in both
  * cases the Appendix has to be re-verified, not the test loosened.
+ *
+ * The report read here is `tests/fixtures/build_state.reference.json`, NOT the live
+ * `docs/build_state.json` that the site ships. A `test.alias` in `vite.config.ts` redirects the
+ * import under Vitest, so the live file can be refreshed every build without moving a number in
+ * this file. Invariants on the live file live in `liveReport.contract.test.ts` instead.
  */
 
 const report: BuildReport = getFixtureReport('real')
@@ -17,9 +22,9 @@ describe('Appendix A.1 - shape', () => {
   it('reads the schema version, target and section inventory', () => {
     expect(report.schema.version).toBe(1)
     expect(report.schema.state).toBe('supported')
-    expect(report.identity.target).toBe(
-      '/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun'
-    )
+    // Sanitised in the frozen reference: the live report carries the absolute cluster path, but
+    // the committed oracle is permanent and does not need to pin a personal scratch directory.
+    expect(report.identity.target).toBe('target_2026_02_w_select_2026_01_rerun')
     expect(report.identity.generatedAt.iso).toBe('2026-09-08T17:40:14.000Z')
     expect(report.reports).toHaveLength(9)
     expect(report.reports.map(entry => entry.sectionId)).toEqual([

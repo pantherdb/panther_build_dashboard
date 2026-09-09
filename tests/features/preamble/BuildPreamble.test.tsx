@@ -14,10 +14,9 @@ describe('BuildPreamble identity and freshness', () => {
     renderWithProviders(<BuildPreamble />, { preloadedState: preloaded('real') })
 
     expect(screen.getByRole('heading', { level: 1, name: 'PANTHER 20.0' })).toBeInTheDocument()
-    // Named beside the library in the header and again as the Build target row.
-    expect(
-      screen.getAllByText('/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun')
-    ).toHaveLength(2)
+    // Named beside the library in the header and again as the Build target row. The target is
+    // sanitised in the frozen reference; the live report carries the absolute cluster path.
+    expect(screen.getAllByText('target_2026_02_w_select_2026_01_rerun')).toHaveLength(2)
     // Rendered in UTC from the report's own ISO string, so the record does not move with the reader.
     expect(screen.getByText('2026-09-08 17:40:14 UTC')).toBeInTheDocument()
   })
