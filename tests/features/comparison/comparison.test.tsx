@@ -12,6 +12,9 @@ import {
   orderingOf,
 } from '@/features/comparison/model'
 import { renderWithProviders } from '@tests/test-utils'
+import { getFixtureState } from '@/features/build/fixtures'
+import { parseBuildState } from '@/features/build/model'
+import { withPreviousLibrary } from '@tests/support/previousLibrarySection'
 
 /**
  * The release comparison, and the truncation rule that governs it.
@@ -48,6 +51,50 @@ const view = buildComparisonView(report)
 
 const headerButtons = (caption: string): number =>
   screen.getByRole('table', { name: caption }).querySelectorAll('thead button').length
+
+/**
+ * Which gap the comparison is reporting.
+ *
+ * `partial` has two causes and they are not interchangeable: the direct totals being absent, and
+ * the per-species tables being cut short. The panel names its subject from this, so a view that
+ * guessed would go on blaming the totals after a baseline landed - saying "Direct previous-library
+ * totals - Partially available" over a comparison whose totals are all present.
+ */
+describe('the gap the comparison reports', () => {
+  const withTotals = buildComparisonView(
+    parseBuildState(withPreviousLibrary(getFixtureState('real')))
+  ).summary
+
+  it('blames the absent section while prev_lib is missing', () => {
+    expect(view.summary.availability).toBe('partial')
+    expect(view.summary.gap).toBe('previousLibraryAbsent')
+  })
+
+  it('blames the truncated tables once the direct totals arrive', () => {
+    expect(withTotals.previousLibrary.availability).toBe('available')
+    expect(withTotals.availability).toBe('partial')
+    expect(withTotals.gap).toBe('tablesTruncated')
+  })
+
+  it(
+    'names per-species coverage, not the totals, in the rendered notice',
+    () => {
+      renderWithProviders(
+        withDefinitions(
+          <ComparisonReportView
+            report={parseBuildState(withPreviousLibrary(getFixtureState('real')))}
+          />
+        )
+      )
+
+      expect(spanningText('Complete per-species coverage — Partially available')).not.toHaveLength(
+        0
+      )
+      expect(spanningText('Direct previous-library totals — Partially available')).toHaveLength(0)
+    },
+    RENDER_TIMEOUT
+  )
+})
 
 describe('assembled comparison model', () => {
   it('is partial, not absent, and knows exactly which source is missing', () => {

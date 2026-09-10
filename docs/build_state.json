@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "target": "/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun",
-  "generated_at": "2026-09-10T00:12:00Z",
+  "generated_at": "2026-09-10T23:37:03Z",
   "sections": [
     {
       "id": "config_ledger",
@@ -4379,9 +4379,47 @@
     {
       "id": "prev_lib",
       "title": "Comparison to previous library",
-      "data": null,
-      "message": "inputs not present yet",
-      "status": "absent"
+      "data": {
+        "text": "Previous version: **PANTHER19.0**. The `rebuilt` column is the previous library with split/merge/remove applied, isolating family surgery from new-data effects.",
+        "rows": [
+          {
+            "metric": "genomes",
+            "prev": 144,
+            "rebuilt": null,
+            "new": 131,
+            "delta": "-13"
+          },
+          {
+            "metric": "sequences",
+            "prev": 2017964,
+            "rebuilt": 2115567,
+            "new": 1742145,
+            "delta": "-275819"
+          },
+          {
+            "metric": "families",
+            "prev": 15683,
+            "rebuilt": 15681,
+            "new": 15795,
+            "delta": "+112"
+          },
+          {
+            "metric": "subfamilies",
+            "prev": 128012,
+            "rebuilt": null,
+            "new": 117592,
+            "delta": "-10420"
+          }
+        ],
+        "headline": {
+          "delta_genomes": "-13",
+          "delta_sequences": "-275819",
+          "delta_families": "+112",
+          "delta_subfamilies": "-10420"
+        }
+      },
+      "message": null,
+      "status": "ok"
     },
     {
       "id": "giga",
@@ -4831,10 +4869,689 @@
                 "new_count": "20652",
                 "count_diff": "72",
                 "pct_change": "0.003498542274052478"
+              },
+              {
+                "species": "FUSNN",
+                "prev_count": "2046",
+                "new_count": "1975",
+                "count_diff": "-71",
+                "pct_change": "-0.03470185728250244"
+              },
+              {
+                "species": "SYNY3",
+                "prev_count": "3449",
+                "new_count": "3508",
+                "count_diff": "59",
+                "pct_change": "0.01710640765439258"
+              },
+              {
+                "species": "PHYRM",
+                "prev_count": "15296",
+                "new_count": "15350",
+                "count_diff": "54",
+                "pct_change": "0.003530334728033473"
+              },
+              {
+                "species": "BRACM",
+                "prev_count": "40762",
+                "new_count": "40814",
+                "count_diff": "52",
+                "pct_change": "0.001275697953976743"
+              },
+              {
+                "species": "NEMVE",
+                "prev_count": "24379",
+                "new_count": "24428",
+                "count_diff": "49",
+                "pct_change": "0.002009926576151606"
+              },
+              {
+                "species": "LACSA",
+                "prev_count": "44154",
+                "new_count": "44115",
+                "count_diff": "-39",
+                "pct_change": "-0.0008832721837206142"
+              },
+              {
+                "species": "CAEEL",
+                "prev_count": "19826",
+                "new_count": "19789",
+                "count_diff": "-37",
+                "pct_change": "-0.0018662362554221728"
+              },
+              {
+                "species": "MONBE",
+                "prev_count": "9187",
+                "new_count": "9156",
+                "count_diff": "-31",
+                "pct_change": "-0.00337433329705018"
+              },
+              {
+                "species": "PANTR",
+                "prev_count": "23037",
+                "new_count": "23006",
+                "count_diff": "-31",
+                "pct_change": "-0.0013456613274297868"
+              },
+              {
+                "species": "BACSU",
+                "prev_count": "4260",
+                "new_count": "4288",
+                "count_diff": "28",
+                "pct_change": "0.006572769953051643"
+              },
+              {
+                "species": "ARATH",
+                "prev_count": "27475",
+                "new_count": "27448",
+                "count_diff": "-27",
+                "pct_change": "-0.0009827115559599637"
+              },
+              {
+                "species": "PHYPA",
+                "prev_count": "31335",
+                "new_count": "31356",
+                "count_diff": "21",
+                "pct_change": "0.0006701771182383916"
+              },
+              {
+                "species": "CANLF",
+                "prev_count": "20969",
+                "new_count": "20989",
+                "count_diff": "20",
+                "pct_change": "0.0009537889265105632"
+              },
+              {
+                "species": "ORYSJ",
+                "prev_count": "43658",
+                "new_count": "43678",
+                "count_diff": "20",
+                "pct_change": "0.0004581061890146136"
+              },
+              {
+                "species": "ANOGA",
+                "prev_count": "13011",
+                "new_count": "13029",
+                "count_diff": "18",
+                "pct_change": "0.001383444777495965"
+              },
+              {
+                "species": "THAPS",
+                "prev_count": "11717",
+                "new_count": "11735",
+                "count_diff": "18",
+                "pct_change": "0.0015362294102585986"
+              },
+              {
+                "species": "MOUSE",
+                "prev_count": "21836",
+                "new_count": "21852",
+                "count_diff": "16",
+                "pct_change": "0.0007327349331379373"
+              },
+              {
+                "species": "PIG",
+                "prev_count": "22786",
+                "new_count": "22800",
+                "count_diff": "14",
+                "pct_change": "0.0006144123584657246"
+              },
+              {
+                "species": "RHOBA",
+                "prev_count": "7259",
+                "new_count": "7271",
+                "count_diff": "12",
+                "pct_change": "0.0016531202644992423"
+              },
+              {
+                "species": "LISMO",
+                "prev_count": "2833",
+                "new_count": "2844",
+                "count_diff": "11",
+                "pct_change": "0.003882809742322626"
+              },
+              {
+                "species": "LEPIN",
+                "prev_count": "3666",
+                "new_count": "3676",
+                "count_diff": "10",
+                "pct_change": "0.002727768685215494"
+              },
+              {
+                "species": "BRAFL",
+                "prev_count": "26624",
+                "new_count": "26616",
+                "count_diff": "-8",
+                "pct_change": "-0.00030048076923076925"
+              },
+              {
+                "species": "DICDI",
+                "prev_count": "12726",
+                "new_count": "12718",
+                "count_diff": "-8",
+                "pct_change": "-0.0006286342920006286"
+              },
+              {
+                "species": "ENTH1",
+                "prev_count": "7959",
+                "new_count": "7967",
+                "count_diff": "8",
+                "pct_change": "0.001005151400929765"
+              },
+              {
+                "species": "MAIZE",
+                "prev_count": "39216",
+                "new_count": "39209",
+                "count_diff": "-7",
+                "pct_change": "-0.0001784985720114239"
+              },
+              {
+                "species": "SCHPO",
+                "prev_count": "5122",
+                "new_count": "5129",
+                "count_diff": "7",
+                "pct_change": "0.0013666536509176104"
+              },
+              {
+                "species": "CHICK",
+                "prev_count": "18366",
+                "new_count": "18372",
+                "count_diff": "6",
+                "pct_change": "0.0003266906239790918"
+              },
+              {
+                "species": "GORGO",
+                "prev_count": "21782",
+                "new_count": "21788",
+                "count_diff": "6",
+                "pct_change": "0.0002754567991919934"
+              },
+              {
+                "species": "YEAST",
+                "prev_count": "6060",
+                "new_count": "6066",
+                "count_diff": "6",
+                "pct_change": "0.0009900990099009901"
+              },
+              {
+                "species": "DROME",
+                "prev_count": "13821",
+                "new_count": "13826",
+                "count_diff": "5",
+                "pct_change": "0.0003617683235655886"
+              },
+              {
+                "species": "LEPOC",
+                "prev_count": "18318",
+                "new_count": "18323",
+                "count_diff": "5",
+                "pct_change": "0.00027295556283437055"
+              },
+              {
+                "species": "PLAF7",
+                "prev_count": "5366",
+                "new_count": "5361",
+                "count_diff": "-5",
+                "pct_change": "-0.0009317927692881103"
+              },
+              {
+                "species": "HALSA",
+                "prev_count": "2423",
+                "new_count": "2427",
+                "count_diff": "4",
+                "pct_change": "0.0016508460586050352"
+              },
+              {
+                "species": "STRCO",
+                "prev_count": "8035",
+                "new_count": "8038",
+                "count_diff": "3",
+                "pct_change": "0.000373366521468575"
+              },
+              {
+                "species": "ANOCA",
+                "prev_count": "21492",
+                "new_count": "21494",
+                "count_diff": "2",
+                "pct_change": "9.305788200260562e-05"
+              },
+              {
+                "species": "CHLAA",
+                "prev_count": "3848",
+                "new_count": "3850",
+                "count_diff": "2",
+                "pct_change": "0.0005197505197505198"
+              },
+              {
+                "species": "HELRO",
+                "prev_count": "23326",
+                "new_count": "23328",
+                "count_diff": "2",
+                "pct_change": "8.574123295892996e-05"
+              },
+              {
+                "species": "MONDO",
+                "prev_count": "21223",
+                "new_count": "21225",
+                "count_diff": "2",
+                "pct_change": "9.423738397022099e-05"
+              },
+              {
+                "species": "MYCTU",
+                "prev_count": "3995",
+                "new_count": "3997",
+                "count_diff": "2",
+                "pct_change": "0.0005006257822277847"
+              },
+              {
+                "species": "NEIMB",
+                "prev_count": "2001",
+                "new_count": "2003",
+                "count_diff": "2",
+                "pct_change": "0.0009995002498750624"
+              },
+              {
+                "species": "NEUCR",
+                "prev_count": "9757",
+                "new_count": "9759",
+                "count_diff": "2",
+                "pct_change": "0.00020498103925386903"
+              },
+              {
+                "species": "ORYLA",
+                "prev_count": "23615",
+                "new_count": "23617",
+                "count_diff": "2",
+                "pct_change": "8.469193309337285e-05"
+              },
+              {
+                "species": "PRIPA",
+                "prev_count": "26030",
+                "new_count": "26032",
+                "count_diff": "2",
+                "pct_change": "7.68344218209758e-05"
+              },
+              {
+                "species": "PUCGT",
+                "prev_count": "15686",
+                "new_count": "15688",
+                "count_diff": "2",
+                "pct_change": "0.00012750223128904755"
+              },
+              {
+                "species": "SOLLC",
+                "prev_count": "34661",
+                "new_count": "34663",
+                "count_diff": "2",
+                "pct_change": "5.770173970745218e-05"
+              },
+              {
+                "species": "TRYB2",
+                "prev_count": "8559",
+                "new_count": "8561",
+                "count_diff": "2",
+                "pct_change": "0.00023367215796237878"
+              },
+              {
+                "species": "ASPFU",
+                "prev_count": "9646",
+                "new_count": "9647",
+                "count_diff": "1",
+                "pct_change": "0.00010366991499066971"
+              },
+              {
+                "species": "CANAL",
+                "prev_count": "6035",
+                "new_count": "6036",
+                "count_diff": "1",
+                "pct_change": "0.00016570008285004143"
+              },
+              {
+                "species": "CHLRE",
+                "prev_count": "17613",
+                "new_count": "17614",
+                "count_diff": "1",
+                "pct_change": "5.677624481916766e-05"
+              },
+              {
+                "species": "CIOIN",
+                "prev_count": "16679",
+                "new_count": "16680",
+                "count_diff": "1",
+                "pct_change": "5.995563283170454e-05"
+              },
+              {
+                "species": "CLOBH",
+                "prev_count": "3589",
+                "new_count": "3590",
+                "count_diff": "1",
+                "pct_change": "0.00027862914460852607"
+              },
+              {
+                "species": "DEIRA",
+                "prev_count": "3084",
+                "new_count": "3085",
+                "count_diff": "1",
+                "pct_change": "0.00032425421530479895"
+              },
+              {
+                "species": "EMENI",
+                "prev_count": "10560",
+                "new_count": "10561",
+                "count_diff": "1",
+                "pct_change": "9.46969696969697e-05"
+              },
+              {
+                "species": "EREGS",
+                "prev_count": "4757",
+                "new_count": "4758",
+                "count_diff": "1",
+                "pct_change": "0.00021021652301870928"
+              },
+              {
+                "species": "HAEIN",
+                "prev_count": "1704",
+                "new_count": "1703",
+                "count_diff": "-1",
+                "pct_change": "-0.0005868544600938967"
+              },
+              {
+                "species": "LEIMA",
+                "prev_count": "8037",
+                "new_count": "8038",
+                "count_diff": "1",
+                "pct_change": "0.00012442453651860148"
+              },
+              {
+                "species": "METJA",
+                "prev_count": "1787",
+                "new_count": "1786",
+                "count_diff": "-1",
+                "pct_change": "-0.0005595970900951316"
+              },
+              {
+                "species": "PSEAE",
+                "prev_count": "5564",
+                "new_count": "5563",
+                "count_diff": "-1",
+                "pct_change": "-0.00017972681524083394"
+              },
+              {
+                "species": "SACS2",
+                "prev_count": "2937",
+                "new_count": "2938",
+                "count_diff": "1",
+                "pct_change": "0.00034048348655090226"
+              },
+              {
+                "species": "SOYBN",
+                "prev_count": "55853",
+                "new_count": "55852",
+                "count_diff": "-1",
+                "pct_change": "-1.7904141227866004e-05"
+              },
+              {
+                "species": "STRPU",
+                "prev_count": "26460",
+                "new_count": "26461",
+                "count_diff": "1",
+                "pct_change": "3.779289493575208e-05"
+              },
+              {
+                "species": "STRR6",
+                "prev_count": "2030",
+                "new_count": "2031",
+                "count_diff": "1",
+                "pct_change": "0.0004926108374384236"
+              },
+              {
+                "species": "TRICA",
+                "prev_count": "16567",
+                "new_count": "16568",
+                "count_diff": "1",
+                "pct_change": "6.036095853202149e-05"
+              },
+              {
+                "species": "XANCP",
+                "prev_count": "4126",
+                "new_count": "4127",
+                "count_diff": "1",
+                "pct_change": "0.0002423654871546292"
+              },
+              {
+                "species": "YARLI",
+                "prev_count": "6448",
+                "new_count": "6449",
+                "count_diff": "1",
+                "pct_change": "0.00015508684863523573"
+              },
+              {
+                "species": "YERPE",
+                "prev_count": "3908",
+                "new_count": "3909",
+                "count_diff": "1",
+                "pct_change": "0.00025588536335721597"
+              },
+              {
+                "species": "AQUAE",
+                "prev_count": "1553",
+                "new_count": "1553",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "BACCR",
+                "prev_count": "5240",
+                "new_count": "5240",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "BATDJ",
+                "prev_count": "8610",
+                "new_count": "8610",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "BRADI",
+                "prev_count": "34230",
+                "new_count": "34230",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "CHLTR",
+                "prev_count": "895",
+                "new_count": "895",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "COXBU",
+                "prev_count": "1812",
+                "new_count": "1812",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "DICPU",
+                "prev_count": "12347",
+                "new_count": "12347",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "DICTD",
+                "prev_count": "1743",
+                "new_count": "1743",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "ECOLI",
+                "prev_count": "4403",
+                "new_count": "4403",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "GEOSL",
+                "prev_count": "3402",
+                "new_count": "3402",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "GIAIC",
+                "prev_count": "4900",
+                "new_count": "4900",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "HELPY",
+                "prev_count": "1554",
+                "new_count": "1554",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "KLENI",
+                "prev_count": "16171",
+                "new_count": "16171",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "KORCO",
+                "prev_count": "1602",
+                "new_count": "1602",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "MACMU",
+                "prev_count": "21893",
+                "new_count": "21893",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "METAC",
+                "prev_count": "4468",
+                "new_count": "4468",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "MYCGE",
+                "prev_count": "483",
+                "new_count": "483",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "NITMS",
+                "prev_count": "1795",
+                "new_count": "1795",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "ORNAN",
+                "prev_count": "17390",
+                "new_count": "17390",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "PYRAE",
+                "prev_count": "2590",
+                "new_count": "2590",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "SALTY",
+                "prev_count": "4533",
+                "new_count": "4533",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "SCHJY",
+                "prev_count": "4852",
+                "new_count": "4852",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "SCLS1",
+                "prev_count": "14445",
+                "new_count": "14445",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "SHEON",
+                "prev_count": "4068",
+                "new_count": "4068",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "STAA8",
+                "prev_count": "2889",
+                "new_count": "2889",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "THEKO",
+                "prev_count": "2301",
+                "new_count": "2301",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "THEMA",
+                "prev_count": "1852",
+                "new_count": "1852",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "THEYD",
+                "prev_count": "1982",
+                "new_count": "1982",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "TRIAD",
+                "prev_count": "11518",
+                "new_count": "11518",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "TRIV3",
+                "prev_count": "50190",
+                "new_count": "50190",
+                "count_diff": "0",
+                "pct_change": "0.0"
+              },
+              {
+                "species": "VIBCH",
+                "prev_count": "3781",
+                "new_count": "3781",
+                "count_diff": "0",
+                "pct_change": "0.0"
               }
             ],
             "total_rows": 147,
-            "truncated": true,
+            "truncated": false,
             "ragged_rows": 0
           },
           {
@@ -5001,6 +5718,902 @@
                 "no_prev_match": "266"
               },
               {
+                "oscode": "CHICK",
+                "total_seqs": "18372",
+                "same_uniprot": "16945",
+                "pct_same_uniprot": "92.2",
+                "diff_uniprot": "1423",
+                "no_prev_match": "4"
+              },
+              {
+                "oscode": "MACMU",
+                "total_seqs": "21893",
+                "same_uniprot": "20257",
+                "pct_same_uniprot": "92.5",
+                "diff_uniprot": "1633",
+                "no_prev_match": "3"
+              },
+              {
+                "oscode": "GORGO",
+                "total_seqs": "21788",
+                "same_uniprot": "20204",
+                "pct_same_uniprot": "92.7",
+                "diff_uniprot": "1571",
+                "no_prev_match": "13"
+              },
+              {
+                "oscode": "XENTR",
+                "total_seqs": "21863",
+                "same_uniprot": "20566",
+                "pct_same_uniprot": "94.1",
+                "diff_uniprot": "1117",
+                "no_prev_match": "180"
+              },
+              {
+                "oscode": "ORNAN",
+                "total_seqs": "17390",
+                "same_uniprot": "16633",
+                "pct_same_uniprot": "95.6",
+                "diff_uniprot": "756",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "XENLA",
+                "total_seqs": "36461",
+                "same_uniprot": "34919",
+                "pct_same_uniprot": "95.8",
+                "diff_uniprot": "634",
+                "no_prev_match": "908"
+              },
+              {
+                "oscode": "ANOGA",
+                "total_seqs": "13029",
+                "same_uniprot": "12508",
+                "pct_same_uniprot": "96.0",
+                "diff_uniprot": "470",
+                "no_prev_match": "51"
+              },
+              {
+                "oscode": "MAIZE",
+                "total_seqs": "39209",
+                "same_uniprot": "37717",
+                "pct_same_uniprot": "96.2",
+                "diff_uniprot": "1489",
+                "no_prev_match": "3"
+              },
+              {
+                "oscode": "MONDO",
+                "total_seqs": "21225",
+                "same_uniprot": "20431",
+                "pct_same_uniprot": "96.3",
+                "diff_uniprot": "791",
+                "no_prev_match": "3"
+              },
+              {
+                "oscode": "THECC",
+                "total_seqs": "29235",
+                "same_uniprot": "28179",
+                "pct_same_uniprot": "96.4",
+                "diff_uniprot": "442",
+                "no_prev_match": "614"
+              },
+              {
+                "oscode": "WHEAT",
+                "total_seqs": "105080",
+                "same_uniprot": "101894",
+                "pct_same_uniprot": "97.0",
+                "diff_uniprot": "3163",
+                "no_prev_match": "23"
+              },
+              {
+                "oscode": "PRUPE",
+                "total_seqs": "26772",
+                "same_uniprot": "25973",
+                "pct_same_uniprot": "97.0",
+                "diff_uniprot": "477",
+                "no_prev_match": "322"
+              },
+              {
+                "oscode": "ORYLA",
+                "total_seqs": "23617",
+                "same_uniprot": "22936",
+                "pct_same_uniprot": "97.1",
+                "diff_uniprot": "681",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "NELNU",
+                "total_seqs": "23991",
+                "same_uniprot": "23413",
+                "pct_same_uniprot": "97.6",
+                "diff_uniprot": "342",
+                "no_prev_match": "236"
+              },
+              {
+                "oscode": "ANOCA",
+                "total_seqs": "21494",
+                "same_uniprot": "20981",
+                "pct_same_uniprot": "97.6",
+                "diff_uniprot": "510",
+                "no_prev_match": "3"
+              },
+              {
+                "oscode": "VITVI",
+                "total_seqs": "29757",
+                "same_uniprot": "29073",
+                "pct_same_uniprot": "97.7",
+                "diff_uniprot": "372",
+                "no_prev_match": "312"
+              },
+              {
+                "oscode": "ORYSJ",
+                "total_seqs": "43678",
+                "same_uniprot": "42803",
+                "pct_same_uniprot": "98.0",
+                "diff_uniprot": "637",
+                "no_prev_match": "238"
+              },
+              {
+                "oscode": "MOUSE",
+                "total_seqs": "21852",
+                "same_uniprot": "21430",
+                "pct_same_uniprot": "98.1",
+                "diff_uniprot": "187",
+                "no_prev_match": "235"
+              },
+              {
+                "oscode": "CIOIN",
+                "total_seqs": "16680",
+                "same_uniprot": "16382",
+                "pct_same_uniprot": "98.2",
+                "diff_uniprot": "298",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "SORBI",
+                "total_seqs": "34043",
+                "same_uniprot": "33463",
+                "pct_same_uniprot": "98.3",
+                "diff_uniprot": "280",
+                "no_prev_match": "300"
+              },
+              {
+                "oscode": "JUGRE",
+                "total_seqs": "30329",
+                "same_uniprot": "29815",
+                "pct_same_uniprot": "98.3",
+                "diff_uniprot": "318",
+                "no_prev_match": "196"
+              },
+              {
+                "oscode": "MARPO",
+                "total_seqs": "19274",
+                "same_uniprot": "18950",
+                "pct_same_uniprot": "98.3",
+                "diff_uniprot": "170",
+                "no_prev_match": "154"
+              },
+              {
+                "oscode": "LEPOC",
+                "total_seqs": "18323",
+                "same_uniprot": "18005",
+                "pct_same_uniprot": "98.3",
+                "diff_uniprot": "316",
+                "no_prev_match": "2"
+              },
+              {
+                "oscode": "CHLRE",
+                "total_seqs": "17614",
+                "same_uniprot": "17317",
+                "pct_same_uniprot": "98.3",
+                "diff_uniprot": "297",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "SOYBN",
+                "total_seqs": "55852",
+                "same_uniprot": "55015",
+                "pct_same_uniprot": "98.5",
+                "diff_uniprot": "835",
+                "no_prev_match": "2"
+              },
+              {
+                "oscode": "PHYPA",
+                "total_seqs": "31356",
+                "same_uniprot": "30893",
+                "pct_same_uniprot": "98.5",
+                "diff_uniprot": "460",
+                "no_prev_match": "3"
+              },
+              {
+                "oscode": "ARATH",
+                "total_seqs": "27448",
+                "same_uniprot": "27040",
+                "pct_same_uniprot": "98.5",
+                "diff_uniprot": "227",
+                "no_prev_match": "181"
+              },
+              {
+                "oscode": "MYCMD",
+                "total_seqs": "6788",
+                "same_uniprot": "6689",
+                "pct_same_uniprot": "98.5",
+                "diff_uniprot": "94",
+                "no_prev_match": "5"
+              },
+              {
+                "oscode": "SOLLC",
+                "total_seqs": "34663",
+                "same_uniprot": "34190",
+                "pct_same_uniprot": "98.6",
+                "diff_uniprot": "464",
+                "no_prev_match": "9"
+              },
+              {
+                "oscode": "MEDTR",
+                "total_seqs": "49992",
+                "same_uniprot": "49340",
+                "pct_same_uniprot": "98.7",
+                "diff_uniprot": "360",
+                "no_prev_match": "292"
+              },
+              {
+                "oscode": "HUMAN",
+                "total_seqs": "20652",
+                "same_uniprot": "20407",
+                "pct_same_uniprot": "98.8",
+                "diff_uniprot": "21",
+                "no_prev_match": "224"
+              },
+              {
+                "oscode": "CAEEL",
+                "total_seqs": "19789",
+                "same_uniprot": "19615",
+                "pct_same_uniprot": "99.1",
+                "diff_uniprot": "156",
+                "no_prev_match": "18"
+              },
+              {
+                "oscode": "STRPU",
+                "total_seqs": "26461",
+                "same_uniprot": "26282",
+                "pct_same_uniprot": "99.3",
+                "diff_uniprot": "179",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "BACSU",
+                "total_seqs": "4288",
+                "same_uniprot": "4260",
+                "pct_same_uniprot": "99.3",
+                "diff_uniprot": "0",
+                "no_prev_match": "28"
+              },
+              {
+                "oscode": "TRICA",
+                "total_seqs": "16568",
+                "same_uniprot": "16464",
+                "pct_same_uniprot": "99.4",
+                "diff_uniprot": "102",
+                "no_prev_match": "2"
+              },
+              {
+                "oscode": "SCHPO",
+                "total_seqs": "5129",
+                "same_uniprot": "5099",
+                "pct_same_uniprot": "99.4",
+                "diff_uniprot": "1",
+                "no_prev_match": "29"
+              },
+              {
+                "oscode": "DROME",
+                "total_seqs": "13826",
+                "same_uniprot": "13769",
+                "pct_same_uniprot": "99.6",
+                "diff_uniprot": "23",
+                "no_prev_match": "34"
+              },
+              {
+                "oscode": "LACSA",
+                "total_seqs": "44115",
+                "same_uniprot": "43996",
+                "pct_same_uniprot": "99.7",
+                "diff_uniprot": "39",
+                "no_prev_match": "80"
+              },
+              {
+                "oscode": "HORVV",
+                "total_seqs": "34528",
+                "same_uniprot": "34408",
+                "pct_same_uniprot": "99.7",
+                "diff_uniprot": "120",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "BRAFL",
+                "total_seqs": "26616",
+                "same_uniprot": "26528",
+                "pct_same_uniprot": "99.7",
+                "diff_uniprot": "81",
+                "no_prev_match": "7"
+              },
+              {
+                "oscode": "LEIMA",
+                "total_seqs": "8038",
+                "same_uniprot": "8014",
+                "pct_same_uniprot": "99.7",
+                "diff_uniprot": "24",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "YERPE",
+                "total_seqs": "3909",
+                "same_uniprot": "3896",
+                "pct_same_uniprot": "99.7",
+                "diff_uniprot": "12",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "BRADI",
+                "total_seqs": "34230",
+                "same_uniprot": "34174",
+                "pct_same_uniprot": "99.8",
+                "diff_uniprot": "56",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "DICDI",
+                "total_seqs": "12718",
+                "same_uniprot": "12697",
+                "pct_same_uniprot": "99.8",
+                "diff_uniprot": "21",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "THAPS",
+                "total_seqs": "11735",
+                "same_uniprot": "11713",
+                "pct_same_uniprot": "99.8",
+                "diff_uniprot": "4",
+                "no_prev_match": "18"
+              },
+              {
+                "oscode": "CRYD1",
+                "total_seqs": "6603",
+                "same_uniprot": "6589",
+                "pct_same_uniprot": "99.8",
+                "diff_uniprot": "1",
+                "no_prev_match": "13"
+              },
+              {
+                "oscode": "HALSA",
+                "total_seqs": "2427",
+                "same_uniprot": "2423",
+                "pct_same_uniprot": "99.8",
+                "diff_uniprot": "0",
+                "no_prev_match": "4"
+              },
+              {
+                "oscode": "THEKO",
+                "total_seqs": "2301",
+                "same_uniprot": "2296",
+                "pct_same_uniprot": "99.8",
+                "diff_uniprot": "5",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "BRACM",
+                "total_seqs": "40814",
+                "same_uniprot": "40770",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "41",
+                "no_prev_match": "3"
+              },
+              {
+                "oscode": "NEMVE",
+                "total_seqs": "24428",
+                "same_uniprot": "24410",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "16",
+                "no_prev_match": "2"
+              },
+              {
+                "oscode": "PHYRM",
+                "total_seqs": "15350",
+                "same_uniprot": "15342",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "6",
+                "no_prev_match": "2"
+              },
+              {
+                "oscode": "TRYB2",
+                "total_seqs": "8561",
+                "same_uniprot": "8555",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "6",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "STRCO",
+                "total_seqs": "8038",
+                "same_uniprot": "8028",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "6",
+                "no_prev_match": "4"
+              },
+              {
+                "oscode": "ENTH1",
+                "total_seqs": "7967",
+                "same_uniprot": "7959",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "0",
+                "no_prev_match": "8"
+              },
+              {
+                "oscode": "YEAST",
+                "total_seqs": "6066",
+                "same_uniprot": "6058",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "0",
+                "no_prev_match": "8"
+              },
+              {
+                "oscode": "CANAL",
+                "total_seqs": "6036",
+                "same_uniprot": "6032",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "3",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "PSEAE",
+                "total_seqs": "5563",
+                "same_uniprot": "5557",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "5",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "PLAF7",
+                "total_seqs": "5361",
+                "same_uniprot": "5356",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "5",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "MYCTU",
+                "total_seqs": "3997",
+                "same_uniprot": "3994",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "0",
+                "no_prev_match": "3"
+              },
+              {
+                "oscode": "SYNY3",
+                "total_seqs": "3508",
+                "same_uniprot": "3505",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "0",
+                "no_prev_match": "3"
+              },
+              {
+                "oscode": "NEIMB",
+                "total_seqs": "2003",
+                "same_uniprot": "2001",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "0",
+                "no_prev_match": "2"
+              },
+              {
+                "oscode": "METJA",
+                "total_seqs": "1786",
+                "same_uniprot": "1785",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "0",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "HAEIN",
+                "total_seqs": "1703",
+                "same_uniprot": "1701",
+                "pct_same_uniprot": "99.9",
+                "diff_uniprot": "0",
+                "no_prev_match": "2"
+              },
+              {
+                "oscode": "TRIV3",
+                "total_seqs": "50190",
+                "same_uniprot": "50190",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "PARTE",
+                "total_seqs": "39350",
+                "same_uniprot": "39344",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "6",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "PRIPA",
+                "total_seqs": "26032",
+                "same_uniprot": "26020",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "12",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "HELRO",
+                "total_seqs": "23328",
+                "same_uniprot": "23327",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "1",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "KLENI",
+                "total_seqs": "16171",
+                "same_uniprot": "16170",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "PUCGT",
+                "total_seqs": "15688",
+                "same_uniprot": "15686",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "2"
+              },
+              {
+                "oscode": "SCLS1",
+                "total_seqs": "14445",
+                "same_uniprot": "14438",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "5",
+                "no_prev_match": "2"
+              },
+              {
+                "oscode": "DICPU",
+                "total_seqs": "12347",
+                "same_uniprot": "12347",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "TRIAD",
+                "total_seqs": "11518",
+                "same_uniprot": "11517",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "1",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "EMENI",
+                "total_seqs": "10561",
+                "same_uniprot": "10561",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "NEUCR",
+                "total_seqs": "9759",
+                "same_uniprot": "9756",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "2",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "ASPFU",
+                "total_seqs": "9647",
+                "same_uniprot": "9646",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "MONBE",
+                "total_seqs": "9156",
+                "same_uniprot": "9153",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "3",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "BATDJ",
+                "total_seqs": "8610",
+                "same_uniprot": "8610",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "BRADU",
+                "total_seqs": "8253",
+                "same_uniprot": "8253",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "RHOBA",
+                "total_seqs": "7271",
+                "same_uniprot": "7271",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "YARLI",
+                "total_seqs": "6449",
+                "same_uniprot": "6449",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "BACCR",
+                "total_seqs": "5240",
+                "same_uniprot": "5240",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "GIAIC",
+                "total_seqs": "4900",
+                "same_uniprot": "4899",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "1",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "SCHJY",
+                "total_seqs": "4852",
+                "same_uniprot": "4852",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "BACTN",
+                "total_seqs": "4782",
+                "same_uniprot": "4782",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "EREGS",
+                "total_seqs": "4758",
+                "same_uniprot": "4757",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "1",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "SALTY",
+                "total_seqs": "4533",
+                "same_uniprot": "4533",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "METAC",
+                "total_seqs": "4468",
+                "same_uniprot": "4468",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "GLOVI",
+                "total_seqs": "4406",
+                "same_uniprot": "4406",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "ECOLI",
+                "total_seqs": "4403",
+                "same_uniprot": "4401",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "2"
+              },
+              {
+                "oscode": "XANCP",
+                "total_seqs": "4127",
+                "same_uniprot": "4126",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "SHEON",
+                "total_seqs": "4068",
+                "same_uniprot": "4068",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "CHLAA",
+                "total_seqs": "3850",
+                "same_uniprot": "3850",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "VIBCH",
+                "total_seqs": "3781",
+                "same_uniprot": "3781",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "LEPIN",
+                "total_seqs": "3676",
+                "same_uniprot": "3676",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "CLOBH",
+                "total_seqs": "3590",
+                "same_uniprot": "3589",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "GEOSL",
+                "total_seqs": "3402",
+                "same_uniprot": "3401",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "DEIRA",
+                "total_seqs": "3085",
+                "same_uniprot": "3084",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "SACS2",
+                "total_seqs": "2938",
+                "same_uniprot": "2937",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "STAA8",
+                "total_seqs": "2889",
+                "same_uniprot": "2889",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "LISMO",
+                "total_seqs": "2844",
+                "same_uniprot": "2844",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "PYRAE",
+                "total_seqs": "2590",
+                "same_uniprot": "2590",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "STRR6",
+                "total_seqs": "2031",
+                "same_uniprot": "2030",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "1"
+              },
+              {
+                "oscode": "THEYD",
+                "total_seqs": "1982",
+                "same_uniprot": "1982",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "THEMA",
+                "total_seqs": "1852",
+                "same_uniprot": "1852",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "COXBU",
+                "total_seqs": "1812",
+                "same_uniprot": "1812",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "NITMS",
+                "total_seqs": "1795",
+                "same_uniprot": "1795",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "DICTD",
+                "total_seqs": "1743",
+                "same_uniprot": "1743",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "KORCO",
+                "total_seqs": "1602",
+                "same_uniprot": "1602",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "HELPY",
+                "total_seqs": "1554",
+                "same_uniprot": "1554",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "AQUAE",
+                "total_seqs": "1553",
+                "same_uniprot": "1553",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "CHLTR",
+                "total_seqs": "895",
+                "same_uniprot": "895",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
+                "oscode": "MYCGE",
+                "total_seqs": "483",
+                "same_uniprot": "483",
+                "pct_same_uniprot": "100.0",
+                "diff_uniprot": "0",
+                "no_prev_match": "0"
+              },
+              {
                 "oscode": "TOTAL",
                 "total_seqs": "2298433",
                 "same_uniprot": "2028319",
@@ -5010,7 +6623,7 @@
               }
             ],
             "total_rows": 132,
-            "truncated": true,
+            "truncated": false,
             "ragged_rows": 0
           },
           {

@@ -611,7 +611,18 @@ export interface PreviousLibrarySummary extends SummaryMeta {
   subfamilies: number | null
 }
 
+/**
+ * Why a comparison is not fully available.
+ *
+ * `partial` has two causes and they are not interchangeable - the direct totals being absent, and
+ * the per-species tables being cut short - so the reason is decided here, once, rather than being
+ * re-derived by each view that wants to name it.
+ */
+export type ComparisonGap = 'noSources' | 'previousLibraryAbsent' | 'tablesTruncated'
+
 export interface ComparisonSummary extends SummaryMeta {
+  /** What is missing, or null when the comparison is complete. */
+  gap: ComparisonGap | null
   /** Every source that fed this view, and whether it was actually present. */
   contributors: ComparisonContributor[]
   metrics: ComparisonMetric[]
