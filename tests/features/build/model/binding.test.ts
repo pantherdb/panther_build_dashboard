@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   getBinding,
   hasBinding,
+  KNOWN_SECTION_IDS,
   PHASE_IDS,
   phaseHintOf,
   resolveBinding,
@@ -152,5 +153,66 @@ describe('sectionIdsForPhase', () => {
     ]
     expect(sectionIdsForPhase('p2', resolved)).toEqual(['giga', 'mapping', 'library'])
     expect(sectionIdsForPhase('p9', resolved)).toEqual([])
+  })
+})
+
+/**
+ * `.plans/feature/2026-09-09-subfamily-ht-ortholog-sections.md`.
+ *
+ * `subfamilies-ht-orthologs` was the one substantial phase on the spine with nothing bound to it
+ * as primary: `library` names it in `contributingPhaseIds`, so the phase rendered as steps and a
+ * borrowed report. The generator now emits three sections for it, one per stage that produces
+ * something countable, and these bind them.
+ *
+ * Resolved against synthetic sections rather than the frozen reference on purpose. The reference
+ * carries nine sections and is re-verified only deliberately, so registering ahead of the data is
+ * what stops these three arriving under "Unattached reports" the way `proteomes` did.
+ */
+describe('the subfamilies, HT and orthologs phase', () => {
+  const PHASE_SECTION_IDS = ['ibd_sf_roots', 'list_ht', 'orthologs'] as const
+  const declaredPhaseIds = report.pipeline.phases.map(phase => phase.id)
+
+  it.each(PHASE_SECTION_IDS)('binds %s to the phase whose stage produced it', sectionId => {
+    const resolved = resolveBinding(sectionId, null, declaredPhaseIds)
+    expect(resolved.known).toBe(true)
+    expect(resolved.placement).toBe('phase')
+    expect(resolved.primaryPhaseId).toBe(PHASE_IDS.subfamiliesHtOrthologs)
+    expect(resolved.phaseIds).toEqual([PHASE_IDS.subfamiliesHtOrthologs])
+  })
+
+  it.each(PHASE_SECTION_IDS)('gives %s a written rationale', sectionId => {
+    expect(getBinding(sectionId)?.rationale.length ?? 0).toBeGreaterThan(20)
+  })
+
+  it('lists all three ahead of the section that merely contributes to the phase', () => {
+    const resolved = [...PHASE_SECTION_IDS, 'library'].map(sectionId => ({
+      sectionId,
+      ...resolveBinding(sectionId, null, declaredPhaseIds),
+    }))
+
+    expect(sectionIdsForPhase(PHASE_IDS.subfamiliesHtOrthologs, resolved)).toEqual([
+      ...PHASE_SECTION_IDS,
+      'library',
+    ])
+  })
+
+  it('registers them in the generator REGISTRY order, between node tracking and library', () => {
+    // KNOWN_SECTION_IDS joins back to the generator's REGISTRY by position, and the live
+    // contract suite asserts the report's own order matches. Keeping the two lists in step is
+    // what makes that assertion mean something.
+    const order = KNOWN_SECTION_IDS.indexOf.bind(KNOWN_SECTION_IDS)
+    expect(order('node_tracking')).toBeLessThan(order('ibd_sf_roots'))
+    expect(order('ibd_sf_roots')).toBeLessThan(order('list_ht'))
+    expect(order('list_ht')).toBeLessThan(order('orthologs'))
+    expect(order('orthologs')).toBeLessThan(order('library'))
+  })
+
+  it('places none of them unattached', () => {
+    for (const sectionId of PHASE_SECTION_IDS) {
+      expect(hasBinding(sectionId), sectionId).toBe(true)
+      expect(resolveBinding(sectionId, null, declaredPhaseIds).placement).not.toBe(
+        UNATTACHED_PHASE_ID
+      )
+    }
   })
 })
