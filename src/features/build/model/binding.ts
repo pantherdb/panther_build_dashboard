@@ -110,6 +110,37 @@ const BINDINGS: readonly SectionBinding[] = [
     rationale: 'Node forward tracking statistics describe their own phase.',
   },
   {
+    sectionId: 'ibd_sf_roots',
+    placement: 'phase',
+    primaryPhaseId: PHASE_IDS.subfamiliesHtOrthologs,
+    contributingPhaseIds: [],
+    rationale:
+      'The two stages it reports -- building the force list of PAINT-implied subfamily roots, ' +
+      'and re-partitioning auto_subfamily output to honour them -- both run inside this phase. ' +
+      'Its subfamily before/after counts are also the only report on what auto_subfamily itself ' +
+      'produced, since that step writes only the input the re-partition consumes.',
+  },
+  {
+    sectionId: 'list_ht',
+    placement: 'phase',
+    primaryPhaseId: PHASE_IDS.subfamiliesHtOrthologs,
+    contributingPhaseIds: [],
+    rationale:
+      'listHT runs in this phase and nowhere else; the HT in the phase name is this section. ' +
+      'It reports horizontal transfer nodes per family, not the row count of listHTFams.tsv, ' +
+      'because one node emits a row per recipient species.',
+  },
+  {
+    sectionId: 'orthologs',
+    placement: 'phase',
+    primaryPhaseId: PHASE_IDS.subfamiliesHtOrthologs,
+    contributingPhaseIds: [],
+    rationale:
+      'The pairwise homolog run, the O/LDO filter and the FTP product build are all stages of ' +
+      'this phase. It reports coverage, scale and product completeness rather than pair counts: ' +
+      'the per-book files are pairwise across ~15,000 books, so counting rows is not affordable.',
+  },
+  {
     sectionId: 'library',
     placement: 'phase',
     primaryPhaseId: PHASE_IDS.libraryExportProducts,

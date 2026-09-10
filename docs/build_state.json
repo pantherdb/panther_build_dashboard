@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "target": "/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun",
-  "generated_at": "2026-09-08T17:40:14Z",
+  "generated_at": "2026-09-10T00:12:00Z",
   "sections": [
     {
       "id": "config_ledger",
       "title": "Build configuration",
       "data": {
         "current": {
-          "generated_at": "2026-09-03T23:07:21Z",
-          "panther_build_git_rev": "08e5f7104459f448e8222eaa3ea2c85320a8821b",
+          "generated_at": "2026-09-09T19:00:58Z",
+          "panther_build_git_rev": "b433f5851bb53e934c46c06f69043282c138ddc3",
           "panther_build_dirty": true,
           "config_file": "config.mk",
           "config_file_contents": "#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n",
@@ -18,10 +18,10 @@
           "SPECIES_TREE": "/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx",
           "PREV_RELEASE_DIR": "/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0",
           "PREV_NODE_DAT": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat",
-          "PREV_RP_TAX_TXT": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/RP_taxonomy_organism_lib.txt",
+          "PREV_RP_TAX_TXT": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt",
           "unresolved_vars": []
         },
-        "record_count": 1,
+        "record_count": 3,
         "text": "**config.mk** contents at this build:\n\n```\n#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n\n```",
         "rows": [
           {
@@ -34,7 +34,7 @@
           },
           {
             "key": "PREV_RP_TAX_TXT",
-            "value": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/RP_taxonomy_organism_lib.txt"
+            "value": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt"
           },
           {
             "key": "PTHR_VERSION",
@@ -54,7 +54,7 @@
           },
           {
             "key": "generated_at",
-            "value": "2026-09-03T23:07:21Z"
+            "value": "2026-09-09T19:00:58Z"
           },
           {
             "key": "panther_build_dirty",
@@ -62,14 +62,17 @@
           },
           {
             "key": "panther_build_git_rev",
-            "value": "08e5f7104459f448e8222eaa3ea2c85320a8821b"
+            "value": "b433f5851bb53e934c46c06f69043282c138ddc3"
           },
           {
             "key": "unresolved_vars",
             "value": []
           }
         ],
-        "warnings": []
+        "warnings": [
+          "config `PREV_RP_TAX_TXT` changed during this build: `/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/RP_taxonomy_organism_lib.txt` \u2192 `/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt`",
+          "config `panther_build_git_rev` changed during this build: `08e5f7104459f448e8222eaa3ea2c85320a8821b` \u2192 `b433f5851bb53e934c46c06f69043282c138ddc3`"
+        ]
       },
       "message": null,
       "status": "ok"
@@ -78,7 +81,7 @@
       "id": "proteomes",
       "title": "Reference proteomes",
       "data": {
-        "text": "**131** reference proteomes: QfO 2026_02 \u00b7 RefProt 2026_02. Previous library roster: no release recorded (144 proteomes, 15 since dropped).",
+        "text": "**131** reference proteomes: QfO 2026_02 \u00b7 RefProt 2026_02. Previous library roster: QfO 2023_03 \u00b7 RefProt 2023_05 (144 proteomes, 15 since dropped).",
         "rows": [
           {
             "metric": "proteomes_total",
@@ -106,15 +109,15 @@
           },
           {
             "metric": "proteomes_source_changed",
-            "value": 0
+            "value": 12
           },
           {
             "metric": "proteomes_version_changed",
-            "value": 0
+            "value": 109
           },
           {
             "metric": "proteomes_same_up",
-            "value": 121
+            "value": 0
           },
           {
             "metric": "proteomes_unchanged",
@@ -173,8 +176,8 @@
                 "source": "RefProt",
                 "version": "2026_02",
                 "prev_up": "UP000008549",
-                "prev_source": "",
-                "prev_version": "",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
                 "change": "up_changed"
               },
               {
@@ -185,8 +188,8 @@
                 "source": "RefProt",
                 "version": "2026_02",
                 "prev_up": "UP000011712",
-                "prev_source": "",
-                "prev_version": "",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
                 "change": "up_changed"
               },
               {
@@ -197,8 +200,8 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000002521",
-                "prev_source": "",
-                "prev_version": "",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
                 "change": "up_changed"
               },
               {
@@ -209,8 +212,8 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000189702",
-                "prev_source": "",
-                "prev_version": "",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
                 "change": "up_changed"
               },
               {
@@ -221,8 +224,8 @@
                 "source": "QfO",
                 "version": "2026_02",
                 "prev_up": "UP000001555",
-                "prev_source": "",
-                "prev_version": "",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
                 "change": "up_changed"
               },
               {
@@ -233,8 +236,8 @@
                 "source": "QfO",
                 "version": "2026_02",
                 "prev_up": "UP000001055",
-                "prev_source": "",
-                "prev_version": "",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
                 "change": "up_changed"
               },
               {
@@ -245,8 +248,8 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP001155700",
-                "prev_source": "",
-                "prev_version": "",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
                 "change": "up_changed"
               },
               {
@@ -257,45 +260,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000084051",
-                "prev_source": "",
-                "prev_version": "",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
                 "change": "up_changed"
-              },
-              {
-                "taxid": "28377",
-                "name": "anolis_carolinensis",
-                "oscode": "ANOCA",
-                "up": "UP000001646",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000001646",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "7165",
-                "name": "anopheles_gambiae",
-                "oscode": "ANOGA",
-                "up": "UP000007062",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000007062",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "224324",
-                "name": "aquifex_aeolicus",
-                "oscode": "AQUAE",
-                "up": "UP000000798",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000798",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
               },
               {
                 "taxid": "3702",
@@ -305,69 +272,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000006548",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "330879",
-                "name": "aspergillus_fumigatus",
-                "oscode": "ASPFU",
-                "up": "UP000002530",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000002530",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "226900",
-                "name": "bacillus_cereus",
-                "oscode": "BACCR",
-                "up": "UP000001417",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000001417",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "224308",
-                "name": "bacillus_subtilis",
-                "oscode": "BACSU",
-                "up": "UP000001570",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001570",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "226186",
-                "name": "bacteroides_thetaiotaomicron",
-                "oscode": "BACTN",
-                "up": "UP000001414",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001414",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "684364",
-                "name": "batrachochytrium_dendrobatidis",
-                "oscode": "BATDJ",
-                "up": "UP000007241",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000007241",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "9913",
@@ -377,81 +284,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000009136",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "3711",
-                "name": "brassica_campestris",
-                "oscode": "BRACM",
-                "up": "UP000011750",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000011750",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "15368",
-                "name": "brachypodium_distachyon",
-                "oscode": "BRADI",
-                "up": "UP000008810",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000008810",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "224911",
-                "name": "bradyrhizobium_diazoefficiens",
-                "oscode": "BRADU",
-                "up": "UP000002526",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000002526",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "7739",
-                "name": "branchiostoma_floridae",
-                "oscode": "BRAFL",
-                "up": "UP000001554",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001554",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "6239",
-                "name": "caenorhabditis_elegans",
-                "oscode": "CAEEL",
-                "up": "UP000001940",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001940",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "237561",
-                "name": "candida_albicans",
-                "oscode": "CANAL",
-                "up": "UP000000559",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000559",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "9615",
@@ -461,9 +296,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000805418",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "9031",
@@ -473,93 +308,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000000539",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "324602",
-                "name": "chloroflexus_aurantiacus",
-                "oscode": "CHLAA",
-                "up": "UP000002008",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000002008",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "3055",
-                "name": "chlamydomonas_reinhardtii",
-                "oscode": "CHLRE",
-                "up": "UP000006906",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000006906",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "272561",
-                "name": "chlamydia_trachomatis_serovar_d",
-                "oscode": "CHLTR",
-                "up": "UP000000431",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000431",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "7719",
-                "name": "ciona_intestinalis",
-                "oscode": "CIOIN",
-                "up": "UP000008144",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000008144",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "441771",
-                "name": "clostridium_botulinum",
-                "oscode": "CLOBH",
-                "up": "UP000001986",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000001986",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "227377",
-                "name": "coxiella_burnetii",
-                "oscode": "COXBU",
-                "up": "UP000002671",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000002671",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "214684",
-                "name": "cryptococcus_deneoformans",
-                "oscode": "CRYD1",
-                "up": "UP000002149",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000002149",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "7955",
@@ -569,57 +320,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000000437",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "243230",
-                "name": "deinococcus_radiodurans",
-                "oscode": "DEIRA",
-                "up": "UP000002524",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000002524",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "44689",
-                "name": "dictyostelium_discoideum",
-                "oscode": "DICDI",
-                "up": "UP000002195",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000002195",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "5786",
-                "name": "dictyostelium_purpureum",
-                "oscode": "DICPU",
-                "up": "UP000001064",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000001064",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "515635",
-                "name": "dictyoglomus_turgidum",
-                "oscode": "DICTD",
-                "up": "UP000007719",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000007719",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "7227",
@@ -629,309 +332,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000000803",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "83333",
-                "name": "escherichia_coli",
-                "oscode": "ECOLI",
-                "up": "UP000000625",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000625",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "227321",
-                "name": "emericella_nidulans",
-                "oscode": "EMENI",
-                "up": "UP000000560",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000000560",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "294381",
-                "name": "entamoeba_histolytica",
-                "oscode": "ENTH1",
-                "up": "UP000001926",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000001926",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "284811",
-                "name": "eremothecium_gossypii",
-                "oscode": "EREGS",
-                "up": "UP000000591",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000000591",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "243231",
-                "name": "geobacter_sulfurreducens",
-                "oscode": "GEOSL",
-                "up": "UP000000577",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000577",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "184922",
-                "name": "giardia_intestinalis",
-                "oscode": "GIAIC",
-                "up": "UP000001548",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001548",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "251221",
-                "name": "gloeobacter_violaceus",
-                "oscode": "GLOVI",
-                "up": "UP000000557",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000557",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "9595",
-                "name": "gorilla_gorilla_gorilla",
-                "oscode": "GORGO",
-                "up": "UP000001519",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001519",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "71421",
-                "name": "haemophilus_influenzae",
-                "oscode": "HAEIN",
-                "up": "UP000000579",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000000579",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "64091",
-                "name": "halobacterium_salinarum",
-                "oscode": "HALSA",
-                "up": "UP000000554",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000554",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "4232",
-                "name": "helianthus_annuus",
-                "oscode": "HELAN",
-                "up": "UP000215914",
-                "source": "RefProt",
-                "version": "2026_01",
-                "prev_up": "UP000215914",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "85962",
-                "name": "helicobacter_pylori",
-                "oscode": "HELPY",
-                "up": "UP000000429",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000429",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "6412",
-                "name": "helobdella_robusta",
-                "oscode": "HELRO",
-                "up": "UP000015101",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000015101",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "9796",
-                "name": "equus_caballus",
-                "oscode": "HORSE",
-                "up": "UP000002281",
-                "source": "RefProt",
-                "version": "2026_01",
-                "prev_up": "UP000002281",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "112509",
-                "name": "hordeum_vulgare_subsp._vulgare",
-                "oscode": "HORVV",
-                "up": "UP000011116",
-                "source": "RefProt",
-                "version": "2026_01",
-                "prev_up": "UP000011116",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "9606",
-                "name": "homo_sapiens",
-                "oscode": "HUMAN",
-                "up": "UP000005640",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000005640",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "51240",
-                "name": "juglans_regia",
-                "oscode": "JUGRE",
-                "up": "UP000235220",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000235220",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "105231",
-                "name": "klebsormidium_nitens",
-                "oscode": "KLENI",
-                "up": "UP000054558",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000054558",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "374847",
-                "name": "korarchaeum_cryptofilum",
-                "oscode": "KORCO",
-                "up": "UP000001686",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001686",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "4236",
-                "name": "lactuca_sativa",
-                "oscode": "LACSA",
-                "up": "UP000235145",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000235145",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "5664",
-                "name": "leishmania_major",
-                "oscode": "LEIMA",
-                "up": "UP000000542",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000542",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "189518",
-                "name": "leptospira_interrogans_serogroup_icterohaemorrhagiae_serovar_lai",
-                "oscode": "LEPIN",
-                "up": "UP000001408",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001408",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "7918",
-                "name": "lepisosteus_oculatus",
-                "oscode": "LEPOC",
-                "up": "UP000018468",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000018468",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "169963",
-                "name": "listeria_monocytogenes_serovar_1_2a",
-                "oscode": "LISMO",
-                "up": "UP000000817",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000000817",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "9544",
-                "name": "macaca_mulatta",
-                "oscode": "MACMU",
-                "up": "UP000006718",
-                "source": "RefProt",
-                "version": "2026_01",
-                "prev_up": "UP000006718",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "4577",
@@ -941,93 +344,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000007305",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "3983",
-                "name": "manihot_esculenta",
-                "oscode": "MANES",
-                "up": "UP000091857",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000091857",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "3197",
-                "name": "marchantia_polymorpha",
-                "oscode": "MARPO",
-                "up": "UP000244005",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000244005",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "3880",
-                "name": "medicago_truncatula",
-                "oscode": "MEDTR",
-                "up": "UP000002051",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000002051",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "188937",
-                "name": "methanosarcina_acetivorans",
-                "oscode": "METAC",
-                "up": "UP000002487",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000002487",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "243232",
-                "name": "methanocaldococcus_jannaschii",
-                "oscode": "METJA",
-                "up": "UP000000805",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000805",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "81824",
-                "name": "monosiga_brevicollis",
-                "oscode": "MONBE",
-                "up": "UP000001357",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001357",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "13616",
-                "name": "monodelphis_domestica",
-                "oscode": "MONDO",
-                "up": "UP000002280",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000002280",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "10090",
@@ -1037,129 +356,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000000589",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "243273",
-                "name": "mycoplasmoides_genitalium",
-                "oscode": "MYCGE",
-                "up": "UP000000807",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000807",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "83332",
-                "name": "mycobacterium_tuberculosis",
-                "oscode": "MYCTU",
-                "up": "UP000001584",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001584",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "122586",
-                "name": "neisseria_meningitidis_serogroup_b",
-                "oscode": "NEIMB",
-                "up": "UP000000425",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000425",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "4432",
-                "name": "nelumbo_nucifera",
-                "oscode": "NELNU",
-                "up": "UP000189703",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000189703",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "45351",
-                "name": "nematostella_vectensis",
-                "oscode": "NEMVE",
-                "up": "UP000001593",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001593",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "367110",
-                "name": "neurospora_crassa",
-                "oscode": "NEUCR",
-                "up": "UP000001805",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001805",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "436308",
-                "name": "nitrosopumilus_maritimus",
-                "oscode": "NITMS",
-                "up": "UP000000792",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000792",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "9258",
-                "name": "ornithorhynchus_anatinus",
-                "oscode": "ORNAN",
-                "up": "UP000002279",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000002279",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "8090",
-                "name": "oryzias_latipes",
-                "oscode": "ORYLA",
-                "up": "UP000001038",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001038",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "39947",
-                "name": "oryza_sativa_subsp._japonica",
-                "oscode": "ORYSJ",
-                "up": "UP000059680",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000059680",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "9598",
@@ -1169,141 +368,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000002277",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "5888",
-                "name": "paramecium_tetraurelia",
-                "oscode": "PARTE",
-                "up": "UP000000600",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000600",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "3218",
-                "name": "physcomitrium_patens",
-                "oscode": "PHYPA",
-                "up": "UP000006727",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000006727",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "164328",
-                "name": "phytophthora_ramorum",
-                "oscode": "PHYRM",
-                "up": "UP000005238",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000005238",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "9823",
-                "name": "sus_scrofa",
-                "oscode": "PIG",
-                "up": "UP000008227",
-                "source": "RefProt",
-                "version": "2026_01",
-                "prev_up": "UP000008227",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "36329",
-                "name": "plasmodium_falciparum",
-                "oscode": "PLAF7",
-                "up": "UP000001450",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001450",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "3694",
-                "name": "populus_trichocarpa",
-                "oscode": "POPTR",
-                "up": "UP000006729",
-                "source": "RefProt",
-                "version": "2026_01",
-                "prev_up": "UP000006729",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "54126",
-                "name": "pristionchus_pacificus",
-                "oscode": "PRIPA",
-                "up": "UP000005239",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000005239",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "3760",
-                "name": "prunus_persica",
-                "oscode": "PRUPE",
-                "up": "UP000006882",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000006882",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "208964",
-                "name": "pseudomonas_aeruginosa",
-                "oscode": "PSEAE",
-                "up": "UP000002438",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000002438",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "418459",
-                "name": "puccinia_graminis_f._sp._tritici",
-                "oscode": "PUCGT",
-                "up": "UP000008783",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000008783",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "178306",
-                "name": "pyrobaculum_aerophilum",
-                "oscode": "PYRAE",
-                "up": "UP000002439",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000002439",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "10116",
@@ -1313,345 +380,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000002494",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "243090",
-                "name": "rhodopirellula_baltica",
-                "oscode": "RHOBA",
-                "up": "UP000001025",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001025",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "273057",
-                "name": "saccharolobus_solfataricus",
-                "oscode": "SACS2",
-                "up": "UP000001974",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001974",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "99287",
-                "name": "salmonella_typhimurium",
-                "oscode": "SALTY",
-                "up": "UP000001014",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000001014",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "402676",
-                "name": "schizosaccharomyces_japonicus",
-                "oscode": "SCHJY",
-                "up": "UP000001744",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000001744",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "284812",
-                "name": "schizosaccharomyces_pombe",
-                "oscode": "SCHPO",
-                "up": "UP000002485",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000002485",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "665079",
-                "name": "sclerotinia_sclerotiorum",
-                "oscode": "SCLS1",
-                "up": "UP000001312",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001312",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "211586",
-                "name": "shewanella_oneidensis",
-                "oscode": "SHEON",
-                "up": "UP000008186",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000008186",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "4081",
-                "name": "solanum_lycopersicum",
-                "oscode": "SOLLC",
-                "up": "UP000004994",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000004994",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "4558",
-                "name": "sorghum_bicolor",
-                "oscode": "SORBI",
-                "up": "UP000000768",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000000768",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "3847",
-                "name": "glycine_max",
-                "oscode": "SOYBN",
-                "up": "UP000008827",
-                "source": "RefProt",
-                "version": "2026_01",
-                "prev_up": "UP000008827",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "93061",
-                "name": "staphylococcus_aureus",
-                "oscode": "STAA8",
-                "up": "UP000008816",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000008816",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "100226",
-                "name": "streptomyces_coelicolor",
-                "oscode": "STRCO",
-                "up": "UP000001973",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001973",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "7668",
-                "name": "strongylocentrotus_purpuratus",
-                "oscode": "STRPU",
-                "up": "UP000007110",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000007110",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "171101",
-                "name": "streptococcus_pneumoniae",
-                "oscode": "STRR6",
-                "up": "UP000000586",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000000586",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "1111708",
-                "name": "synechocystis_sp.",
-                "oscode": "SYNY3",
-                "up": "UP000001425",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001425",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "35128",
-                "name": "thalassiosira_pseudonana",
-                "oscode": "THAPS",
-                "up": "UP000001449",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001449",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "3641",
-                "name": "theobroma_cacao",
-                "oscode": "THECC",
-                "up": "UP000026915",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000026915",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "69014",
-                "name": "thermococcus_kodakarensis",
-                "oscode": "THEKO",
-                "up": "UP000000536",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000536",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "243274",
-                "name": "thermotoga_maritima",
-                "oscode": "THEMA",
-                "up": "UP000008183",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000008183",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "289376",
-                "name": "thermodesulfovibrio_yellowstonii",
-                "oscode": "THEYD",
-                "up": "UP000000718",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000000718",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "10228",
-                "name": "trichoplax_adhaerens",
-                "oscode": "TRIAD",
-                "up": "UP000009022",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000009022",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "7070",
-                "name": "tribolium_castaneum",
-                "oscode": "TRICA",
-                "up": "UP000007266",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000007266",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "412133",
-                "name": "trichomonas_vaginalis",
-                "oscode": "TRIV3",
-                "up": "UP000001542",
-                "source": "QfO",
-                "version": "2026_02",
-                "prev_up": "UP000001542",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "185431",
-                "name": "trypanosoma_brucei_brucei",
-                "oscode": "TRYB2",
-                "up": "UP000008524",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000008524",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "243277",
-                "name": "vibrio_cholerae_serotype_o1",
-                "oscode": "VIBCH",
-                "up": "UP000000584",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000000584",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "29760",
-                "name": "vitis_vinifera",
-                "oscode": "VITVI",
-                "up": "UP000009183",
-                "source": "RefProt",
-                "version": "2026_01",
-                "prev_up": "UP000009183",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "4565",
-                "name": "triticum_aestivum",
-                "oscode": "WHEAT",
-                "up": "UP000019116",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000019116",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
-              },
-              {
-                "taxid": "190485",
-                "name": "xanthomonas_campestris_pv._campestris",
-                "oscode": "XANCP",
-                "up": "UP000001010",
-                "source": "RefProt",
-                "version": "2026_02",
-                "prev_up": "UP000001010",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "8355",
@@ -1661,9 +392,9 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000186698",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
               },
               {
                 "taxid": "8364",
@@ -1673,9 +404,1281 @@
                 "source": "RefProt",
                 "version": "2026_01",
                 "prev_up": "UP000008143",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "source_changed"
+              },
+              {
+                "taxid": "28377",
+                "name": "anolis_carolinensis",
+                "oscode": "ANOCA",
+                "up": "UP000001646",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001646",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "7165",
+                "name": "anopheles_gambiae",
+                "oscode": "ANOGA",
+                "up": "UP000007062",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000007062",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "224324",
+                "name": "aquifex_aeolicus",
+                "oscode": "AQUAE",
+                "up": "UP000000798",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000798",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "330879",
+                "name": "aspergillus_fumigatus",
+                "oscode": "ASPFU",
+                "up": "UP000002530",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002530",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "226900",
+                "name": "bacillus_cereus",
+                "oscode": "BACCR",
+                "up": "UP000001417",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001417",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "224308",
+                "name": "bacillus_subtilis",
+                "oscode": "BACSU",
+                "up": "UP000001570",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001570",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "226186",
+                "name": "bacteroides_thetaiotaomicron",
+                "oscode": "BACTN",
+                "up": "UP000001414",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001414",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "684364",
+                "name": "batrachochytrium_dendrobatidis",
+                "oscode": "BATDJ",
+                "up": "UP000007241",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000007241",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "3711",
+                "name": "brassica_campestris",
+                "oscode": "BRACM",
+                "up": "UP000011750",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000011750",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "15368",
+                "name": "brachypodium_distachyon",
+                "oscode": "BRADI",
+                "up": "UP000008810",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000008810",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "224911",
+                "name": "bradyrhizobium_diazoefficiens",
+                "oscode": "BRADU",
+                "up": "UP000002526",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002526",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "7739",
+                "name": "branchiostoma_floridae",
+                "oscode": "BRAFL",
+                "up": "UP000001554",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001554",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "6239",
+                "name": "caenorhabditis_elegans",
+                "oscode": "CAEEL",
+                "up": "UP000001940",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001940",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "237561",
+                "name": "candida_albicans",
+                "oscode": "CANAL",
+                "up": "UP000000559",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000559",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "324602",
+                "name": "chloroflexus_aurantiacus",
+                "oscode": "CHLAA",
+                "up": "UP000002008",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002008",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "3055",
+                "name": "chlamydomonas_reinhardtii",
+                "oscode": "CHLRE",
+                "up": "UP000006906",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000006906",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "272561",
+                "name": "chlamydia_trachomatis_serovar_d",
+                "oscode": "CHLTR",
+                "up": "UP000000431",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000431",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "7719",
+                "name": "ciona_intestinalis",
+                "oscode": "CIOIN",
+                "up": "UP000008144",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000008144",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "441771",
+                "name": "clostridium_botulinum",
+                "oscode": "CLOBH",
+                "up": "UP000001986",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001986",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "227377",
+                "name": "coxiella_burnetii",
+                "oscode": "COXBU",
+                "up": "UP000002671",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000002671",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "214684",
+                "name": "cryptococcus_deneoformans",
+                "oscode": "CRYD1",
+                "up": "UP000002149",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002149",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "243230",
+                "name": "deinococcus_radiodurans",
+                "oscode": "DEIRA",
+                "up": "UP000002524",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002524",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "44689",
+                "name": "dictyostelium_discoideum",
+                "oscode": "DICDI",
+                "up": "UP000002195",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002195",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "5786",
+                "name": "dictyostelium_purpureum",
+                "oscode": "DICPU",
+                "up": "UP000001064",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001064",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "515635",
+                "name": "dictyoglomus_turgidum",
+                "oscode": "DICTD",
+                "up": "UP000007719",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000007719",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "83333",
+                "name": "escherichia_coli",
+                "oscode": "ECOLI",
+                "up": "UP000000625",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000625",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "227321",
+                "name": "emericella_nidulans",
+                "oscode": "EMENI",
+                "up": "UP000000560",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000560",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "294381",
+                "name": "entamoeba_histolytica",
+                "oscode": "ENTH1",
+                "up": "UP000001926",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001926",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "284811",
+                "name": "eremothecium_gossypii",
+                "oscode": "EREGS",
+                "up": "UP000000591",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000591",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "243231",
+                "name": "geobacter_sulfurreducens",
+                "oscode": "GEOSL",
+                "up": "UP000000577",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000577",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "184922",
+                "name": "giardia_intestinalis",
+                "oscode": "GIAIC",
+                "up": "UP000001548",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001548",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "251221",
+                "name": "gloeobacter_violaceus",
+                "oscode": "GLOVI",
+                "up": "UP000000557",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000557",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "9595",
+                "name": "gorilla_gorilla_gorilla",
+                "oscode": "GORGO",
+                "up": "UP000001519",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001519",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "71421",
+                "name": "haemophilus_influenzae",
+                "oscode": "HAEIN",
+                "up": "UP000000579",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000579",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "64091",
+                "name": "halobacterium_salinarum",
+                "oscode": "HALSA",
+                "up": "UP000000554",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000554",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "4232",
+                "name": "helianthus_annuus",
+                "oscode": "HELAN",
+                "up": "UP000215914",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000215914",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "85962",
+                "name": "helicobacter_pylori",
+                "oscode": "HELPY",
+                "up": "UP000000429",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000429",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "6412",
+                "name": "helobdella_robusta",
+                "oscode": "HELRO",
+                "up": "UP000015101",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000015101",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "9796",
+                "name": "equus_caballus",
+                "oscode": "HORSE",
+                "up": "UP000002281",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000002281",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "112509",
+                "name": "hordeum_vulgare_subsp._vulgare",
+                "oscode": "HORVV",
+                "up": "UP000011116",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000011116",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "9606",
+                "name": "homo_sapiens",
+                "oscode": "HUMAN",
+                "up": "UP000005640",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000005640",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "51240",
+                "name": "juglans_regia",
+                "oscode": "JUGRE",
+                "up": "UP000235220",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000235220",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "105231",
+                "name": "klebsormidium_nitens",
+                "oscode": "KLENI",
+                "up": "UP000054558",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000054558",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "374847",
+                "name": "korarchaeum_cryptofilum",
+                "oscode": "KORCO",
+                "up": "UP000001686",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001686",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "4236",
+                "name": "lactuca_sativa",
+                "oscode": "LACSA",
+                "up": "UP000235145",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000235145",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "5664",
+                "name": "leishmania_major",
+                "oscode": "LEIMA",
+                "up": "UP000000542",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000542",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "189518",
+                "name": "leptospira_interrogans_serogroup_icterohaemorrhagiae_serovar_lai",
+                "oscode": "LEPIN",
+                "up": "UP000001408",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001408",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "7918",
+                "name": "lepisosteus_oculatus",
+                "oscode": "LEPOC",
+                "up": "UP000018468",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000018468",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "169963",
+                "name": "listeria_monocytogenes_serovar_1_2a",
+                "oscode": "LISMO",
+                "up": "UP000000817",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000817",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "9544",
+                "name": "macaca_mulatta",
+                "oscode": "MACMU",
+                "up": "UP000006718",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000006718",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "3983",
+                "name": "manihot_esculenta",
+                "oscode": "MANES",
+                "up": "UP000091857",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000091857",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "3197",
+                "name": "marchantia_polymorpha",
+                "oscode": "MARPO",
+                "up": "UP000244005",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000244005",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "3880",
+                "name": "medicago_truncatula",
+                "oscode": "MEDTR",
+                "up": "UP000002051",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000002051",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "188937",
+                "name": "methanosarcina_acetivorans",
+                "oscode": "METAC",
+                "up": "UP000002487",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002487",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "243232",
+                "name": "methanocaldococcus_jannaschii",
+                "oscode": "METJA",
+                "up": "UP000000805",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000805",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "81824",
+                "name": "monosiga_brevicollis",
+                "oscode": "MONBE",
+                "up": "UP000001357",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001357",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "13616",
+                "name": "monodelphis_domestica",
+                "oscode": "MONDO",
+                "up": "UP000002280",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002280",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "243273",
+                "name": "mycoplasmoides_genitalium",
+                "oscode": "MYCGE",
+                "up": "UP000000807",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000807",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "83332",
+                "name": "mycobacterium_tuberculosis",
+                "oscode": "MYCTU",
+                "up": "UP000001584",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001584",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "122586",
+                "name": "neisseria_meningitidis_serogroup_b",
+                "oscode": "NEIMB",
+                "up": "UP000000425",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000425",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "4432",
+                "name": "nelumbo_nucifera",
+                "oscode": "NELNU",
+                "up": "UP000189703",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000189703",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "45351",
+                "name": "nematostella_vectensis",
+                "oscode": "NEMVE",
+                "up": "UP000001593",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001593",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "367110",
+                "name": "neurospora_crassa",
+                "oscode": "NEUCR",
+                "up": "UP000001805",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001805",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "436308",
+                "name": "nitrosopumilus_maritimus",
+                "oscode": "NITMS",
+                "up": "UP000000792",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000792",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "9258",
+                "name": "ornithorhynchus_anatinus",
+                "oscode": "ORNAN",
+                "up": "UP000002279",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000002279",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "8090",
+                "name": "oryzias_latipes",
+                "oscode": "ORYLA",
+                "up": "UP000001038",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001038",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "39947",
+                "name": "oryza_sativa_subsp._japonica",
+                "oscode": "ORYSJ",
+                "up": "UP000059680",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000059680",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "5888",
+                "name": "paramecium_tetraurelia",
+                "oscode": "PARTE",
+                "up": "UP000000600",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000600",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "3218",
+                "name": "physcomitrium_patens",
+                "oscode": "PHYPA",
+                "up": "UP000006727",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000006727",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "164328",
+                "name": "phytophthora_ramorum",
+                "oscode": "PHYRM",
+                "up": "UP000005238",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000005238",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "9823",
+                "name": "sus_scrofa",
+                "oscode": "PIG",
+                "up": "UP000008227",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000008227",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "36329",
+                "name": "plasmodium_falciparum",
+                "oscode": "PLAF7",
+                "up": "UP000001450",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001450",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "3694",
+                "name": "populus_trichocarpa",
+                "oscode": "POPTR",
+                "up": "UP000006729",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000006729",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "54126",
+                "name": "pristionchus_pacificus",
+                "oscode": "PRIPA",
+                "up": "UP000005239",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000005239",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "3760",
+                "name": "prunus_persica",
+                "oscode": "PRUPE",
+                "up": "UP000006882",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000006882",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "208964",
+                "name": "pseudomonas_aeruginosa",
+                "oscode": "PSEAE",
+                "up": "UP000002438",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002438",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "418459",
+                "name": "puccinia_graminis_f._sp._tritici",
+                "oscode": "PUCGT",
+                "up": "UP000008783",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000008783",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "178306",
+                "name": "pyrobaculum_aerophilum",
+                "oscode": "PYRAE",
+                "up": "UP000002439",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000002439",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "243090",
+                "name": "rhodopirellula_baltica",
+                "oscode": "RHOBA",
+                "up": "UP000001025",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001025",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "273057",
+                "name": "saccharolobus_solfataricus",
+                "oscode": "SACS2",
+                "up": "UP000001974",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001974",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "99287",
+                "name": "salmonella_typhimurium",
+                "oscode": "SALTY",
+                "up": "UP000001014",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001014",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "402676",
+                "name": "schizosaccharomyces_japonicus",
+                "oscode": "SCHJY",
+                "up": "UP000001744",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001744",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "284812",
+                "name": "schizosaccharomyces_pombe",
+                "oscode": "SCHPO",
+                "up": "UP000002485",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000002485",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "665079",
+                "name": "sclerotinia_sclerotiorum",
+                "oscode": "SCLS1",
+                "up": "UP000001312",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001312",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "211586",
+                "name": "shewanella_oneidensis",
+                "oscode": "SHEON",
+                "up": "UP000008186",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000008186",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "4081",
+                "name": "solanum_lycopersicum",
+                "oscode": "SOLLC",
+                "up": "UP000004994",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000004994",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "4558",
+                "name": "sorghum_bicolor",
+                "oscode": "SORBI",
+                "up": "UP000000768",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000768",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "3847",
+                "name": "glycine_max",
+                "oscode": "SOYBN",
+                "up": "UP000008827",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000008827",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "93061",
+                "name": "staphylococcus_aureus",
+                "oscode": "STAA8",
+                "up": "UP000008816",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000008816",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "100226",
+                "name": "streptomyces_coelicolor",
+                "oscode": "STRCO",
+                "up": "UP000001973",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001973",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "7668",
+                "name": "strongylocentrotus_purpuratus",
+                "oscode": "STRPU",
+                "up": "UP000007110",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000007110",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "171101",
+                "name": "streptococcus_pneumoniae",
+                "oscode": "STRR6",
+                "up": "UP000000586",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000586",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "1111708",
+                "name": "synechocystis_sp.",
+                "oscode": "SYNY3",
+                "up": "UP000001425",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001425",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "35128",
+                "name": "thalassiosira_pseudonana",
+                "oscode": "THAPS",
+                "up": "UP000001449",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001449",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "3641",
+                "name": "theobroma_cacao",
+                "oscode": "THECC",
+                "up": "UP000026915",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000026915",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "69014",
+                "name": "thermococcus_kodakarensis",
+                "oscode": "THEKO",
+                "up": "UP000000536",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000536",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "243274",
+                "name": "thermotoga_maritima",
+                "oscode": "THEMA",
+                "up": "UP000008183",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000008183",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "289376",
+                "name": "thermodesulfovibrio_yellowstonii",
+                "oscode": "THEYD",
+                "up": "UP000000718",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000000718",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "10228",
+                "name": "trichoplax_adhaerens",
+                "oscode": "TRIAD",
+                "up": "UP000009022",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000009022",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "7070",
+                "name": "tribolium_castaneum",
+                "oscode": "TRICA",
+                "up": "UP000007266",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000007266",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "412133",
+                "name": "trichomonas_vaginalis",
+                "oscode": "TRIV3",
+                "up": "UP000001542",
+                "source": "QfO",
+                "version": "2026_02",
+                "prev_up": "UP000001542",
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "185431",
+                "name": "trypanosoma_brucei_brucei",
+                "oscode": "TRYB2",
+                "up": "UP000008524",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000008524",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "243277",
+                "name": "vibrio_cholerae_serotype_o1",
+                "oscode": "VIBCH",
+                "up": "UP000000584",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000000584",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "29760",
+                "name": "vitis_vinifera",
+                "oscode": "VITVI",
+                "up": "UP000009183",
+                "source": "RefProt",
+                "version": "2026_01",
+                "prev_up": "UP000009183",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "4565",
+                "name": "triticum_aestivum",
+                "oscode": "WHEAT",
+                "up": "UP000019116",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000019116",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
+              },
+              {
+                "taxid": "190485",
+                "name": "xanthomonas_campestris_pv._campestris",
+                "oscode": "XANCP",
+                "up": "UP000001010",
+                "source": "RefProt",
+                "version": "2026_02",
+                "prev_up": "UP000001010",
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
               },
               {
                 "taxid": "284591",
@@ -1685,9 +1688,9 @@
                 "source": "QfO",
                 "version": "2026_02",
                 "prev_up": "UP000001300",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
               },
               {
                 "taxid": "559292",
@@ -1697,9 +1700,9 @@
                 "source": "QfO",
                 "version": "2026_02",
                 "prev_up": "UP000002311",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "QfO",
+                "prev_version": "2023_03",
+                "change": "version_changed"
               },
               {
                 "taxid": "632",
@@ -1709,9 +1712,9 @@
                 "source": "RefProt",
                 "version": "2026_02",
                 "prev_up": "UP000000815",
-                "prev_source": "",
-                "prev_version": "",
-                "change": "same_up"
+                "prev_source": "RefProt",
+                "prev_version": "2023_05",
+                "change": "version_changed"
               }
             ],
             "total_rows": 131,
@@ -1733,120 +1736,120 @@
                 "name": "amborella_trichopoda",
                 "oscode": "AMBTC",
                 "up": "UP000017836",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "3708",
                 "name": "brassica_napus",
                 "oscode": "BRANA",
                 "up": "UP000028999",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "4072",
                 "name": "capsicum_annuum",
                 "oscode": "CAPAN",
                 "up": "UP000222542",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "2711",
                 "name": "citrus_sinensis",
                 "oscode": "CITSI",
                 "up": "UP000027120",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "3659",
                 "name": "cucumis_sativus",
                 "oscode": "CUCSA",
                 "up": "UP000029981",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "6669",
                 "name": "daphnia_pulex",
                 "oscode": "DAPPU",
                 "up": "UP000000305",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "4155",
                 "name": "erythranthe_guttata",
                 "oscode": "ERYGU",
                 "up": "UP000030748",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "71139",
                 "name": "eucalyptus_grandis",
                 "oscode": "EUCGR",
                 "up": "UP000030711",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "214687",
                 "name": "musa_acuminata_subsp._malaccensis",
                 "oscode": "MUSAM",
                 "up": "UP000012960",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "3988",
                 "name": "ricinus_communis",
                 "oscode": "RICCO",
                 "up": "UP000008311",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "88036",
                 "name": "selaginella_moellendorffii",
                 "oscode": "SELML",
                 "up": "UP000001514",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "4555",
                 "name": "setaria_italica",
                 "oscode": "SETIT",
                 "up": "UP000004995",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "4113",
                 "name": "solanum_tuberosum",
                 "oscode": "SOLTU",
                 "up": "UP000011115",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               },
               {
                 "taxid": "237631",
                 "name": "ustilago_maydis",
                 "oscode": "USTMA",
                 "up": "UP000000561",
-                "source": "",
-                "version": ""
+                "source": "QfO",
+                "version": "2023_03"
               },
               {
                 "taxid": "29655",
                 "name": "zostera_marina",
                 "oscode": "ZOSMR",
                 "up": "UP000036987",
-                "source": "",
-                "version": ""
+                "source": "RefProt",
+                "version": "2023_05"
               }
             ],
             "total_rows": 15,
@@ -1855,7 +1858,6 @@
         ],
         "warnings": [
           "24 proteome(s) are not on their source's majority release: ARATH (RefProt 2026_01, majority 2026_02); BOVIN (RefProt 2026_01, majority 2026_02); CANLF (RefProt 2026_01, majority 2026_02); CHICK (RefProt 2026_01, majority 2026_02); DANRE (RefProt 2026_01, majority 2026_02); DROME (RefProt 2026_01, majority 2026_02); FUSNN (RefProt 2026_01, majority 2026_02); GOSHI (RefProt 2026_01, majority 2026_02). Deliberate for a hand-swapped proteome; otherwise a stamping error.",
-          "the previous library's roster /project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/RP_taxonomy_organism_lib.txt predates issue #65 (no source/release columns), so per-proteome release changes cannot be reported: proteomes keeping their UP number are shown as same_up rather than unchanged. Point PREV_RP_TAX_TXT at a stamped roster to get release deltas.",
           "1 proteome(s) counted as both dropped and new carry the same UP number on each side: UP000000561 (USTMA/237631 -> MYCMD/5270). The species was re-identified under a new taxID, not replaced -- do not read these as library churn."
         ]
       },
@@ -2082,7 +2084,7 @@
               {
                 "goal": "famlib/dev/PANTHER20.0/lib_20.0/listHT",
                 "status": "done",
-                "mtime": 1788542937.0,
+                "mtime": 1788999072.0,
                 "attempts": []
               },
               {
@@ -2320,30 +2322,31 @@
           },
           {
             "name": "Final packaging",
-            "done": 1,
+            "done": 2,
             "total": 2,
             "steps": [
               {
                 "goal": "PTHR20.0_DBload.tar.gz",
                 "status": "done",
-                "mtime": 1788585743.0,
+                "mtime": 1788979857.0,
                 "attempts": []
               },
               {
                 "goal": "PANTHER20.0.tar.gz.touch",
-                "status": "pending",
-                "mtime": null,
+                "status": "done",
+                "mtime": 1788981988.0,
                 "attempts": []
               }
             ]
           }
         ],
         "headline": {
-          "phases_complete": 12,
-          "steps_complete": 59,
+          "phases_complete": 13,
+          "steps_complete": 60,
           "steps_total": 62
         },
         "warnings": [
+          "orthologs.touch is older than famlib/dev/PANTHER20.0/lib_20.0/listHT, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)",
           "ftp/PANTHER_HMM_Classification_files/PANTHER20.0_HMM_classifications is older than QfO_OrthoXML.xml, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)"
         ]
       },
@@ -3597,6 +3600,746 @@
           "species_reported": 131
         },
         "warnings": []
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "ibd_sf_roots",
+      "title": "PAINT-implied subfamily roots",
+      "data": {
+        "text": "The force list has not been built yet. The re-partition has not run yet.",
+        "rows": [],
+        "tables": [
+          {
+            "name": "Forced nodes by tracked node type",
+            "columns": [
+              "tracked_type",
+              "outcome",
+              "count"
+            ],
+            "rows": [
+              {
+                "tracked_type": "SPECIATION",
+                "outcome": "already_root",
+                "count": 11277
+              },
+              {
+                "tracked_type": "SPECIATION",
+                "outcome": "applied",
+                "count": 5177
+              },
+              {
+                "tracked_type": "DUPLICATION",
+                "outcome": "not_speciation",
+                "count": 1594
+              },
+              {
+                "tracked_type": "SPECIATION",
+                "outcome": "applied_under_ht",
+                "count": 902
+              },
+              {
+                "tracked_type": "SPECIATION",
+                "outcome": "would_starve_owner",
+                "count": 730
+              },
+              {
+                "tracked_type": "LEAF",
+                "outcome": "not_speciation",
+                "count": 570
+              },
+              {
+                "tracked_type": "SPECIATION",
+                "outcome": "would_empty_group",
+                "count": 108
+              },
+              {
+                "tracked_type": "HORIZ_TRANSFER",
+                "outcome": "already_root",
+                "count": 76
+              },
+              {
+                "tracked_type": "HORIZ_TRANSFER",
+                "outcome": "not_speciation",
+                "count": 56
+              },
+              {
+                "tracked_type": "SPECIATION",
+                "outcome": "would_be_singleton",
+                "count": 45
+              },
+              {
+                "tracked_type": "DUPLICATION",
+                "outcome": "already_root",
+                "count": 1
+              }
+            ],
+            "total_rows": 11,
+            "truncated": false
+          }
+        ],
+        "headline": {}
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "list_ht",
+      "title": "Horizontal transfer (listHT)",
+      "data": {
+        "text": "15795 of 15795 book(s) were analysed for horizontal transfer. 4497 HT node(s) across 2842 family(ies), describing 7508 transfer edge(s).",
+        "rows": [
+          {
+            "metric": "ht_books_with_output",
+            "value": 15795
+          },
+          {
+            "metric": "ht_books_without_output",
+            "value": 0
+          },
+          {
+            "metric": "ht_books_with_no_transfer",
+            "value": 12953
+          },
+          {
+            "metric": "ht_books_failed",
+            "value": 0
+          },
+          {
+            "metric": "ht_books_analysed",
+            "value": 15795
+          },
+          {
+            "metric": "ht_books_with_diagnostics",
+            "value": 0
+          },
+          {
+            "metric": "ht_nodes",
+            "value": 4497
+          },
+          {
+            "metric": "ht_transfer_edges",
+            "value": 7508
+          },
+          {
+            "metric": "ht_families",
+            "value": 2842
+          },
+          {
+            "metric": "ht_donor_undetermined",
+            "value": 5
+          },
+          {
+            "metric": "ht_unparsed_rows",
+            "value": 0
+          },
+          {
+            "metric": "ht_nodes_per_family_max",
+            "value": 12
+          },
+          {
+            "metric": "ht_nodes_per_family_median",
+            "value": 1.0
+          },
+          {
+            "metric": "ht_donor_undetermined_pct",
+            "value": 0.07
+          }
+        ],
+        "tables": [
+          {
+            "name": "Families by HT node count",
+            "columns": [
+              "family",
+              "ht_nodes",
+              "transfer_edges"
+            ],
+            "rows": [
+              {
+                "family": "PTHR42760",
+                "ht_nodes": 12,
+                "transfer_edges": 14
+              },
+              {
+                "family": "PTHR43245",
+                "ht_nodes": 10,
+                "transfer_edges": 11
+              },
+              {
+                "family": "PTHR34491",
+                "ht_nodes": 9,
+                "transfer_edges": 27
+              },
+              {
+                "family": "PTHR43085",
+                "ht_nodes": 9,
+                "transfer_edges": 11
+              },
+              {
+                "family": "PTHR11699",
+                "ht_nodes": 8,
+                "transfer_edges": 9
+              },
+              {
+                "family": "PTHR18968",
+                "ht_nodes": 8,
+                "transfer_edges": 9
+              },
+              {
+                "family": "PTHR42912",
+                "ht_nodes": 8,
+                "transfer_edges": 8
+              },
+              {
+                "family": "PTHR43464",
+                "ht_nodes": 8,
+                "transfer_edges": 8
+              },
+              {
+                "family": "PTHR48083",
+                "ht_nodes": 8,
+                "transfer_edges": 8
+              },
+              {
+                "family": "PTHR11079",
+                "ht_nodes": 7,
+                "transfer_edges": 8
+              },
+              {
+                "family": "PTHR11496",
+                "ht_nodes": 7,
+                "transfer_edges": 10
+              },
+              {
+                "family": "PTHR21366",
+                "ht_nodes": 7,
+                "transfer_edges": 7
+              },
+              {
+                "family": "PTHR23064",
+                "ht_nodes": 7,
+                "transfer_edges": 9
+              },
+              {
+                "family": "PTHR43540",
+                "ht_nodes": 7,
+                "transfer_edges": 8
+              },
+              {
+                "family": "PTHR48094",
+                "ht_nodes": 7,
+                "transfer_edges": 8
+              },
+              {
+                "family": "PTHR10625",
+                "ht_nodes": 6,
+                "transfer_edges": 6
+              },
+              {
+                "family": "PTHR11040",
+                "ht_nodes": 6,
+                "transfer_edges": 6
+              },
+              {
+                "family": "PTHR12526",
+                "ht_nodes": 6,
+                "transfer_edges": 7
+              },
+              {
+                "family": "PTHR13847",
+                "ht_nodes": 6,
+                "transfer_edges": 9
+              },
+              {
+                "family": "PTHR22911",
+                "ht_nodes": 6,
+                "transfer_edges": 8
+              }
+            ],
+            "total_rows": 2842,
+            "truncated": true
+          },
+          {
+            "name": "Recipient species by transfer count",
+            "columns": [
+              "recipient",
+              "count"
+            ],
+            "rows": [
+              {
+                "recipient": "TRIV3",
+                "count": 1248
+              },
+              {
+                "recipient": "Eukaryota",
+                "count": 385
+              },
+              {
+                "recipient": "METAC",
+                "count": 255
+              },
+              {
+                "recipient": "STRCO",
+                "count": 208
+              },
+              {
+                "recipient": "MONBE",
+                "count": 201
+              },
+              {
+                "recipient": "DAPMA",
+                "count": 171
+              },
+              {
+                "recipient": "NEMVE",
+                "count": 164
+              },
+              {
+                "recipient": "BRADU",
+                "count": 153
+              },
+              {
+                "recipient": "SYNY3",
+                "count": 153
+              },
+              {
+                "recipient": "Viridiplantae",
+                "count": 144
+              },
+              {
+                "recipient": "PSEAE",
+                "count": 140
+              },
+              {
+                "recipient": "MYCTU",
+                "count": 129
+              },
+              {
+                "recipient": "RHOBA",
+                "count": 127
+              },
+              {
+                "recipient": "GLOVI",
+                "count": 114
+              },
+              {
+                "recipient": "PHYRM",
+                "count": 113
+              },
+              {
+                "recipient": "XANCP",
+                "count": 112
+              },
+              {
+                "recipient": "IXOSC",
+                "count": 107
+              },
+              {
+                "recipient": "Streptophyta",
+                "count": 102
+              },
+              {
+                "recipient": "Cyanobacteria",
+                "count": 101
+              },
+              {
+                "recipient": "CHLAA",
+                "count": 96
+              }
+            ],
+            "total_rows": 190,
+            "truncated": true
+          },
+          {
+            "name": "Donor to recipient pairs",
+            "columns": [
+              "donor",
+              "recipient",
+              "count"
+            ],
+            "rows": [
+              {
+                "donor": "Mammalia",
+                "recipient": "TRIV3",
+                "count": 1183
+              },
+              {
+                "donor": "Eubacteria",
+                "recipient": "Eukaryota",
+                "count": 196
+              },
+              {
+                "donor": "Eubacteria",
+                "recipient": "METAC",
+                "count": 133
+              },
+              {
+                "donor": "Eutheria",
+                "recipient": "MONBE",
+                "count": 129
+              },
+              {
+                "donor": "Sauria",
+                "recipient": "DAPMA",
+                "count": 121
+              },
+              {
+                "donor": "Ascomycota",
+                "recipient": "IXOSC",
+                "count": 101
+              },
+              {
+                "donor": "Proteobacteria",
+                "recipient": "Eukaryota",
+                "count": 76
+              },
+              {
+                "donor": "Eukaryota",
+                "recipient": "MYCTU",
+                "count": 72
+              },
+              {
+                "donor": "Gammaproteobacteria",
+                "recipient": "NEMVE",
+                "count": 70
+              },
+              {
+                "donor": "Eubacteria",
+                "recipient": "Viridiplantae",
+                "count": 61
+              },
+              {
+                "donor": "Eubacteria",
+                "recipient": "NEMVE",
+                "count": 56
+              },
+              {
+                "donor": "Cyanobacteria",
+                "recipient": "Viridiplantae",
+                "count": 51
+              },
+              {
+                "donor": "Chloroflexi-Actinobacteria",
+                "recipient": "MONBE",
+                "count": 50
+              },
+              {
+                "donor": "Metazoa-Choanoflagellida",
+                "recipient": "RHOBA",
+                "count": 49
+              },
+              {
+                "donor": "SAR/HA_supergroup",
+                "recipient": "SYNY3",
+                "count": 49
+              },
+              {
+                "donor": "Gammaproteobacteria",
+                "recipient": "Eukaryota",
+                "count": 46
+              },
+              {
+                "donor": "Eubacteria",
+                "recipient": "THAPS",
+                "count": 45
+              },
+              {
+                "donor": "Eubacteria",
+                "recipient": "Archaea",
+                "count": 44
+              },
+              {
+                "donor": "Eubacteria",
+                "recipient": "Archaea-Eukaryota",
+                "count": 43
+              },
+              {
+                "donor": "Mesangiosperma",
+                "recipient": "PUCGT",
+                "count": 43
+              }
+            ],
+            "total_rows": 1482,
+            "truncated": true
+          }
+        ],
+        "headline": {
+          "ht_books_with_output": 15795,
+          "ht_books_without_output": 0,
+          "ht_books_with_no_transfer": 12953,
+          "ht_books_failed": 0,
+          "ht_books_analysed": 15795,
+          "ht_books_with_diagnostics": 0,
+          "ht_nodes": 4497,
+          "ht_transfer_edges": 7508,
+          "ht_families": 2842,
+          "ht_donor_undetermined": 5,
+          "ht_unparsed_rows": 0,
+          "ht_nodes_per_family_max": 12,
+          "ht_nodes_per_family_median": 1.0,
+          "ht_donor_undetermined_pct": 0.07
+        }
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "orthologs",
+      "title": "Orthologs & homolog products",
+      "data": {
+        "text": "15795 of 15795 book(s) have pairwise output; 15795 have been filtered to O/LDO. O and LDO pairs are 76.33% of all relationships by size. 11 of 11 FTP product(s) written.",
+        "rows": [
+          {
+            "metric": "orthologs_books",
+            "value": 15795
+          },
+          {
+            "metric": "orthologs_all_books",
+            "value": 15795
+          },
+          {
+            "metric": "orthologs_all_missing_books",
+            "value": 0
+          },
+          {
+            "metric": "orthologs_all_empty_books",
+            "value": 23
+          },
+          {
+            "metric": "orthologs_filtered_books",
+            "value": 15795
+          },
+          {
+            "metric": "orthologs_unfiltered_books",
+            "value": 0
+          },
+          {
+            "metric": "orthologs_all_bytes",
+            "value": 13957843539
+          },
+          {
+            "metric": "orthologs_filtered_bytes",
+            "value": 10653346195
+          },
+          {
+            "metric": "orthologs_filtered_pct_of_all",
+            "value": 76.33
+          },
+          {
+            "metric": "ortholog_ftp_products_present",
+            "value": 11
+          },
+          {
+            "metric": "ortholog_ftp_products_expected",
+            "value": 11
+          },
+          {
+            "metric": "ortholog_ftp_tarballs_present",
+            "value": 11
+          }
+        ],
+        "tables": [
+          {
+            "name": "Largest books by pairwise output",
+            "columns": [
+              "book",
+              "bytes"
+            ],
+            "rows": [
+              {
+                "book": "PTHR11654",
+                "bytes": 101127574
+              },
+              {
+                "book": "PTHR33332",
+                "bytes": 99872682
+              },
+              {
+                "book": "PTHR24559",
+                "bytes": 94053497
+              },
+              {
+                "book": "PTHR11783",
+                "bytes": 77056932
+              },
+              {
+                "book": "PTHR10334",
+                "bytes": 68068623
+              },
+              {
+                "book": "PTHR19375",
+                "bytes": 66003341
+              },
+              {
+                "book": "PTHR24221",
+                "bytes": 64560218
+              },
+              {
+                "book": "PTHR18966",
+                "bytes": 63843579
+              },
+              {
+                "book": "PTHR11214",
+                "bytes": 63586617
+              },
+              {
+                "book": "PTHR27005",
+                "bytes": 60602444
+              },
+              {
+                "book": "PTHR11850",
+                "bytes": 59337457
+              },
+              {
+                "book": "PTHR19446",
+                "bytes": 57150754
+              },
+              {
+                "book": "PTHR24351",
+                "bytes": 55882111
+              },
+              {
+                "book": "PTHR11461",
+                "bytes": 51539853
+              },
+              {
+                "book": "PTHR12411",
+                "bytes": 50736220
+              },
+              {
+                "book": "PTHR11206",
+                "bytes": 49269627
+              },
+              {
+                "book": "PTHR24281",
+                "bytes": 47883064
+              },
+              {
+                "book": "PTHR11937",
+                "bytes": 47172740
+              },
+              {
+                "book": "PTHR11909",
+                "bytes": 45200755
+              },
+              {
+                "book": "PTHR23430",
+                "bytes": 44989590
+              }
+            ],
+            "total_rows": 15795,
+            "truncated": true
+          },
+          {
+            "name": "FTP homolog products",
+            "columns": [
+              "product",
+              "file",
+              "bytes",
+              "tarball",
+              "tarball_bytes"
+            ],
+            "rows": [
+              {
+                "product": "RefGenomeOrthologs",
+                "file": "present",
+                "bytes": 100198475,
+                "tarball": "present",
+                "tarball_bytes": 5993243
+              },
+              {
+                "product": "RefGenomeParalogs",
+                "file": "present",
+                "bytes": 162684603,
+                "tarball": "present",
+                "tarball_bytes": 9302372
+              },
+              {
+                "product": "RefGenomeXenologs",
+                "file": "present",
+                "bytes": 5435952,
+                "tarball": "present",
+                "tarball_bytes": 348307
+              },
+              {
+                "product": "Orthologs_HCOP",
+                "file": "present",
+                "bytes": 529322232,
+                "tarball": "present",
+                "tarball_bytes": 27042945
+              },
+              {
+                "product": "QfO_Genome_Orthologs",
+                "file": "present",
+                "bytes": 1977054854,
+                "tarball": "present",
+                "tarball_bytes": 92249642
+              },
+              {
+                "product": "QfO_Genome_Paralogs",
+                "file": "present",
+                "bytes": 544460522,
+                "tarball": "present",
+                "tarball_bytes": 31390572
+              },
+              {
+                "product": "QfO_Genome_Xenologs",
+                "file": "present",
+                "bytes": 168127068,
+                "tarball": "present",
+                "tarball_bytes": 9051725
+              },
+              {
+                "product": "AllOrthologs",
+                "file": "present",
+                "bytes": 11560088475,
+                "tarball": "present",
+                "tarball_bytes": 670440125
+              },
+              {
+                "product": "AllParalogs",
+                "file": "present",
+                "bytes": 2385584234,
+                "tarball": "present",
+                "tarball_bytes": 137146254
+              },
+              {
+                "product": "AllXenologs",
+                "file": "present",
+                "bytes": 1176137920,
+                "tarball": "present",
+                "tarball_bytes": 78365986
+              },
+              {
+                "product": "PlantGenomeOrthologs",
+                "file": "present",
+                "bytes": 5502321561,
+                "tarball": "present",
+                "tarball_bytes": 289900959
+              }
+            ],
+            "total_rows": 11,
+            "truncated": false
+          }
+        ],
+        "headline": {
+          "orthologs_books": 15795,
+          "orthologs_all_books": 15795,
+          "orthologs_all_missing_books": 0,
+          "orthologs_all_empty_books": 23,
+          "orthologs_filtered_books": 15795,
+          "orthologs_unfiltered_books": 0,
+          "orthologs_all_bytes": 13957843539,
+          "orthologs_filtered_bytes": 10653346195,
+          "orthologs_filtered_pct_of_all": 76.33,
+          "ortholog_ftp_products_present": 11,
+          "ortholog_ftp_products_expected": 11,
+          "ortholog_ftp_tarballs_present": 11
+        },
+        "warnings": [
+          "23 book(s) have a zero-byte .orig.orthologs_all, which is list_pairwise_homologs producing no pair at all for a family."
+        ]
       },
       "message": null,
       "status": "ok"
