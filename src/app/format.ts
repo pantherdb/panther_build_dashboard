@@ -10,6 +10,11 @@
 import type { TimePoint } from '@/features/build/model'
 import { ABSENT_MARK } from '@/@panther.core/vocabulary'
 
+// Re-exported so callers reaching for a formatter find it here with the others. The
+// implementation lives in @panther.core because features/build/model needs it too, and this
+// module imports from that model -- see @panther.core/fileSize.ts.
+export { formatFileSize } from '@/@panther.core/fileSize'
+
 /** `2026-08-20 23:26:31 UTC`. */
 export function formatUtc(point: TimePoint | null | undefined): string {
   if (!point?.iso) return ABSENT_MARK

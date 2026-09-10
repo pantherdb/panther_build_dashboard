@@ -19,6 +19,7 @@
  * label "Sequences" is the exact defect the definitions registry exists to prevent.
  */
 
+import { formatFileSize, isFileSizeKey } from '@/@panther.core/fileSize'
 import {
   METRIC_DEFINITIONS,
   METRIC_IDS,
@@ -139,7 +140,13 @@ export function describeField(
     key,
     value,
     kind: multilineText ? 'text' : structured ? 'json' : 'scalar',
-    formatted: formatUnknownValue(value),
+    // A byte-valued metric reads as a file size. `value` stays the raw number, so anything
+    // computing on it is unaffected -- only the display string changes. This is the one place
+    // headline fields and the `rows` metric list are both formatted.
+    formatted:
+      isFileSizeKey(key) && typeof value === 'number' && Number.isFinite(value)
+        ? formatFileSize(value)
+        : formatUnknownValue(value),
     metricId,
     namedVariable: isNamedVariableKey(key),
     ambiguousTerm: metricId === null && AMBIGUOUS_TERM.test(key.toLowerCase()),

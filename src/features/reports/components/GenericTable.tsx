@@ -1,4 +1,5 @@
 import { DataTable } from '@/@panther.core/components'
+import { fileSizeLabel, formatFileSize, isFileSizeKey } from '@/@panther.core/fileSize'
 import type { DataColumn } from '@/@panther.core/components'
 import { formatUnknownValue } from '@/features/build/model'
 import type { GenericTableView } from '@/features/reports/model/genericView'
@@ -53,6 +54,11 @@ function formatCell(value: unknown): string {
   return formatUnknownValue(value)
 }
 
+/** A byte count only formats as a size if it really is a number; anything else falls through. */
+function asFiniteNumber(value: unknown): number | null {
+  return typeof value === 'number' && Number.isFinite(value) ? value : null
+}
+
 function sortValueOf(value: unknown): number | string | null {
   if (value === null || value === undefined) return null
   if (typeof value === 'number') return Number.isFinite(value) ? value : null
@@ -65,11 +71,16 @@ export const GenericTable = ({ table, pageSize = 20 }: GenericTableProps) => {
 
   const columns: DataColumn<KeyedRow>[] = table.columns.map(column => {
     const numeric = columnIsNumeric(rows, column)
+    // A byte column is shown in units but still SORTED on the raw number, which is the whole
+    // reason build_state.json keeps these numeric: sorting the formatted strings would put
+    // `9.1 MB` above `1.4 GB`.
+    const isSize = isFileSizeKey(column)
     return {
       id: column,
-      header: <span className="pb-ident">{column}</span>,
-      kind: numeric ? 'number' : 'mono',
-      render: entry => formatCell(entry.row[column]),
+      header: <span className="pb-ident">{isSize ? fileSizeLabel(column) : column}</span>,
+      kind: numeric || isSize ? 'number' : 'mono',
+      render: entry =>
+        isSize ? formatFileSize(asFiniteNumber(entry.row[column])) : formatCell(entry.row[column]),
       sortValue: entry => sortValueOf(entry.row[column]),
     }
   })
