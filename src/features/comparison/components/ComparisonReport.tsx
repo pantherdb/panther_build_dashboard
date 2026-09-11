@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { Panel, StatusChip } from '@/@panther.core/components'
 import { plural } from '@/app/format'
 import { useBuildReport } from '@/features/build/hooks'
-import type { BuildReport } from '@/features/build/model'
+import type { BuildReport, ComparisonGap } from '@/features/build/model'
 import { ComparisonOverview } from '@/features/comparison/components/ComparisonOverview'
 import { ComparisonSources } from '@/features/comparison/components/ComparisonSources'
 import { IdentifierAgreement } from '@/features/comparison/components/IdentifierAgreement'
@@ -23,7 +23,18 @@ import { buildComparisonView } from '@/features/comparison/model'
  *
  * Each block below degrades on its own table's availability rather than on the assembly's, so
  * losing one of the three tables costs one block instead of the page.
+ *
+ * The top panel's subject follows `summary.gap`, because `partial` has two causes and naming the
+ * wrong one is worse than naming none: once a build carries `reports/prev_lib_baseline.json` the
+ * direct totals are all present, and a panel still headed "Direct previous-library totals" would
+ * be pointing at the one thing that is no longer missing.
  */
+
+const MISSING_SUBJECT: Record<ComparisonGap, string> = {
+  noSources: 'The previous-library comparison',
+  previousLibraryAbsent: 'Direct previous-library totals',
+  tablesTruncated: 'Complete per-species coverage',
+}
 export interface ComparisonReportViewProps {
   report: BuildReport
 }
@@ -39,7 +50,7 @@ export const ComparisonReportView = ({ report }: ComparisonReportViewProps) => {
         subtitle={summary.contributors.map(entry => entry.sectionId).join(' + ')}
         availability={summary.availability}
         message={summary.previousLibrary.message ?? undefined}
-        missingSubject="Direct previous-library totals"
+        missingSubject={summary.gap === null ? undefined : MISSING_SUBJECT[summary.gap]}
         provenance="derived"
         status={
           <StatusChip

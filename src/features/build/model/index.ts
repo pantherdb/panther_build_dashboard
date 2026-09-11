@@ -6,6 +6,8 @@ export { parseBuildState, parseBuildStateCached, KNOWN_SECTION_IDS } from './par
 
 export { extractProteomes } from './sections/proteomes'
 
+export { extractPreviousLibrary } from './sections/library'
+
 export {
   CURRENT_SCHEMA_VERSION,
   evaluateSchema,

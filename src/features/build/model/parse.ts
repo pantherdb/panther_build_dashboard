@@ -75,6 +75,7 @@ export const KNOWN_SECTION_IDS: readonly string[] = [
   'proteomes',
   'progress',
   'mapping',
+  'msa',
   'node_tracking',
   'ibd_sf_roots',
   'list_ht',

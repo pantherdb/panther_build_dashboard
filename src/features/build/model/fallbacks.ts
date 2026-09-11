@@ -232,6 +232,7 @@ export function absentComparison(
   const reason = meta.notes[0] ?? 'No comparison data could be assembled.'
   return {
     ...meta,
+    gap: 'noSources',
     contributors: [],
     metrics: [],
     speciesCounts: absentTable<SpeciesCountChange>(

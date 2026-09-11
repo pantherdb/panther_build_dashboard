@@ -14,6 +14,7 @@ import { makeMeta } from './notes'
 import type { NoteSink } from './notes'
 import type {
   ComparisonContributor,
+  ComparisonGap,
   ComparisonMetric,
   ComparisonSummary,
   LibrarySummary,
@@ -149,12 +150,15 @@ export function buildComparison(input: ComparisonInput): ComparisonSummary {
   const contributed = contributors.filter(contributor => contributor.present)
   const notes: string[] = []
   let availability: ComparisonSummary['availability']
+  let gap: ComparisonGap | null
 
   if (contributed.length === 0) {
     availability = 'absent'
+    gap = 'noSources'
     notes.push('No section in this report carries previous-library information.')
   } else if (!previousLibraryPresent) {
     availability = 'partial'
+    gap = 'previousLibraryAbsent'
     notes.push(
       'The direct previous-library section is absent, so the comparison is assembled from the ' +
         `remaining sources: ${contributed.map(entry => entry.sectionId).join(', ')}.`
@@ -167,9 +171,11 @@ export function buildComparison(input: ComparisonInput): ComparisonSummary {
     otherReports.uniprotMatch.truncation.truncated
   ) {
     availability = 'partial'
+    gap = 'tablesTruncated'
     notes.push('Comparison tables are truncated, so per-species coverage is incomplete.')
   } else {
     availability = 'available'
+    gap = null
   }
 
   if (availability === 'partial') {
@@ -183,6 +189,7 @@ export function buildComparison(input: ComparisonInput): ComparisonSummary {
 
   return {
     ...makeMeta({ availability, sectionId: null, notes }),
+    gap,
     contributors,
     metrics,
     speciesCounts: otherReports.speciesCounts,

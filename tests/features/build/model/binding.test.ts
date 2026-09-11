@@ -216,3 +216,55 @@ describe('the subfamilies, HT and orthologs phase', () => {
     }
   })
 })
+
+/**
+ * `.plans/feature/2026-09-10-mafft-msa-section.md`.
+ *
+ * The generator's `msa` collector reports both seeded MAFFT passes: `orig`, which IS the MSA
+ * build phase, and `exten`, which runs inside exten build and scoring. One report, two places on
+ * the spine -- the shape `mapping` already has.
+ *
+ * Resolved against synthetic sections, not the frozen reference, for the same reason as the block
+ * above: the reference carries twelve sections and is re-verified only deliberately, so
+ * registering ahead of the data is what stops `msa` arriving under "Unattached reports" the way
+ * `proteomes` did.
+ */
+describe('the MSA build phase', () => {
+  const declaredPhaseIds = report.pipeline.phases.map(phase => phase.id)
+
+  it('binds msa primarily to the MSA build phase', () => {
+    const resolved = resolveBinding('msa', null, declaredPhaseIds)
+    expect(resolved.known).toBe(true)
+    expect(resolved.placement).toBe('phase')
+    expect(resolved.primaryPhaseId).toBe(PHASE_IDS.msaBuild)
+  })
+
+  it('also contributes msa to exten build and scoring, where the other pass runs', () => {
+    const resolved = resolveBinding('msa', null, declaredPhaseIds)
+    expect(resolved.phaseIds).toEqual([PHASE_IDS.msaBuild, PHASE_IDS.extenBuildAndScoring])
+  })
+
+  it('gives the binding a written rationale', () => {
+    expect(getBinding('msa')?.rationale.length ?? 0).toBeGreaterThan(20)
+  })
+
+  it('registers msa in the generator REGISTRY order, between mapping and node tracking', () => {
+    const order = KNOWN_SECTION_IDS.indexOf.bind(KNOWN_SECTION_IDS)
+    expect(order('msa')).toBeGreaterThan(-1)
+    expect(order('mapping')).toBeLessThan(order('msa'))
+    expect(order('msa')).toBeLessThan(order('node_tracking'))
+  })
+
+  it('places msa on a phase rather than unattached', () => {
+    expect(hasBinding('msa')).toBe(true)
+    expect(resolveBinding('msa', null, declaredPhaseIds).placement).not.toBe(UNATTACHED_PHASE_ID)
+  })
+
+  it('lists msa ahead of mapping on the exten phase, where neither is primary', () => {
+    const resolved = ['mapping', 'msa'].map(sectionId => ({
+      sectionId,
+      ...resolveBinding(sectionId, null, declaredPhaseIds),
+    }))
+    expect(sectionIdsForPhase(PHASE_IDS.extenBuildAndScoring, resolved)).toContain('msa')
+  })
+})
