@@ -96,6 +96,18 @@ const BINDINGS: readonly SectionBinding[] = [
       'report legitimately contributes to five places on the spine.',
   },
   {
+    sectionId: 'msa',
+    placement: 'phase',
+    primaryPhaseId: PHASE_IDS.msaBuild,
+    contributingPhaseIds: [PHASE_IDS.extenBuildAndScoring],
+    rationale:
+      'One report covering both seeded MAFFT passes. The `orig` pass IS the MSA build phase; ' +
+      'the `exten` pass runs inside exten build and scoring, and is the one that aligns against ' +
+      'the previous release rather than against this build\'s own draft. Splitting them into two ' +
+      'sections would put the same five outcome buckets on the spine twice and lose the ' +
+      'comparison between them, which is the reading the section exists for.',
+  },
+  {
     sectionId: 'giga',
     placement: 'phase',
     primaryPhaseId: PHASE_IDS.treeBuilding,

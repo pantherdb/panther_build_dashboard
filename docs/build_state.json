@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "target": "/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun",
-  "generated_at": "2026-09-10T23:37:03Z",
+  "generated_at": "2026-09-11T01:25:14Z",
   "sections": [
     {
       "id": "config_ledger",
@@ -2733,6 +2733,283 @@
           "final_pct_assigned": 79.1,
           "final_n_families": 15795
         }
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "msa",
+      "title": "MSA build (MAFFT)",
+      "data": {
+        "text": "13990 of 15795 families reused their seed alignment unchanged (perfect match); 1760 extended with new sequences; 45 realigned from scratch.",
+        "rows": [
+          {
+            "metric": "msa_exten_perfect_match",
+            "value": 2888
+          },
+          {
+            "metric": "msa_exten_seed_extended",
+            "value": 12757
+          },
+          {
+            "metric": "msa_exten_zero_seqs_matched",
+            "value": 0
+          },
+          {
+            "metric": "msa_exten_no_seed_source",
+            "value": 149
+          },
+          {
+            "metric": "msa_exten_seed_short",
+            "value": 1
+          },
+          {
+            "metric": "msa_exten_books_total",
+            "value": 15795
+          },
+          {
+            "metric": "msa_exten_seeds_with_dropped_rows",
+            "value": 0
+          },
+          {
+            "metric": "msa_exten_dropped_rows_total",
+            "value": 0
+          },
+          {
+            "metric": "msa_exten_seeds_lost_to_dropped_rows",
+            "value": 0
+          },
+          {
+            "metric": "msa_exten_dropped_sequence_mismatch",
+            "value": 0
+          },
+          {
+            "metric": "msa_exten_dropped_redundant_duplicate",
+            "value": 0
+          },
+          {
+            "metric": "msa_exten_source_seqs_total",
+            "value": 2114759
+          },
+          {
+            "metric": "msa_exten_carried_over_total",
+            "value": 1575003
+          },
+          {
+            "metric": "msa_exten_source_seqs_dropped",
+            "value": 539756
+          },
+          {
+            "metric": "msa_exten_seeds_smaller_than_source",
+            "value": 13481
+          },
+          {
+            "metric": "msa_exten_new_seqs_total",
+            "value": 224197
+          },
+          {
+            "metric": "msa_exten_alignments_written",
+            "value": 15795
+          },
+          {
+            "metric": "msa_exten_alignments_empty",
+            "value": 0
+          },
+          {
+            "metric": "msa_exten_alignments_missing",
+            "value": 0
+          },
+          {
+            "metric": "msa_exten_stale_copies",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_perfect_match",
+            "value": 13990
+          },
+          {
+            "metric": "msa_orig_seed_extended",
+            "value": 1760
+          },
+          {
+            "metric": "msa_orig_zero_seqs_matched",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_no_seed_source",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_seed_short",
+            "value": 45
+          },
+          {
+            "metric": "msa_orig_books_total",
+            "value": 15795
+          },
+          {
+            "metric": "msa_orig_seeds_with_dropped_rows",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_dropped_rows_total",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_seeds_lost_to_dropped_rows",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_dropped_sequence_mismatch",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_dropped_redundant_duplicate",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_source_seqs_total",
+            "value": 1802036
+          },
+          {
+            "metric": "msa_orig_carried_over_total",
+            "value": 1802036
+          },
+          {
+            "metric": "msa_orig_source_seqs_dropped",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_seeds_smaller_than_source",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_new_seqs_total",
+            "value": 11571
+          },
+          {
+            "metric": "msa_orig_alignments_written",
+            "value": 15795
+          },
+          {
+            "metric": "msa_orig_alignments_empty",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_alignments_missing",
+            "value": 0
+          },
+          {
+            "metric": "msa_orig_stale_copies",
+            "value": 0
+          }
+        ],
+        "headline": {
+          "msa_exten_perfect_match": 2888,
+          "msa_exten_seed_extended": 12757,
+          "msa_exten_zero_seqs_matched": 0,
+          "msa_exten_no_seed_source": 149,
+          "msa_exten_seed_short": 1,
+          "msa_exten_books_total": 15795,
+          "msa_exten_seeds_with_dropped_rows": 0,
+          "msa_exten_dropped_rows_total": 0,
+          "msa_exten_seeds_lost_to_dropped_rows": 0,
+          "msa_exten_dropped_sequence_mismatch": 0,
+          "msa_exten_dropped_redundant_duplicate": 0,
+          "msa_exten_source_seqs_total": 2114759,
+          "msa_exten_carried_over_total": 1575003,
+          "msa_exten_source_seqs_dropped": 539756,
+          "msa_exten_seeds_smaller_than_source": 13481,
+          "msa_exten_new_seqs_total": 224197,
+          "msa_exten_alignments_written": 15795,
+          "msa_exten_alignments_empty": 0,
+          "msa_exten_alignments_missing": 0,
+          "msa_exten_stale_copies": 0,
+          "msa_orig_perfect_match": 13990,
+          "msa_orig_seed_extended": 1760,
+          "msa_orig_zero_seqs_matched": 0,
+          "msa_orig_no_seed_source": 0,
+          "msa_orig_seed_short": 45,
+          "msa_orig_books_total": 15795,
+          "msa_orig_seeds_with_dropped_rows": 0,
+          "msa_orig_dropped_rows_total": 0,
+          "msa_orig_seeds_lost_to_dropped_rows": 0,
+          "msa_orig_dropped_sequence_mismatch": 0,
+          "msa_orig_dropped_redundant_duplicate": 0,
+          "msa_orig_source_seqs_total": 1802036,
+          "msa_orig_carried_over_total": 1802036,
+          "msa_orig_source_seqs_dropped": 0,
+          "msa_orig_seeds_smaller_than_source": 0,
+          "msa_orig_new_seqs_total": 11571,
+          "msa_orig_alignments_written": 15795,
+          "msa_orig_alignments_empty": 0,
+          "msa_orig_alignments_missing": 0,
+          "msa_orig_stale_copies": 0
+        },
+        "tables": [
+          {
+            "name": "Family outcomes",
+            "columns": [
+              "outcome",
+              "exten",
+              "orig"
+            ],
+            "rows": [
+              {
+                "outcome": "perfect_match",
+                "exten": 2888,
+                "orig": 13990
+              },
+              {
+                "outcome": "seed_extended",
+                "exten": 12757,
+                "orig": 1760
+              },
+              {
+                "outcome": "zero_seqs_matched",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "outcome": "no_seed_source",
+                "exten": 149,
+                "orig": 0
+              },
+              {
+                "outcome": "seed_short",
+                "exten": 1,
+                "orig": 45
+              }
+            ],
+            "total_rows": 5,
+            "truncated": false
+          },
+          {
+            "name": "Seeding provenance",
+            "columns": [
+              "pass",
+              "seed_source_lib",
+              "seed_source_type",
+              "swap_long_ids"
+            ],
+            "rows": [
+              {
+                "seed_source_lib": "/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun/prev_lib_rebuilt/famlib/dev/PANTHER20.0/lib_split_merged",
+                "seed_source_type": "orig",
+                "swap_long_ids": 1,
+                "pass": "exten"
+              },
+              {
+                "seed_source_lib": "/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun/famlib/dev/PANTHER20.0/lib_20.0",
+                "seed_source_type": "exten",
+                "swap_long_ids": 0,
+                "pass": "orig"
+              }
+            ],
+            "total_rows": 2,
+            "truncated": false
+          }
+        ]
       },
       "message": null,
       "status": "ok"
