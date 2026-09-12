@@ -14,6 +14,8 @@ export type {
   DataTableProps,
   SortState,
 } from '@/@panther.core/components/DataTable'
+export { DefinedTerm } from '@/@panther.core/components/DefinedTerm'
+export type { DefinedTermProps } from '@/@panther.core/components/DefinedTerm'
 export { DeltaValue } from '@/@panther.core/components/DeltaValue'
 export type { DeltaValueProps } from '@/@panther.core/components/DeltaValue'
 export { Disclosure } from '@/@panther.core/components/Disclosure'

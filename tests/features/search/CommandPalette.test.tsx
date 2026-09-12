@@ -2,7 +2,7 @@ import { fireEvent, screen, waitFor, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { MetricDefinitionsProvider } from '@/@panther.core/components'
 import BuildShell from '@/app/layout/BuildShell'
-import { metricRegistry } from '@/app/metricRegistry'
+import { curatedRegistry } from '@/app/metricRegistry'
 import { BUILD_ROUTE, configElementId, stepElementId } from '@/features/build/model'
 import { CommandPalette } from '@/features/search/components/CommandPalette'
 import { renderWithProviders } from '@tests/test-utils'
@@ -21,7 +21,7 @@ const renderPalette = () => renderWithProviders(<CommandPalette />, { route: BUI
 
 const renderApp = () =>
   renderWithProviders(
-    <MetricDefinitionsProvider registry={metricRegistry}>
+    <MetricDefinitionsProvider registry={curatedRegistry}>
       <CommandPalette />
       <BuildShell />
     </MetricDefinitionsProvider>,

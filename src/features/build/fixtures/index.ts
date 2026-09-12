@@ -23,6 +23,7 @@ import {
   withUnknownSection,
   withConfigChange,
   withUnknownStatus,
+  withRecluster,
 } from './transforms'
 import type { BuildStateTransform } from './transforms'
 
@@ -40,6 +41,7 @@ export const FIXTURE_STATE_KEYS = [
   'configChanged',
   'futureSchema',
   'degraded',
+  'recluster',
 ] as const
 
 export type FixtureStateKey = (typeof FIXTURE_STATE_KEYS)[number]
@@ -179,6 +181,15 @@ const DEFINITIONS: readonly FixtureStateDefinition[] = [
       withUnknownStatus(),
       stripSection('prev_lib')
     ),
+  },
+  {
+    key: 'recluster',
+    label: 'With reclustering',
+    description:
+      'The real report plus the reclustering section, which the frozen reference predates: 153 ' +
+      'families created from 2,823 sequences.',
+    transforms: ['withRecluster'],
+    apply: withRecluster(),
   },
 ]
 

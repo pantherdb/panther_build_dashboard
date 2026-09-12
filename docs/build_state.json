@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "target": "/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun",
-  "generated_at": "2026-09-11T01:25:14Z",
+  "generated_at": "2026-09-11T22:05:37Z",
   "sections": [
     {
       "id": "config_ledger",
       "title": "Build configuration",
       "data": {
         "current": {
-          "generated_at": "2026-09-09T19:00:58Z",
-          "panther_build_git_rev": "b433f5851bb53e934c46c06f69043282c138ddc3",
+          "generated_at": "2026-09-11T19:20:45Z",
+          "panther_build_git_rev": "67df421e7520129b38a8eb74efb413cb18ee70f6",
           "panther_build_dirty": true,
           "config_file": "config.mk",
-          "config_file_contents": "#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n",
+          "config_file_contents": "#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_SF_NAMES=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/sfNames.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n",
           "PTHR_VERSION": "20.0",
           "QFO_DATA_DIR": "QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome",
           "SPECIES_TREE": "/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx",
@@ -21,8 +21,8 @@
           "PREV_RP_TAX_TXT": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt",
           "unresolved_vars": []
         },
-        "record_count": 3,
-        "text": "**config.mk** contents at this build:\n\n```\n#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n\n```",
+        "record_count": 4,
+        "text": "**config.mk** contents at this build:\n\n```\n#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_SF_NAMES=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/sfNames.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n\n```",
         "rows": [
           {
             "key": "PREV_NODE_DAT",
@@ -54,7 +54,7 @@
           },
           {
             "key": "generated_at",
-            "value": "2026-09-09T19:00:58Z"
+            "value": "2026-09-11T19:20:45Z"
           },
           {
             "key": "panther_build_dirty",
@@ -62,7 +62,7 @@
           },
           {
             "key": "panther_build_git_rev",
-            "value": "b433f5851bb53e934c46c06f69043282c138ddc3"
+            "value": "67df421e7520129b38a8eb74efb413cb18ee70f6"
           },
           {
             "key": "unresolved_vars",
@@ -71,7 +71,8 @@
         ],
         "warnings": [
           "config `PREV_RP_TAX_TXT` changed during this build: `/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/RP_taxonomy_organism_lib.txt` \u2192 `/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt`",
-          "config `panther_build_git_rev` changed during this build: `08e5f7104459f448e8222eaa3ea2c85320a8821b` \u2192 `b433f5851bb53e934c46c06f69043282c138ddc3`"
+          "config `config_file_contents` changed during this build: `#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n` \u2192 `#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_SF_NAMES=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/sfNames.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n`",
+          "config `panther_build_git_rev` changed during this build: `08e5f7104459f448e8222eaa3ea2c85320a8821b` \u2192 `67df421e7520129b38a8eb74efb413cb18ee70f6`"
         ]
       },
       "message": null,
@@ -1915,19 +1916,19 @@
           },
           {
             "name": "Sequence-to-family mapping",
-            "done": 3,
+            "done": 5,
             "total": 5,
             "steps": [
               {
-                "goal": "validate_idmapping_step",
-                "status": "pending",
-                "mtime": null,
+                "goal": "validate_idmapping_step.touch",
+                "status": "done",
+                "mtime": 1789154458.0,
                 "attempts": []
               },
               {
-                "goal": "validate_blast_step",
-                "status": "pending",
-                "mtime": null,
+                "goal": "validate_blast_step.touch",
+                "status": "done",
+                "mtime": 1789154459.0,
                 "attempts": []
               },
               {
@@ -2217,7 +2218,7 @@
               {
                 "goal": "agg_files.touch",
                 "status": "done",
-                "mtime": 1788550160.0,
+                "mtime": 1789154880.0,
                 "attempts": []
               }
             ]
@@ -2328,7 +2329,7 @@
               {
                 "goal": "PTHR20.0_DBload.tar.gz",
                 "status": "done",
-                "mtime": 1788979857.0,
+                "mtime": 1789155052.0,
                 "attempts": []
               },
               {
@@ -2341,13 +2342,16 @@
           }
         ],
         "headline": {
-          "phases_complete": 13,
-          "steps_complete": 60,
+          "phases_complete": 14,
+          "steps_complete": 62,
           "steps_total": 62
         },
         "warnings": [
+          "refProteomePANTHERmapping_fams_corrected_by_old_long_id is older than validate_blast_step.touch, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)",
           "orthologs.touch is older than famlib/dev/PANTHER20.0/lib_20.0/listHT, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)",
-          "ftp/PANTHER_HMM_Classification_files/PANTHER20.0_HMM_classifications is older than QfO_OrthoXML.xml, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)"
+          "famlib/dev/PANTHER20.0/lib_20.0/createHMM3_orig_fam_orig.touch is older than agg_files.touch, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)",
+          "ftp/PANTHER_HMM_Classification_files/PANTHER20.0_HMM_classifications is older than QfO_OrthoXML.xml, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)",
+          "PANTHER20.0.tar.gz.touch is older than PTHR20.0_DBload.tar.gz, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)"
         ]
       },
       "message": null,
@@ -2732,6 +2736,464 @@
           "final_assigned": 1813607,
           "final_pct_assigned": 79.1,
           "final_n_families": 15795
+        },
+        "definitions": {
+          "ID": {
+            "label": "ID match",
+            "definition": "The sequence carried the same identifier as a sequence in the previous library, so it inherited that sequence's family directly. The cheapest and most reliable assignment."
+          },
+          "BLAST": {
+            "label": "BLAST",
+            "definition": "No identifier matched, so the sequence was assigned by BLAST similarity against the previous library."
+          },
+          "HMM_scoring": {
+            "label": "HMM scoring",
+            "definition": "Assigned by scoring the sequence against the previous library's family HMMs. Runs after ID and BLAST, and recovers sequences neither could place."
+          },
+          "RECLUSTER": {
+            "label": "Reclustering (reclaimed)",
+            "definition": "Still unassigned after HMM scoring, the sequence was clustered by TribeMCL into a cluster that reclaimed an existing previous-library family."
+          },
+          "RECLUSTER_NEW": {
+            "label": "Reclustering (new family)",
+            "definition": "Still unassigned after HMM scoring, the sequence was clustered by TribeMCL into a cluster that became a NEW PANTHER family. These sequences are the ones the families this build created are made of."
+          },
+          "(blank)": {
+            "label": "No mechanism recorded",
+            "definition": "The sequence is assigned to a family but its mapping_type column is empty, so the report cannot say which step assigned it. Not the same as unassigned."
+          },
+          "(other)": {
+            "label": "Unrecognised mechanism",
+            "definition": "The mapping_type column carries a tag mapping_stats.py does not know. A new pipeline step is writing a tag the statistics script has not been taught."
+          }
+        }
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "recluster",
+      "title": "Reclustering (TribeMCL)",
+      "data": {
+        "text": "Reclustering created 153 new PANTHER families from 2,823 sequences, across 419,136 TribeMCL clusters. 0 clusters reclaimed a previous-library family instead of creating one.",
+        "headline": {
+          "families_created": 153,
+          "sequences_in_new_families": 2823,
+          "families_inherited": 0,
+          "sequences_in_inherited_families": 0,
+          "clusters_formed": 419136,
+          "new_family_id_min": "PTHR48496",
+          "new_family_id_max": "PTHR48648",
+          "sequences_offered": 493583
+        },
+        "rows": [
+          {
+            "metric": "families_created",
+            "value": 153
+          },
+          {
+            "metric": "sequences_in_new_families",
+            "value": 2823
+          },
+          {
+            "metric": "families_inherited",
+            "value": 0
+          },
+          {
+            "metric": "sequences_in_inherited_families",
+            "value": 0
+          },
+          {
+            "metric": "clusters_formed",
+            "value": 419136
+          },
+          {
+            "metric": "new_family_id_min",
+            "value": "PTHR48496"
+          },
+          {
+            "metric": "new_family_id_max",
+            "value": "PTHR48648"
+          },
+          {
+            "metric": "sequences_offered",
+            "value": 493583
+          }
+        ],
+        "tables": [
+          {
+            "name": "Cluster outcomes",
+            "columns": [
+              "outcome",
+              "clusters",
+              "sequences"
+            ],
+            "defines": "outcome",
+            "rows": [
+              {
+                "outcome": "new_family",
+                "clusters": 153,
+                "sequences": 2823
+              },
+              {
+                "outcome": "inherited_family",
+                "clusters": 0,
+                "sequences": 0
+              },
+              {
+                "outcome": "single_organism",
+                "clusters": 395807,
+                "sequences": 427949
+              },
+              {
+                "outcome": "too_small",
+                "clusters": 23176,
+                "sequences": 62306
+              }
+            ],
+            "total_rows": 4,
+            "truncated": false
+          },
+          {
+            "name": "Families created",
+            "columns": [
+              "family",
+              "cluster",
+              "sequences",
+              "organisms"
+            ],
+            "rows": [
+              {
+                "family": "PTHR48496",
+                "cluster": "7",
+                "sequences": 120,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48497",
+                "cluster": "11",
+                "sequences": 84,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48498",
+                "cluster": "14",
+                "sequences": 69,
+                "organisms": 10
+              },
+              {
+                "family": "PTHR48499",
+                "cluster": "16",
+                "sequences": 59,
+                "organisms": 3
+              },
+              {
+                "family": "PTHR48500",
+                "cluster": "18",
+                "sequences": 56,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48501",
+                "cluster": "19",
+                "sequences": 56,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48502",
+                "cluster": "20",
+                "sequences": 55,
+                "organisms": 3
+              },
+              {
+                "family": "PTHR48503",
+                "cluster": "21",
+                "sequences": 54,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48504",
+                "cluster": "24",
+                "sequences": 43,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48505",
+                "cluster": "25",
+                "sequences": 42,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48506",
+                "cluster": "30",
+                "sequences": 39,
+                "organisms": 4
+              },
+              {
+                "family": "PTHR48507",
+                "cluster": "33",
+                "sequences": 36,
+                "organisms": 4
+              },
+              {
+                "family": "PTHR48508",
+                "cluster": "38",
+                "sequences": 32,
+                "organisms": 17
+              },
+              {
+                "family": "PTHR48509",
+                "cluster": "39",
+                "sequences": 32,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48510",
+                "cluster": "40",
+                "sequences": 32,
+                "organisms": 3
+              },
+              {
+                "family": "PTHR48511",
+                "cluster": "42",
+                "sequences": 31,
+                "organisms": 3
+              },
+              {
+                "family": "PTHR48512",
+                "cluster": "44",
+                "sequences": 31,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48513",
+                "cluster": "45",
+                "sequences": 30,
+                "organisms": 20
+              },
+              {
+                "family": "PTHR48514",
+                "cluster": "46",
+                "sequences": 30,
+                "organisms": 15
+              },
+              {
+                "family": "PTHR48515",
+                "cluster": "48",
+                "sequences": 29,
+                "organisms": 12
+              },
+              {
+                "family": "PTHR48516",
+                "cluster": "50",
+                "sequences": 29,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48517",
+                "cluster": "51",
+                "sequences": 29,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48518",
+                "cluster": "52",
+                "sequences": 28,
+                "organisms": 11
+              },
+              {
+                "family": "PTHR48519",
+                "cluster": "53",
+                "sequences": 27,
+                "organisms": 4
+              },
+              {
+                "family": "PTHR48520",
+                "cluster": "54",
+                "sequences": 27,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48521",
+                "cluster": "61",
+                "sequences": 24,
+                "organisms": 20
+              },
+              {
+                "family": "PTHR48522",
+                "cluster": "62",
+                "sequences": 24,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48523",
+                "cluster": "64",
+                "sequences": 23,
+                "organisms": 6
+              },
+              {
+                "family": "PTHR48524",
+                "cluster": "65",
+                "sequences": 23,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48525",
+                "cluster": "67",
+                "sequences": 22,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48526",
+                "cluster": "68",
+                "sequences": 21,
+                "organisms": 20
+              },
+              {
+                "family": "PTHR48527",
+                "cluster": "70",
+                "sequences": 21,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48528",
+                "cluster": "71",
+                "sequences": 21,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48529",
+                "cluster": "77",
+                "sequences": 21,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48530",
+                "cluster": "78",
+                "sequences": 20,
+                "organisms": 12
+              },
+              {
+                "family": "PTHR48531",
+                "cluster": "79",
+                "sequences": 20,
+                "organisms": 3
+              },
+              {
+                "family": "PTHR48532",
+                "cluster": "80",
+                "sequences": 20,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48533",
+                "cluster": "83",
+                "sequences": 19,
+                "organisms": 3
+              },
+              {
+                "family": "PTHR48534",
+                "cluster": "84",
+                "sequences": 19,
+                "organisms": 3
+              },
+              {
+                "family": "PTHR48535",
+                "cluster": "86",
+                "sequences": 18,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48536",
+                "cluster": "87",
+                "sequences": 18,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48537",
+                "cluster": "88",
+                "sequences": 18,
+                "organisms": 3
+              },
+              {
+                "family": "PTHR48538",
+                "cluster": "89",
+                "sequences": 18,
+                "organisms": 3
+              },
+              {
+                "family": "PTHR48539",
+                "cluster": "94",
+                "sequences": 17,
+                "organisms": 11
+              },
+              {
+                "family": "PTHR48540",
+                "cluster": "95",
+                "sequences": 17,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48541",
+                "cluster": "96",
+                "sequences": 17,
+                "organisms": 2
+              },
+              {
+                "family": "PTHR48542",
+                "cluster": "97",
+                "sequences": 17,
+                "organisms": 10
+              },
+              {
+                "family": "PTHR48543",
+                "cluster": "98",
+                "sequences": 17,
+                "organisms": 12
+              },
+              {
+                "family": "PTHR48544",
+                "cluster": "99",
+                "sequences": 17,
+                "organisms": 4
+              },
+              {
+                "family": "PTHR48545",
+                "cluster": "100",
+                "sequences": 17,
+                "organisms": 3
+              }
+            ],
+            "total_rows": 153,
+            "truncated": true
+          }
+        ],
+        "warnings": [],
+        "definitions": {
+          "new_family": {
+            "label": "Became a new family",
+            "definition": "A TribeMCL cluster that was minted a new PANTHER family id. Requires at least 2 organisms, at least 10 sequences, and no previous-library family available to inherit. These are the families this build created."
+          },
+          "inherited_family": {
+            "label": "Reclaimed an existing family",
+            "definition": "A cluster whose sequences mostly came from one previous-library family, which it was handed back. No size floor applies. Reclaiming is not creating: the family already existed."
+          },
+          "single_organism": {
+            "label": "Discarded \u2014 single organism",
+            "definition": "A cluster whose sequences all come from one organism. Never eligible for a family: a PANTHER family spans organisms by definition, so such a cluster can neither inherit nor be minted."
+          },
+          "too_small": {
+            "label": "Discarded \u2014 fewer than 10 sequences",
+            "definition": "A cluster spanning at least 2 organisms, holding fewer than 10 sequences, with no previous-library family to inherit. Ten is the floor for minting a new family; a cluster below it that could have inherited would have done so."
+          },
+          "not_used": {
+            "label": "Discarded \u2014 reason not determined",
+            "definition": "A cluster that received no family, where the runtime budget ran out before the organism counts were read. It is either single-organism or below the size floor; this report cannot say which."
+          },
+          "not_in_clusters_file": {
+            "label": "Discarded \u2014 missing from the clusters file",
+            "definition": "A cluster that received no family. The reclustering log names it, but `tribeMCL/PANTHERSeqsForTribeMCL.final.clusters` has no row for it, so its organism count could not be read. Unlike `not_used`, the organism pass did run to completion; this specific cluster is simply absent from what it read."
+          }
         }
       },
       "message": null,
@@ -2954,6 +3416,7 @@
               "exten",
               "orig"
             ],
+            "defines": "outcome",
             "rows": [
               {
                 "outcome": "perfect_match",
@@ -3009,7 +3472,29 @@
             "total_rows": 2,
             "truncated": false
           }
-        ]
+        ],
+        "definitions": {
+          "perfect_match": {
+            "label": "Kept the previous alignment",
+            "definition": "Every sequence in the family was already in the seed alignment, so MAFFT copied it unchanged rather than realigning. The cheapest and most common outcome."
+          },
+          "seed_extended": {
+            "label": "Seed extended",
+            "definition": "The seed alignment covered part of the family, and MAFFT added the remaining sequences to it. The alignment carries forward, with new members grafted on."
+          },
+          "zero_seqs_matched": {
+            "label": "Seed matched nothing",
+            "definition": "A seed alignment existed but none of its sequences survived into this family, so the family was realigned from scratch. Distinct from having no seed at all: here the previous alignment existed and became useless."
+          },
+          "no_seed_source": {
+            "label": "No seed available",
+            "definition": "No seed alignment existed for this family -- typically a family this build created. Aligned from scratch, with nothing lost."
+          },
+          "seed_short": {
+            "label": "Seed too short to use",
+            "definition": "The seed alignment held too few sequences to seed from, so the family was realigned from scratch."
+          }
+        }
       },
       "message": null,
       "status": "ok"
@@ -3895,6 +4380,7 @@
               "outcome",
               "count"
             ],
+            "defines": "outcome",
             "rows": [
               {
                 "tracked_type": "SPECIATION",
@@ -3956,7 +4442,41 @@
             "truncated": false
           }
         ],
-        "headline": {}
+        "headline": {},
+        "definitions": {
+          "applied": {
+            "label": "Applied",
+            "definition": "The PAINT-implied node was a speciation node inside an existing subfamily, and a new subfamily root was created at it."
+          },
+          "applied_under_ht": {
+            "label": "Applied, under a horizontal transfer",
+            "definition": "Applied, but a horizontal-transfer node sits between the forced node and the subfamily root it was split from. auto_subfamily refuses to let anything under an HT node start its own subfamily, so the split goes against that intent -- it is still made, because a curated clade is a subfamily by definition, but labelled separately rather than buried in `applied`."
+          },
+          "not_speciation": {
+            "label": "Not a speciation node",
+            "definition": "The forced node is a duplication or horizontal-transfer node. Only speciation nodes may root a subfamily."
+          },
+          "already_root": {
+            "label": "Already a subfamily root",
+            "definition": "auto_subfamily had already chosen this node as a root, so nothing needed doing. Tested before the speciation check: reporting it as `not_speciation` would understate the coverage actually achieved."
+          },
+          "encloses_existing_roots": {
+            "label": "Encloses existing roots",
+            "definition": "No ancestor of the forced node is a subfamily root, so every leaf beneath it already belongs to a subfamily rooted below it. Splitting would dissolve roots auto_subfamily chose, which this step never does."
+          },
+          "would_be_singleton": {
+            "label": "Would leave a one-sequence subfamily",
+            "definition": "The new subfamily would hold exactly one sequence, because the other leaves under the forced node already sit in roots nested below it. A subfamily must hold at least two."
+          },
+          "would_starve_owner": {
+            "label": "Would leave the parent with one sequence",
+            "definition": "The mirror of `would_be_singleton`: the new subfamily would be large enough, but the one it is carved out of would be left with a single sequence. auto_subfamily never emits a group that small."
+          },
+          "would_empty_group": {
+            "label": "Would empty the parent",
+            "definition": "The split would claim either every member of the owning subfamily -- deleting a root auto_subfamily chose -- or none of them, making an empty subfamily."
+          }
+        }
       },
       "message": null,
       "status": "ok"

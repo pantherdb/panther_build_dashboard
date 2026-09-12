@@ -31,6 +31,7 @@ import {
   absentPipeline,
   absentPreviousLibrary,
   absentProteomes,
+  absentRecluster,
   absentSpecies,
   absentTrees,
   unknownFreshness,
@@ -48,6 +49,7 @@ import {
   extractPipeline,
   extractPreviousLibrary,
   extractProteomes,
+  extractRecluster,
   extractTrees,
   buildRegistryEntry,
   readPhaseIds,
@@ -75,6 +77,7 @@ export const KNOWN_SECTION_IDS: readonly string[] = [
   'proteomes',
   'progress',
   'mapping',
+  'recluster',
   'msa',
   'node_tracking',
   'ibd_sf_roots',
@@ -371,6 +374,12 @@ export function parseBuildState(raw: unknown): BuildReport {
     () => extractMapping(pick('mapping'), sink),
     reason => absentMapping(errorMeta('mapping', reason))
   )
+  const recluster = safe(
+    sink,
+    'section:recluster',
+    () => extractRecluster(pick('recluster'), sink),
+    reason => absentRecluster(errorMeta('recluster', reason))
+  )
   const nodeTracking = safe(
     sink,
     'section:node_tracking',
@@ -504,6 +513,7 @@ export function parseBuildState(raw: unknown): BuildReport {
     timing: timing.model,
     pipeline,
     mapping,
+    recluster,
     nodeTracking,
     proteomes,
     library,

@@ -29,6 +29,8 @@ export interface NormalisedTable {
   records: Record<string, unknown>[]
   rawRows: unknown[]
   truncation: TableTruncation
+  /** Column whose cell values are terms the section defined. `null` when the table names none. */
+  definesColumn: string | null
 }
 
 export function buildTruncation(
@@ -93,6 +95,7 @@ export function normaliseTable(raw: unknown, fallbackName: string): NormalisedTa
       typeof record?.truncated === 'boolean' ? record.truncated : null,
       asInteger(record?.ragged_rows)
     ),
+    definesColumn: asNonEmptyString(record?.defines),
   }
 }
 
@@ -110,6 +113,7 @@ export function makeDerivedTable<TRow>(
     rows,
     rawRows: normalised.rawRows,
     truncation: normalised.truncation,
+    definesColumn: normalised.definesColumn,
   }
 }
 
@@ -128,6 +132,7 @@ export function absentTable<TRow>(
     rows: [],
     rawRows: [],
     truncation: EMPTY_TRUNCATION,
+    definesColumn: null,
   }
 }
 

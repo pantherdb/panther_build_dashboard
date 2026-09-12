@@ -276,6 +276,8 @@ export interface MechanismSlot {
   /** Stable index so a chart segment keeps its colour across every stage. */
   slot: number
   label: string
+  /** Registry key for this mechanism's generator-supplied definition. */
+  definitionId: string
   known: boolean
 }
 
@@ -367,6 +369,28 @@ export interface NodeTrackingSummary extends SummaryMeta {
   medianPct: number | null
   madPct: number | null
   atOrAbove90: number | null
+  warnings: string[]
+}
+
+/* -- Reclustering (TribeMCL) -------------------------------------------------------------- */
+
+/** One row of the generator's cluster-outcome table. */
+export interface ReclusterOutcome {
+  outcome: string
+  clusters: number | null
+  sequences: number | null
+}
+
+export interface ReclusterSummary extends SummaryMeta {
+  familiesCreated: number | null
+  sequencesInNewFamilies: number | null
+  familiesInherited: number | null
+  sequencesInInheritedFamilies: number | null
+  clustersFormed: number | null
+  sequencesOffered: number | null
+  newFamilyIdMin: string | null
+  newFamilyIdMax: string | null
+  outcomes: ReclusterOutcome[]
   warnings: string[]
 }
 
@@ -531,6 +555,8 @@ export interface DerivedTable<TRow> extends SummaryMeta {
   /** The rows exactly as the report wrote them. */
   rawRows: unknown[]
   truncation: TableTruncation
+  /** Column whose cell values are terms the section defined. `null` when the table names none. */
+  definesColumn: string | null
 }
 
 export interface SpeciesCountChange {
@@ -717,12 +743,33 @@ export interface GenericHeadlineValue {
   formatted: string
 }
 
+/**
+ * One term a collector defined, carried in the section's `data.definitions`.
+ *
+ * The pipeline writes these beside the tuple that lists its buckets, so the vocabulary travels
+ * with the numbers instead of being re-guessed here. Namespaced by section id before it reaches
+ * the definitions registry, so two collectors may define the same word differently.
+ */
+export interface GeneratorDefinition {
+  term: string
+  label: string
+  definition: string
+}
+
 export interface GenericSectionView {
   headline: GenericHeadlineValue[]
   rows: { key: string; value: unknown; formatted: string }[]
   tables: DerivedTable<Record<string, unknown>>[]
   text: string | null
   warnings: string[]
+  /**
+   * Vocabulary the generator supplied for this section's bucket strings. Only one lookup path
+   * consumes this: a `defines` table column resolves its cell values here (`GenericTable`), via
+   * ids namespaced `sectionId.term` (`generatorDefinitionId`). Headline values and `rows[].metric`
+   * keys do NOT look up here - only the curated registry resolves those - so a term that appears
+   * solely in a headline or rows key gets no tooltip today.
+   */
+  definitions: GeneratorDefinition[]
   /** `data` keys the generic view did not consume, so nothing is silently discarded. */
   extra: Record<string, unknown>
 }
@@ -858,6 +905,7 @@ export interface BuildReport {
   timing: TimingModel
   pipeline: PipelineSummary
   mapping: MappingSummary
+  recluster: ReclusterSummary
   nodeTracking: NodeTrackingSummary
   proteomes: ProteomesSummary
   library: LibrarySummary
@@ -884,6 +932,8 @@ export type MetricId =
   | 'assignedSequences'
   | 'librarySequences'
   | 'leafNodesMapped'
+  | 'reclusteredIntoExistingFamilies'
+  | 'reclusteredIntoNewFamilies'
   | 'unassignedSequences'
   | 'families'
   | 'subfamilies'

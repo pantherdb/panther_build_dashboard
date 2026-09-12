@@ -6,6 +6,8 @@ export { parseBuildState, parseBuildStateCached, KNOWN_SECTION_IDS } from './par
 
 export { extractProteomes } from './sections/proteomes'
 
+export { extractRecluster } from './sections/recluster'
+
 export { extractPreviousLibrary } from './sections/library'
 
 export {
@@ -59,6 +61,7 @@ export {
 export type { ResolvedBinding, SectionBinding } from './binding'
 
 export {
+  generatorDefinitionId,
   getMetricDefinition,
   METRIC_DEFINITIONS,
   METRIC_IDS,
@@ -69,6 +72,8 @@ export {
   SEQUENCE_METRIC_IDS,
 } from './definitions'
 export type { MetricDefinition, MetricFamily, MetricUnit } from './definitions'
+
+export { generatorDefinitions } from './generatorDefinitions'
 
 export {
   ABSENT_TIME_POINT,
@@ -121,6 +126,7 @@ export type { ConsistencyInput } from './consistency'
 
 export {
   AGGREGATE_OSCODES,
+  buildGenericView,
   humaniseKey,
   isAggregateOscode,
   isKnownMechanism,

@@ -23,6 +23,10 @@ import type { ProvenanceSource } from '@/@panther.core/vocabulary'
  *
  * `value == null` renders the absent mark with a reason. Never a zero where a
  * measurement is absent.
+ *
+ * The label carries a focus stop when it resolves to a definition, so the explanation is reachable
+ * by keyboard and on touch. Without it the tooltip is mouse-only, which made every definition in
+ * this app unreachable for anyone not using a pointer.
  */
 export interface MetricValueProps {
   /** Registry key. */
@@ -86,10 +90,12 @@ export const MetricValue = ({
 
   const labelNode = (
     <span
+      tabIndex={resolved ? 0 : undefined}
       className={clsx(
         'text-2xs',
         resolved ? 'text-ink-muted' : 'text-status-warn pb-ident',
-        !resolved && 'underline decoration-dotted'
+        !resolved && 'underline decoration-dotted',
+        resolved && 'focus-visible:outline-accent rounded-xs focus-visible:outline-2'
       )}
     >
       {label}

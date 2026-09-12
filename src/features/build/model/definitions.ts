@@ -113,6 +113,45 @@ const DEFINITIONS: MetricDefinition[] = [
       'duplication of the same metric.',
   },
 
+  /*
+   * -- reclustering: a seventh and eighth sequence count --------------------------------
+   *
+   * Not added to `SEQUENCE_METRIC_IDS`: that list is the fixed set behind the sequence-terminology
+   * check (`consistency.sequenceCounts`, `sequenceTerminology.ts`), which compares six figures that
+   * are all restatements of the same pipeline pass and could plausibly be mistaken for each other.
+   * These two are a partition of one TribeMCL outcome, not another view of that same six, so they
+   * get their own disambiguation here without joining that check's fixed roster.
+   */
+  {
+    id: 'reclusteredIntoExistingFamilies',
+    label: 'Sequences clustered into existing families',
+    shortLabel: 'Into existing fams',
+    definition:
+      'Sequences that were unassigned after HMM scoring, were clustered by TribeMCL, and landed ' +
+      'in a family that already existed in the PREVIOUS library — the cluster reclaimed that ' +
+      'family rather than creating one.',
+    unit: 'count',
+    family: 'sequences',
+    source: 'recluster.headline.sequences_in_inherited_families',
+    ambiguityNote:
+      'Reclaiming is not creating. Disjoint from the sequences in families this build minted; ' +
+      'the report calls these "inherited" because the family is inherited from the previous library.',
+  },
+  {
+    id: 'reclusteredIntoNewFamilies',
+    label: 'Sequences in newly created families',
+    shortLabel: 'Into new fams',
+    definition:
+      'Sequences that were unassigned after HMM scoring, were clustered by TribeMCL, and became ' +
+      'the founding members of a PANTHER family this build created.',
+    unit: 'count',
+    family: 'sequences',
+    source: 'recluster.headline.sequences_in_new_families',
+    ambiguityNote:
+      'These are the sequences the families-created figure is built from. Disjoint from the ' +
+      'sequences that went into families reclaimed from the previous library.',
+  },
+
   /* -- the rest ------------------------------------------------------------------------ */
   {
     id: 'unassignedSequences',
@@ -430,4 +469,15 @@ const OTHER_REPORT_METRIC_IDS: Record<string, MetricId> = {
 
 export function metricIdForReportKey(key: string): MetricId | null {
   return OTHER_REPORT_METRIC_IDS[key] ?? null
+}
+
+/**
+ * The registry key a generator-supplied term takes.
+ *
+ * Namespaced by section so the 433 lines of curated camelCase ids above can never be displaced,
+ * and so two collectors may define the same word - `applied` means one thing under forced
+ * subfamily roots and could mean another elsewhere - without interfering.
+ */
+export function generatorDefinitionId(sectionId: string, term: string): string {
+  return `${sectionId}.${term}`
 }

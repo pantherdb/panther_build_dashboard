@@ -2,9 +2,10 @@
  * The generic section renderer's data model, and the report registry entry every section gets.
  *
  * This is what makes an unfamiliar future report usable before anyone writes a specialised view:
- * a section is reduced to headline values, rows, tables, text, warnings and status, with anything
- * left over kept on `extra` so nothing is silently discarded. Unknown sections still get a
- * registry entry and hang from the Unattached reports node.
+ * a section is reduced to headline values, rows, tables, text, warnings, status and an optional
+ * `definitions` map of generator-supplied vocabulary, with anything left over kept on `extra` so
+ * nothing is silently discarded. Unknown sections still get a registry entry and hang from the
+ * Unattached reports node.
  */
 
 import { reportAnchor } from '../anchors'
@@ -23,6 +24,7 @@ import { formatUnknownValue, makeDerivedTable, normaliseTable } from '../tables'
 import type { NoteSink } from '../notes'
 import type {
   DerivedTable,
+  GeneratorDefinition,
   GenericHeadlineValue,
   GenericSectionView,
   ReportRegistryEntry,
@@ -38,6 +40,7 @@ const GENERIC_DATA_KEYS: readonly string[] = [
   'warnings',
   'current',
   'record_count',
+  'definitions',
 ]
 
 /** `prev_uniprot_pct_same` reads as `Prev uniprot pct same`, which is enough for a fallback view. */
@@ -87,6 +90,25 @@ export function buildGenericView(section: SectionInput, sink: NoteSink): Generic
     }
   )
 
+  // A malformed entry is dropped, never thrown: the vocabulary is an aid to reading the numbers,
+  // and a bad definition must not cost a reader the numbers themselves.
+  const definitionsRecord = asRecord(data?.definitions)
+  const definitions: GeneratorDefinition[] = []
+  for (const term of Object.keys(definitionsRecord ?? {})) {
+    const entry = asRecord(definitionsRecord?.[term])
+    const label = asNonEmptyString(entry?.label)
+    const definition = asNonEmptyString(entry?.definition)
+    if (label === null || definition === null) {
+      sink.add(
+        'warning',
+        scope,
+        `Definition \`${term}\` is missing a label or a definition; ignored.`
+      )
+      continue
+    }
+    definitions.push({ term, label, definition })
+  }
+
   const extra: Record<string, unknown> = {}
   for (const key of Object.keys(data ?? {})) {
     if (!GENERIC_DATA_KEYS.includes(key)) extra[key] = data?.[key]
@@ -107,6 +129,7 @@ export function buildGenericView(section: SectionInput, sink: NoteSink): Generic
     tables,
     text: asString(data?.text),
     warnings: asStringArray(data?.warnings),
+    definitions,
     extra,
   }
 }

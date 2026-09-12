@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { MetricDefinitionsProvider } from '@/@panther.core/components'
-import { metricRegistry } from '@/app/metricRegistry'
+import { curatedRegistry } from '@/app/metricRegistry'
 import { getFixtureReport } from '@/features/build/fixtures'
 import type { FixtureStateKey } from '@/features/build/fixtures'
 import { parseBuildState } from '@/features/build/model'
@@ -38,7 +38,7 @@ function synthetic(section: Record<string, unknown>): ReportRegistryEntry {
 
 const renderReport = (report: ReportRegistryEntry, anchors = true) =>
   renderWithProviders(
-    <MetricDefinitionsProvider registry={metricRegistry}>
+    <MetricDefinitionsProvider registry={curatedRegistry}>
       <GenericReport report={report} anchors={anchors} />
     </MetricDefinitionsProvider>
   )

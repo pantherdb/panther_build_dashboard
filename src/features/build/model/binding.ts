@@ -96,6 +96,17 @@ const BINDINGS: readonly SectionBinding[] = [
       'report legitimately contributes to five places on the spine.',
   },
   {
+    sectionId: 'recluster',
+    placement: 'phase',
+    primaryPhaseId: PHASE_IDS.sequenceToFamilyMapping,
+    contributingPhaseIds: [],
+    rationale:
+      'Reclustering is one stage of the mapping phase - order 60, between HMM scoring and the ' +
+      'first cleanup pass - so unlike `mapping`, which spans five places on the spine, this ' +
+      'section describes exactly one. It is where new families are created, which `mapping` ' +
+      'records only as a rise in the family count across one stage boundary.',
+  },
+  {
     sectionId: 'msa',
     placement: 'phase',
     primaryPhaseId: PHASE_IDS.msaBuild,
@@ -103,7 +114,7 @@ const BINDINGS: readonly SectionBinding[] = [
     rationale:
       'One report covering both seeded MAFFT passes. The `orig` pass IS the MSA build phase; ' +
       'the `exten` pass runs inside exten build and scoring, and is the one that aligns against ' +
-      'the previous release rather than against this build\'s own draft. Splitting them into two ' +
+      "the previous release rather than against this build's own draft. Splitting them into two " +
       'sections would put the same five outcome buckets on the spine twice and lose the ' +
       'comparison between them, which is the reading the section exists for.',
   },

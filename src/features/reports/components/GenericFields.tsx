@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { Tooltip } from '@mantine/core'
-import { CodeBlock, KeyValueList, MetricValue } from '@/@panther.core/components'
+import { CodeBlock, DefinedTerm, KeyValueList, MetricValue } from '@/@panther.core/components'
 import type { KeyValueItem } from '@/@panther.core/components'
 import { getMetricDefinition } from '@/features/build/model'
 import type { MetricId } from '@/features/build/model'
@@ -54,6 +54,19 @@ export interface MetricLabelProps {
   metricId: MetricId
 }
 
+/**
+ * The hover affordance `DefinedTerm`'s resolved branch uses
+ * (`src/@panther.core/components/DefinedTerm.tsx`): a dotted underline plus a help cursor, the
+ * visual signal that a label is hoverable/focusable at all. Copied verbatim rather than imported,
+ * because `DefinedTerm` is a frozen core primitive with no feature-facing export for this and
+ * core must not gain feature knowledge to create one. A curated row label (`MetricLabel`) and a
+ * generator-defined one (`DefinedTerm`) sit in the same row list, so they must carry it
+ * identically or a mouse user sees one as hoverable and the other as plain text for no reason a
+ * reader could tell.
+ */
+const HOVER_AFFORDANCE_CLASSES =
+  'decoration-ink-faint cursor-help underline decoration-dotted underline-offset-2'
+
 export const MetricLabel = ({ metricId }: MetricLabelProps) => {
   const definition = getMetricDefinition(metricId)
   const hint =
@@ -63,7 +76,16 @@ export const MetricLabel = ({ metricId }: MetricLabelProps) => {
 
   return (
     <Tooltip label={hint} withArrow openDelay={200} multiline maw={300}>
-      <span className="text-ink-muted text-2xs">{definition.label}</span>
+      <span
+        tabIndex={0}
+        className={clsx(
+          'text-ink-muted text-2xs',
+          HOVER_AFFORDANCE_CLASSES,
+          'focus-visible:outline-accent rounded-xs focus-visible:outline-2'
+        )}
+      >
+        {definition.label}
+      </span>
     </Tooltip>
   )
 }
@@ -73,10 +95,14 @@ const numericValue = (value: unknown): number | null =>
 
 /** One summary figure. Registered metrics go through `MetricValue` so the label is the shared one. */
 export const GenericFigure = ({ field }: FieldLabelProps) => {
-  if (field.metricId !== null) {
+  // Curated first, then the generator's own vocabulary, then the honest raw key. A curated
+  // definition carries ambiguity notes and metric-family grouping the generator contract does
+  // not, which is why it wins outright rather than merging.
+  const registryId = field.metricId ?? field.definitionId
+  if (registryId !== null) {
     return (
       <MetricValue
-        metricId={field.metricId}
+        metricId={registryId}
         value={numericValue(field.value) ?? field.formatted}
         layout="stack"
       />
@@ -129,6 +155,31 @@ function rowValue(field: GenericField) {
 }
 
 /**
+ * The same ordered decision as `GenericFigure`: curated metric, then the generator's own
+ * vocabulary, then the honest raw key. Kept as one function with early returns, rather than a
+ * ternary chain inlined at the call site, so the precedence reads top to bottom in one place.
+ *
+ * The middle branch reuses `DefinedTerm` - the same primitive `GenericTable` already uses for a
+ * generator-defined bucket value - rather than a bespoke label component, since
+ * `field.definitionId` is exactly the "vocabulary the generator defined" case that component
+ * exists for. `MetricLabel` cannot serve it: it is typed to the curated `MetricId` union and reads
+ * the curated model map, not the context registry a generator id resolves against.
+ */
+function fieldLabel(field: GenericField) {
+  if (field.metricId !== null) return <MetricLabel metricId={field.metricId} />
+  if (field.definitionId !== null) {
+    return (
+      <DefinedTerm
+        definitionId={field.definitionId}
+        fallback={field.path}
+        className="text-ink-muted text-2xs"
+      />
+    )
+  }
+  return <ReportKeyLabel field={field} />
+}
+
+/**
  * Label/value rows. A value that is multi-line text or a nested structure is shown as a snapshot
  * block instead of being flattened onto one line, because a truncated path or a collapsed object
  * is exactly the kind of quiet data loss this view exists to avoid.
@@ -141,12 +192,7 @@ export const GenericFieldRows = ({
 }: GenericFieldRowsProps) => {
   const items: KeyValueItem[] = fields.map(field => ({
     key: field.path,
-    label:
-      field.metricId !== null ? (
-        <MetricLabel metricId={field.metricId} />
-      ) : (
-        <ReportKeyLabel field={field} />
-      ),
+    label: fieldLabel(field),
     value: rowValue(field),
     mono: field.kind === 'scalar',
     anchorId: anchorIds?.[field.path],
