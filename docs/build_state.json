@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "target": "/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun",
-  "generated_at": "2026-09-11T22:05:37Z",
+  "target": "/scratch2/debert/panther_build/target",
+  "generated_at": "2026-09-14T17:50:13Z",
   "sections": [
     {
       "id": "config_ledger",
       "title": "Build configuration",
       "data": {
         "current": {
-          "generated_at": "2026-09-11T19:20:45Z",
-          "panther_build_git_rev": "67df421e7520129b38a8eb74efb413cb18ee70f6",
+          "generated_at": "2026-09-12T17:31:05Z",
+          "panther_build_git_rev": "ab4018387e14c45902b070bb238ab17273a9770e",
           "panther_build_dirty": true,
           "config_file": "config.mk",
           "config_file_contents": "#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_SF_NAMES=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/sfNames.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n",
@@ -21,7 +21,7 @@
           "PREV_RP_TAX_TXT": "/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt",
           "unresolved_vars": []
         },
-        "record_count": 4,
+        "record_count": 1,
         "text": "**config.mk** contents at this build:\n\n```\n#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_SF_NAMES=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/sfNames.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n\n```",
         "rows": [
           {
@@ -54,7 +54,7 @@
           },
           {
             "key": "generated_at",
-            "value": "2026-09-11T19:20:45Z"
+            "value": "2026-09-12T17:31:05Z"
           },
           {
             "key": "panther_build_dirty",
@@ -62,18 +62,14 @@
           },
           {
             "key": "panther_build_git_rev",
-            "value": "67df421e7520129b38a8eb74efb413cb18ee70f6"
+            "value": "ab4018387e14c45902b070bb238ab17273a9770e"
           },
           {
             "key": "unresolved_vars",
             "value": []
           }
         ],
-        "warnings": [
-          "config `PREV_RP_TAX_TXT` changed during this build: `/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/RP_taxonomy_organism_lib.txt` \u2192 `/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt`",
-          "config `config_file_contents` changed during this build: `#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-07-27_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n` \u2192 `#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_SF_NAMES=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/sfNames.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n`",
-          "config `panther_build_git_rev` changed during this build: `08e5f7104459f448e8222eaa3ea2c85320a8821b` \u2192 `67df421e7520129b38a8eb74efb413cb18ee70f6`"
-        ]
+        "warnings": []
       },
       "message": null,
       "status": "ok"
@@ -1878,13 +1874,13 @@
               {
                 "goal": "download_resources.touch",
                 "status": "done",
-                "mtime": 1788476841.0,
+                "mtime": 1789234265.0,
                 "attempts": []
               },
               {
                 "goal": "organism.dat",
                 "status": "done",
-                "mtime": 1788476527.0,
+                "mtime": 1789233938.0,
                 "attempts": []
               }
             ]
@@ -1897,19 +1893,19 @@
               {
                 "goal": "prev_lib_rebuilt/refProteomePANTHERmapping_split_merged_and_removed",
                 "status": "done",
-                "mtime": 1788476865.0,
+                "mtime": 1789234286.0,
                 "attempts": []
               },
               {
                 "goal": "prev_lib_rebuilt/refProteomePANTHERmapping_single_genome_fams_removed",
                 "status": "done",
-                "mtime": 1788476978.0,
+                "mtime": 1789234369.0,
                 "attempts": []
               },
               {
                 "goal": "prev_lib_rebuilt/famlib/rel/PANTHER20.0_prev_lib_rebuilt/publish_rel_books.touch",
                 "status": "done",
-                "mtime": 1788490422.0,
+                "mtime": 1789247967.0,
                 "attempts": []
               }
             ]
@@ -1922,31 +1918,31 @@
               {
                 "goal": "validate_idmapping_step.touch",
                 "status": "done",
-                "mtime": 1789154458.0,
+                "mtime": 1789248793.0,
                 "attempts": []
               },
               {
                 "goal": "validate_blast_step.touch",
                 "status": "done",
-                "mtime": 1789154459.0,
+                "mtime": 1789259441.0,
                 "attempts": []
               },
               {
                 "goal": "refProteomePANTHERmapping_fams_corrected_by_old_long_id",
                 "status": "done",
-                "mtime": 1788501649.0,
+                "mtime": 1789259448.0,
                 "attempts": []
               },
               {
                 "goal": "refProteomePANTHERmapping_updated_hmm",
                 "status": "done",
-                "mtime": 1788507454.0,
+                "mtime": 1789265293.0,
                 "attempts": []
               },
               {
                 "goal": "tribe_mcl_reclustering.touch",
                 "status": "done",
-                "mtime": 1788512015.0,
+                "mtime": 1789269883.0,
                 "attempts": []
               }
             ]
@@ -1959,19 +1955,19 @@
               {
                 "goal": "refProteomePANTHERmapping_families_trimmed",
                 "status": "done",
-                "mtime": 1788512029.0,
+                "mtime": 1789269897.0,
                 "attempts": []
               },
               {
                 "goal": "refProteomePANTHERmapping_dropped_dup_gene_ids",
                 "status": "done",
-                "mtime": 1788512134.0,
+                "mtime": 1789270002.0,
                 "attempts": []
               },
               {
                 "goal": "refProteomePANTHERmapping_single_genome_fams_removed",
                 "status": "done",
-                "mtime": 1788512221.0,
+                "mtime": 1789270089.0,
                 "attempts": []
               }
             ]
@@ -1984,13 +1980,13 @@
               {
                 "goal": "exten_hmm.touch",
                 "status": "done",
-                "mtime": 1788519551.0,
+                "mtime": 1789278541.0,
                 "attempts": []
               },
               {
                 "goal": "refProteomePANTHERmapping_updated_exten",
                 "status": "done",
-                "mtime": 1788523139.0,
+                "mtime": 1789280728.0,
                 "attempts": []
               }
             ]
@@ -2003,19 +1999,19 @@
               {
                 "goal": "refProteomePANTHERmapping_families_trimmed_round2",
                 "status": "done",
-                "mtime": 1788523166.0,
+                "mtime": 1789280748.0,
                 "attempts": []
               },
               {
                 "goal": "refProteomePANTHERmapping_dropped_dup_gene_ids_round2",
                 "status": "done",
-                "mtime": 1788523218.0,
+                "mtime": 1789280800.0,
                 "attempts": []
               },
               {
                 "goal": "refProteomePANTHERmapping_single_genome_fams_removed_round2",
                 "status": "done",
-                "mtime": 1788523303.0,
+                "mtime": 1789280885.0,
                 "attempts": []
               }
             ]
@@ -2028,7 +2024,7 @@
               {
                 "goal": "famlib/dev/PANTHER20.0/lib_20.0/trim_align_seeded_orig.touch",
                 "status": "done",
-                "mtime": 1788525603.0,
+                "mtime": 1789283619.0,
                 "attempts": []
               }
             ]
@@ -2041,13 +2037,13 @@
               {
                 "goal": "famlib/dev/PANTHER20.0/lib_20.0/giga.touch",
                 "status": "done",
-                "mtime": 1788541493.0,
+                "mtime": 1789299847.0,
                 "attempts": []
               },
               {
                 "goal": "refProteomePANTHERmapping_post_giga",
                 "status": "done",
-                "mtime": 1788541857.0,
+                "mtime": 1789300468.0,
                 "attempts": []
               }
             ]
@@ -2060,7 +2056,7 @@
               {
                 "goal": "nodeForwardTracking/nodeMapping_stats_by_genome.tsv",
                 "status": "done",
-                "mtime": 1788542278.0,
+                "mtime": 1789301634.0,
                 "attempts": []
               }
             ]
@@ -2073,31 +2069,31 @@
               {
                 "goal": "famlib/dev/PANTHER20.0/lib_20.0/auto_subfamily.touch",
                 "status": "done",
-                "mtime": 1788542609.0,
+                "mtime": 1789302285.0,
                 "attempts": []
               },
               {
                 "goal": "apply_ibd_sf_roots.touch",
                 "status": "done",
-                "mtime": 1788542685.0,
+                "mtime": 1789302810.0,
                 "attempts": []
               },
               {
                 "goal": "famlib/dev/PANTHER20.0/lib_20.0/listHT",
                 "status": "done",
-                "mtime": 1788999072.0,
+                "mtime": 1789303411.0,
                 "attempts": []
               },
               {
                 "goal": "orthologs.touch",
                 "status": "done",
-                "mtime": 1788542955.0,
+                "mtime": 1789303452.0,
                 "attempts": []
               },
               {
                 "goal": "enhancer_gene_link.tsv",
                 "status": "done",
-                "mtime": 1788543015.0,
+                "mtime": 1789303513.0,
                 "attempts": []
               }
             ]
@@ -2110,115 +2106,115 @@
               {
                 "goal": "DBload/organism.dat",
                 "status": "done",
-                "mtime": 1788543029.0,
+                "mtime": 1789303527.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/node.dat",
                 "status": "done",
-                "mtime": 1788543049.0,
+                "mtime": 1789303757.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/sequence_organism.dat",
                 "status": "done",
-                "mtime": 1788543060.0,
+                "mtime": 1789303769.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/identifier.dat",
                 "status": "done",
-                "mtime": 1788543174.0,
+                "mtime": 1789303883.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/annotation.dat",
                 "status": "done",
-                "mtime": 1788544120.0,
+                "mtime": 1789305379.0,
                 "attempts": []
               },
               {
                 "goal": "replace_pc_annotations.touch",
                 "status": "done",
-                "mtime": 1788544121.0,
+                "mtime": 1789305379.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/reactome_annotation.dat",
                 "status": "done",
-                "mtime": 1788544135.0,
+                "mtime": 1789305393.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/protein_class.dat",
                 "status": "done",
-                "mtime": 1788544135.0,
+                "mtime": 1789305394.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/protein_class_relationship.dat",
                 "status": "done",
-                "mtime": 1788544136.0,
+                "mtime": 1789305394.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/panther_slim.dat",
                 "status": "done",
-                "mtime": 1788544140.0,
+                "mtime": 1789305399.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/panther_slim_relationship.dat",
                 "status": "done",
-                "mtime": 1788544140.0,
+                "mtime": 1789305399.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/sfToSeq",
                 "status": "done",
-                "mtime": 1788544164.0,
+                "mtime": 1789305423.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/sfToPTN",
                 "status": "done",
-                "mtime": 1788549567.0,
+                "mtime": 1789311462.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/family_names.dat",
                 "status": "done",
-                "mtime": 1788549573.0,
+                "mtime": 1789311468.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/Homo_sapiens.chromosomal_location",
                 "status": "done",
-                "mtime": 1788549587.0,
+                "mtime": 1789311482.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/pathway_curation.dat",
                 "status": "done",
-                "mtime": 1788549611.0,
+                "mtime": 1789311507.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/tree_detail.dat",
                 "status": "done",
-                "mtime": 1788549617.0,
+                "mtime": 1789311652.0,
                 "attempts": []
               },
               {
                 "goal": "DBload/node_organism.dat",
                 "status": "done",
-                "mtime": 1788549741.0,
+                "mtime": 1789312078.0,
                 "attempts": []
               },
               {
                 "goal": "agg_files.touch",
                 "status": "done",
-                "mtime": 1789154880.0,
+                "mtime": 1789312497.0,
                 "attempts": []
               }
             ]
@@ -2231,13 +2227,13 @@
               {
                 "goal": "famlib/dev/PANTHER20.0/lib_20.0/createHMM3_orig_fam_orig.touch",
                 "status": "done",
-                "mtime": 1788554066.0,
+                "mtime": 1789317173.0,
                 "attempts": []
               },
               {
                 "goal": "createHMM3_sf.touch",
                 "status": "done",
-                "mtime": 1788555037.0,
+                "mtime": 1789318080.0,
                 "attempts": []
               }
             ]
@@ -2250,109 +2246,119 @@
               {
                 "goal": "TaxonConstraintsLookupSlimPlusPC.txt",
                 "status": "done",
-                "mtime": 1788557308.0,
+                "mtime": 1789320564.0,
                 "attempts": []
               },
               {
                 "goal": "publish_rel_books_export.touch",
                 "status": "done",
-                "mtime": 1788564158.0,
+                "mtime": 1789331415.0,
                 "attempts": []
               },
               {
                 "goal": "ontology.touch",
                 "status": "done",
-                "mtime": 1788564159.0,
+                "mtime": 1789331416.0,
                 "attempts": []
               },
               {
                 "goal": "genome_statistics",
                 "status": "done",
-                "mtime": 1788564279.0,
+                "mtime": 1789331540.0,
                 "attempts": []
               },
               {
                 "goal": "tree_rules.touch",
                 "status": "done",
-                "mtime": 1788574079.0,
+                "mtime": 1789341201.0,
                 "attempts": []
               },
               {
                 "goal": "QfO_OrthoXML.xml",
                 "status": "done",
-                "mtime": 1788574573.0,
+                "mtime": 1789341730.0,
                 "attempts": []
               },
               {
                 "goal": "ftp/PANTHER_HMM_Classification_files/PANTHER20.0_HMM_classifications",
                 "status": "done",
-                "mtime": 1788574086.0,
+                "mtime": 1789341209.0,
                 "attempts": []
               },
               {
                 "goal": "PANTHER20.0_fasta.tgz",
                 "status": "done",
-                "mtime": 1788574529.0,
+                "mtime": 1789341705.0,
                 "attempts": []
               },
               {
                 "goal": "pfam.touch",
                 "status": "done",
-                "mtime": 1788574580.0,
+                "mtime": 1789341752.0,
                 "attempts": []
               },
               {
                 "goal": "PANTHER_altVersion_gtar.touch",
                 "status": "done",
-                "mtime": 1788584467.0,
+                "mtime": 1789354600.0,
                 "attempts": []
               },
               {
                 "goal": "TreeGrafter_data/PANTHER20.0_data.tar.gz",
                 "status": "done",
-                "mtime": 1788585485.0,
+                "mtime": 1789355846.0,
                 "attempts": []
               },
               {
                 "goal": "node_closure_files.touch",
                 "status": "done",
-                "mtime": 1788585569.0,
+                "mtime": 1789355930.0,
                 "attempts": []
               }
             ]
           },
           {
             "name": "Final packaging",
-            "done": 2,
+            "done": 1,
             "total": 2,
             "steps": [
               {
                 "goal": "PTHR20.0_DBload.tar.gz",
                 "status": "done",
-                "mtime": 1789155052.0,
+                "mtime": 1789356105.0,
                 "attempts": []
               },
               {
                 "goal": "PANTHER20.0.tar.gz.touch",
-                "status": "done",
-                "mtime": 1788981988.0,
+                "status": "pending",
+                "mtime": null,
                 "attempts": []
               }
             ]
           }
         ],
         "headline": {
-          "phases_complete": 14,
-          "steps_complete": 62,
+          "phases_complete": 13,
+          "steps_complete": 61,
           "steps_total": 62
         },
         "warnings": [
-          "refProteomePANTHERmapping_fams_corrected_by_old_long_id is older than validate_blast_step.touch, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)",
-          "orthologs.touch is older than famlib/dev/PANTHER20.0/lib_20.0/listHT, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)",
-          "famlib/dev/PANTHER20.0/lib_20.0/createHMM3_orig_fam_orig.touch is older than agg_files.touch, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)",
-          "ftp/PANTHER_HMM_Classification_files/PANTHER20.0_HMM_classifications is older than QfO_OrthoXML.xml, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)",
-          "PANTHER20.0.tar.gz.touch is older than PTHR20.0_DBload.tar.gz, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)"
-        ]
+          "ftp/PANTHER_HMM_Classification_files/PANTHER20.0_HMM_classifications is older than QfO_OrthoXML.xml, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)"
+        ],
+        "definitions": {
+          "phases_complete": {
+            "label": "Phases fully complete",
+            "definition": "Phases where every step's artifact exists on disk, counted across the target's `# PHASE:`-marker-delimited phases PLUS one synthetic `Setup & resource download` phase that `makeall.parse_make_all` always prepends first, on every build -- built from the hardcoded `SETUP_GOALS` list, not parsed from any marker (those goals are prerequisites of `%/all` that run before make_all.slurm is even submitted, so no marker inside that file could cover them). A THIRD population can also appear: `parse_make_all` appends a synthetic `Ungrouped` phase for any Make goal line that precedes the file's first `# PHASE:` marker, which is present only on a driver that has one, unlike Setup. A phase with zero steps is never counted."
+          },
+          "steps_complete": {
+            "label": "Steps done",
+            "definition": "Individual Make goals, across every phase, whose artifact currently exists on disk. Attempt history (SLURM job state) does not affect this in practice -- see the module's KNOWN LIMITATION: attempts are always empty on a real build, so status is derived from artifact existence alone."
+          },
+          "steps_total": {
+            "label": "Steps in the driver",
+            "definition": "Every Make goal counted across the same population as `phases_complete`: the target's own `# PHASE:`-marker-delimited phases, plus the two hardcoded `SETUP_GOALS` steps of the synthetic Setup phase that is always prepended and never parsed from a marker, plus any goal a synthetic `Ungrouped` phase collects when it precedes the file's first marker -- the denominator `steps_complete` is measured against."
+          }
+        }
       },
       "message": null,
       "status": "ok"
@@ -2407,8 +2413,8 @@
             "stage": "hmm",
             "mapping_file": "refProteomePANTHERmapping_updated_hmm",
             "total_seqs": 2298433,
-            "assigned": 1804850,
-            "unassigned": 493583,
+            "assigned": 1804890,
+            "unassigned": 493543,
             "pct_assigned": 78.5,
             "n_families": 15681
           },
@@ -2417,88 +2423,88 @@
             "stage": "recluster",
             "mapping_file": "refProteomePANTHERmapping_updated_final_after_mcl_recluster",
             "total_seqs": 2298433,
-            "assigned": 1807673,
-            "unassigned": 490760,
+            "assigned": 1807692,
+            "unassigned": 490741,
             "pct_assigned": 78.6,
-            "n_families": 15834
+            "n_families": 15832
           },
           {
             "order": 70,
             "stage": "pass1_trim",
             "mapping_file": "refProteomePANTHERmapping_families_trimmed",
             "total_seqs": 2294174,
-            "assigned": 1803414,
-            "unassigned": 490760,
+            "assigned": 1803433,
+            "unassigned": 490741,
             "pct_assigned": 78.6,
-            "n_families": 15834
+            "n_families": 15832
           },
           {
             "order": 80,
             "stage": "pass1_dedup",
             "mapping_file": "refProteomePANTHERmapping_dropped_dup_gene_ids",
             "total_seqs": 2293251,
-            "assigned": 1802568,
-            "unassigned": 490683,
+            "assigned": 1802586,
+            "unassigned": 490665,
             "pct_assigned": 78.6,
-            "n_families": 15834
+            "n_families": 15832
           },
           {
             "order": 90,
             "stage": "pass1_single_genome",
             "mapping_file": "refProteomePANTHERmapping_single_genome_fams_removed",
             "total_seqs": 2292866,
-            "assigned": 1802183,
-            "unassigned": 490683,
+            "assigned": 1802201,
+            "unassigned": 490665,
             "pct_assigned": 78.6,
-            "n_families": 15804
+            "n_families": 15802
           },
           {
             "order": 100,
             "stage": "exten",
             "mapping_file": "refProteomePANTHERmapping_updated_exten",
             "total_seqs": 2292866,
-            "assigned": 1813943,
-            "unassigned": 478923,
+            "assigned": 1814024,
+            "unassigned": 478842,
             "pct_assigned": 79.1,
-            "n_families": 15804
+            "n_families": 15802
           },
           {
             "order": 110,
             "stage": "pass2_trim",
             "mapping_file": "refProteomePANTHERmapping_families_trimmed_round2",
             "total_seqs": 2292861,
-            "assigned": 1813938,
-            "unassigned": 478923,
+            "assigned": 1814019,
+            "unassigned": 478842,
             "pct_assigned": 79.1,
-            "n_families": 15804
+            "n_families": 15802
           },
           {
             "order": 120,
             "stage": "pass2_dedup",
             "mapping_file": "refProteomePANTHERmapping_dropped_dup_gene_ids_round2",
             "total_seqs": 2292861,
-            "assigned": 1813938,
-            "unassigned": 478923,
+            "assigned": 1814019,
+            "unassigned": 478842,
             "pct_assigned": 79.1,
-            "n_families": 15804
+            "n_families": 15802
           },
           {
             "order": 130,
             "stage": "pass2_single_genome",
             "mapping_file": "refProteomePANTHERmapping_single_genome_fams_removed_round2",
             "total_seqs": 2292861,
-            "assigned": 1813938,
-            "unassigned": 478923,
+            "assigned": 1814019,
+            "unassigned": 478842,
             "pct_assigned": 79.1,
-            "n_families": 15804
+            "n_families": 15802
           },
           {
             "order": 140,
             "stage": "post_giga",
             "mapping_file": "refProteomePANTHERmapping_post_giga",
-            "total_seqs": 2292530,
-            "assigned": 1813607,
-            "unassigned": 478923,
+            "total_seqs": 2292623,
+            "assigned": 1813781,
+            "unassigned": 478842,
             "pct_assigned": 79.1,
             "n_families": 15795
           }
@@ -2542,7 +2548,7 @@
           {
             "stage": "hmm",
             "mechanism": "HMM_scoring",
-            "count": 197108
+            "count": 197148
           },
           {
             "stage": "hmm",
@@ -2557,7 +2563,7 @@
           {
             "stage": "recluster",
             "mechanism": "HMM_scoring",
-            "count": 197108
+            "count": 197148
           },
           {
             "stage": "recluster",
@@ -2567,7 +2573,7 @@
           {
             "stage": "recluster",
             "mechanism": "RECLUSTER_NEW",
-            "count": 2823
+            "count": 2802
           },
           {
             "stage": "pass1_trim",
@@ -2577,7 +2583,7 @@
           {
             "stage": "pass1_trim",
             "mechanism": "HMM_scoring",
-            "count": 192849
+            "count": 192889
           },
           {
             "stage": "pass1_trim",
@@ -2587,7 +2593,7 @@
           {
             "stage": "pass1_trim",
             "mechanism": "RECLUSTER_NEW",
-            "count": 2823
+            "count": 2802
           },
           {
             "stage": "pass1_dedup",
@@ -2597,7 +2603,7 @@
           {
             "stage": "pass1_dedup",
             "mechanism": "HMM_scoring",
-            "count": 192031
+            "count": 192070
           },
           {
             "stage": "pass1_dedup",
@@ -2607,7 +2613,7 @@
           {
             "stage": "pass1_dedup",
             "mechanism": "RECLUSTER_NEW",
-            "count": 2823
+            "count": 2802
           },
           {
             "stage": "pass1_single_genome",
@@ -2617,7 +2623,7 @@
           {
             "stage": "pass1_single_genome",
             "mechanism": "HMM_scoring",
-            "count": 192014
+            "count": 192053
           },
           {
             "stage": "pass1_single_genome",
@@ -2627,7 +2633,7 @@
           {
             "stage": "pass1_single_genome",
             "mechanism": "RECLUSTER_NEW",
-            "count": 2823
+            "count": 2802
           },
           {
             "stage": "exten",
@@ -2637,7 +2643,7 @@
           {
             "stage": "exten",
             "mechanism": "HMM_scoring",
-            "count": 203774
+            "count": 203876
           },
           {
             "stage": "exten",
@@ -2647,7 +2653,7 @@
           {
             "stage": "exten",
             "mechanism": "RECLUSTER_NEW",
-            "count": 2823
+            "count": 2802
           },
           {
             "stage": "pass2_trim",
@@ -2657,7 +2663,7 @@
           {
             "stage": "pass2_trim",
             "mechanism": "HMM_scoring",
-            "count": 203769
+            "count": 203871
           },
           {
             "stage": "pass2_trim",
@@ -2667,7 +2673,7 @@
           {
             "stage": "pass2_trim",
             "mechanism": "RECLUSTER_NEW",
-            "count": 2823
+            "count": 2802
           },
           {
             "stage": "pass2_dedup",
@@ -2677,7 +2683,7 @@
           {
             "stage": "pass2_dedup",
             "mechanism": "HMM_scoring",
-            "count": 203769
+            "count": 203871
           },
           {
             "stage": "pass2_dedup",
@@ -2687,7 +2693,7 @@
           {
             "stage": "pass2_dedup",
             "mechanism": "RECLUSTER_NEW",
-            "count": 2823
+            "count": 2802
           },
           {
             "stage": "pass2_single_genome",
@@ -2697,7 +2703,7 @@
           {
             "stage": "pass2_single_genome",
             "mechanism": "HMM_scoring",
-            "count": 203769
+            "count": 203871
           },
           {
             "stage": "pass2_single_genome",
@@ -2707,17 +2713,17 @@
           {
             "stage": "pass2_single_genome",
             "mechanism": "RECLUSTER_NEW",
-            "count": 2823
+            "count": 2802
           },
           {
             "stage": "post_giga",
             "mechanism": "ID",
-            "count": 1506822
+            "count": 1506823
           },
           {
             "stage": "post_giga",
             "mechanism": "HMM_scoring",
-            "count": 203539
+            "count": 203722
           },
           {
             "stage": "post_giga",
@@ -2727,13 +2733,13 @@
           {
             "stage": "post_giga",
             "mechanism": "RECLUSTER_NEW",
-            "count": 2766
+            "count": 2756
           }
         ],
         "headline": {
           "final_stage": "post_giga",
-          "final_total_seqs": 2292530,
-          "final_assigned": 1813607,
+          "final_total_seqs": 2292623,
+          "final_assigned": 1813781,
           "final_pct_assigned": 79.1,
           "final_n_families": 15795
         },
@@ -2765,6 +2771,26 @@
           "(other)": {
             "label": "Unrecognised mechanism",
             "definition": "The mapping_type column carries a tag mapping_stats.py does not know. A new pipeline step is writing a tag the statistics script has not been taught."
+          },
+          "final_stage": {
+            "label": "Most recent mapping checkpoint",
+            "definition": "The `stage` label (from the Makefile's `mapping_stats` call) of the highest-`order` row recorded in mapping_stats.tsv so far."
+          },
+          "final_total_seqs": {
+            "label": "Total sequences at that checkpoint",
+            "definition": "`total_seqs` from the same row as `final_stage`."
+          },
+          "final_assigned": {
+            "label": "Sequences assigned at that checkpoint",
+            "definition": "`assigned` from the same row as `final_stage` -- sequences with a non-blank PTHR_family at that point in the mapping pipeline."
+          },
+          "final_pct_assigned": {
+            "label": "Percent assigned at that checkpoint",
+            "definition": "`final_assigned` as a percentage of `final_total_seqs`."
+          },
+          "final_n_families": {
+            "label": "Families at that checkpoint",
+            "definition": "`n_families` from the same row as `final_stage`."
           }
         }
       },
@@ -2775,25 +2801,25 @@
       "id": "recluster",
       "title": "Reclustering (TribeMCL)",
       "data": {
-        "text": "Reclustering created 153 new PANTHER families from 2,823 sequences, across 419,136 TribeMCL clusters. 0 clusters reclaimed a previous-library family instead of creating one.",
+        "text": "Reclustering created 151 new PANTHER families from 2,802 sequences, across 419,148 TribeMCL clusters. 0 clusters reclaimed a previous-library family instead of creating one.",
         "headline": {
-          "families_created": 153,
-          "sequences_in_new_families": 2823,
+          "families_created": 151,
+          "sequences_in_new_families": 2802,
           "families_inherited": 0,
           "sequences_in_inherited_families": 0,
-          "clusters_formed": 419136,
+          "clusters_formed": 419148,
           "new_family_id_min": "PTHR48496",
-          "new_family_id_max": "PTHR48648",
-          "sequences_offered": 493583
+          "new_family_id_max": "PTHR48646",
+          "sequences_offered": 493543
         },
         "rows": [
           {
             "metric": "families_created",
-            "value": 153
+            "value": 151
           },
           {
             "metric": "sequences_in_new_families",
-            "value": 2823
+            "value": 2802
           },
           {
             "metric": "families_inherited",
@@ -2805,7 +2831,7 @@
           },
           {
             "metric": "clusters_formed",
-            "value": 419136
+            "value": 419148
           },
           {
             "metric": "new_family_id_min",
@@ -2813,11 +2839,11 @@
           },
           {
             "metric": "new_family_id_max",
-            "value": "PTHR48648"
+            "value": "PTHR48646"
           },
           {
             "metric": "sequences_offered",
-            "value": 493583
+            "value": 493543
           }
         ],
         "tables": [
@@ -2832,8 +2858,8 @@
             "rows": [
               {
                 "outcome": "new_family",
-                "clusters": 153,
-                "sequences": 2823
+                "clusters": 151,
+                "sequences": 2802
               },
               {
                 "outcome": "inherited_family",
@@ -2842,13 +2868,13 @@
               },
               {
                 "outcome": "single_organism",
-                "clusters": 395807,
-                "sequences": 427949
+                "clusters": 395839,
+                "sequences": 427985
               },
               {
                 "outcome": "too_small",
-                "clusters": 23176,
-                "sequences": 62306
+                "clusters": 23158,
+                "sequences": 62251
               }
             ],
             "total_rows": 4,
@@ -2931,7 +2957,7 @@
               },
               {
                 "family": "PTHR48507",
-                "cluster": "33",
+                "cluster": "32",
                 "sequences": 36,
                 "organisms": 4
               },
@@ -2957,13 +2983,13 @@
                 "family": "PTHR48511",
                 "cluster": "42",
                 "sequences": 31,
-                "organisms": 3
+                "organisms": 2
               },
               {
                 "family": "PTHR48512",
-                "cluster": "44",
+                "cluster": "43",
                 "sequences": 31,
-                "organisms": 2
+                "organisms": 3
               },
               {
                 "family": "PTHR48513",
@@ -3004,14 +3030,14 @@
               {
                 "family": "PTHR48519",
                 "cluster": "53",
-                "sequences": 27,
-                "organisms": 4
+                "sequences": 28,
+                "organisms": 2
               },
               {
                 "family": "PTHR48520",
                 "cluster": "54",
                 "sequences": 27,
-                "organisms": 2
+                "organisms": 4
               },
               {
                 "family": "PTHR48521",
@@ -3047,31 +3073,31 @@
                 "family": "PTHR48526",
                 "cluster": "68",
                 "sequences": 21,
-                "organisms": 20
+                "organisms": 2
               },
               {
                 "family": "PTHR48527",
-                "cluster": "70",
+                "cluster": "69",
                 "sequences": 21,
                 "organisms": 2
               },
               {
                 "family": "PTHR48528",
-                "cluster": "71",
+                "cluster": "72",
                 "sequences": 21,
                 "organisms": 2
               },
               {
                 "family": "PTHR48529",
                 "cluster": "77",
-                "sequences": 21,
-                "organisms": 2
+                "sequences": 20,
+                "organisms": 12
               },
               {
                 "family": "PTHR48530",
                 "cluster": "78",
                 "sequences": 20,
-                "organisms": 12
+                "organisms": 2
               },
               {
                 "family": "PTHR48531",
@@ -3081,9 +3107,9 @@
               },
               {
                 "family": "PTHR48532",
-                "cluster": "80",
-                "sequences": 20,
-                "organisms": 2
+                "cluster": "82",
+                "sequences": 19,
+                "organisms": 19
               },
               {
                 "family": "PTHR48533",
@@ -3099,25 +3125,25 @@
               },
               {
                 "family": "PTHR48535",
-                "cluster": "86",
+                "cluster": "85",
                 "sequences": 18,
                 "organisms": 2
               },
               {
                 "family": "PTHR48536",
-                "cluster": "87",
+                "cluster": "86",
                 "sequences": 18,
                 "organisms": 2
               },
               {
                 "family": "PTHR48537",
-                "cluster": "88",
+                "cluster": "87",
                 "sequences": 18,
                 "organisms": 3
               },
               {
                 "family": "PTHR48538",
-                "cluster": "89",
+                "cluster": "88",
                 "sequences": 18,
                 "organisms": 3
               },
@@ -3125,31 +3151,31 @@
                 "family": "PTHR48539",
                 "cluster": "94",
                 "sequences": 17,
-                "organisms": 11
+                "organisms": 2
               },
               {
                 "family": "PTHR48540",
                 "cluster": "95",
                 "sequences": 17,
-                "organisms": 2
+                "organisms": 12
               },
               {
                 "family": "PTHR48541",
                 "cluster": "96",
                 "sequences": 17,
-                "organisms": 2
+                "organisms": 10
               },
               {
                 "family": "PTHR48542",
                 "cluster": "97",
                 "sequences": 17,
-                "organisms": 10
+                "organisms": 11
               },
               {
                 "family": "PTHR48543",
                 "cluster": "98",
                 "sequences": 17,
-                "organisms": 12
+                "organisms": 2
               },
               {
                 "family": "PTHR48544",
@@ -3164,7 +3190,7 @@
                 "organisms": 3
               }
             ],
-            "total_rows": 153,
+            "total_rows": 151,
             "truncated": true
           }
         ],
@@ -3193,6 +3219,38 @@
           "not_in_clusters_file": {
             "label": "Discarded \u2014 missing from the clusters file",
             "definition": "A cluster that received no family. The reclustering log names it, but `tribeMCL/PANTHERSeqsForTribeMCL.final.clusters` has no row for it, so its organism count could not be read. Unlike `not_used`, the organism pass did run to completion; this specific cluster is simply absent from what it read."
+          },
+          "families_created": {
+            "label": "New families created",
+            "definition": "PANTHER families this build minted during reclustering. Each one is a TribeMCL cluster of at least 10 sequences spanning at least 2 organisms that had no previous-library family to reclaim. This is the count of families the build added to the library."
+          },
+          "sequences_in_new_families": {
+            "label": "Sequences in newly created families",
+            "definition": "Sequences that became the founding members of the families this build created. Disjoint from the sequences that went into reclaimed families."
+          },
+          "families_inherited": {
+            "label": "Existing families reclaimed",
+            "definition": "Families that already existed in the previous library and were handed back to a TribeMCL cluster whose sequences mostly came from them. Reclaiming is not creating: these families were not added by this build."
+          },
+          "sequences_in_inherited_families": {
+            "label": "Sequences clustered into existing families",
+            "definition": "Sequences that reclustering placed into a family that already existed in the previous library, rather than into one this build created. Disjoint from the sequences in newly created families."
+          },
+          "clusters_formed": {
+            "label": "TribeMCL clusters formed",
+            "definition": "Every cluster TribeMCL produced, before any were discarded. Most become no family at all: a cluster needs at least 2 organisms, and at least 10 sequences if it has no family to reclaim."
+          },
+          "sequences_offered": {
+            "label": "Sequences offered to reclustering",
+            "definition": "Sequences still unassigned after HMM scoring, which is the input reclustering was given. Only a small fraction end up in a family."
+          },
+          "new_family_id_min": {
+            "label": "Lowest new family id",
+            "definition": "The first PANTHER id minted during reclustering. New ids count up from the highest family number that already existed, so the minted range is contiguous and sits above every previous family."
+          },
+          "new_family_id_max": {
+            "label": "Highest new family id",
+            "definition": "The last PANTHER id minted during reclustering. With the lowest, this gives the range of ids this build added."
           }
         }
       },
@@ -3203,210 +3261,30 @@
       "id": "msa",
       "title": "MSA build (MAFFT)",
       "data": {
-        "text": "13990 of 15795 families reused their seed alignment unchanged (perfect match); 1760 extended with new sequences; 45 realigned from scratch.",
+        "text": "14034 of 15795 families reused their seed alignment unchanged (perfect match); 1761 extended with new sequences; 0 realigned from scratch.",
         "rows": [
           {
-            "metric": "msa_exten_perfect_match",
-            "value": 2888
-          },
-          {
-            "metric": "msa_exten_seed_extended",
-            "value": 12757
-          },
-          {
-            "metric": "msa_exten_zero_seqs_matched",
-            "value": 0
-          },
-          {
-            "metric": "msa_exten_no_seed_source",
-            "value": 149
-          },
-          {
-            "metric": "msa_exten_seed_short",
-            "value": 1
-          },
-          {
-            "metric": "msa_exten_books_total",
+            "metric": "msa_books_total",
             "value": 15795
           },
           {
-            "metric": "msa_exten_seeds_with_dropped_rows",
+            "metric": "msa_alignments_empty",
             "value": 0
           },
           {
-            "metric": "msa_exten_dropped_rows_total",
+            "metric": "msa_alignments_missing",
             "value": 0
           },
           {
-            "metric": "msa_exten_seeds_lost_to_dropped_rows",
-            "value": 0
-          },
-          {
-            "metric": "msa_exten_dropped_sequence_mismatch",
-            "value": 0
-          },
-          {
-            "metric": "msa_exten_dropped_redundant_duplicate",
-            "value": 0
-          },
-          {
-            "metric": "msa_exten_source_seqs_total",
-            "value": 2114759
-          },
-          {
-            "metric": "msa_exten_carried_over_total",
-            "value": 1575003
-          },
-          {
-            "metric": "msa_exten_source_seqs_dropped",
-            "value": 539756
-          },
-          {
-            "metric": "msa_exten_seeds_smaller_than_source",
-            "value": 13481
-          },
-          {
-            "metric": "msa_exten_new_seqs_total",
-            "value": 224197
-          },
-          {
-            "metric": "msa_exten_alignments_written",
-            "value": 15795
-          },
-          {
-            "metric": "msa_exten_alignments_empty",
-            "value": 0
-          },
-          {
-            "metric": "msa_exten_alignments_missing",
-            "value": 0
-          },
-          {
-            "metric": "msa_exten_stale_copies",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_perfect_match",
-            "value": 13990
-          },
-          {
-            "metric": "msa_orig_seed_extended",
-            "value": 1760
-          },
-          {
-            "metric": "msa_orig_zero_seqs_matched",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_no_seed_source",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_seed_short",
-            "value": 45
-          },
-          {
-            "metric": "msa_orig_books_total",
-            "value": 15795
-          },
-          {
-            "metric": "msa_orig_seeds_with_dropped_rows",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_dropped_rows_total",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_seeds_lost_to_dropped_rows",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_dropped_sequence_mismatch",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_dropped_redundant_duplicate",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_source_seqs_total",
-            "value": 1802036
-          },
-          {
-            "metric": "msa_orig_carried_over_total",
-            "value": 1802036
-          },
-          {
-            "metric": "msa_orig_source_seqs_dropped",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_seeds_smaller_than_source",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_new_seqs_total",
-            "value": 11571
-          },
-          {
-            "metric": "msa_orig_alignments_written",
-            "value": 15795
-          },
-          {
-            "metric": "msa_orig_alignments_empty",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_alignments_missing",
-            "value": 0
-          },
-          {
-            "metric": "msa_orig_stale_copies",
+            "metric": "msa_seeds_lost_to_dropped_rows",
             "value": 0
           }
         ],
         "headline": {
-          "msa_exten_perfect_match": 2888,
-          "msa_exten_seed_extended": 12757,
-          "msa_exten_zero_seqs_matched": 0,
-          "msa_exten_no_seed_source": 149,
-          "msa_exten_seed_short": 1,
-          "msa_exten_books_total": 15795,
-          "msa_exten_seeds_with_dropped_rows": 0,
-          "msa_exten_dropped_rows_total": 0,
-          "msa_exten_seeds_lost_to_dropped_rows": 0,
-          "msa_exten_dropped_sequence_mismatch": 0,
-          "msa_exten_dropped_redundant_duplicate": 0,
-          "msa_exten_source_seqs_total": 2114759,
-          "msa_exten_carried_over_total": 1575003,
-          "msa_exten_source_seqs_dropped": 539756,
-          "msa_exten_seeds_smaller_than_source": 13481,
-          "msa_exten_new_seqs_total": 224197,
-          "msa_exten_alignments_written": 15795,
-          "msa_exten_alignments_empty": 0,
-          "msa_exten_alignments_missing": 0,
-          "msa_exten_stale_copies": 0,
-          "msa_orig_perfect_match": 13990,
-          "msa_orig_seed_extended": 1760,
-          "msa_orig_zero_seqs_matched": 0,
-          "msa_orig_no_seed_source": 0,
-          "msa_orig_seed_short": 45,
-          "msa_orig_books_total": 15795,
-          "msa_orig_seeds_with_dropped_rows": 0,
-          "msa_orig_dropped_rows_total": 0,
-          "msa_orig_seeds_lost_to_dropped_rows": 0,
-          "msa_orig_dropped_sequence_mismatch": 0,
-          "msa_orig_dropped_redundant_duplicate": 0,
-          "msa_orig_source_seqs_total": 1802036,
-          "msa_orig_carried_over_total": 1802036,
-          "msa_orig_source_seqs_dropped": 0,
-          "msa_orig_seeds_smaller_than_source": 0,
-          "msa_orig_new_seqs_total": 11571,
-          "msa_orig_alignments_written": 15795,
-          "msa_orig_alignments_empty": 0,
-          "msa_orig_alignments_missing": 0,
-          "msa_orig_stale_copies": 0
+          "msa_books_total": 15795,
+          "msa_alignments_empty": 0,
+          "msa_alignments_missing": 0,
+          "msa_seeds_lost_to_dropped_rows": 0
         },
         "tables": [
           {
@@ -3420,13 +3298,13 @@
             "rows": [
               {
                 "outcome": "perfect_match",
-                "exten": 2888,
-                "orig": 13990
+                "exten": 2889,
+                "orig": 14034
               },
               {
                 "outcome": "seed_extended",
-                "exten": 12757,
-                "orig": 1760
+                "exten": 12758,
+                "orig": 1761
               },
               {
                 "outcome": "zero_seqs_matched",
@@ -3435,16 +3313,129 @@
               },
               {
                 "outcome": "no_seed_source",
-                "exten": 149,
+                "exten": 148,
                 "orig": 0
               },
               {
                 "outcome": "seed_short",
-                "exten": 1,
-                "orig": 45
+                "exten": 0,
+                "orig": 0
               }
             ],
             "total_rows": 5,
+            "truncated": false
+          },
+          {
+            "name": "Alignment churn & QC",
+            "columns": [
+              "metric",
+              "exten",
+              "orig"
+            ],
+            "defines": "metric",
+            "rows": [
+              {
+                "metric": "books_total",
+                "exten": 15795,
+                "orig": 15795
+              },
+              {
+                "metric": "seeds_with_dropped_rows",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "dropped_rows_total",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "seeds_lost_to_dropped_rows",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "alignments_written",
+                "exten": 15795,
+                "orig": 15795
+              },
+              {
+                "metric": "alignments_empty",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "alignments_missing",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "stale_copies",
+                "exten": 1,
+                "orig": 46
+              },
+              {
+                "metric": "seed_missing_despite_matches",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "seeds_not_covering_family",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "dropped_sequence_mismatch",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "dropped_redundant_duplicate",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "dropped_other_reason",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "classification_mismatches",
+                "exten": 0,
+                "orig": 0
+              },
+              {
+                "metric": "classification_checked",
+                "exten": 203,
+                "orig": 0
+              },
+              {
+                "metric": "source_seqs_total",
+                "exten": null,
+                "orig": null
+              },
+              {
+                "metric": "carried_over_total",
+                "exten": null,
+                "orig": null
+              },
+              {
+                "metric": "source_seqs_dropped",
+                "exten": null,
+                "orig": null
+              },
+              {
+                "metric": "seeds_smaller_than_source",
+                "exten": null,
+                "orig": null
+              },
+              {
+                "metric": "new_seqs_total",
+                "exten": null,
+                "orig": null
+              }
+            ],
+            "total_rows": 20,
             "truncated": false
           },
           {
@@ -3457,13 +3448,13 @@
             ],
             "rows": [
               {
-                "seed_source_lib": "/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun/prev_lib_rebuilt/famlib/dev/PANTHER20.0/lib_split_merged",
+                "seed_source_lib": "/scratch2/debert/panther_build/target/prev_lib_rebuilt/famlib/dev/PANTHER20.0/lib_split_merged",
                 "seed_source_type": "orig",
                 "swap_long_ids": 1,
                 "pass": "exten"
               },
               {
-                "seed_source_lib": "/scratch2/debert/panther_build/target_2026_02_w_select_2026_01_rerun/famlib/dev/PANTHER20.0/lib_20.0",
+                "seed_source_lib": "/scratch2/debert/panther_build/target/famlib/dev/PANTHER20.0/lib_20.0",
                 "seed_source_type": "exten",
                 "swap_long_ids": 0,
                 "pass": "orig"
@@ -3472,6 +3463,12 @@
             "total_rows": 2,
             "truncated": false
           }
+        ],
+        "warnings": [
+          "1 famil(ies) in the exten pass are reported as a perfect match but carry a MAFFT stderr file, which the copy path never writes. Their .pir is stale, left by an earlier run, and is not the seed.",
+          "The exten pass's seed-source comparison was abandoned: the report's runtime budget ran out mid-walk, and a partial total would read as a real one. The outcome buckets above are complete. Re-run the report -- the walk is cached once it finishes -- or raise --budget.",
+          "46 famil(ies) in the orig pass are reported as a perfect match but carry a MAFFT stderr file, which the copy path never writes. Their .pir is stale, left by an earlier run, and is not the seed.",
+          "The orig pass's seed-source comparison was abandoned: the report's runtime budget ran out mid-walk, and a partial total would read as a real one. The outcome buckets above are complete. Re-run the report -- the walk is cached once it finishes -- or raise --budget."
         ],
         "definitions": {
           "perfect_match": {
@@ -3493,6 +3490,106 @@
           "seed_short": {
             "label": "Seed too short to use",
             "definition": "The seed alignment held too few sequences to seed from, so the family was realigned from scratch."
+          },
+          "books_total": {
+            "label": "Families in this pass",
+            "definition": "Families with a <PTHR>.<TYPE>.fasta under this pass's books/ -- that file is written upstream by createLibFasta, long before MAFFT ever runs, so this counts which families the pipeline has handed to this pass, not which ones this pass itself produced anything for. It is the denominator the five outcome buckets sum to exactly, but NOT a denominator for the churn/QC keys below: those are summed only over the narrower seeded subset (books_total minus no_seed_source) that also resolves a source FASTA in the seed library -- see _churn."
+          },
+          "seeds_with_dropped_rows": {
+            "label": "Seeds with a duplicate-QC drop",
+            "definition": "Families whose candidate seed had at least one row removed by filter_fasta_by_long_id.py's duplicate-long-ID check (a seed_pir_dropped.tsv was written). Harmless when the seed still covers the family; see seeds_lost_to_dropped_rows for when it does not."
+          },
+          "dropped_rows_total": {
+            "label": "Rows dropped by the duplicate QC",
+            "definition": "Individual rows filter_fasta_by_long_id.py removed across every family in this pass, summed over EVERY reason string a seed_pir_dropped.tsv carries, not just the two DROP_REASONS this collector names: dropped_sequence_mismatch, dropped_redundant_duplicate and dropped_other_reason (an unlisted reason) all add into it. Counts rows, not families -- one family can lose more than one."
+          },
+          "seeds_lost_to_dropped_rows": {
+            "label": "Seeds lost to the duplicate QC",
+            "definition": "Of the families with a dropped row, those where the drop left the seed with fewer rows than the family has (bucket seed_short): the previous alignment no longer covers the family, so it is discarded and the family realigned from scratch. The actionable subset of seeds_with_dropped_rows -- most dropped rows cost nothing. Only reachable on a target seeded before scripts/seed_coverage.py existed; with that step the shortfall is handed to `mafft --add` and the family is extended, not realigned."
+          },
+          "seeds_not_covering_family": {
+            "label": "Seeds the source alignment could not fill",
+            "definition": "Families where the seed source held the sequence but its .pir.bk carried no alignment row for it, so the seed came out short of its family through no fault of the duplicate QC -- seeding picks WHICH sequences to seed from the source's .fasta and pulls the rows from its .pir.bk, and nothing makes those two agree. scripts/seed_coverage.py names those sequences in a seed_uncovered.tsv and adds them to to_add.fasta, so `mafft --add` restores them instead of the family being realigned from scratch. Distinct from seeds_lost_to_dropped_rows, which is the same shortfall caused by this build's own QC rather than by the source library."
+          },
+          "alignments_written": {
+            "label": "Alignments written",
+            "definition": "Families whose .pir holds content: MAFFT ran to completion, or the family was copied unchanged from its seed."
+          },
+          "alignments_empty": {
+            "label": "Alignments that started and died",
+            "definition": "Families whose .pir exists but is zero bytes. run_mafft opens the file for write before invoking MAFFT, so an empty file means the run was invoked and aborted, not that it never started -- see alignments_missing for that case."
+          },
+          "alignments_missing": {
+            "label": "Alignments not yet attempted",
+            "definition": "Families with no .pir at all: this pass has not reached them yet."
+          },
+          "stale_copies": {
+            "label": "Copies carrying a stale alignment",
+            "definition": "Families classified as perfect_match (a copy, which never invokes MAFFT and so never writes a .pir.err) that nonetheless have one. The .pir.err can only have come from an earlier run that actually invoked MAFFT for this family, so the .pir sitting next to it predates this pass's copy and is not what this pass produced."
+          },
+          "seed_missing_despite_matches": {
+            "label": "Matches recorded, no seed produced",
+            "definition": "Families bucketed zero_seqs_matched whose intersection_mappings.tsv nonetheless recorded matched sequences: the ID mapping found candidates, but the duplicate/mismatch QC then dropped every one of them, so no seed.pir survived. Counted separately rather than folded into a bucket so the five buckets keep summing to books_total."
+          },
+          "dropped_sequence_mismatch": {
+            "label": "Dropped -- wrong copy of a duplicated ID",
+            "definition": "Rows filter_fasta_by_long_id.py dropped because, of two or more seed rows sharing one long ID, this copy's residues matched none of the reference sequence's known variants -- the wrong one of a duplicated ID (see PTHR12046 in that script's own docstring for the case that motivated the check)."
+          },
+          "dropped_redundant_duplicate": {
+            "label": "Dropped -- redundant duplicate",
+            "definition": "Rows filter_fasta_by_long_id.py dropped because they were an extra copy of a long ID whose first, reference-matching copy was already kept. Correct content, simply surplus -- distinct from dropped_sequence_mismatch, whose rows are wrong."
+          },
+          "dropped_other_reason": {
+            "label": "Dropped -- unrecognised reason",
+            "definition": "Rows a seed_pir_dropped.tsv recorded under a reason string outside DROP_REASONS (sequence_mismatch, redundant_duplicate) -- filter_fasta_by_long_id.py has started writing a reason this collector was not taught. Folded into one named, defined bucket rather than minted as a fresh dropped_<reason> key per string, so an unlisted reason cannot reach the churn table undefined."
+          },
+          "classification_mismatches": {
+            "label": "Bucket/choose_action disagreements",
+            "definition": "Of the sampled families re-derived through mafft_align.choose_action directly, those where it disagrees with this collector's cheap, stat-derived bucket. The identity `_bucket` relies on holds only while every file on disk is from the same run; a nonzero count means a leftover file from an earlier run broke it, and this pass's bucket counts are unreliable."
+          },
+          "classification_checked": {
+            "label": "Families sampled for verification",
+            "definition": "How many families the classification_mismatches check actually reached, bounded by VERIFY_SAMPLE and the collector's own time budget -- not every family is checked."
+          },
+          "source_seqs_total": {
+            "label": "Seed-source sequences available",
+            "definition": "Total sequence records held, in this pass's seed-source library, for the families this pass seeded from it -- the pool of sequences a seed could have carried forward. Exten's source is the previous release; orig's is this build's own exten books."
+          },
+          "carried_over_total": {
+            "label": "Seed-source sequences carried over",
+            "definition": "Of the seed-source sequences available, how many actually survived by ID mapping into this pass's seed."
+          },
+          "source_seqs_dropped": {
+            "label": "Seed-source sequences that did not carry over",
+            "definition": "source_seqs_total minus carried_over_total: seed-source sequences that did not make it into this pass's seed, for any reason -- a broader figure than the specific, named QC drops counted in dropped_rows_total."
+          },
+          "seeds_smaller_than_source": {
+            "label": "Families whose seed shrank",
+            "definition": "Families where fewer sequences carried over than the seed source held for them, i.e. carried_over_total < source_seqs_total for that family -- the seed lost ground rather than staying the same size or growing."
+          },
+          "new_seqs_total": {
+            "label": "New sequences added",
+            "definition": "Records in each family's new_seqs.fasta, summed across every family in this pass that has one -- whether mafft --add appended them to a seed that survived (seed_extended) or the seed matched nothing and the family was realigned from scratch (zero_seqs_matched): fasta_differ still records which sequences are new relative to the seed source even when no seed survives to add them to. Perfect-match and seed_short families never have a nonempty new_seqs file (see _bucket), and no_seed_source families never enter this pass's churn walk at all, so this total measures 'new relative to the seed source,' not 'added to an extended seed.'"
+          },
+          "msa_books_total": {
+            "label": "Families aligned (orig pass)",
+            "definition": "books_total for the orig pass only -- this build's own alignment, the one the library ships. See books_total for what counts as reached."
+          },
+          "msa_alignments_empty": {
+            "label": "Alignments that started and died (orig pass)",
+            "definition": "alignments_empty for the orig pass only: families whose .pir MAFFT started and aborted before writing. Downstream trim_align and GIGA see an empty MSA for each."
+          },
+          "msa_alignments_missing": {
+            "label": "Alignments not yet attempted (orig pass)",
+            "definition": "alignments_missing for the orig pass only: families this build's own alignment pass has not reached yet."
+          },
+          "msa_seeds_lost_to_dropped_rows": {
+            "label": "Seeds lost to the duplicate QC (orig pass)",
+            "definition": "seeds_lost_to_dropped_rows for the orig pass only: families where the duplicate-ID QC left the seed too short to cover the family, so this build discarded the previous alignment and realigned from scratch."
+          },
+          "msa_new_seqs_total": {
+            "label": "New sequences added (orig pass)",
+            "definition": "new_seqs_total for the orig pass only: sequences fasta_differ recorded as new relative to the seed source, summed across every family in this build's own alignment pass that has any -- whether they were added to a seed that survived or the family was realigned from scratch because the seed matched nothing. See new_seqs_total for which families that does and does not include."
           }
         }
       },
@@ -3506,32 +3603,32 @@
         "by_type": [
           {
             "node_type": "DUPLICATION",
-            "mapped": 277511,
-            "total": 325035,
+            "mapped": 277631,
+            "total": 325195,
             "pct": 85.4
           },
           {
             "node_type": "HORIZ_TRANSFER",
             "mapped": 4769,
-            "total": 5724,
-            "pct": 83.3
+            "total": 5708,
+            "pct": 83.5
           },
           {
             "node_type": "LEAF",
-            "mapped": 1614152,
-            "total": 1742145,
+            "mapped": 1614014,
+            "total": 1742037,
             "pct": 92.7
           },
           {
             "node_type": "SPECIATION",
-            "mapped": 914535,
-            "total": 958465,
+            "mapped": 914573,
+            "total": 958308,
             "pct": 95.4
           },
           {
             "node_type": "UNKNOWN",
             "mapped": 0,
-            "total": 347,
+            "total": 337,
             "pct": 0.0
           }
         ],
@@ -3539,121 +3636,121 @@
           {
             "oscode": "DAPMA",
             "mapped": 0,
-            "total": 10544,
+            "total": 10574,
             "pct": 0.0
           },
           {
             "oscode": "IXOSC",
-            "mapped": 3079,
-            "total": 18011,
-            "pct": 17.1
+            "mapped": 3080,
+            "total": 18104,
+            "pct": 17.0
           },
           {
             "oscode": "FELCA",
-            "mapped": 11500,
+            "mapped": 11498,
             "total": 17711,
             "pct": 64.9
           },
           {
             "oscode": "PHANO",
             "mapped": 5790,
-            "total": 8906,
+            "total": 8913,
             "pct": 65.0
           },
           {
             "oscode": "CAEBR",
-            "mapped": 8241,
-            "total": 12126,
-            "pct": 68.0
+            "mapped": 8231,
+            "total": 12124,
+            "pct": 67.9
           },
           {
             "oscode": "POPTR",
-            "mapped": 31334,
-            "total": 46035,
+            "mapped": 31321,
+            "total": 46018,
             "pct": 68.1
           },
           {
             "oscode": "TOBAC",
-            "mapped": 40029,
-            "total": 54239,
+            "mapped": 40025,
+            "total": 54244,
             "pct": 73.8
           },
           {
             "oscode": "SPIOL",
             "mapped": 17961,
-            "total": 23223,
+            "total": 23229,
             "pct": 77.3
           },
           {
             "oscode": "BOVIN",
             "mapped": 17487,
-            "total": 21862,
+            "total": 21859,
             "pct": 80.0
           },
           {
             "oscode": "GOSHI",
             "mapped": 48526,
-            "total": 60590,
+            "total": 60579,
             "pct": 80.1
           },
           {
             "oscode": "MANES",
-            "mapped": 23206,
-            "total": 28809,
-            "pct": 80.6
+            "mapped": 23204,
+            "total": 28817,
+            "pct": 80.5
           },
           {
             "oscode": "DANRE",
-            "mapped": 21101,
-            "total": 24983,
-            "pct": 84.5
+            "mapped": 21097,
+            "total": 24797,
+            "pct": 85.1
           },
           {
             "oscode": "HELAN",
-            "mapped": 44230,
-            "total": 50069,
+            "mapped": 44227,
+            "total": 50095,
             "pct": 88.3
           },
           {
             "oscode": "HORVV",
-            "mapped": 25865,
-            "total": 28832,
+            "mapped": 25867,
+            "total": 28829,
             "pct": 89.7
           },
           {
             "oscode": "RAT",
             "mapped": 19387,
-            "total": 20876,
+            "total": 20874,
             "pct": 92.9
           },
           {
             "oscode": "LACSA",
-            "mapped": 27572,
-            "total": 29645,
+            "mapped": 27577,
+            "total": 29668,
             "pct": 93.0
           },
           {
             "oscode": "XENTR",
-            "mapped": 18040,
-            "total": 19110,
+            "mapped": 18051,
+            "total": 19121,
             "pct": 94.4
           },
           {
             "oscode": "XENLA",
-            "mapped": 31325,
-            "total": 33140,
+            "mapped": 31321,
+            "total": 33137,
             "pct": 94.5
           },
           {
             "oscode": "ANOCA",
-            "mapped": 17719,
-            "total": 18570,
+            "mapped": 17715,
+            "total": 18568,
             "pct": 95.4
           },
           {
             "oscode": "PIG",
-            "mapped": 20163,
-            "total": 21087,
+            "mapped": 20166,
+            "total": 21091,
             "pct": 95.6
           },
           {
@@ -3664,272 +3761,278 @@
           },
           {
             "oscode": "THECC",
-            "mapped": 21362,
-            "total": 22116,
+            "mapped": 21357,
+            "total": 22107,
             "pct": 96.6
           },
           {
             "oscode": "TRIV3",
-            "mapped": 20601,
-            "total": 21282,
-            "pct": 96.8
+            "mapped": 20595,
+            "total": 21298,
+            "pct": 96.7
           },
           {
             "oscode": "KLENI",
-            "mapped": 9515,
-            "total": 9820,
+            "mapped": 9514,
+            "total": 9817,
             "pct": 96.9
           },
           {
             "oscode": "BRAFL",
-            "mapped": 19995,
-            "total": 20592,
+            "mapped": 19982,
+            "total": 20589,
             "pct": 97.1
           },
           {
             "oscode": "HORSE",
-            "mapped": 18775,
-            "total": 19265,
-            "pct": 97.5
+            "mapped": 18777,
+            "total": 19271,
+            "pct": 97.4
           },
           {
             "oscode": "MARPO",
-            "mapped": 11352,
-            "total": 11637,
+            "mapped": 11358,
+            "total": 11639,
             "pct": 97.6
           },
           {
             "oscode": "PANTR",
-            "mapped": 20409,
-            "total": 20844,
+            "mapped": 20407,
+            "total": 20840,
             "pct": 97.9
           },
           {
             "oscode": "SCHJY",
-            "mapped": 3620,
-            "total": 3694,
-            "pct": 98.0
+            "mapped": 3619,
+            "total": 3688,
+            "pct": 98.1
           },
           {
             "oscode": "STRPU",
-            "mapped": 20361,
-            "total": 20725,
+            "mapped": 20360,
+            "total": 20730,
             "pct": 98.2
           },
           {
             "oscode": "GORGO",
-            "mapped": 19143,
-            "total": 19482,
-            "pct": 98.3
+            "mapped": 19137,
+            "total": 19485,
+            "pct": 98.2
           },
           {
             "oscode": "PRUPE",
             "mapped": 22378,
-            "total": 22736,
+            "total": 22735,
             "pct": 98.4
           },
           {
             "oscode": "CANLF",
-            "mapped": 19250,
-            "total": 19553,
+            "mapped": 19247,
+            "total": 19549,
             "pct": 98.5
           },
           {
             "oscode": "SORBI",
-            "mapped": 26097,
-            "total": 26456,
-            "pct": 98.6
-          },
-          {
-            "oscode": "HELRO",
-            "mapped": 12391,
-            "total": 12563,
+            "mapped": 26094,
+            "total": 26453,
             "pct": 98.6
           },
           {
             "oscode": "NELNU",
-            "mapped": 22249,
-            "total": 22558,
+            "mapped": 22247,
+            "total": 22556,
             "pct": 98.6
           },
           {
             "oscode": "MEDTR",
-            "mapped": 31684,
-            "total": 32131,
+            "mapped": 31693,
+            "total": 32137,
             "pct": 98.6
           },
           {
             "oscode": "MAIZE",
-            "mapped": 27980,
-            "total": 28379,
+            "mapped": 27982,
+            "total": 28383,
             "pct": 98.6
           },
           {
             "oscode": "CHICK",
-            "mapped": 16682,
-            "total": 16923,
+            "mapped": 16685,
+            "total": 16928,
             "pct": 98.6
           },
           {
             "oscode": "SOLLC",
-            "mapped": 23779,
-            "total": 24085,
+            "mapped": 23776,
+            "total": 24087,
+            "pct": 98.7
+          },
+          {
+            "oscode": "HELRO",
+            "mapped": 12397,
+            "total": 12560,
             "pct": 98.7
           },
           {
             "oscode": "MACMU",
             "mapped": 20374,
-            "total": 20644,
+            "total": 20649,
             "pct": 98.7
           },
           {
             "oscode": "JUGRE",
-            "mapped": 28225,
-            "total": 28604,
+            "mapped": 28219,
+            "total": 28602,
             "pct": 98.7
           },
           {
+            "oscode": "CIOIN",
+            "mapped": 8349,
+            "total": 8447,
+            "pct": 98.8
+          },
+          {
             "oscode": "VITVI",
-            "mapped": 21429,
-            "total": 21682,
+            "mapped": 21422,
+            "total": 21677,
             "pct": 98.8
           },
           {
             "oscode": "PRIPA",
-            "mapped": 13310,
-            "total": 13468,
-            "pct": 98.8
-          },
-          {
-            "oscode": "CIOIN",
-            "mapped": 8362,
-            "total": 8463,
-            "pct": 98.8
-          },
-          {
-            "oscode": "ANOGA",
-            "mapped": 10557,
-            "total": 10685,
+            "mapped": 13298,
+            "total": 13462,
             "pct": 98.8
           },
           {
             "oscode": "NEMVE",
-            "mapped": 15325,
-            "total": 15512,
+            "mapped": 15314,
+            "total": 15506,
             "pct": 98.8
           },
           {
-            "oscode": "ENTH1",
-            "mapped": 4698,
-            "total": 4748,
+            "oscode": "ANOGA",
+            "mapped": 10548,
+            "total": 10666,
             "pct": 98.9
           },
           {
-            "oscode": "ORYSJ",
-            "mapped": 24665,
-            "total": 24905,
-            "pct": 99.0
-          },
-          {
             "oscode": "BRACM",
-            "mapped": 34450,
-            "total": 34804,
+            "mapped": 34451,
+            "total": 34806,
             "pct": 99.0
-          },
-          {
-            "oscode": "PLAF7",
-            "mapped": 3325,
-            "total": 3354,
-            "pct": 99.1
-          },
-          {
-            "oscode": "SYNY3",
-            "mapped": 2405,
-            "total": 2426,
-            "pct": 99.1
-          },
-          {
-            "oscode": "ARATH",
-            "mapped": 24095,
-            "total": 24317,
-            "pct": 99.1
-          },
-          {
-            "oscode": "PHYRM",
-            "mapped": 9979,
-            "total": 10056,
-            "pct": 99.2
-          },
-          {
-            "oscode": "THAPS",
-            "mapped": 7334,
-            "total": 7386,
-            "pct": 99.3
-          },
-          {
-            "oscode": "TRIAD",
-            "mapped": 8774,
-            "total": 8837,
-            "pct": 99.3
-          },
-          {
-            "oscode": "WHEAT",
-            "mapped": 92580,
-            "total": 93095,
-            "pct": 99.4
-          },
-          {
-            "oscode": "HUMAN",
-            "mapped": 19420,
-            "total": 19529,
-            "pct": 99.4
           },
           {
             "oscode": "MYCGE",
             "mapped": 348,
-            "total": 350,
+            "total": 351,
+            "pct": 99.1
+          },
+          {
+            "oscode": "PLAF7",
+            "mapped": 3329,
+            "total": 3359,
+            "pct": 99.1
+          },
+          {
+            "oscode": "ARATH",
+            "mapped": 24099,
+            "total": 24322,
+            "pct": 99.1
+          },
+          {
+            "oscode": "ORYSJ",
+            "mapped": 24659,
+            "total": 24891,
+            "pct": 99.1
+          },
+          {
+            "oscode": "ENTH1",
+            "mapped": 4700,
+            "total": 4745,
+            "pct": 99.1
+          },
+          {
+            "oscode": "PHYRM",
+            "mapped": 9978,
+            "total": 10056,
+            "pct": 99.2
+          },
+          {
+            "oscode": "SYNY3",
+            "mapped": 2406,
+            "total": 2426,
+            "pct": 99.2
+          },
+          {
+            "oscode": "MONBE",
+            "mapped": 6699,
+            "total": 6744,
+            "pct": 99.3
+          },
+          {
+            "oscode": "TRIAD",
+            "mapped": 8769,
+            "total": 8832,
+            "pct": 99.3
+          },
+          {
+            "oscode": "THAPS",
+            "mapped": 7339,
+            "total": 7393,
+            "pct": 99.3
+          },
+          {
+            "oscode": "BATDJ",
+            "mapped": 5869,
+            "total": 5902,
+            "pct": 99.4
+          },
+          {
+            "oscode": "NITMS",
+            "mapped": 1065,
+            "total": 1071,
+            "pct": 99.4
+          },
+          {
+            "oscode": "HUMAN",
+            "mapped": 19422,
+            "total": 19532,
             "pct": 99.4
           },
           {
             "oscode": "PUCGT",
-            "mapped": 7288,
-            "total": 7330,
+            "mapped": 7283,
+            "total": 7325,
             "pct": 99.4
           },
           {
             "oscode": "DICDI",
-            "mapped": 9172,
-            "total": 9227,
+            "mapped": 9176,
+            "total": 9229,
             "pct": 99.4
           },
           {
             "oscode": "MOUSE",
             "mapped": 20981,
-            "total": 21109,
-            "pct": 99.4
-          },
-          {
-            "oscode": "MONBE",
-            "mapped": 6702,
-            "total": 6743,
+            "total": 21108,
             "pct": 99.4
           },
           {
             "oscode": "PARTE",
-            "mapped": 20383,
-            "total": 20515,
+            "mapped": 20385,
+            "total": 20518,
             "pct": 99.4
           },
           {
-            "oscode": "GIAIC",
-            "mapped": 2797,
-            "total": 2810,
+            "oscode": "ORNAN",
+            "mapped": 16149,
+            "total": 16223,
             "pct": 99.5
           },
           {
-            "oscode": "NITMS",
-            "mapped": 1064,
-            "total": 1069,
+            "oscode": "CRYD1",
+            "mapped": 5351,
+            "total": 5376,
             "pct": 99.5
           },
           {
@@ -3945,87 +4048,93 @@
             "pct": 99.5
           },
           {
-            "oscode": "CRYD1",
-            "mapped": 5348,
-            "total": 5374,
-            "pct": 99.5
-          },
-          {
-            "oscode": "BATDJ",
-            "mapped": 5871,
-            "total": 5900,
+            "oscode": "PHYPA",
+            "mapped": 19211,
+            "total": 19308,
             "pct": 99.5
           },
           {
             "oscode": "MONDO",
-            "mapped": 19369,
-            "total": 19467,
+            "mapped": 19365,
+            "total": 19465,
             "pct": 99.5
           },
           {
             "oscode": "ORYLA",
-            "mapped": 21453,
-            "total": 21570,
+            "mapped": 21465,
+            "total": 21583,
             "pct": 99.5
           },
           {
-            "oscode": "PHYPA",
-            "mapped": 19211,
-            "total": 19316,
+            "oscode": "WHEAT",
+            "mapped": 92561,
+            "total": 93071,
             "pct": 99.5
           },
           {
             "oscode": "CAEEL",
-            "mapped": 14310,
-            "total": 14364,
+            "mapped": 14304,
+            "total": 14355,
             "pct": 99.6
           },
           {
             "oscode": "SOYBN",
-            "mapped": 46911,
-            "total": 47094,
+            "mapped": 46909,
+            "total": 47089,
             "pct": 99.6
           },
           {
-            "oscode": "HELPY",
-            "mapped": 966,
-            "total": 970,
+            "oscode": "DICPU",
+            "mapped": 8485,
+            "total": 8518,
+            "pct": 99.6
+          },
+          {
+            "oscode": "GIAIC",
+            "mapped": 2791,
+            "total": 2802,
             "pct": 99.6
           },
           {
             "oscode": "CHLRE",
-            "mapped": 11995,
-            "total": 12045,
+            "mapped": 11980,
+            "total": 12028,
             "pct": 99.6
           },
           {
             "oscode": "DEIRA",
-            "mapped": 2084,
-            "total": 2093,
+            "mapped": 2083,
+            "total": 2092,
             "pct": 99.6
           },
           {
             "oscode": "TRICA",
-            "mapped": 11031,
-            "total": 11080,
+            "mapped": 11030,
+            "total": 11078,
             "pct": 99.6
-          },
-          {
-            "oscode": "ORNAN",
-            "mapped": 16148,
-            "total": 16220,
-            "pct": 99.6
-          },
-          {
-            "oscode": "BRADI",
-            "mapped": 26226,
-            "total": 26295,
-            "pct": 99.7
           },
           {
             "oscode": "YARLI",
-            "mapped": 5121,
-            "total": 5135,
+            "mapped": 5123,
+            "total": 5136,
+            "pct": 99.7
+          },
+          {
+            "oscode": "BRADI",
+            "mapped": 26228,
+            "total": 26296,
+            "pct": 99.7
+          },
+          {
+            "oscode": "MYCMD",
+            "mapped": 5362,
+            "total": 5376,
+            "pct": 99.7
+          },
+          {
+            "oscode": "CANAL",
+            "mapped": 4805,
+            "total": 4818,
             "pct": 99.7
           },
           {
@@ -4035,27 +4144,27 @@
             "pct": 99.7
           },
           {
-            "oscode": "EREGS",
-            "mapped": 3958,
-            "total": 3969,
-            "pct": 99.7
-          },
-          {
-            "oscode": "MYCMD",
-            "mapped": 5364,
-            "total": 5379,
-            "pct": 99.7
-          },
-          {
             "oscode": "LEPIN",
             "mapped": 2144,
             "total": 2150,
             "pct": 99.7
           },
           {
+            "oscode": "XANCP",
+            "mapped": 3007,
+            "total": 3016,
+            "pct": 99.7
+          },
+          {
             "oscode": "SCLS1",
-            "mapped": 7176,
-            "total": 7198,
+            "mapped": 7177,
+            "total": 7199,
+            "pct": 99.7
+          },
+          {
+            "oscode": "HELPY",
+            "mapped": 965,
+            "total": 968,
             "pct": 99.7
           },
           {
@@ -4066,38 +4175,50 @@
           },
           {
             "oscode": "DROME",
-            "mapped": 10968,
-            "total": 11004,
-            "pct": 99.7
-          },
-          {
-            "oscode": "DICPU",
-            "mapped": 8491,
-            "total": 8519,
-            "pct": 99.7
-          },
-          {
-            "oscode": "TRYB2",
-            "mapped": 4645,
-            "total": 4661,
+            "mapped": 10964,
+            "total": 10999,
             "pct": 99.7
           },
           {
             "oscode": "GLOVI",
-            "mapped": 2898,
-            "total": 2908,
+            "mapped": 2900,
+            "total": 2910,
             "pct": 99.7
           },
           {
-            "oscode": "CHLTR",
-            "mapped": 613,
-            "total": 614,
-            "pct": 99.8
+            "oscode": "TRYB2",
+            "mapped": 4639,
+            "total": 4655,
+            "pct": 99.7
           },
           {
             "oscode": "ASPFU",
-            "mapped": 7709,
-            "total": 7723,
+            "mapped": 7706,
+            "total": 7718,
+            "pct": 99.8
+          },
+          {
+            "oscode": "BRADU",
+            "mapped": 5546,
+            "total": 5555,
+            "pct": 99.8
+          },
+          {
+            "oscode": "CHLTR",
+            "mapped": 614,
+            "total": 615,
+            "pct": 99.8
+          },
+          {
+            "oscode": "COXBU",
+            "mapped": 1187,
+            "total": 1189,
+            "pct": 99.8
+          },
+          {
+            "oscode": "EMENI",
+            "mapped": 8181,
+            "total": 8195,
             "pct": 99.8
           },
           {
@@ -4108,8 +4229,8 @@
           },
           {
             "oscode": "HALSA",
-            "mapped": 1477,
-            "total": 1480,
+            "mapped": 1480,
+            "total": 1483,
             "pct": 99.8
           },
           {
@@ -4120,32 +4241,26 @@
           },
           {
             "oscode": "THEKO",
-            "mapped": 1441,
-            "total": 1444,
+            "mapped": 1442,
+            "total": 1445,
             "pct": 99.8
           },
           {
             "oscode": "SACS2",
-            "mapped": 1825,
-            "total": 1829,
+            "mapped": 1826,
+            "total": 1830,
             "pct": 99.8
           },
           {
-            "oscode": "XANCP",
-            "mapped": 3003,
-            "total": 3010,
-            "pct": 99.8
-          },
-          {
-            "oscode": "CANAL",
-            "mapped": 4812,
-            "total": 4824,
+            "oscode": "EREGS",
+            "mapped": 3958,
+            "total": 3967,
             "pct": 99.8
           },
           {
             "oscode": "PSEAE",
-            "mapped": 4402,
-            "total": 4413,
+            "mapped": 4403,
+            "total": 4414,
             "pct": 99.8
           },
           {
@@ -4168,20 +4283,14 @@
           },
           {
             "oscode": "VIBCH",
-            "mapped": 2736,
-            "total": 2738,
+            "mapped": 2738,
+            "total": 2740,
             "pct": 99.9
           },
           {
             "oscode": "PYRAE",
             "mapped": 1343,
             "total": 1344,
-            "pct": 99.9
-          },
-          {
-            "oscode": "LEIMA",
-            "mapped": 5114,
-            "total": 5118,
             "pct": 99.9
           },
           {
@@ -4192,14 +4301,14 @@
           },
           {
             "oscode": "AQUAE",
-            "mapped": 1213,
-            "total": 1214,
+            "mapped": 1214,
+            "total": 1215,
             "pct": 99.9
           },
           {
-            "oscode": "COXBU",
-            "mapped": 1187,
-            "total": 1188,
+            "oscode": "YEAST",
+            "mapped": 4759,
+            "total": 4763,
             "pct": 99.9
           },
           {
@@ -4215,21 +4324,21 @@
             "pct": 99.9
           },
           {
-            "oscode": "NEUCR",
-            "mapped": 6877,
-            "total": 6883,
-            "pct": 99.9
-          },
-          {
             "oscode": "METJA",
             "mapped": 1145,
             "total": 1146,
             "pct": 99.9
           },
           {
-            "oscode": "YEAST",
-            "mapped": 4762,
-            "total": 4767,
+            "oscode": "LEIMA",
+            "mapped": 5122,
+            "total": 5127,
+            "pct": 99.9
+          },
+          {
+            "oscode": "NEUCR",
+            "mapped": 6874,
+            "total": 6881,
             "pct": 99.9
           },
           {
@@ -4240,8 +4349,14 @@
           },
           {
             "oscode": "RHOBA",
-            "mapped": 3294,
-            "total": 3298,
+            "mapped": 3293,
+            "total": 3297,
+            "pct": 99.9
+          },
+          {
+            "oscode": "STRCO",
+            "mapped": 5478,
+            "total": 5485,
             "pct": 99.9
           },
           {
@@ -4264,32 +4379,14 @@
           },
           {
             "oscode": "HAEIN",
-            "mapped": 1405,
-            "total": 1407,
-            "pct": 99.9
-          },
-          {
-            "oscode": "BRADU",
-            "mapped": 5545,
-            "total": 5553,
-            "pct": 99.9
-          },
-          {
-            "oscode": "STRCO",
-            "mapped": 5478,
-            "total": 5486,
-            "pct": 99.9
-          },
-          {
-            "oscode": "EMENI",
-            "mapped": 8181,
-            "total": 8193,
+            "mapped": 1406,
+            "total": 1408,
             "pct": 99.9
           },
           {
             "oscode": "NEIMB",
-            "mapped": 1344,
-            "total": 1346,
+            "mapped": 1345,
+            "total": 1347,
             "pct": 99.9
           },
           {
@@ -4300,14 +4397,14 @@
           },
           {
             "oscode": "SHEON",
-            "mapped": 3004,
-            "total": 3004,
+            "mapped": 3005,
+            "total": 3005,
             "pct": 100.0
           },
           {
             "oscode": "LISMO",
-            "mapped": 2193,
-            "total": 2193,
+            "mapped": 2192,
+            "total": 2192,
             "pct": 100.0
           },
           {
@@ -4326,42 +4423,60 @@
         "rows": [
           {
             "node_type": "DUPLICATION",
-            "mapped": 277511,
-            "total": 325035,
+            "mapped": 277631,
+            "total": 325195,
             "pct": 85.4
           },
           {
             "node_type": "HORIZ_TRANSFER",
             "mapped": 4769,
-            "total": 5724,
-            "pct": 83.3
+            "total": 5708,
+            "pct": 83.5
           },
           {
             "node_type": "LEAF",
-            "mapped": 1614152,
-            "total": 1742145,
+            "mapped": 1614014,
+            "total": 1742037,
             "pct": 92.7
           },
           {
             "node_type": "SPECIATION",
-            "mapped": 914535,
-            "total": 958465,
+            "mapped": 914573,
+            "total": 958308,
             "pct": 95.4
           },
           {
             "node_type": "UNKNOWN",
             "mapped": 0,
-            "total": 347,
+            "total": 337,
             "pct": 0.0
           }
         ],
         "headline": {
-          "nodes_mapped": 2810967,
-          "nodes_total": 3031716,
+          "nodes_mapped": 2810987,
+          "nodes_total": 3031585,
           "pct_mapped": 92.7,
           "species_reported": 131
         },
-        "warnings": []
+        "warnings": [],
+        "definitions": {
+          "nodes_mapped": {
+            "label": "Nodes forward-tracked",
+            "definition": "Line count summed across the four nodeForwardTracking output files (one per node type: SPECIATION, DUPLICATION, HORIZ_TRANSFER, LEAF) -- nodes of the PREVIOUS library that forward tracking successfully placed on a node of the new library."
+          },
+          "nodes_total": {
+            "label": "Nodes in the new library",
+            "definition": "Rows of every book's <book>.orig.treeNodes.tab under the newest famlib/dev/PANTHER*/lib_*/books directory that `_node_type` can classify: a LEAF row by column 1, any other row by a non-empty column-2 event. A row with fewer than 3 columns, or a non-LEAF row whose event column is empty, is excluded, not guessed at -- so a book with malformed treeNodes.tab rows undercounts here. Still the denominator `nodes_mapped` is measured against; walked directly from the tree files, not derived from forward tracking's own output."
+          },
+          "pct_mapped": {
+            "label": "Percent of new-library nodes forward-tracked",
+            "definition": "`nodes_mapped` as a percentage of `nodes_total`."
+          },
+          "species_reported": {
+            "label": "Species with per-genome coverage",
+            "definition": "Count of ROWS successfully parsed from nodeMapping_stats_by_genome.tsv (at least 3 tab-separated columns, with a numeric mapped and total column) -- NOT a distinct-OSCODE count: a repeated OSCODE contributes one count per row, and a short or non-numeric row is dropped rather than counted (see the `skipped` warning). The denominator for the by-species coverage table, not a count of genomes in the library."
+          }
+        }
       },
       "message": null,
       "status": "ok"
@@ -4370,9 +4485,239 @@
       "id": "ibd_sf_roots",
       "title": "PAINT-implied subfamily roots",
       "data": {
-        "text": "The force list has not been built yet. The re-partition has not run yet.",
-        "rows": [],
+        "text": "20559 of 21907 curated PTN(s) became forced subfamily roots. The re-partition moved the library's subfamily count by +6087.",
+        "rows": [
+          {
+            "metric": "ibd_forced_roots",
+            "value": 20559
+          },
+          {
+            "metric": "ibd_curated_ptns",
+            "value": 21907
+          },
+          {
+            "metric": "ibd_untracked_ptns",
+            "value": 1348
+          },
+          {
+            "metric": "ibd_node_mapping_ptns",
+            "value": 2810987
+          },
+          {
+            "metric": "ibd_gaf_annotation_rows",
+            "value": 48042
+          },
+          {
+            "metric": "ibd_gaf_malformed_rows",
+            "value": 0
+          },
+          {
+            "metric": "ibd_node_mapping_conflicts",
+            "value": 0
+          },
+          {
+            "metric": "ibd_books_discovered",
+            "value": 15795
+          },
+          {
+            "metric": "ibd_books_repartitioned",
+            "value": 15795
+          },
+          {
+            "metric": "ibd_books_failed",
+            "value": 0
+          },
+          {
+            "metric": "ibd_subfamilies_before",
+            "value": 111505
+          },
+          {
+            "metric": "ibd_subfamilies_after",
+            "value": 117592
+          },
+          {
+            "metric": "ibd_subfamily_delta",
+            "value": 6087
+          }
+        ],
         "tables": [
+          {
+            "name": "Forced roots by outcome",
+            "columns": [
+              "outcome",
+              "count"
+            ],
+            "defines": "outcome",
+            "rows": [
+              {
+                "outcome": "applied",
+                "count": 5199
+              },
+              {
+                "outcome": "applied_under_ht",
+                "count": 888
+              },
+              {
+                "outcome": "not_speciation",
+                "count": 2225
+              },
+              {
+                "outcome": "already_root",
+                "count": 11366
+              },
+              {
+                "outcome": "encloses_existing_roots",
+                "count": 0
+              },
+              {
+                "outcome": "would_be_singleton",
+                "count": 47
+              },
+              {
+                "outcome": "would_starve_owner",
+                "count": 724
+              },
+              {
+                "outcome": "would_empty_group",
+                "count": 110
+              }
+            ],
+            "total_rows": 8,
+            "truncated": false
+          },
+          {
+            "name": "Families whose subfamily count moved",
+            "columns": [
+              "family",
+              "before",
+              "after",
+              "delta"
+            ],
+            "rows": [
+              {
+                "family": "PTHR24416",
+                "before": 90,
+                "after": 105,
+                "delta": 15
+              },
+              {
+                "family": "PTHR24073",
+                "before": 100,
+                "after": 114,
+                "delta": 14
+              },
+              {
+                "family": "PTHR24115",
+                "before": 122,
+                "after": 134,
+                "delta": 12
+              },
+              {
+                "family": "PTHR24356",
+                "before": 87,
+                "after": 99,
+                "delta": 12
+              },
+              {
+                "family": "PTHR11937",
+                "before": 103,
+                "after": 114,
+                "delta": 11
+              },
+              {
+                "family": "PTHR13140",
+                "before": 81,
+                "after": 92,
+                "delta": 11
+              },
+              {
+                "family": "PTHR24023",
+                "before": 69,
+                "after": 80,
+                "delta": 11
+              },
+              {
+                "family": "PTHR24343",
+                "before": 117,
+                "after": 128,
+                "delta": 11
+              },
+              {
+                "family": "PTHR10663",
+                "before": 50,
+                "after": 60,
+                "delta": 10
+              },
+              {
+                "family": "PTHR24056",
+                "before": 141,
+                "after": 151,
+                "delta": 10
+              },
+              {
+                "family": "PTHR11085",
+                "before": 13,
+                "after": 22,
+                "delta": 9
+              },
+              {
+                "family": "PTHR11139",
+                "before": 16,
+                "after": 25,
+                "delta": 9
+              },
+              {
+                "family": "PTHR11639",
+                "before": 42,
+                "after": 51,
+                "delta": 9
+              },
+              {
+                "family": "PTHR11699",
+                "before": 43,
+                "after": 52,
+                "delta": 9
+              },
+              {
+                "family": "PTHR11863",
+                "before": 65,
+                "after": 74,
+                "delta": 9
+              },
+              {
+                "family": "PTHR24031",
+                "before": 64,
+                "after": 73,
+                "delta": 9
+              },
+              {
+                "family": "PTHR24221",
+                "before": 123,
+                "after": 132,
+                "delta": 9
+              },
+              {
+                "family": "PTHR24223",
+                "before": 91,
+                "after": 100,
+                "delta": 9
+              },
+              {
+                "family": "PTHR24286",
+                "before": 106,
+                "after": 115,
+                "delta": 9
+              },
+              {
+                "family": "PTHR31989",
+                "before": 152,
+                "after": 161,
+                "delta": 9
+              }
+            ],
+            "total_rows": 3744,
+            "truncated": true
+          },
           {
             "name": "Forced nodes by tracked node type",
             "columns": [
@@ -4385,52 +4730,52 @@
               {
                 "tracked_type": "SPECIATION",
                 "outcome": "already_root",
-                "count": 11277
+                "count": 11290
               },
               {
                 "tracked_type": "SPECIATION",
                 "outcome": "applied",
-                "count": 5177
+                "count": 5199
               },
               {
                 "tracked_type": "DUPLICATION",
                 "outcome": "not_speciation",
-                "count": 1594
+                "count": 1600
               },
               {
                 "tracked_type": "SPECIATION",
                 "outcome": "applied_under_ht",
-                "count": 902
+                "count": 888
               },
               {
                 "tracked_type": "SPECIATION",
                 "outcome": "would_starve_owner",
-                "count": 730
+                "count": 724
               },
               {
                 "tracked_type": "LEAF",
                 "outcome": "not_speciation",
-                "count": 570
+                "count": 571
               },
               {
                 "tracked_type": "SPECIATION",
                 "outcome": "would_empty_group",
-                "count": 108
+                "count": 110
               },
               {
                 "tracked_type": "HORIZ_TRANSFER",
                 "outcome": "already_root",
-                "count": 76
+                "count": 75
               },
               {
                 "tracked_type": "HORIZ_TRANSFER",
                 "outcome": "not_speciation",
-                "count": 56
+                "count": 54
               },
               {
                 "tracked_type": "SPECIATION",
                 "outcome": "would_be_singleton",
-                "count": 45
+                "count": 47
               },
               {
                 "tracked_type": "DUPLICATION",
@@ -4442,7 +4787,25 @@
             "truncated": false
           }
         ],
-        "headline": {},
+        "headline": {
+          "ibd_forced_roots": 20559,
+          "ibd_curated_ptns": 21907,
+          "ibd_untracked_ptns": 1348,
+          "ibd_node_mapping_ptns": 2810987,
+          "ibd_gaf_annotation_rows": 48042,
+          "ibd_gaf_malformed_rows": 0,
+          "ibd_node_mapping_conflicts": 0,
+          "ibd_books_discovered": 15795,
+          "ibd_books_repartitioned": 15795,
+          "ibd_books_failed": 0,
+          "ibd_subfamilies_before": 111505,
+          "ibd_subfamilies_after": 117592,
+          "ibd_subfamily_delta": 6087,
+          "ibd_applied": 6087
+        },
+        "warnings": [
+          "1348 curated PTN(s) did not forward-track into the new library, so the clades they annotate got no forced subfamily root."
+        ],
         "definitions": {
           "applied": {
             "label": "Applied",
@@ -4475,6 +4838,62 @@
           "would_empty_group": {
             "label": "Would empty the parent",
             "definition": "The split would claim either every member of the owning subfamily -- deleting a root auto_subfamily chose -- or none of them, making an empty subfamily."
+          },
+          "ibd_forced_roots": {
+            "label": "New-library nodes PAINT curation implies as subfamily roots",
+            "definition": "Rows scripts/ibd_sf_roots.py wrote to ibd_sf_roots.tsv: distinct (accession, PTN) pairs from joining the PAINT release GAF's curated IBD/IKR/IRD annotations against node forward tracking. This is the candidate list handed to apply_ibd_sf_roots.py, before any of it is actually applied."
+          },
+          "ibd_curated_ptns": {
+            "label": "Previous-library PTNs with curated evidence",
+            "definition": "Distinct previous-library PTNs carrying an IBD, IKR or IRD annotation in the PAINT release GAF. IBA rows are excluded: they are inferred from these same PTNs and would only inflate the count."
+          },
+          "ibd_untracked_ptns": {
+            "label": "Curated PTNs that did not forward-track",
+            "definition": "Of `ibd_curated_ptns`, the ones with no row in node forward tracking's nodeMapping -- curated clades this release cannot place on the new tree at all, as distinct from `ibd_forced_roots`, which only covers the ones it could."
+          },
+          "ibd_node_mapping_ptns": {
+            "label": "PTNs in node forward tracking's mapping",
+            "definition": "Distinct previous-library PTNs with a row in nodeForwardTracking/nodeMapping -- the denominator `ibd_untracked_ptns` is checked against, not itself curated-only."
+          },
+          "ibd_gaf_annotation_rows": {
+            "label": "GAF annotation rows read",
+            "definition": "Non-comment, non-blank GAF rows with at least `GAF_MIN_COLUMNS` (7) tab-separated columns -- counted regardless of the row's evidence code, so both curated and non-curated rows are included. Rows with fewer than 7 columns are excluded here and counted in `ibd_gaf_malformed_rows` instead; `select_curated_ptns` (scripts/ibd_sf_roots.py) increments this count before it even looks at the evidence-code column."
+          },
+          "ibd_gaf_malformed_rows": {
+            "label": "GAF rows too short to use",
+            "definition": "GAF rows with fewer than 7 columns -- too few to reach the evidence-code column -- skipped rather than misread."
+          },
+          "ibd_node_mapping_conflicts": {
+            "label": "PTNs with an ambiguous node mapping",
+            "definition": "An occurrence count, not a distinct-PTN count: `load_node_mapping` (scripts/ibd_sf_roots.py) appends one conflict entry for every nodeMapping line past the first for a given PTN, so a PTN repeated three times contributes two entries here, not one. The first mapping read is kept; each entry records the accession that lost out."
+          },
+          "ibd_books_discovered": {
+            "label": "Books with PAINT-forced re-partitioning to run",
+            "definition": "Books apply_ibd_sf_roots.py found with a raw auto_subfamily output (<book>.orig.autoSF_raw, RAW_SUFFIX) under the books directory -- the candidate set it attempted, whether or not the attempt succeeded."
+          },
+          "ibd_books_repartitioned": {
+            "label": "Books successfully re-partitioned",
+            "definition": "Of `ibd_books_discovered`, the ones apply_ibd_sf_roots.py finished without raising -- their .autoSF now reflects any PAINT-forced roots."
+          },
+          "ibd_books_failed": {
+            "label": "Books that failed re-partitioning",
+            "definition": "Of `ibd_books_discovered`, the ones whose re-partition attempt raised an exception (logged, then skipped) rather than completing. `ibd_books_discovered` = `ibd_books_repartitioned` + `ibd_books_failed`."
+          },
+          "ibd_subfamilies_before": {
+            "label": "Subfamilies before PAINT-forced roots",
+            "definition": "Total subfamily count, summed across every successfully re-partitioned book, before this step's forced roots were applied."
+          },
+          "ibd_subfamilies_after": {
+            "label": "Subfamilies after PAINT-forced roots",
+            "definition": "Total subfamily count, summed across every successfully re-partitioned book, after this step's forced roots were applied."
+          },
+          "ibd_subfamily_delta": {
+            "label": "Change in subfamily count",
+            "definition": "`ibd_subfamilies_after` minus `ibd_subfamilies_before`."
+          },
+          "ibd_applied": {
+            "label": "Forced roots actually applied",
+            "definition": "Forced nodes whose outcome was `applied` or `applied_under_ht` -- the ones that actually became a new subfamily root. Counted only from books apply_ibd_sf_roots.py finished without raising: a book whose re-partition raised is skipped before its forced nodes' outcomes are recorded in any bucket, so they are absent from this count too. Whenever `ibd_books_failed` is greater than zero, this -- like every other outcome bucket -- describes fewer nodes than `ibd_forced_roots` named, not all of them."
           }
         }
       },
@@ -4485,7 +4904,7 @@
       "id": "list_ht",
       "title": "Horizontal transfer (listHT)",
       "data": {
-        "text": "15795 of 15795 book(s) were analysed for horizontal transfer. 4497 HT node(s) across 2842 family(ies), describing 7508 transfer edge(s).",
+        "text": "15795 of 15795 book(s) were analysed for horizontal transfer. 4482 HT node(s) across 2830 family(ies), describing 7430 transfer edge(s).",
         "rows": [
           {
             "metric": "ht_books_with_output",
@@ -4497,7 +4916,7 @@
           },
           {
             "metric": "ht_books_with_no_transfer",
-            "value": 12953
+            "value": 12965
           },
           {
             "metric": "ht_books_failed",
@@ -4513,19 +4932,19 @@
           },
           {
             "metric": "ht_nodes",
-            "value": 4497
+            "value": 4482
           },
           {
             "metric": "ht_transfer_edges",
-            "value": 7508
+            "value": 7430
           },
           {
             "metric": "ht_families",
-            "value": 2842
+            "value": 2830
           },
           {
             "metric": "ht_donor_undetermined",
-            "value": 5
+            "value": 4
           },
           {
             "metric": "ht_unparsed_rows",
@@ -4541,7 +4960,7 @@
           },
           {
             "metric": "ht_donor_undetermined_pct",
-            "value": 0.07
+            "value": 0.05
           }
         ],
         "tables": [
@@ -4594,19 +5013,9 @@
                 "transfer_edges": 8
               },
               {
-                "family": "PTHR48083",
-                "ht_nodes": 8,
-                "transfer_edges": 8
-              },
-              {
                 "family": "PTHR11079",
                 "ht_nodes": 7,
                 "transfer_edges": 8
-              },
-              {
-                "family": "PTHR11496",
-                "ht_nodes": 7,
-                "transfer_edges": 10
               },
               {
                 "family": "PTHR21366",
@@ -4624,6 +5033,11 @@
                 "transfer_edges": 8
               },
               {
+                "family": "PTHR48083",
+                "ht_nodes": 7,
+                "transfer_edges": 7
+              },
+              {
                 "family": "PTHR48094",
                 "ht_nodes": 7,
                 "transfer_edges": 8
@@ -4639,6 +5053,11 @@
                 "transfer_edges": 6
               },
               {
+                "family": "PTHR11496",
+                "ht_nodes": 6,
+                "transfer_edges": 9
+              },
+              {
                 "family": "PTHR12526",
                 "ht_nodes": 6,
                 "transfer_edges": 7
@@ -4649,12 +5068,12 @@
                 "transfer_edges": 9
               },
               {
-                "family": "PTHR22911",
+                "family": "PTHR18919",
                 "ht_nodes": 6,
-                "transfer_edges": 8
+                "transfer_edges": 6
               }
             ],
-            "total_rows": 2842,
+            "total_rows": 2830,
             "truncated": true
           },
           {
@@ -4666,47 +5085,43 @@
             "rows": [
               {
                 "recipient": "TRIV3",
-                "count": 1248
+                "count": 1249
               },
               {
                 "recipient": "Eukaryota",
-                "count": 385
+                "count": 380
               },
               {
                 "recipient": "METAC",
-                "count": 255
+                "count": 256
               },
               {
                 "recipient": "STRCO",
-                "count": 208
+                "count": 210
               },
               {
                 "recipient": "MONBE",
                 "count": 201
               },
               {
-                "recipient": "DAPMA",
-                "count": 171
-              },
-              {
                 "recipient": "NEMVE",
                 "count": 164
-              },
-              {
-                "recipient": "BRADU",
-                "count": 153
               },
               {
                 "recipient": "SYNY3",
                 "count": 153
               },
               {
+                "recipient": "BRADU",
+                "count": 151
+              },
+              {
                 "recipient": "Viridiplantae",
-                "count": 144
+                "count": 143
               },
               {
                 "recipient": "PSEAE",
-                "count": 140
+                "count": 137
               },
               {
                 "recipient": "MYCTU",
@@ -4714,11 +5129,11 @@
               },
               {
                 "recipient": "RHOBA",
-                "count": 127
+                "count": 125
               },
               {
                 "recipient": "GLOVI",
-                "count": 114
+                "count": 113
               },
               {
                 "recipient": "PHYRM",
@@ -4726,26 +5141,30 @@
               },
               {
                 "recipient": "XANCP",
-                "count": 112
+                "count": 111
               },
               {
                 "recipient": "IXOSC",
-                "count": 107
-              },
-              {
-                "recipient": "Streptophyta",
-                "count": 102
+                "count": 109
               },
               {
                 "recipient": "Cyanobacteria",
-                "count": 101
+                "count": 100
+              },
+              {
+                "recipient": "Streptophyta",
+                "count": 99
               },
               {
                 "recipient": "CHLAA",
                 "count": 96
+              },
+              {
+                "recipient": "PUCGT",
+                "count": 95
               }
             ],
-            "total_rows": 190,
+            "total_rows": 194,
             "truncated": true
           },
           {
@@ -4764,22 +5183,17 @@
               {
                 "donor": "Eubacteria",
                 "recipient": "Eukaryota",
-                "count": 196
+                "count": 192
               },
               {
                 "donor": "Eubacteria",
                 "recipient": "METAC",
-                "count": 133
+                "count": 135
               },
               {
                 "donor": "Eutheria",
                 "recipient": "MONBE",
                 "count": 129
-              },
-              {
-                "donor": "Sauria",
-                "recipient": "DAPMA",
-                "count": 121
               },
               {
                 "donor": "Ascomycota",
@@ -4789,7 +5203,7 @@
               {
                 "donor": "Proteobacteria",
                 "recipient": "Eukaryota",
-                "count": 76
+                "count": 74
               },
               {
                 "donor": "Eukaryota",
@@ -4802,9 +5216,14 @@
                 "count": 70
               },
               {
+                "donor": "eudicotyledons",
+                "recipient": "ORYLA",
+                "count": 70
+              },
+              {
                 "donor": "Eubacteria",
                 "recipient": "Viridiplantae",
-                "count": 61
+                "count": 60
               },
               {
                 "donor": "Eubacteria",
@@ -4834,21 +5253,21 @@
               {
                 "donor": "Gammaproteobacteria",
                 "recipient": "Eukaryota",
-                "count": 46
+                "count": 48
               },
               {
                 "donor": "Eubacteria",
                 "recipient": "THAPS",
+                "count": 46
+              },
+              {
+                "donor": "Eubacteria",
+                "recipient": "Archaea-Eukaryota",
                 "count": 45
               },
               {
                 "donor": "Eubacteria",
                 "recipient": "Archaea",
-                "count": 44
-              },
-              {
-                "donor": "Eubacteria",
-                "recipient": "Archaea-Eukaryota",
                 "count": 43
               },
               {
@@ -4857,25 +5276,83 @@
                 "count": 43
               }
             ],
-            "total_rows": 1482,
+            "total_rows": 1477,
             "truncated": true
           }
         ],
         "headline": {
           "ht_books_with_output": 15795,
           "ht_books_without_output": 0,
-          "ht_books_with_no_transfer": 12953,
+          "ht_books_with_no_transfer": 12965,
           "ht_books_failed": 0,
           "ht_books_analysed": 15795,
           "ht_books_with_diagnostics": 0,
-          "ht_nodes": 4497,
-          "ht_transfer_edges": 7508,
-          "ht_families": 2842,
-          "ht_donor_undetermined": 5,
+          "ht_nodes": 4482,
+          "ht_transfer_edges": 7430,
+          "ht_families": 2830,
+          "ht_donor_undetermined": 4,
           "ht_unparsed_rows": 0,
           "ht_nodes_per_family_max": 12,
           "ht_nodes_per_family_median": 1.0,
-          "ht_donor_undetermined_pct": 0.07
+          "ht_donor_undetermined_pct": 0.05
+        },
+        "definitions": {
+          "ht_books_with_output": {
+            "label": "Books with listHT output",
+            "definition": "Books in the dev library with a `.orig.ht` file of any size, including zero bytes. This is presence only -- it says listHT reached the book, not that it found a transfer or even finished without error."
+          },
+          "ht_books_without_output": {
+            "label": "Books without listHT output",
+            "definition": "Books with no `.orig.ht` file at all: listHT has not been run against them yet. Every other figure on this page describes only the books that do have output."
+          },
+          "ht_books_with_no_transfer": {
+            "label": "Books with no horizontal transfer",
+            "definition": "Books whose `.orig.ht` file exists but is zero bytes: listHT ran to completion and found no horizontal-transfer event for that family. Most families land here -- an empty file is the ordinary case, not a failure."
+          },
+          "ht_books_failed": {
+            "label": "Books listHT could not analyse",
+            "definition": "Books whose `.orig.ht` file is non-empty but holds an `ERROR:` line and not a single parsed transfer row: listHT exited mid-parse (for example on an event type it has no case for) before writing any row. These books have no horizontal transfer data at all, which is invisible from the file being non-empty."
+          },
+          "ht_books_analysed": {
+            "label": "Books analysed for horizontal transfer",
+            "definition": "ht_books_with_output minus ht_books_failed -- every book with output that this collector did NOT catch logging an ERROR: line while producing zero parsed rows. That leaves two populations folded in here despite not being genuinely analysed: a non-empty file with no ERROR: line whose rows are all unparsed garbage (see ht_unparsed_rows) still counts as analysed with nothing parsed from it, and a book whose .orig.ht raised an OSError when opened (rolled into the `unreadable` warning, never reaching add_file's ERROR: check) still counts here because ht_books_with_output is based on the file existing on disk, not on this collector having successfully read it."
+          },
+          "ht_books_with_diagnostics": {
+            "label": "Books with a listHT diagnostic",
+            "definition": "The subset of analysed books that logged at least one `ERROR:` line (typically \"MRCA not found\") but still produced at least one parsed row. The run complained and carried on rather than dying, so these rows are counted exactly like any other book's -- this figure only flags that a diagnostic exists."
+          },
+          "ht_nodes": {
+            "label": "Horizontal transfer nodes",
+            "definition": "Distinct (family, node) pairs across every parsed row in the library, one per tree node listHT identified as a horizontal transfer. The node number is listHT's own loop counter, not a PANTHER annotation node id, so it is only ever meaningful within its own family."
+          },
+          "ht_transfer_edges": {
+            "label": "Horizontal transfer edges (rows)",
+            "definition": "Parsed rows across the whole library. A single HT node can emit more than one row -- one per child outside the donor lineage -- so this figure is always at least as large as `ht_nodes`, and the two answer different questions."
+          },
+          "ht_families": {
+            "label": "Families with a horizontal transfer",
+            "definition": "Distinct families holding at least one HT node. Families with none are absent from this count, not folded in as a zero -- see the note above `ht_nodes_per_family_max`."
+          },
+          "ht_donor_undetermined": {
+            "label": "Rows with an undetermined donor",
+            "definition": "Parsed rows whose donor column reads `ND`: listHT's ancestor walk reached ROOT without finding a speciation ancestor, so the donor lineage could not be determined. Counted per row (edge), not per HT node."
+          },
+          "ht_unparsed_rows": {
+            "label": "Unparsed rows",
+            "definition": "Lines read from the per-book `.orig.ht` files that were non-blank, not an `ERROR:` line, and still not a valid transfer row (a leading `AN<n>` plus at least three more tab-separated columns). These lines are excluded from every other figure on this page -- not a node, not an edge, not a book's status."
+          },
+          "ht_nodes_per_family_max": {
+            "label": "Most HT nodes in one family",
+            "definition": "The highest per-family HT node count, taken only over the families counted in `ht_families` -- the ones with at least one HT node. A family with none does not enter this comparison as a zero."
+          },
+          "ht_nodes_per_family_median": {
+            "label": "Median HT nodes per family",
+            "definition": "The median per-family HT node count, again taken only over the families with at least one HT node. Because most families have none, this is a median of the families that had a transfer, not a median across every family in the library."
+          },
+          "ht_donor_undetermined_pct": {
+            "label": "Share of edges with undetermined donor",
+            "definition": "`ht_donor_undetermined` as a percentage of `ht_transfer_edges` -- of parsed rows, not of HT nodes and not of books. Only reported when at least one row was parsed."
+          }
         }
       },
       "message": null,
@@ -4885,7 +5362,7 @@
       "id": "orthologs",
       "title": "Orthologs & homolog products",
       "data": {
-        "text": "15795 of 15795 book(s) have pairwise output; 15795 have been filtered to O/LDO. O and LDO pairs are 76.33% of all relationships by size. 11 of 11 FTP product(s) written.",
+        "text": "15795 of 15795 book(s) have pairwise output; 15795 have been filtered to O/LDO. O and LDO pairs are 77.04% of all relationships by size. 11 of 11 FTP product(s) written.",
         "rows": [
           {
             "metric": "orthologs_books",
@@ -4901,7 +5378,7 @@
           },
           {
             "metric": "orthologs_all_empty_books",
-            "value": 23
+            "value": 24
           },
           {
             "metric": "orthologs_filtered_books",
@@ -4913,15 +5390,15 @@
           },
           {
             "metric": "orthologs_all_bytes",
-            "value": 13957843539
+            "value": 14006033323
           },
           {
             "metric": "orthologs_filtered_bytes",
-            "value": 10653346195
+            "value": 10790944816
           },
           {
             "metric": "orthologs_filtered_pct_of_all",
-            "value": 76.33
+            "value": 77.04
           },
           {
             "metric": "ortholog_ftp_products_present",
@@ -4945,12 +5422,12 @@
             ],
             "rows": [
               {
-                "book": "PTHR11654",
-                "bytes": 101127574
+                "book": "PTHR33332",
+                "bytes": 115693511
               },
               {
-                "book": "PTHR33332",
-                "bytes": 99872682
+                "book": "PTHR11654",
+                "bytes": 101127574
               },
               {
                 "book": "PTHR24559",
@@ -4958,71 +5435,71 @@
               },
               {
                 "book": "PTHR11783",
-                "bytes": 77056932
+                "bytes": 77053916
               },
               {
-                "book": "PTHR10334",
-                "bytes": 68068623
+                "book": "PTHR11505",
+                "bytes": 71760804
+              },
+              {
+                "book": "PTHR19446",
+                "bytes": 68814496
               },
               {
                 "book": "PTHR19375",
-                "bytes": 66003341
-              },
-              {
-                "book": "PTHR24221",
-                "bytes": 64560218
+                "bytes": 66002035
               },
               {
                 "book": "PTHR18966",
-                "bytes": 63843579
+                "bytes": 65506103
               },
               {
                 "book": "PTHR11214",
-                "bytes": 63586617
+                "bytes": 63585133
               },
               {
                 "book": "PTHR27005",
                 "bytes": 60602444
               },
               {
-                "book": "PTHR11850",
-                "bytes": 59337457
+                "book": "PTHR11461",
+                "bytes": 56215071
               },
               {
-                "book": "PTHR19446",
-                "bytes": 57150754
+                "book": "PTHR24221",
+                "bytes": 55984742
+              },
+              {
+                "book": "PTHR24177",
+                "bytes": 55415117
               },
               {
                 "book": "PTHR24351",
-                "bytes": 55882111
-              },
-              {
-                "book": "PTHR11461",
-                "bytes": 51539853
+                "bytes": 53966829
               },
               {
                 "book": "PTHR12411",
-                "bytes": 50736220
+                "bytes": 50735762
+              },
+              {
+                "book": "PTHR11909",
+                "bytes": 49550673
               },
               {
                 "book": "PTHR11206",
                 "bytes": 49269627
               },
               {
+                "book": "PTHR13318",
+                "bytes": 49253299
+              },
+              {
                 "book": "PTHR24281",
                 "bytes": 47883064
               },
               {
-                "book": "PTHR11937",
-                "bytes": 47172740
-              },
-              {
-                "book": "PTHR11909",
-                "bytes": 45200755
-              },
-              {
                 "book": "PTHR23430",
-                "bytes": 44989590
+                "bytes": 44543294
               }
             ],
             "total_rows": 15795,
@@ -5041,79 +5518,79 @@
               {
                 "product": "RefGenomeOrthologs",
                 "file": "present",
-                "bytes": 100198475,
+                "bytes": 100717755,
                 "tarball": "present",
-                "tarball_bytes": 5993243
+                "tarball_bytes": 6021131
               },
               {
                 "product": "RefGenomeParalogs",
                 "file": "present",
-                "bytes": 162684603,
+                "bytes": 163174942,
                 "tarball": "present",
-                "tarball_bytes": 9302372
+                "tarball_bytes": 9332734
               },
               {
                 "product": "RefGenomeXenologs",
                 "file": "present",
-                "bytes": 5435952,
+                "bytes": 4791208,
                 "tarball": "present",
-                "tarball_bytes": 348307
+                "tarball_bytes": 312779
               },
               {
                 "product": "Orthologs_HCOP",
                 "file": "present",
-                "bytes": 529322232,
+                "bytes": 591461659,
                 "tarball": "present",
-                "tarball_bytes": 27042945
+                "tarball_bytes": 31278576
               },
               {
                 "product": "QfO_Genome_Orthologs",
                 "file": "present",
-                "bytes": 1977054854,
+                "bytes": 1999621545,
                 "tarball": "present",
-                "tarball_bytes": 92249642
+                "tarball_bytes": 93263264
               },
               {
                 "product": "QfO_Genome_Paralogs",
                 "file": "present",
-                "bytes": 544460522,
+                "bytes": 548314748,
                 "tarball": "present",
-                "tarball_bytes": 31390572
+                "tarball_bytes": 31652575
               },
               {
                 "product": "QfO_Genome_Xenologs",
                 "file": "present",
-                "bytes": 168127068,
+                "bytes": 152725119,
                 "tarball": "present",
-                "tarball_bytes": 9051725
+                "tarball_bytes": 8791712
               },
               {
                 "product": "AllOrthologs",
                 "file": "present",
-                "bytes": 11560088475,
+                "bytes": 11709189106,
                 "tarball": "present",
-                "tarball_bytes": 670440125
+                "tarball_bytes": 678600920
               },
               {
                 "product": "AllParalogs",
                 "file": "present",
-                "bytes": 2385584234,
+                "bytes": 2395880990,
                 "tarball": "present",
-                "tarball_bytes": 137146254
+                "tarball_bytes": 137721728
               },
               {
                 "product": "AllXenologs",
                 "file": "present",
-                "bytes": 1176137920,
+                "bytes": 1068873457,
                 "tarball": "present",
-                "tarball_bytes": 78365986
+                "tarball_bytes": 70808840
               },
               {
                 "product": "PlantGenomeOrthologs",
                 "file": "present",
-                "bytes": 5502321561,
+                "bytes": 5497641015,
                 "tarball": "present",
-                "tarball_bytes": 289900959
+                "tarball_bytes": 289404987
               }
             ],
             "total_rows": 11,
@@ -5124,19 +5601,69 @@
           "orthologs_books": 15795,
           "orthologs_all_books": 15795,
           "orthologs_all_missing_books": 0,
-          "orthologs_all_empty_books": 23,
+          "orthologs_all_empty_books": 24,
           "orthologs_filtered_books": 15795,
           "orthologs_unfiltered_books": 0,
-          "orthologs_all_bytes": 13957843539,
-          "orthologs_filtered_bytes": 10653346195,
-          "orthologs_filtered_pct_of_all": 76.33,
+          "orthologs_all_bytes": 14006033323,
+          "orthologs_filtered_bytes": 10790944816,
+          "orthologs_filtered_pct_of_all": 77.04,
           "ortholog_ftp_products_present": 11,
           "ortholog_ftp_products_expected": 11,
           "ortholog_ftp_tarballs_present": 11
         },
         "warnings": [
-          "23 book(s) have a zero-byte .orig.orthologs_all, which is list_pairwise_homologs producing no pair at all for a family."
-        ]
+          "24 book(s) have a zero-byte .orig.orthologs_all, which is list_pairwise_homologs producing no pair at all for a family."
+        ],
+        "definitions": {
+          "orthologs_books": {
+            "label": "Books in the dev library",
+            "definition": "Every book walked under `books/` in the dev library, regardless of whether it has any ortholog artifact at all. The population every other figure below is measured against."
+          },
+          "orthologs_all_books": {
+            "label": "Books with pairwise output",
+            "definition": "Books with a `.orig.orthologs_all` file of any size, including zero bytes: `list_pairwise_homologs` has produced output for that book."
+          },
+          "orthologs_all_missing_books": {
+            "label": "Books missing pairwise output",
+            "definition": "Books in the library with no `.orig.orthologs_all` file at all: `list_pairwise_homologs` has not reached them."
+          },
+          "orthologs_all_empty_books": {
+            "label": "Books with zero pairs found",
+            "definition": "Books whose `.orig.orthologs_all` file exists but is zero bytes: `list_pairwise_homologs` ran and found no pair at all for that family."
+          },
+          "orthologs_filtered_books": {
+            "label": "Books with filtered (O/LDO) output",
+            "definition": "Books with a `.orig.orthologs` file of any size: `filter_ortholog_type_only.sh` has produced the O/LDO-only file for that book."
+          },
+          "orthologs_unfiltered_books": {
+            "label": "Books stuck between pairwise and filtered output",
+            "definition": "Books that have `.orig.orthologs_all` but no `.orig.orthologs`: the filter step did not produce output for a book whose raw pairwise output exists. `filter_ortholog_type_only.sh` is an unguarded `awk` loop with no error handling, so this is the only place that failure shows up. The reverse cannot happen -- the filter reads `_all` to produce the other file -- so this is not simply `orthologs_books` minus `orthologs_filtered_books`."
+          },
+          "orthologs_all_bytes": {
+            "label": "Pairwise output size",
+            "definition": "The size on disk, summed across every book's `.orig.orthologs_all` file, of all pairwise relationship output (O, LDO, P, X and LDX pairs) in the library. A stand-in for pair volume: counting the pairs themselves would mean reading hundreds of gigabytes of content."
+          },
+          "orthologs_filtered_bytes": {
+            "label": "Filtered (O/LDO) output size",
+            "definition": "The size on disk, summed across every book's `.orig.orthologs` file, of the O and LDO pairs the filter kept."
+          },
+          "orthologs_filtered_pct_of_all": {
+            "label": "Filtered share of pairwise output",
+            "definition": "`orthologs_filtered_bytes` as a percentage of `orthologs_all_bytes` -- one ratio of the two library-wide sums, not an average of per-book percentages. Only reported when `orthologs_all_bytes` is nonzero. A value near 100% or near 0% means the filter matched everything or nothing library-wide, rather than selecting O and LDO out of the five relationship types."
+          },
+          "ortholog_ftp_products_present": {
+            "label": "FTP products written",
+            "definition": "How many of the eleven named homolog product files under `ftp/RefGenome_orthologs/` exist on disk with nonzero size. A zero-byte file does not count as present."
+          },
+          "ortholog_ftp_products_expected": {
+            "label": "FTP products expected",
+            "definition": "The fixed count of eleven named product files (`RefGenomeOrthologs`, `RefGenomeParalogs`, ... `PlantGenomeOrthologs`) `createOrthologFTPFiles.slurm` is supposed to write. A constant from the allowlist, not something read from disk."
+          },
+          "ortholog_ftp_tarballs_present": {
+            "label": "FTP tarballs written",
+            "definition": "How many of the corresponding `<product>.tar.gz` archives exist on disk with nonzero size, one expected per FTP product."
+          }
+        }
       },
       "message": null,
       "status": "ok"
@@ -5147,7 +5674,7 @@
       "data": {
         "headline": {
           "genomes": 131,
-          "sequences": 1742145,
+          "sequences": 1742037,
           "families": 15795,
           "subfamilies": 117592
         },
@@ -5158,7 +5685,7 @@
           },
           {
             "metric": "sequences",
-            "value": 1742145
+            "value": 1742037
           },
           {
             "metric": "families",
@@ -5168,7 +5695,25 @@
             "metric": "subfamilies",
             "value": 117592
           }
-        ]
+        ],
+        "definitions": {
+          "genomes": {
+            "label": "Reference proteomes this build ran on",
+            "definition": "Rows in RP_taxonomy_organism_lib.txt -- the reference-proteome roster the build downloaded and mapped from. Read directly from that roster, independent of node.dat, so this is the build's genome INPUT count, not a tally of which genomes' sequences actually survived into the library (see `sequences`). Not genome_list.txt's species-tree walk either, which overcounts by including ancestral node names (Eukaryota, Metazoa, Eutheria, ...) alongside real genomes."
+          },
+          "sequences": {
+            "label": "Sequences in the built library",
+            "definition": "LEAF rows in DBload/node.dat: sequences that were actually placed into the built family/subfamily tree. This is NOT the reference-proteome input set that `genomes` counts, or any sequence total from upstream of mapping -- a sequence can be part of the input and never appear here if it was never mapped into a family. Compare this only against other node.dat-derived counts, never against an input count."
+          },
+          "families": {
+            "label": "Families in the library",
+            "definition": "Distinct family accession prefixes (the part before the `:`) seen across every row of DBload/node.dat. A family's LEAF rows and its `:AN<n>` ancestral-node rows share one prefix -- node.dat carries no `:SF` rows at all (see `subfamilies`) -- so a family with many tree nodes is still counted once here."
+          },
+          "subfamilies": {
+            "label": "Subfamilies in the library",
+            "definition": "Non-blank lines in DBload/sfNames.dat. node.dat itself carries no `:SF` rows -- subfamily identity lives only in sfNames.dat -- so this cannot be derived from `families` or `sequences` above; it is read from a separate artifact, and a missing file reports as unknown, never as a fabricated zero."
+          }
+        }
       },
       "message": null,
       "status": "ok"
@@ -5176,47 +5721,9 @@
     {
       "id": "prev_lib",
       "title": "Comparison to previous library",
-      "data": {
-        "text": "Previous version: **PANTHER19.0**. The `rebuilt` column is the previous library with split/merge/remove applied, isolating family surgery from new-data effects.",
-        "rows": [
-          {
-            "metric": "genomes",
-            "prev": 144,
-            "rebuilt": null,
-            "new": 131,
-            "delta": "-13"
-          },
-          {
-            "metric": "sequences",
-            "prev": 2017964,
-            "rebuilt": 2115567,
-            "new": 1742145,
-            "delta": "-275819"
-          },
-          {
-            "metric": "families",
-            "prev": 15683,
-            "rebuilt": 15681,
-            "new": 15795,
-            "delta": "+112"
-          },
-          {
-            "metric": "subfamilies",
-            "prev": 128012,
-            "rebuilt": null,
-            "new": 117592,
-            "delta": "-10420"
-          }
-        ],
-        "headline": {
-          "delta_genomes": "-13",
-          "delta_sequences": "-275819",
-          "delta_families": "+112",
-          "delta_subfamilies": "-10420"
-        }
-      },
-      "message": null,
-      "status": "ok"
+      "data": null,
+      "message": "inputs not present yet",
+      "status": "absent"
     },
     {
       "id": "giga",
@@ -5246,7 +5753,25 @@
             "metric": "trees_succeeded",
             "value": 15795
           }
-        ]
+        ],
+        "definitions": {
+          "books_total": {
+            "label": "Books in the dev library",
+            "definition": "Every book (family) directory under famlib/dev/PANTHER*/lib_*/books/, whether or not GIGA has produced a tree for it yet -- including ones still queued or running. The denominator every other count here is measured against."
+          },
+          "trees_built": {
+            "label": "Books with a tree file",
+            "definition": "Books whose orig/tree/<PTHR>.orig.tree file exists, checked by presence alone: a zero-byte tree still counts here. NOT a count of usable trees -- an empty tree is included, so see `trees_succeeded` for the number that are actually usable."
+          },
+          "empty_trees": {
+            "label": "Trees that came back empty",
+            "definition": "PTHR ids listed in log/empty_trees.txt: families GIGA finished and wrote a zero-byte tree for. Read from that file directly, never computed as `books_total - trees_built` -- those measure different things, since the latter also includes books GIGA has not reached at all, not just the ones it emptied."
+          },
+          "trees_succeeded": {
+            "label": "Books with a usable tree",
+            "definition": "`trees_built` minus `empty_trees`, floored at zero: books that got a real, non-empty tree. The two are not disjoint -- a book with an empty tree file is still counted in `trees_built`, so `trees_built` alone overstates how many families got something usable by however many came back empty."
+          }
+        }
       },
       "message": null,
       "status": "ok"
@@ -5287,7 +5812,7 @@
           },
           {
             "metric": "unirules_in_multiple_families",
-            "value": 808
+            "value": 809
           },
           {
             "metric": "blast_sequences_checked",
@@ -7452,11 +7977,6 @@
                 "family_count": 18
               },
               {
-                "unirule": "UR000079119",
-                "families": "PTHR10121, PTHR12246, PTHR12349, PTHR15092, PTHR18860, PTHR22814, PTHR22883, PTHR24118, PTHR24161, PTHR24166, PTHR31053, PTHR31500, PTHR31675, PTHR31942, PTHR33085, PTHR45756, PTHR47958",
-                "family_count": 17
-              },
-              {
                 "unirule": "UR000150805",
                 "families": "PTHR10739, PTHR11255, PTHR11566, PTHR11926, PTHR15744, PTHR22883, PTHR31451, PTHR34674, PTHR43205, PTHR48007, PTHR48043, PTHR48044, PTHR48045, PTHR48046, PTHR48047, PTHR48048, PTHR48049",
                 "family_count": 17
@@ -7464,6 +7984,11 @@
               {
                 "unirule": "UR000000959",
                 "families": "PTHR10631, PTHR11668, PTHR12442, PTHR19961, PTHR20516, PTHR21555, PTHR24056, PTHR31973, PTHR32546, PTHR33929, PTHR45619, PTHR45668, PTHR45673, PTHR45718, PTHR46033, PTHR46422",
+                "family_count": 16
+              },
+              {
+                "unirule": "UR000079119",
+                "families": "PTHR10121, PTHR12246, PTHR12349, PTHR15092, PTHR18860, PTHR22814, PTHR22883, PTHR24118, PTHR24161, PTHR24166, PTHR31053, PTHR31500, PTHR31675, PTHR31942, PTHR33085, PTHR47958",
                 "family_count": 16
               },
               {
@@ -7497,11 +8022,6 @@
                 "family_count": 12
               },
               {
-                "unirule": "UR000172783",
-                "families": "PTHR11142, PTHR12191, PTHR12625, PTHR13257, PTHR14212, PTHR22776, PTHR24418, PTHR43804, PTHR45664, PTHR45742, PTHR45807, PTHR48019",
-                "family_count": 12
-              },
-              {
                 "unirule": "UR000000171",
                 "families": "PTHR11879, PTHR42691, PTHR42790, PTHR42832, PTHR42885, PTHR43144, PTHR43488, PTHR43510, PTHR43795, PTHR43807, PTHR46383",
                 "family_count": 11
@@ -7509,6 +8029,11 @@
               {
                 "unirule": "UR000077155",
                 "families": "PTHR11559, PTHR14187, PTHR15606, PTHR22118, PTHR24020, PTHR43142, PTHR43903, PTHR43918, PTHR45029, PTHR45570, PTHR45580",
+                "family_count": 11
+              },
+              {
+                "unirule": "UR000172783",
+                "families": "PTHR11142, PTHR12191, PTHR12625, PTHR13257, PTHR14212, PTHR22776, PTHR24418, PTHR43804, PTHR45664, PTHR45742, PTHR45807",
                 "family_count": 11
               },
               {
@@ -7532,9 +8057,9 @@
                 "family_count": 10
               }
             ],
-            "total_rows": 808,
+            "total_rows": 809,
             "truncated": true,
-            "ragged_rows": 808
+            "ragged_rows": 809
           }
         ]
       },

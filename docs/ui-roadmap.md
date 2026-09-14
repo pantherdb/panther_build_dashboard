@@ -158,16 +158,27 @@ fixture. That is the right call (the spec's own example rendering shows a three-
 history), but **we should label it as anticipating a capability, not reflecting one**, or a reviewer
 will conclude the builds never fail.
 
-### 2. The previous-library comparison is permanently unavailable, not transiently
+### 2. The previous-library comparison was permanently unavailable — fixed upstream 2026-09-13
 
-`Makefile:361` defines the `reports/prev_lib_baseline.json` rule, but **nothing depends on it** — not
-`%/all`, not `%/state`, not any line in `make_all.slurm`. `prev_lib.collect` returns `None` without
-it.
+**As audited (2026-08-30):** `Makefile:361` defined the `reports/prev_lib_baseline.json` rule, but
+**nothing depended on it** — not `%/all`, not `%/state`, not any line in `make_all.slurm`.
+`prev_lib.collect` returns `None` without it, so our fixture's `"inputs not present yet"` was not a
+mid-build state that resolves later; it read that way **forever**.
 
-So our fixture's `"inputs not present yet"` is not a mid-build state that resolves later. It reads
-that way **forever** until someone wires the goal. Our decision to assemble the comparison from
-`other_reports` instead is, in hindsight, not a graceful-degradation nicety — it is the only path to
-a comparison at all on a real build today.
+**Now:** `scripts/make_all.slurm` builds the goal as the first step of the previous-library-rebuild
+phase (`|| true`, so a reporting artifact cannot abort the build under `set -e`). A build that runs
+the driver produces the baseline, and `prev_lib` arrives `ok` with its four totals.
+
+Two consequences for this dashboard, both already handled:
+
+- `extractPreviousLibrary` read those totals from a `headline` shape the generator has never
+  emitted. They live in the `prev` column of `data.rows`; `headline` carries the *deltas* as
+  preformatted strings. Fixed 2026-09-10 — before that, a present `prev_lib` would have rendered
+  four blank previous values while the panel announced itself available.
+- The comparison is still assembled from `other_reports` rather than bound to `prev_lib`, and that
+  is still the right call: it is what keeps the view working on the builds that predate this fix,
+  and on any target whose baseline step failed. What changed is that it is no longer the *only*
+  path to a comparison.
 
 ### 3. `--budget` does not bound the run
 
