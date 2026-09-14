@@ -23,6 +23,7 @@ import {
   roundTo,
   slugify,
 } from '../primitives'
+import { generatorDefinitionId } from '../definitions'
 import { makeMeta } from '../notes'
 import { availabilityFor } from '../status'
 import type { NoteSink } from '../notes'
@@ -71,13 +72,22 @@ function buildMechanismOrder(mechanisms: readonly string[]): MechanismSlot[] {
     mechanism,
     slot,
     label: MECHANISM_LABELS[mechanism],
+    definitionId: generatorDefinitionId('mapping', mechanism),
     known: true,
   }))
   // Unknown mechanisms are appended in first-appearance order, never inserted among the known.
   for (const mechanism of mechanisms) {
     if (isKnownMechanism(mechanism)) continue
     if (slots.some(slot => slot.mechanism === mechanism)) continue
-    slots.push({ mechanism, slot: slots.length, label: mechanism, known: false })
+    slots.push({
+      mechanism,
+      slot: slots.length,
+      // No curated label: RECLUSTER, `(blank)` and `(other)` have always rendered as the raw
+      // string here. `DefinedTerm` substitutes the generator's label when one exists.
+      label: mechanism,
+      definitionId: generatorDefinitionId('mapping', mechanism),
+      known: false,
+    })
   }
   return slots
 }

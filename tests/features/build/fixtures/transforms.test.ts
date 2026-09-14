@@ -19,6 +19,7 @@ import {
   UNKNOWN_SECTION_STATUS,
   UNKNOWN_STEP_STATUS,
   withFutureSchema,
+  withRecluster,
   withUnknownSection,
   withUnknownStatus,
 } from '@/features/build/fixtures'
@@ -47,6 +48,9 @@ const NAMED_TRANSFORMS: [string, BuildStateTransform][] = [
   ['withUnknownSection', withUnknownSection()],
   ['withUnknownStatus', withUnknownStatus()],
   ['withFutureSchema', withFutureSchema()],
+  // The only transform doing a positional splice rather than a pure field edit, so purity and
+  // idempotence are exactly the properties most worth exercising by name here.
+  ['withRecluster', withRecluster()],
   ["stripSection('node_tracking')", stripSection('node_tracking')],
   ["stripSection('progress')", stripSection('progress')],
   ["stripSection('other_reports')", stripSection('other_reports')],

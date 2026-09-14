@@ -25,6 +25,7 @@ import type {
   PreviousLibrarySummary,
   ProteomeRosterRow,
   ProteomesSummary,
+  ReclusterSummary,
   SpeciesCrossSection,
   SpeciesCountChange,
   SummaryMeta,
@@ -90,6 +91,22 @@ export function absentNodeTracking(meta: SummaryMeta): NodeTrackingSummary {
     medianPct: null,
     madPct: null,
     atOrAbove90: null,
+    warnings: [],
+  }
+}
+
+export function absentRecluster(meta: SummaryMeta): ReclusterSummary {
+  return {
+    ...meta,
+    familiesCreated: null,
+    sequencesInNewFamilies: null,
+    familiesInherited: null,
+    sequencesInInheritedFamilies: null,
+    clustersFormed: null,
+    sequencesOffered: null,
+    newFamilyIdMin: null,
+    newFamilyIdMax: null,
+    outcomes: [],
     warnings: [],
   }
 }

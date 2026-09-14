@@ -36,6 +36,11 @@ function realEntry(sectionId: string): ReportRegistryEntry {
   return entry
 }
 
+/** A section with the given id and `data` payload, read through the real parse path. */
+function entryWith(sectionId: string, data: Record<string, unknown>): ReportRegistryEntry {
+  return entryFor({ id: sectionId, status: 'ok', data })
+}
+
 describe('readGenericSection', () => {
   it('reads a null payload as empty rather than throwing or inventing zeros', () => {
     const reading = readGenericSection(entryFor({ id: 'future_null', status: 'ok', data: null }))
@@ -103,6 +108,27 @@ describe('readGenericSection', () => {
     expect(paths).toContain('current.QFO_DATA_DIR')
     expect(paths).toContain('current.config_file_contents')
     expect(paths).toContain('record_count')
+  })
+
+  it('does not preserve the generator-definitions map as raw fields, since the tooltip already renders it', () => {
+    // Regression for the second consumed-keys list drifting from the model's `GENERIC_DATA_KEYS`:
+    // every section carrying `definitions` was dumping its whole vocabulary back onto the page as
+    // `definitions.<term>` "preserved fields" - the same prose `DefinedTerm`'s tooltip already shows.
+    const reading = readGenericSection(
+      entryFor({
+        id: 'future_definitions',
+        status: 'ok',
+        data: {
+          headline: { total: 4 },
+          definitions: {
+            new_family: { label: 'Became a new family', definition: 'Minted a new PANTHER id.' },
+          },
+        },
+      })
+    )
+
+    const paths = reading.preserved.map(field => field.path)
+    expect(paths.some(path => path.startsWith('definitions'))).toBe(false)
   })
 
   it('reads a section carrying only text', () => {
@@ -191,5 +217,80 @@ describe('named variables and anchors', () => {
     expect(new Set(values).size).toBe(values.length)
     // PTHR_VERSION appears in the ledger rows AND in the resolved block.
     expect(values.filter(id => id === 'config--pthr-version')).toHaveLength(1)
+  })
+})
+
+describe('generator definitions on headline fields', () => {
+  it('sets a namespaced definitionId for a key the section defines', () => {
+    const view = readGenericSection(
+      entryWith('recluster', {
+        headline: { families_created: 153 },
+        definitions: {
+          families_created: {
+            label: 'New families created',
+            definition: 'Families minted by reclustering.',
+          },
+        },
+      })
+    )
+    const field = view.headline.find(entry => entry.key === 'families_created')
+    expect(field?.definitionId).toBe('recluster.families_created')
+  })
+
+  it('leaves definitionId null for a key the section does not define', () => {
+    const view = readGenericSection(
+      entryWith('recluster', {
+        headline: { clusters_formed: 41234 },
+        definitions: {
+          families_created: { label: 'New families created', definition: 'x' },
+        },
+      })
+    )
+    expect(view.headline.find(entry => entry.key === 'clusters_formed')?.definitionId).toBeNull()
+  })
+
+  it('sets definitionId on rows[].metric keys too, not only headline keys', () => {
+    const view = readGenericSection(
+      entryWith('recluster', {
+        rows: [{ metric: 'families_created', value: 153 }],
+        definitions: {
+          families_created: { label: 'New families created', definition: 'x' },
+        },
+      })
+    )
+    expect(view.rows[0]?.definitionId).toBe('recluster.families_created')
+  })
+
+  it('never lets a generator definition displace a curated metric', () => {
+    // `genomes` resolves to a curated metric via the library section's source path.
+    const view = readGenericSection(
+      entryWith('library', {
+        headline: { genomes: 131 },
+        definitions: { genomes: { label: 'WRONG', definition: 'WRONG' } },
+      })
+    )
+    const field = view.headline.find(entry => entry.key === 'genomes')
+    expect(field?.metricId).not.toBeNull()
+  })
+
+  it('degrades to null rather than throwing when definitions are malformed', () => {
+    const view = readGenericSection(
+      entryWith('recluster', { headline: { families_created: 153 }, definitions: 'nonsense' })
+    )
+    expect(view.headline.find(entry => entry.key === 'families_created')?.definitionId).toBeNull()
+  })
+
+  it('prefers the curated reclustering metric over the generator definition', () => {
+    const view = readGenericSection(
+      entryWith('recluster', {
+        headline: { sequences_in_inherited_families: 4312 },
+        definitions: {
+          sequences_in_inherited_families: { label: 'GENERATOR', definition: 'GENERATOR' },
+        },
+      })
+    )
+    const field = view.headline.find(entry => entry.key === 'sequences_in_inherited_families')
+    expect(field?.metricId).toBe('reclusteredIntoExistingFamilies')
+    expect(field?.definitionId).toBeNull()
   })
 })

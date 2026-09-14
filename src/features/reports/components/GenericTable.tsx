@@ -1,7 +1,7 @@
-import { DataTable } from '@/@panther.core/components'
+import { DataTable, DefinedTerm } from '@/@panther.core/components'
 import { fileSizeLabel, formatFileSize, isFileSizeKey } from '@/@panther.core/fileSize'
 import type { DataColumn } from '@/@panther.core/components'
-import { formatUnknownValue } from '@/features/build/model'
+import { formatUnknownValue, generatorDefinitionId } from '@/features/build/model'
 import type { GenericTableView } from '@/features/reports/model/genericView'
 
 /**
@@ -17,6 +17,12 @@ import type { GenericTableView } from '@/features/reports/model/genericView'
  * `ragged_rows` is a COUNT, and it is reported even when the table is not truncated, because a
  * table whose full result set has rows of differing width is a fact about the data rather than a
  * detail of this rendering.
+ *
+ * One exception to "nothing here knows what the columns mean": `table.definesColumn` names the
+ * single column, if any, whose cell values are vocabulary the generator defined - `too_small`,
+ * `applied_under_ht`. That column alone renders through `DefinedTerm`; every other cell is matched
+ * by TYPE (numeric vs identifier), never by value, because a family id or oscode that happened to
+ * equal a defined term would otherwise pick up a tooltip that has nothing to do with it.
  */
 export interface GenericTableProps {
   table: GenericTableView
@@ -75,12 +81,27 @@ export const GenericTable = ({ table, pageSize = 20 }: GenericTableProps) => {
     // reason build_state.json keeps these numeric: sorting the formatted strings would put
     // `9.1 MB` above `1.4 GB`.
     const isSize = isFileSizeKey(column)
+    // Only the column the generator explicitly named via `defines` is vocabulary - never a column
+    // matched by comparing cell values against the definitions map.
+    const defines = table.definesColumn === column
     return {
       id: column,
       header: <span className="pb-ident">{isSize ? fileSizeLabel(column) : column}</span>,
-      kind: numeric || isSize ? 'number' : 'mono',
-      render: entry =>
-        isSize ? formatFileSize(asFiniteNumber(entry.row[column])) : formatCell(entry.row[column]),
+      kind: defines ? 'node' : numeric || isSize ? 'number' : 'mono',
+      render: entry => {
+        if (defines) {
+          const term = String(entry.row[column] ?? '')
+          return (
+            <DefinedTerm
+              definitionId={generatorDefinitionId(table.sectionId, term)}
+              fallback={term}
+            />
+          )
+        }
+        return isSize
+          ? formatFileSize(asFiniteNumber(entry.row[column]))
+          : formatCell(entry.row[column])
+      },
       sortValue: entry => sortValueOf(entry.row[column]),
     }
   })

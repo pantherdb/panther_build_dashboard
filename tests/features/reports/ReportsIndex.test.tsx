@@ -1,7 +1,7 @@
 import { screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { MetricDefinitionsProvider } from '@/@panther.core/components'
-import { metricRegistry } from '@/app/metricRegistry'
+import { curatedRegistry } from '@/app/metricRegistry'
 import type { FixtureStateKey } from '@/features/build/fixtures'
 import { initialBuildUiState } from '@/features/build/slices/buildSlice'
 import { ReportsIndex } from '@/features/reports/components/ReportsIndex'
@@ -18,7 +18,7 @@ import { renderWithProviders } from '@tests/test-utils'
 
 const renderIndex = (fixtureStateKey: FixtureStateKey) =>
   renderWithProviders(
-    <MetricDefinitionsProvider registry={metricRegistry}>
+    <MetricDefinitionsProvider registry={curatedRegistry}>
       <ReportsIndex />
     </MetricDefinitionsProvider>,
     { preloadedState: { build: { ...initialBuildUiState, fixtureStateKey } } }

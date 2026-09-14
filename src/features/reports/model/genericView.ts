@@ -25,6 +25,7 @@ import {
   METRIC_IDS,
   configElementId,
   formatUnknownValue,
+  generatorDefinitionId,
   isRecord,
   metricIdForReportKey,
   normaliseTable,
@@ -46,6 +47,12 @@ export interface GenericField {
   formatted: string
   /** Set when the key resolves to a registered metric, which then supplies the label. */
   metricId: MetricId | null
+  /**
+   * The generator's own definition for this key, namespaced `section.term`, when the owning
+   * section supplied one. Consulted ONLY where `metricId` is null: a curated definition always
+   * wins, so the two can never disagree on screen.
+   */
+  definitionId: string | null
   /** A SHOUTY_CASE key names a configuration-style variable, so it can carry a config anchor. */
   namedVariable: boolean
   /** An unregistered key using one of the report's ambiguous terms - `seqs`, `sequences`. */
@@ -124,16 +131,33 @@ function isFlatArray(value: unknown): boolean {
   return Array.isArray(value) && value.every(entry => entry === null || typeof entry !== 'object')
 }
 
+/**
+ * The terms a section's own `definitions` block defines, computed once per entry rather than
+ * scanned per field: every `describeField` call for a section shares this same set.
+ */
+function definedTermSet(entry: ReportRegistryEntry): Set<string> {
+  return new Set(entry.generic.definitions.map(definition => definition.term))
+}
+
 export function describeField(
   path: string,
   key: string,
   value: unknown,
-  sectionId?: string
+  sectionId?: string,
+  definedTerms?: Set<string>
 ): GenericField {
   const metricId = resolveMetricId(key, sectionId)
   const multilineText = typeof value === 'string' && value.includes('\n')
   const structured =
     !multilineText && typeof value === 'object' && value !== null && !isFlatArray(value)
+
+  // Namespaced, so a generator term can extend the registry but never collide with a curated id.
+  // Set only when the section really defines the key: pointing at an id the registry does not
+  // hold would render "no definition registered", which is worse than the honest raw key.
+  const definitionId =
+    metricId === null && sectionId !== undefined && definedTerms?.has(key) === true
+      ? generatorDefinitionId(sectionId, key)
+      : null
 
   return {
     path,
@@ -148,6 +172,7 @@ export function describeField(
         ? formatFileSize(value)
         : formatUnknownValue(value),
     metricId,
+    definitionId,
     namedVariable: isNamedVariableKey(key),
     ambiguousTerm: metricId === null && AMBIGUOUS_TERM.test(key.toLowerCase()),
   }
@@ -167,9 +192,16 @@ export interface GenericTableView {
   includedRows: number
   totalRows: number | null
   raggedRows: number | null
+  /** The section that owns this table, needed to namespace a cell's definition id. */
+  sectionId: string
+  /** Column whose cell values the section defined, or `null`. */
+  definesColumn: string | null
 }
 
-function fromDerivedTable(table: DerivedTable<Record<string, unknown>>): GenericTableView {
+function fromDerivedTable(
+  table: DerivedTable<Record<string, unknown>>,
+  sectionId: string
+): GenericTableView {
   return {
     key: table.key,
     name: table.name,
@@ -178,18 +210,30 @@ function fromDerivedTable(table: DerivedTable<Record<string, unknown>>): Generic
     includedRows: table.truncation.includedRows,
     totalRows: table.truncation.totalRows,
     raggedRows: table.truncation.raggedRows,
+    sectionId,
+    definesColumn: table.definesColumn,
   }
 }
 
 /* -- The whole reading --------------------------------------------------------------------- */
 
-/** `data` keys the structural pass consumes. Everything else is preserved and shown. */
+/**
+ * `data` keys the structural pass consumes. Everything else is preserved and shown.
+ *
+ * Kept in step with the model's own `GENERIC_DATA_KEYS` (`sections/generic.ts`) by hand rather than
+ * by import, because the two lists consume the key for different reasons - the model excludes it
+ * from `extra`, this excludes it from a re-read of `entry.raw.data` - but they must never disagree
+ * about WHICH keys those are. `definitions` missing here was exactly that drift: the tooltip
+ * already renders the vocabulary, and without this entry every section carrying it also dumped the
+ * same prose back onto the page as raw `definitions.<term>` "preserved fields".
+ */
 export const CONSUMED_DATA_KEYS: readonly string[] = [
   'headline',
   'rows',
   'tables',
   'text',
   'warnings',
+  'definitions',
 ]
 
 export interface GenericSectionReading {
@@ -214,6 +258,7 @@ function preservedFields(entry: ReportRegistryEntry): GenericField[] {
   const data = recordOf(recordOf(entry.raw)?.data)
   if (data === null) return []
 
+  const definedTerms = definedTermSet(entry)
   const fields: GenericField[] = []
   for (const key of Object.keys(data)) {
     if (CONSUMED_DATA_KEYS.includes(key)) continue
@@ -221,17 +266,25 @@ function preservedFields(entry: ReportRegistryEntry): GenericField[] {
     const nested = recordOf(value)
     const childKeys = nested === null ? [] : Object.keys(nested)
     if (nested === null || childKeys.length === 0) {
-      fields.push(describeField(key, key, value, entry.sectionId))
+      fields.push(describeField(key, key, value, entry.sectionId, definedTerms))
       continue
     }
     for (const childKey of childKeys) {
-      fields.push(describeField(`${key}.${childKey}`, childKey, nested[childKey], entry.sectionId))
+      fields.push(
+        describeField(
+          `${key}.${childKey}`,
+          childKey,
+          nested[childKey],
+          entry.sectionId,
+          definedTerms
+        )
+      )
     }
   }
   return fields
 }
 
-function fromPayloadArray(rows: unknown[], key: string): GenericTableView {
+function fromPayloadArray(rows: unknown[], key: string, sectionId: string): GenericTableView {
   const table = normaliseTable({ rows }, 'data')
   return {
     key,
@@ -241,33 +294,36 @@ function fromPayloadArray(rows: unknown[], key: string): GenericTableView {
     includedRows: table.records.length,
     totalRows: table.records.length,
     raggedRows: null,
+    sectionId,
+    definesColumn: table.definesColumn,
   }
 }
 
 export function readGenericSection(entry: ReportRegistryEntry): GenericSectionReading {
   const view = entry.generic
+  const definedTerms = definedTermSet(entry)
   const headline = view.headline.map(item =>
-    describeField(item.key, item.key, item.value, entry.sectionId)
+    describeField(item.key, item.key, item.value, entry.sectionId, definedTerms)
   )
 
   // The report restates several headline values in `rows`; rendering both reads as two findings
   // rather than one fact said twice.
   const headlineIndex = new Set(headline.map(field => `${field.key}=${field.formatted}`))
   const rows = view.rows
-    .map(item => describeField(item.key, item.key, item.value, entry.sectionId))
+    .map(item => describeField(item.key, item.key, item.value, entry.sectionId, definedTerms))
     .filter(field => !headlineIndex.has(`${field.key}=${field.formatted}`))
 
   const rawData = recordOf(entry.raw)?.data
   const payloadTable = Array.isArray(rawData)
-    ? fromPayloadArray(rawData, `${entry.sectionId}_payload`)
+    ? fromPayloadArray(rawData, `${entry.sectionId}_payload`, entry.sectionId)
     : null
   const payloadScalar =
     rawData !== undefined && rawData !== null && typeof rawData !== 'object'
-      ? describeField('data', 'data', rawData, entry.sectionId)
+      ? describeField('data', 'data', rawData, entry.sectionId, definedTerms)
       : null
 
   const preserved = preservedFields(entry)
-  const tables = view.tables.map(fromDerivedTable)
+  const tables = view.tables.map(table => fromDerivedTable(table, entry.sectionId))
   const text = view.text
 
   return {

@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react'
 import type { ReactElement } from 'react'
 import { describe, expect, it } from 'vitest'
 import { MetricDefinitionsProvider } from '@/@panther.core/components'
-import { metricRegistry } from '@/app/metricRegistry'
+import { curatedRegistry } from '@/app/metricRegistry'
 import { buildStateSource, getFixtureReport, stripSection } from '@/features/build/fixtures'
 import { parseBuildState } from '@/features/build/model'
 import type { BuildReport } from '@/features/build/model'
@@ -28,7 +28,7 @@ import { renderWithProviders } from '@tests/test-utils'
  */
 
 const withDefinitions = (ui: ReactElement) => (
-  <MetricDefinitionsProvider registry={metricRegistry}>{ui}</MetricDefinitionsProvider>
+  <MetricDefinitionsProvider registry={curatedRegistry}>{ui}</MetricDefinitionsProvider>
 )
 
 /** Text that spans several nodes; RTL's default matcher only sees direct text children. */

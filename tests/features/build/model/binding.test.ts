@@ -268,3 +268,19 @@ describe('the MSA build phase', () => {
     expect(sectionIdsForPhase(PHASE_IDS.extenBuildAndScoring, resolved)).toContain('msa')
   })
 })
+
+describe('the recluster section', () => {
+  it('is a known section id', () => {
+    expect(KNOWN_SECTION_IDS).toContain('recluster')
+  })
+
+  it('hangs from sequence-to-family mapping, where reclustering runs', () => {
+    const binding = resolveBinding('recluster')
+    expect(binding.placement).toBe('phase')
+    expect(binding.primaryPhaseId).toBe(PHASE_IDS.sequenceToFamilyMapping)
+  })
+
+  it('contributes to no other phase, unlike mapping', () => {
+    expect(getBinding('recluster')?.contributingPhaseIds).toEqual([])
+  })
+})

@@ -10,6 +10,7 @@ export {
   MECHANISM_LABELS,
 } from './mapping'
 export { extractNodeTracking, LOW_OUTLIER_THRESHOLD } from './nodeTracking'
+export { extractRecluster } from './recluster'
 export {
   AGGREGATE_OSCODES,
   extractOtherReports,

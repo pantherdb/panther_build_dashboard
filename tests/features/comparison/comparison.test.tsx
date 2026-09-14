@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react'
 import type { ReactElement } from 'react'
 import { describe, expect, it } from 'vitest'
 import { MetricDefinitionsProvider } from '@/@panther.core/components'
-import { metricRegistry } from '@/app/metricRegistry'
+import { curatedRegistry } from '@/app/metricRegistry'
 import { getFixtureReport } from '@/features/build/fixtures'
 import { ComparisonReportView } from '@/features/comparison/components/ComparisonReport'
 import {
@@ -31,7 +31,7 @@ import { withPreviousLibrary } from '@tests/support/previousLibrarySection'
  */
 
 const withDefinitions = (ui: ReactElement) => (
-  <MetricDefinitionsProvider registry={metricRegistry}>{ui}</MetricDefinitionsProvider>
+  <MetricDefinitionsProvider registry={curatedRegistry}>{ui}</MetricDefinitionsProvider>
 )
 
 /** Text that spans several nodes; RTL's default matcher only sees direct text children. */
@@ -334,9 +334,7 @@ describe('ComparisonReportView', () => {
       // and renders as the second replacement alongside DAPPU -> DAPMA.
       expect(screen.getAllByText('Rename')).toHaveLength(1)
       expect(screen.getAllByText('Replacement')).toHaveLength(2)
-      expect(
-        spanningText('USTMA, MYCMD are excluded from the rankings below')
-      ).not.toHaveLength(0)
+      expect(spanningText('USTMA, MYCMD are excluded from the rankings below')).not.toHaveLength(0)
       expect(screen.getAllByText('likely replacement from DAPPU').length).toBeGreaterThanOrEqual(1)
       expect(screen.getAllByText('likely replacement to DAPMA').length).toBeGreaterThanOrEqual(1)
       expect(spanningText('Newly added (3)')).not.toHaveLength(0)

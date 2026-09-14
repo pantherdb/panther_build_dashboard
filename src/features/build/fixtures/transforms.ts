@@ -515,6 +515,100 @@ export function withUnknownSection(): BuildStateTransform {
   }
 }
 
+/** Figures from the 2026-02 build where they are known; the rest are shaped, not measured. */
+const RECLUSTER_HEADLINE = {
+  families_created: 153,
+  sequences_in_new_families: 2823,
+  families_inherited: 0,
+  sequences_in_inherited_families: 0,
+  clusters_formed: 41234,
+  sequences_offered: 493583,
+  new_family_id_min: 'PTHR90001',
+  new_family_id_max: 'PTHR90153',
+}
+
+/** The `recluster` section as the generator writes it. Exported so the model's own tests can
+ *  read a payload without building a whole state. */
+export function reclusterPayload(overrides: Record<string, unknown> = {}) {
+  return {
+    text: 'Reclustering created 153 new PANTHER families from 2,823 sequences.',
+    headline: { ...RECLUSTER_HEADLINE },
+    rows: Object.entries(RECLUSTER_HEADLINE).map(([metric, value]) => ({ metric, value })),
+    tables: [
+      {
+        name: 'Cluster outcomes',
+        columns: ['outcome', 'clusters', 'sequences'],
+        defines: 'outcome',
+        rows: [
+          { outcome: 'new_family', clusters: 153, sequences: 2823 },
+          { outcome: 'inherited_family', clusters: 0, sequences: 0 },
+          { outcome: 'single_organism', clusters: 30140, sequences: 61230 },
+          { outcome: 'too_small', clusters: 10941, sequences: 38122 },
+        ],
+        total_rows: 4,
+        truncated: false,
+      },
+    ],
+    definitions: {
+      new_family: {
+        label: 'Became a new family',
+        definition:
+          'A TribeMCL cluster that was minted a new PANTHER family id. Requires at least 2 ' +
+          'organisms, at least 10 sequences, and no previous-library family to inherit.',
+      },
+      inherited_family: {
+        label: 'Reclaimed an existing family',
+        definition: 'A cluster handed back a previous-library family. Reclaiming is not creating.',
+      },
+      single_organism: {
+        label: 'Discarded — single organism',
+        definition: 'All sequences from one organism. Never eligible for a family.',
+      },
+      too_small: {
+        label: 'Discarded — fewer than 10 sequences',
+        definition: 'Multi-organism, below the size floor, with nothing to inherit.',
+      },
+    },
+    warnings: [],
+    ...overrides,
+  }
+}
+
+/**
+ * Adds the `recluster` section the frozen reference predates.
+ *
+ * Idempotent like every transform here: a state that already carries the section passes through,
+ * so a recipe may compose it twice. Inserted after `mapping`, which is where the generator's
+ * REGISTRY emits it.
+ */
+export function withRecluster(): BuildStateTransform {
+  return state => {
+    if (!isRecord(state)) return state
+    const next = clone(state)
+    const sections = asArray(next.sections)
+    if (sections.filter(isRecord).some(section => asString(section.id) === 'recluster')) {
+      return next
+    }
+    const at = sections.findIndex(
+      section => isRecord(section) && asString(section.id) === 'mapping'
+    )
+    const addition: RawSection = {
+      id: 'recluster',
+      title: 'Reclustering (TribeMCL)',
+      status: 'ok',
+      message: null,
+      data: reclusterPayload(),
+    }
+    const insertAt = at < 0 ? sections.length : at + 1
+    next.sections = [
+      ...sections.slice(0, insertAt),
+      addition,
+      ...sections.slice(insertAt),
+    ] as RawSection[]
+    return next
+  }
+}
+
 /** The unknown status values used by `withUnknownStatus`, exported so tests assert on them. */
 export const UNKNOWN_SECTION_STATUS = 'degraded'
 export const UNKNOWN_STEP_STATUS = 'skipped_by_operator'

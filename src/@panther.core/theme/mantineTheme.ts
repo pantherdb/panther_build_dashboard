@@ -111,8 +111,25 @@ export const mantineTheme = createTheme({
       defaultProps: { size: 'xs', radius: 'sm', withItemsBorders: false },
     }),
     Tabs: Tabs.extend({ defaultProps: { variant: 'default', keepMounted: false } }),
+    // `focus` and `touch` are off in Mantine's own default, which makes every tooltip in the app
+    // mouse-only. `focus: true` matters because a `tabIndex` is otherwise inert — without it every
+    // definition (DefinedTerm, MetricValue) stays unreachable from the keyboard. `touch: true`
+    // matters because a non-interactive label span has no click handler of its own; a tap is the
+    // only route to its definition on a touch device. This default is theme-wide, so it was
+    // audited against the app's other Tooltip call sites (icon buttons, sortable headers, links):
+    // floating-ui's `useFocus` runs `visibleOnly`, gated on `:focus-visible`, so a mouse click that
+    // focuses a control does not open its tooltip — only tabbing to it does, which is a strict
+    // improvement, not a regression. The accepted cost is that a tap on an already-tappable control
+    // can now also surface its tooltip shortly after; it never blocks the tap's own action.
     Tooltip: Tooltip.extend({
-      defaultProps: { withArrow: true, openDelay: 200, fz: 'xs', maw: 300, multiline: true },
+      defaultProps: {
+        withArrow: true,
+        openDelay: 200,
+        fz: 'xs',
+        maw: 300,
+        multiline: true,
+        events: { hover: true, focus: true, touch: true },
+      },
     }),
     Popover: Popover.extend({
       defaultProps: { withinPortal: true, shadow: 'none', radius: 'sm', withArrow: true },

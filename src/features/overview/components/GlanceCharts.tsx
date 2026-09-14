@@ -9,10 +9,12 @@ import {
   bandScale,
   linearScale,
 } from '@/@panther.core/charts'
-import { Panel, PanelGrid } from '@/@panther.core/components'
+import { DefinedTerm, Panel, PanelGrid } from '@/@panther.core/components'
 import { createCategoricalScale } from '@/@panther.core/theme/tokens'
 import { formatCount } from '@/app/format'
+import { generatorDefinitionId } from '@/features/build/model'
 import { useBuildReport } from '@/features/build/hooks'
+import type { ReclusterSummary } from '@/features/build/model'
 
 /**
  * The shape of the build, before a reader opens anything.
@@ -29,14 +31,41 @@ import { useBuildReport } from '@/features/build/hooks'
  * outline, a Gantt over artifact times. Paying that much to maintain two chart systems, for the
  * three simplest charts in the app, was the wrong trade. `d3-scale` now does the arithmetic under
  * the chassis, which is the part a dependency was actually worth having for.
+ *
+ * A fourth panel leads with the number of families this build created. It is the one figure here
+ * that is stated rather than derived: `mapping` carries the same fact only as a rise in the family
+ * count across one stage boundary, which is a NET change and would undercount silently if anything
+ * were also dropped at that stage. `recluster.familiesCreated` comes straight from the generator's
+ * own count instead. It is also the one panel here where absence must never read as zero - a build
+ * that has not reached reclustering has created no families YET, not none, and `Panel` renders that
+ * distinction through its standard `UnavailableNotice` path rather than a derived fallback figure.
  */
 
 /** One decimal, matching how every other percentage in the record reads. */
 const asPercent = (value: number) => `${value.toFixed(1)}%`
 
+/**
+ * The context line under the families-created figure.
+ *
+ * Exported so the "clusters_formed present vs. missing" case can be pinned directly, without
+ * building a whole report just to reach one string. `clustersFormed` is read from a separate
+ * headline key from `sequencesInNewFamilies`, so a collector can report one without the other -
+ * and `?? 0` here would print "from 0 TribeMCL clusters", stating a finding the report never made.
+ * Absent is never zero, in this panel least of all: the clause is omitted instead.
+ */
+export function reclusterContextLine(
+  recluster: Pick<ReclusterSummary, 'sequencesInNewFamilies' | 'clustersFormed'>
+): string | null {
+  if (recluster.sequencesInNewFamilies === null) return null
+  const sequences = `${formatCount(recluster.sequencesInNewFamilies)} sequences`
+  return recluster.clustersFormed === null
+    ? sequences
+    : `${sequences}, from ${formatCount(recluster.clustersFormed)} TribeMCL clusters`
+}
+
 export const GlanceCharts = () => {
   const report = useBuildReport()
-  const { mapping, nodeTracking } = report
+  const { mapping, nodeTracking, recluster } = report
 
   const assignment = useMemo(
     () => mapping.stages.map(stage => stage.recomputedPctAssigned),
@@ -56,10 +85,30 @@ export const GlanceCharts = () => {
     const segments = finalStage.byMechanism
       .filter(entry => (entry.cumulative ?? 0) > 0)
       .map(entry => ({ seriesKey: entry.mechanism, value: entry.cumulative }))
-    const labelFor = (mechanism: string) =>
-      mapping.mechanismOrder.find(slot => slot.mechanism === mechanism)?.label ?? mechanism
+    // One lookup shared by the table twin's plain label and the legend's `DefinedTerm` node.
+    // `mechanism` is always drawn from `order` above, which is this same map's keys, so the lookup
+    // can never miss - there is no "unknown mechanism" case left for either helper to fall back to.
+    const slotByMechanism = new Map(mapping.mechanismOrder.map(slot => [slot.mechanism, slot]))
+    // Plain text for the accessible table twin - it must stay readable without a hover/focus
+    // interaction, so it never carries a DefinedTerm even when one would resolve.
+    const labelFor = (mechanism: string) => slotByMechanism.get(mechanism)!.label
+    // The legend's own label: a curated mechanism (ID, BLAST, HMM scoring, reclustering) keeps its
+    // curated reading even when the generator's registry resolves - `DefinedTerm`'s `label` override
+    // exists for exactly this, so the curated wording never loses to the generator's. An uncurated
+    // mechanism (RECLUSTER, blank, other) has no override, so the generator's label wins once one is
+    // shipped, and today's bare string is just the `fallback`.
+    const nodeFor = (mechanism: string) => {
+      const slot = slotByMechanism.get(mechanism)!
+      return (
+        <DefinedTerm
+          definitionId={slot.definitionId}
+          fallback={slot.label}
+          label={slot.known ? slot.label : undefined}
+        />
+      )
+    }
     const total = segments.reduce((sum, segment) => sum + (segment.value ?? 0), 0)
-    return { order, scale, segments, labelFor, total }
+    return { order, scale, segments, labelFor, nodeFor, total }
   }, [mapping.stages, mapping.mechanismOrder])
 
   const byType = useMemo(
@@ -70,10 +119,26 @@ export const GlanceCharts = () => {
     [nodeTracking.byType]
   )
 
+  // How the clusters TribeMCL formed were disposed - the same four-way split `clustersFormed`
+  // states as a total. `order` is the full outcome list, not the filtered segments below, so an
+  // empty bucket (no inherited-family reclaim, say) cannot reassign the colours of the buckets
+  // that remain - the same guarantee `composition.order` relies on above.
+  const outcomeBar = useMemo(() => {
+    if (recluster.outcomes.length === 0) return null
+    const order = recluster.outcomes.map(outcome => outcome.outcome)
+    const scale = createCategoricalScale(order)
+    const segments = recluster.outcomes
+      .filter(outcome => (outcome.clusters ?? 0) > 0)
+      .map(outcome => ({ seriesKey: outcome.outcome, value: outcome.clusters }))
+    const total = segments.reduce((sum, segment) => sum + (segment.value ?? 0), 0)
+    return { order, scale, segments, total }
+  }, [recluster.outcomes])
+
   const hasAnything =
     assignment.some(value => value !== null) ||
     (composition?.segments.length ?? 0) > 0 ||
-    byType.length > 0
+    byType.length > 0 ||
+    recluster.availability !== 'absent'
   if (!hasAnything) return null
 
   return (
@@ -135,7 +200,7 @@ export const GlanceCharts = () => {
                   )
                   .map(mechanism => ({
                     key: mechanism,
-                    label: composition.labelFor(mechanism),
+                    label: composition.nodeFor(mechanism),
                     swatch: composition.scale.fill(mechanism),
                     value: formatCount(
                       composition.segments.find(segment => segment.seriesKey === mechanism)
@@ -178,6 +243,99 @@ export const GlanceCharts = () => {
             )}
           </ChartFrame>
         )}
+      </Panel>
+
+      <Panel
+        title="New families"
+        subtitle="created by reclustering"
+        availability={recluster.availability}
+        message={recluster.message ?? undefined}
+        missingSubject="Reclustering statistics"
+        density="tight"
+        provenance="generator"
+      >
+        {/* The headline result of a build, stated rather than derived. `mapping` carries the same
+            fact only as a rise in the family count across one stage boundary, which is a NET
+            change and undercounts if anything is also dropped there. */}
+        <div className="space-y-1">
+          <div className="flex flex-wrap items-baseline gap-x-3">
+            <span className="text-ink pb-figures text-display leading-none font-semibold">
+              {recluster.familiesCreated === null
+                ? '—'
+                : recluster.familiesCreated.toLocaleString()}
+            </span>
+            <span className="text-ink-faint text-2xs tracking-wide uppercase">
+              families created
+            </span>
+          </div>
+          <p className="text-ink-muted text-2xs">{reclusterContextLine(recluster)}</p>
+          {outcomeBar !== null && outcomeBar.segments.length > 0 && (
+            <ChartFrame
+              title="Cluster outcomes"
+              description="How the clusters TribeMCL formed were disposed."
+              height={28}
+              margins={{ top: 2, right: 2, bottom: 2, left: 2 }}
+              grid="none"
+              axes="none"
+              legend={
+                <ChartLegend
+                  items={outcomeBar.order
+                    .filter(outcome =>
+                      outcomeBar.segments.some(segment => segment.seriesKey === outcome)
+                    )
+                    .map(outcome => ({
+                      key: outcome,
+                      label: (
+                        <DefinedTerm
+                          definitionId={generatorDefinitionId('recluster', outcome)}
+                          fallback={outcome}
+                        />
+                      ),
+                      swatch: outcomeBar.scale.fill(outcome),
+                      value: formatCount(
+                        outcomeBar.segments.find(segment => segment.seriesKey === outcome)?.value ??
+                          0
+                      ),
+                    }))}
+                />
+              }
+              tableView={
+                <TableView
+                  caption="Clusters TribeMCL formed, by outcome"
+                  rowKey={row => row.outcome}
+                  columns={[
+                    { id: 'outcome', header: 'Outcome', render: row => row.outcome },
+                    {
+                      id: 'clusters',
+                      header: 'Clusters',
+                      align: 'right',
+                      render: row => row.clusters,
+                    },
+                  ]}
+                  rows={outcomeBar.segments.map(segment => ({
+                    // Plain text for the accessible table twin, same as the mechanism panel above -
+                    // it must stay readable without a hover/focus interaction.
+                    outcome: segment.seriesKey,
+                    clusters: formatCount(segment.value ?? 0),
+                  }))}
+                />
+              }
+            >
+              {plot => (
+                <StackedBars
+                  data={[{ key: 'outcomes', segments: outcomeBar.segments }]}
+                  plot={plot}
+                  band={bandScale(['outcomes'], [plot.y, plot.y + plot.height], { padding: 0 })}
+                  value={linearScale([0, outcomeBar.total], [plot.x, plot.x + plot.width])}
+                  series={outcomeBar.order}
+                  fillFor={outcomeBar.scale.fill}
+                  orientation="horizontal"
+                  maxThickness={16}
+                />
+              )}
+            </ChartFrame>
+          )}
+        </div>
       </Panel>
 
       <Panel

@@ -37,6 +37,16 @@ describe('registry completeness', () => {
     expect(Object.keys(METRIC_DEFINITIONS).sort()).toEqual([...METRIC_IDS].sort())
   })
 
+  it('never gives a curated id a dot, which is what makes generator namespacing structural', () => {
+    // `generatorDefinitionId` joins a section id and a term with a dot precisely so it can never
+    // collide with a curated id - "namespacing, not precedence". That guarantee only holds if no
+    // curated id ever contains one; this is what keeps it a fact about the registry, not a
+    // convention someone could break by adding a poorly-named metric.
+    for (const id of METRIC_IDS) {
+      expect(id).not.toContain('.')
+    }
+  })
+
   it('groups every metric into a family the definitions panel can render', () => {
     const families = ['sequences', 'families', 'nodes', 'species', 'trees', 'pipeline'] as const
     const covered = families.flatMap(family => metricsInFamily(family).map(entry => entry.id))
@@ -78,6 +88,19 @@ describe('Appendix A.4 - the six sequence counts', () => {
     expect(values.get('leafNodesMapped')).toBe(1614152)
     // Six different numbers, so no two of them can be the same measurement.
     expect(new Set(values.values()).size).toBe(6)
+  })
+})
+
+describe('the reclustering sequence counts', () => {
+  it('disambiguates the two reclustering sequence counts', () => {
+    const inherited = METRIC_DEFINITIONS.reclusteredIntoExistingFamilies
+    const created = METRIC_DEFINITIONS.reclusteredIntoNewFamilies
+    expect(inherited.family).toBe('sequences')
+    expect(created.family).toBe('sequences')
+    // The whole point: a reader must be able to tell them apart from the label alone.
+    expect(inherited.label).not.toBe(created.label)
+    expect(inherited.ambiguityNote).toBeDefined()
+    expect(created.ambiguityNote).toBeDefined()
   })
 })
 

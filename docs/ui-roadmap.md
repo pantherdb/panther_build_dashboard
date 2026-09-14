@@ -51,6 +51,83 @@ Our eight sections match one-for-one. The generic renderer is not speculative: t
 contract already promises `text` / `rows` / `tables` / `headline` / `warnings`, which is exactly what
 our fallback renders.
 
+**Verified, added 2026-09-11 — and the table above is now out of date by more than this one row.**
+`panther_build`'s `REGISTRY` has grown past the 8 collectors this table lists from 2026-08-30
+(`proteomes`, `msa`, `ibd_sf_roots`, `list_ht` and `orthologs` all landed since and are not rows
+here either); this entry only adds `recluster`, not a re-audit of the rest.
+
+| id          | reads                                                                                                                                                                                                                                                                                                                                                                           | our view            |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `recluster` | `refProteomePANTHERmapping_updateWithTribeMCLcluster.log` — a report despite the `.log` suffix (the collector's own docstring: the pipeline's Perl reopens STDERR onto it and writes a TSV record per cluster), plus organism counts from `tribeMCL/PANTHERSeqsForTribeMCL.final.clusters` and offered-sequence counts from `refProteomePANTHERmapping_unassigned_to_recluster` | new-family headline |
+
+Reclustering is the step that creates new PANTHER families (TribeMCL clusters sequences that HMM
+scoring left unassigned; each cluster either reclaims a previous-library family or is minted a new
+one). The figures our `recluster` extractor (`src/features/build/model/sections/recluster.ts`)
+reads straight off the section's `headline` — `families_created`, `sequences_in_new_families`,
+`families_inherited`, `sequences_in_inherited_families`, `clusters_formed`, `sequences_offered`,
+`new_family_id_min/max` — are **verified**: they pass through `asInteger`/`asNonEmptyString`
+unmodified, no dashboard computation involved. The four-row "Cluster outcomes" table
+(`new_family`, `inherited_family`, `single_organism`, `too_small`, matching the fixture in
+`src/features/build/fixtures/transforms.ts`) is read the same way, by table `name` rather than
+position so an inserted table upstream can't silently swap what the glance panel's bar draws from.
+
+**Verified, added 2026-09-11 — some tooltip definitions are now generator-supplied, not curated
+here.** `recluster`'s four outcome terms arrive in the section's own `data.definitions` and are
+merged into the dashboard's definition registry by `generatorDefinitions()`
+(`src/features/build/model/generatorDefinitions.ts`) under ids namespaced `section.term` — e.g.
+`recluster.new_family` — so a generator id can extend the registry but never collide with or
+displace a curated one (`src/features/build/model/definitions.ts`, whose ~40 hand-written ids carry
+no dot). A reader tells them apart by the id shape alone. This moves who owns correctness: a wrong
+curated definition is a fix in this repo; a wrong generator-supplied one is a fix in `panther_build`,
+in the collector's own `DEFINITIONS` dict — not here.
+
+**Verified, added 2026-09-11 — narrowed from the design's three lookup paths to one.** The pipeline
+spec proposed a `definitions` map serving three lookups: `headline` keys, `rows[].metric` keys, and
+cell values in a table column named by that table's `defines` field. Only the third was built. A
+`defines` column's cells resolve through `generatorDefinitionId(sectionId, term)`
+(`GenericTable.tsx`, and the "Assignment mechanism" and "Cluster outcomes" legends in
+`GlanceCharts.tsx`, which call it directly rather than through a table). Headline values and
+`rows[].metric` keys still resolve only against the curated registry
+(`src/features/build/model/definitions.ts`) — a term that appears solely in a headline or a rows key
+gets no tooltip, however it is spelled in `data.definitions`. Nothing in this change needs the other
+two paths: every vocabulary `recluster`, `mapping`, `ibd_sf_roots` and `msa` define is a bucket
+STRING that appears in a table cell, never a headline or rows key. Building them means reworking how
+`GenericFields` resolves a field's `metricId`, which today reads the curated model map only — real
+scope, deferred until a collector actually needs it.
+
+**Verified, added 2026-09-12 — un-narrowed back to three lookup paths.** The headline and
+`rows[].metric` paths the paragraph above found no consumer for are now built: `describeField`
+(`src/features/reports/model/genericView.ts`) resolves a generator definition for a section's
+`headline` values and `rows[].metric` keys the same way it already did for a `defines` column's
+cells, and `GenericFigure` / `fieldLabel` (`src/features/reports/components/GenericFields.tsx`) both
+check `field.metricId` (curated) before `field.definitionId` (generator) before falling back to the
+report's own raw key — curated wins outright, whichever of the three lookups a term arrives through.
+Concretely: any `headline` or `rows[].metric` key a collector's own `DEFINITIONS` names now gets a
+tooltip, wherever no curated metric already claims that key. `recluster`'s two reclustering sequence
+counts are the exception that proves the precedence: `sequences_in_new_families` and
+`sequences_in_inherited_families` are CURATED here, as `reclusteredIntoNewFamilies` and
+`reclusteredIntoExistingFamilies` (`src/features/build/model/definitions.ts`) — even though
+`recluster.py`'s own `DEFINITIONS` also names both keys, it is the curated definition, with its
+ambiguity note, that renders for them, not the generator's.
+
+The pipeline side of this change went further than making the lookup possible: it gave every
+headline key a `DEFINITIONS` entry in the 11 of `REGISTRY`'s 14 collectors that emit a `headline` at
+all (`config_ledger`, `proteomes` and `other_reports` emit none, by design), and added
+`test_every_collector_defines_the_headline_keys_it_emits`
+(`panther_build/tests/test_build_state.py`) so a collector cannot ship an undefined headline key
+again without a test failing.
+
+**Verified, added 2026-09-11 — the live report doesn't carry a `recluster` section yet.**
+`docs/build_state.json` currently lists 13 sections (`config_ledger` … `other_reports`) and none of
+them is `recluster` — the collector exists in `panther_build`, but no regenerated report has landed.
+Until someone regenerates against a real target, the glance panel's fourth panel ("New families",
+`src/features/overview/components/GlanceCharts.tsx`) renders `recluster`'s absence through `Panel`'s
+standard `UnavailableNotice` path, not a derived zero. That distinction is deliberate: a build that
+has not reached reclustering has created no families _yet_, which is a different claim from having
+created none, and `familiesCreated` is a number the section states outright rather than one we could
+derive from `mapping`'s stage-to-stage family-count rise (which is a net change and would undercount
+silently if anything were also dropped at that boundary).
+
 **A detail worth building on:** phases come from `# PHASE:` markers in the target's _own copy_ of
 `make_all.slurm`, rendered by `envsubst` at build time. Phase structure is therefore per-build and
 can legitimately differ between targets — the UI must never hardcode the 14 we see.
@@ -81,16 +158,27 @@ fixture. That is the right call (the spec's own example rendering shows a three-
 history), but **we should label it as anticipating a capability, not reflecting one**, or a reviewer
 will conclude the builds never fail.
 
-### 2. The previous-library comparison is permanently unavailable, not transiently
+### 2. The previous-library comparison was permanently unavailable — fixed upstream 2026-09-13
 
-`Makefile:361` defines the `reports/prev_lib_baseline.json` rule, but **nothing depends on it** — not
-`%/all`, not `%/state`, not any line in `make_all.slurm`. `prev_lib.collect` returns `None` without
-it.
+**As audited (2026-08-30):** `Makefile:361` defined the `reports/prev_lib_baseline.json` rule, but
+**nothing depended on it** — not `%/all`, not `%/state`, not any line in `make_all.slurm`.
+`prev_lib.collect` returns `None` without it, so our fixture's `"inputs not present yet"` was not a
+mid-build state that resolves later; it read that way **forever**.
 
-So our fixture's `"inputs not present yet"` is not a mid-build state that resolves later. It reads
-that way **forever** until someone wires the goal. Our decision to assemble the comparison from
-`other_reports` instead is, in hindsight, not a graceful-degradation nicety — it is the only path to
-a comparison at all on a real build today.
+**Now:** `scripts/make_all.slurm` builds the goal as the first step of the previous-library-rebuild
+phase (`|| true`, so a reporting artifact cannot abort the build under `set -e`). A build that runs
+the driver produces the baseline, and `prev_lib` arrives `ok` with its four totals.
+
+Two consequences for this dashboard, both already handled:
+
+- `extractPreviousLibrary` read those totals from a `headline` shape the generator has never
+  emitted. They live in the `prev` column of `data.rows`; `headline` carries the *deltas* as
+  preformatted strings. Fixed 2026-09-10 — before that, a present `prev_lib` would have rendered
+  four blank previous values while the panel announced itself available.
+- The comparison is still assembled from `other_reports` rather than bound to `prev_lib`, and that
+  is still the right call: it is what keeps the view working on the builds that predate this fix,
+  and on any target whose baseline step failed. What changed is that it is no longer the *only*
+  path to a comparison.
 
 ### 3. `--budget` does not bound the run
 
