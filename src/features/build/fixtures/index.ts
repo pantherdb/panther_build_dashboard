@@ -24,6 +24,8 @@ import {
   withConfigChange,
   withUnknownStatus,
   withRecluster,
+  withGigaUsf,
+  withGigaUsfSidecar,
 } from './transforms'
 import type { BuildStateTransform } from './transforms'
 
@@ -42,6 +44,8 @@ export const FIXTURE_STATE_KEYS = [
   'futureSchema',
   'degraded',
   'recluster',
+  'gigaUsf',
+  'gigaUsfSidecar',
 ] as const
 
 export type FixtureStateKey = (typeof FIXTURE_STATE_KEYS)[number]
@@ -191,6 +195,26 @@ const DEFINITIONS: readonly FixtureStateDefinition[] = [
     transforms: ['withRecluster'],
     apply: withRecluster(),
   },
+  {
+    key: 'gigaUsf',
+    label: 'With unplaced fragments',
+    description:
+      'The real report plus the giga_usf section, which the frozen reference predates: 3 ' +
+      'families with sequences GIGA could not place, all unassigned in the post-GIGA mapping - ' +
+      'plus the empty-tree and removed-after-GIGA family lists on the giga section itself.',
+    transforms: ['withGigaUsf'],
+    apply: withGigaUsf(),
+  },
+  {
+    key: 'gigaUsfSidecar',
+    label: 'With unplaced fragments (sidecar)',
+    description:
+      'The real report plus the giga_usf section under the CURRENT contract: a headline, the ' +
+      'by-proteome table and a sidecar reference; per-family rows come from the frozen ' +
+      'tests/fixtures/build_state.giga_usf.reference.json, loaded lazily like the real sidecar.',
+    transforms: ['withGigaUsfSidecar'],
+    apply: withGigaUsfSidecar(),
+  },
 ]
 
 export const FIXTURE_STATES: Record<FixtureStateKey, FixtureStateDefinition> = DEFINITIONS.reduce(
@@ -224,5 +248,10 @@ export function resetFixtureCache(): void {
   stateCache.clear()
 }
 
+// `loadSidecar` is deliberately NOT re-exported here. The Vitest `test.alias` that swaps it for
+// the frozen sidecar fixture only matches the specifier `.../features/build/fixtures/sidecars`
+// (see sidecars.ts's doc comment); importing it via this barrel would resolve to the real
+// module even under Vitest, silently reading the live `docs/build_state.*.json` glob instead of
+// the reference. Import `loadSidecar` from './sidecars' directly.
 export { BUILD_STATE_SOURCE_PATH, buildStateSource }
 export * from './transforms'

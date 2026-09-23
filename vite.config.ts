@@ -81,6 +81,15 @@ export default defineConfig(({ mode }) => {
           find: /^.*docs\/build_state\.json$/,
           replacement: path.resolve(__dirname, './tests/fixtures/build_state.reference.json'),
         },
+        // The sidecar loader itself, not one JSON file: `import.meta.glob` inside it scans the
+        // literal `docs/` directory at transform time (a separate Vite plugin, not
+        // `resolve.alias`), so redirecting one resolved specifier - like the entry above - cannot
+        // change which files it finds. Swapping the whole module is the mechanism that can. See
+        // `src/features/build/fixtures/sidecars.ts` for the full reasoning.
+        {
+          find: /^.*features\/build\/fixtures\/sidecars$/,
+          replacement: path.resolve(__dirname, './tests/support/sidecarsTestSource.ts'),
+        },
       ],
       globals: true,
       environment: 'jsdom',

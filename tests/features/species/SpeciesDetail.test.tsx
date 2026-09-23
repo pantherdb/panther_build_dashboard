@@ -119,6 +119,29 @@ describe('SpeciesDetail — stripSection(node_tracking)', () => {
   })
 })
 
+describe('SpeciesDetail — unplaced fragments by GIGA (Task 6)', () => {
+  it('shows the unplaced-fragment count and affected-family count for a species giga_usf covers', () => {
+    renderDetail('MOUSE', 'gigaUsf')
+
+    expect(screen.getByText('Unplaced fragments (GIGA)')).toBeInTheDocument()
+    expect(screen.getByText(/5 across 1 family/)).toBeInTheDocument()
+  })
+
+  it('shows a measured zero, not unknown, for a species absent from the table while giga_usf is available', () => {
+    renderDetail('DAPMA', 'gigaUsf')
+
+    expect(screen.getByText('Unplaced fragments (GIGA)')).toBeInTheDocument()
+    expect(screen.getByText(/0 across 0 families/)).toBeInTheDocument()
+  })
+
+  it('says unknown, not zero, when the giga_usf section itself is not on the report', () => {
+    renderDetail('DAPMA', 'real')
+
+    expect(screen.getByText('Unplaced fragments (GIGA)')).toBeInTheDocument()
+    expect(screen.getByText(/giga_usf.*not available/i)).toBeInTheDocument()
+  })
+})
+
 describe('SpeciesDetail — an oscode no source mentions', () => {
   it('says the report does not carry it, not that the build lacks it', () => {
     renderDetail('ZZZZZ')

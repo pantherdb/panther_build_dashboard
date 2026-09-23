@@ -9,6 +9,8 @@ import {
 import type { SpeciesCountChange } from '@/features/build/model'
 import { getFixtureReport } from '@/features/build/fixtures'
 
+const gigaUsfReport = getFixtureReport('gigaUsf')
+
 /**
  * The species cross-section join, and the rename-detection rule from the Failed Approaches table in
  * `.plans/feature/01-report-model.md`.
@@ -195,6 +197,37 @@ describe('the joined record', () => {
     expect(report.species.byOscode.MYCMD.evidence.join(' ')).toContain(
       'rather than a genuinely new'
     )
+  })
+})
+
+describe('unplaced fragments by GIGA, joined onto the species record', () => {
+  it('carries the per-species unplaced count and family count when giga_usf covers the species', () => {
+    expect(gigaUsfReport.species.byOscode.MOUSE.unplacedFragments).toEqual({
+      unplaced: 5,
+      families: 1,
+    })
+    expect(gigaUsfReport.species.byOscode.HUMAN.unplacedFragments).toEqual({
+      unplaced: 4,
+      families: 3,
+    })
+  })
+
+  it('is a measured zero, not null, for a species absent from the by-species table while giga_usf itself is available', () => {
+    // giga_usf's by-species table lists every species with >=1 unplaced sequence, untruncated -
+    // so DAPMA's absence from it (present as it is in node tracking, per the DAPMA tests above)
+    // is a real "zero unplaced", not an unmeasured unknown.
+    expect(gigaUsfReport.species.byOscode.DAPMA.unplacedFragments).toEqual({
+      unplaced: 0,
+      families: 0,
+    })
+  })
+
+  it('is null, not zero, when the giga_usf section itself is not available', () => {
+    expect(report.species.byOscode.DAPMA.unplacedFragments).toBeNull()
+  })
+
+  it('is null for every species when the report carries no giga_usf section', () => {
+    expect(report.species.byOscode.MOUSE?.unplacedFragments ?? null).toBeNull()
   })
 })
 

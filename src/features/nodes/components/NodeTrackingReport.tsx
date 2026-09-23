@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import {
   Disclosure,
+  LongMessage,
   MetricValue,
   Panel,
   Provenance,
@@ -124,7 +125,7 @@ const NodeTrackingReport = () => {
               {tracking.warnings.map(warning => (
                 <li key={warning} className="flex flex-wrap items-baseline gap-x-1.5">
                   <StatusChip status="warn" />
-                  <span className="text-ink text-2xs">{warning}</span>
+                  <LongMessage message={warning} className="text-ink text-2xs" />
                   <Provenance source="generator" variant="marker" />
                 </li>
               ))}

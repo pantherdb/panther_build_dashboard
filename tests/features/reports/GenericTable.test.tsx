@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { MetricDefinitionsProvider } from '@/@panther.core/components'
 import { GenericTable } from '@/features/reports/components/GenericTable'
 import { renderWithProviders } from '@tests/test-utils'
@@ -86,5 +87,95 @@ describe('GenericTable with a defined column', () => {
     )
     expect(screen.getByText('new_family')).toBeInTheDocument()
     expect(screen.queryByText('Became a new family')).not.toBeInTheDocument()
+  })
+})
+
+/**
+ * A one-column, untruncated table - a plain list wearing a table shape - collapses into a
+ * disclosure instead of a full sortable grid. Decided from the table's own shape (column count,
+ * truncation), never from its name, so an unfamiliar future section gets the same treatment.
+ */
+const SINGLE_COLUMN_TABLE = {
+  key: 'giga_removed_single_genome',
+  sectionId: 'giga',
+  name: 'Families removed after GIGA (single genome)',
+  columns: ['family'],
+  rows: [{ family: 'PTHR30001' }, { family: 'PTHR30002' }],
+  includedRows: 2,
+  totalRows: 2,
+  raggedRows: null,
+  definesColumn: null,
+}
+
+describe('GenericTable, a single-column untruncated table', () => {
+  it('renders collapsed, with the table name and row count in the summary', () => {
+    renderWithProviders(<GenericTable table={SINGLE_COLUMN_TABLE} />)
+    const toggle = screen.getByRole('button', { name: /removed after giga/i })
+    expect(toggle).toHaveTextContent('2')
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  it('reveals the values once opened', async () => {
+    renderWithProviders(<GenericTable table={SINGLE_COLUMN_TABLE} />)
+    const toggle = screen.getByRole('button', { name: /removed after giga/i })
+    // The panel stays mounted while closed (Disclosure.tsx) and jsdom loads no CSS, so
+    // `toBeVisible()` alone would pass even behind the `hidden` class. Assert the real
+    // mechanism directly: `aria-expanded` and the `hidden` class on the panel itself.
+    const panel = screen.getByText('PTHR30001').closest('[data-pb-disclosure-panel]')
+    expect(panel).not.toBeNull()
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    expect(panel).toHaveClass('hidden')
+
+    await userEvent.click(toggle)
+
+    expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    expect(panel).not.toHaveClass('hidden')
+    expect(screen.getByText('PTHR30001')).toBeVisible()
+    expect(screen.getByText('PTHR30002')).toBeVisible()
+  })
+
+  it('renders the name plus "none" with no toggle when there are zero rows', () => {
+    renderWithProviders(
+      <GenericTable
+        table={{
+          ...SINGLE_COLUMN_TABLE,
+          name: 'Families with an empty tree',
+          rows: [],
+          includedRows: 0,
+          totalRows: 0,
+        }}
+      />
+    )
+    expect(screen.getByText(/families with an empty tree/i)).toBeInTheDocument()
+    expect(screen.getByText(/none/i)).toBeInTheDocument()
+    expect(screen.queryByRole('button')).toBeNull()
+  })
+
+  it('leaves a TRUNCATED single-column table as an ordinary table, not collapsed', () => {
+    renderWithProviders(
+      <GenericTable
+        table={{
+          ...SINGLE_COLUMN_TABLE,
+          rows: [{ family: 'PTHR1' }],
+          includedRows: 1,
+          totalRows: 5,
+        }}
+      />
+    )
+    // Truncation disables sorting too, so there is no button at all here - the value is simply
+    // on screen, the honest reading of a subset the report itself says is incomplete.
+    expect(screen.queryByRole('button')).toBeNull()
+    expect(screen.getByText('PTHR1')).toBeVisible()
+  })
+
+  it('leaves a multi-column table as an ordinary table, values visible without a click', () => {
+    // A multi-column table's own sort buttons are expected here - the assertion is only that the
+    // VALUE never sits behind a disclosure toggle. `toBeVisible()` alone can't tell a real
+    // absence of the `hidden` class from jsdom simply not applying the class's CSS, so assert
+    // there is no disclosure panel ancestor at all - nothing here to reveal with a click.
+    renderWithProviders(<GenericTable table={TABLE} />)
+    const cell = screen.getByText('153')
+    expect(cell.closest('[data-pb-disclosure-panel]')).toBeNull()
+    expect(cell).toBeVisible()
   })
 })

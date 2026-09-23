@@ -29,7 +29,7 @@ describe('extractRecluster', () => {
       createNoteSink()
     )
     expect(summary.familiesCreated).toBeNull()
-    expect(summary.availability).not.toBe('present')
+    expect(summary.availability).toBe('absent')
   })
 
   it('distinguishes a build that created zero families from one that did not get there', () => {

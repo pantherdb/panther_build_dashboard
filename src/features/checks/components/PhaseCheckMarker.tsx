@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { Tooltip } from '@mantine/core'
 import { Link } from 'react-router-dom'
-import { StatusIcon } from '@/@panther.core/components'
+import { previewMessage, StatusIcon } from '@/@panther.core/components'
 import { plural } from '@/app/format'
 import { checkRoute } from '@/features/build/model'
 import { useChecksForPhase } from '@/features/checks/hooks'
@@ -30,7 +30,15 @@ const NOTE_TONE = 'text-ink-muted'
 const PASS_TONE = 'text-status-pass'
 
 function describe(findings: readonly CheckFinding[]): string {
-  return findings.map(finding => `${finding.label}. ${finding.explanation}`).join(' — ')
+  // Only a generator warning gets previewMessage's clipping; a dashboard-derived explanation is
+  // quoted in full, as it was before LongMessage existed. A group can mix both origins, so the
+  // choice is per finding, not per group.
+  return findings
+    .map(
+      finding =>
+        `${finding.label}. ${finding.origin === 'generator' ? previewMessage(finding.explanation) : finding.explanation}`
+    )
+    .join(' — ')
 }
 
 export const PhaseCheckMarker = ({

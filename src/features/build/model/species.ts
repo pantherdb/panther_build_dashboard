@@ -18,6 +18,7 @@ import { isAggregateOscode } from './sections/otherReports'
 import type { NoteSink } from './notes'
 import { makeMeta } from './notes'
 import type {
+  Availability,
   DerivedTable,
   FieldOrigin,
   NodeTrackingSummary,
@@ -28,6 +29,7 @@ import type {
   SpeciesRecord,
   SpeciesTracking,
   UniprotMatchRow,
+  UnplacedSpeciesRow,
 } from './types'
 
 /** A rename is only claimed on an exact count match; anything looser produces false pairs. */
@@ -174,11 +176,28 @@ export interface SpeciesJoinInput {
   nodeTracking: NodeTrackingSummary
   speciesCounts: DerivedTable<SpeciesCountChange>
   uniprotMatch: DerivedTable<UniprotMatchRow>
+  /** `giga_usf`'s per-species table. Empty when that section is absent - every species then joins to `null`, not zero. */
+  unplacedFragments: readonly UnplacedSpeciesRow[]
+  /**
+   * Availability of the `giga_usf` section itself. Its by-species table lists every species with
+   * at least one unplaced sequence, across every surviving book, untruncated - so when this is
+   * `'available'`, a species absent from `unplacedFragments` is a MEASURED zero, not an unknown.
+   * Any other availability (absent, partial, error, unknown) means the section did not fully run,
+   * so absence stays `null`.
+   */
+  unplacedFragmentsAvailability: Availability
   sink: NoteSink
 }
 
 export function buildSpeciesCrossSection(input: SpeciesJoinInput): SpeciesCrossSection {
-  const { nodeTracking, speciesCounts, uniprotMatch, sink } = input
+  const {
+    nodeTracking,
+    speciesCounts,
+    uniprotMatch,
+    unplacedFragments,
+    unplacedFragmentsAvailability,
+    sink,
+  } = input
 
   const trackingOrigin: FieldOrigin = {
     sectionId: nodeTracking.sectionId ?? 'node_tracking',
@@ -207,6 +226,9 @@ export function buildSpeciesCrossSection(input: SpeciesJoinInput): SpeciesCrossS
     if (isAggregateOscode(entry.oscode)) continue
     countsByOscode.set(entry.oscode, entry)
   }
+
+  const unplacedByOscode = new Map<string, UnplacedSpeciesRow>()
+  for (const entry of unplacedFragments) unplacedByOscode.set(entry.oscode, entry)
 
   const uniprotByOscode = new Map<string, UniprotMatchRow>()
   let aggregates = 0
@@ -240,6 +262,7 @@ export function buildSpeciesCrossSection(input: SpeciesJoinInput): SpeciesCrossS
     const tracking = trackingByOscode.get(oscode)
     const counts = countsByOscode.get(oscode)
     const uniprot = uniprotByOscode.get(oscode)
+    const unplaced = unplacedByOscode.get(oscode)
 
     const evidence: string[] = []
     let newFromCounts = false
@@ -325,6 +348,12 @@ export function buildSpeciesCrossSection(input: SpeciesJoinInput): SpeciesCrossS
       replacedBy: replacement !== null && replacement.removed === oscode ? replacement.added : null,
       links: [rename, replacement].filter((link): link is SpeciesLink => link !== null),
       missingFrom,
+      unplacedFragments:
+        unplaced !== undefined
+          ? { unplaced: unplaced.unplaced, families: unplaced.families }
+          : unplacedFragmentsAvailability === 'available'
+            ? { unplaced: 0, families: 0 }
+            : null,
     }
   })
 

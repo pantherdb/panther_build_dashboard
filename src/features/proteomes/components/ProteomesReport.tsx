@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import {
   DataTable,
   Disclosure,
+  LongMessage,
   Panel,
   SectionHeading,
   StatusChip,
@@ -230,9 +231,12 @@ export const ProteomesReportView = ({ report }: ProteomesReportViewProps) => {
             <SectionHeading level={3}>Generator warnings</SectionHeading>
             <ul aria-label="Generator warnings" className="mt-1.5 space-y-1">
               {proteomes.warnings.map(warning => (
-                <li key={warning} className="text-ink-faint text-2xs">
-                  <StatusChip status="warn" variant="quiet" size="sm" />{' '}
-                  <span>{warning}</span>
+                <li
+                  key={warning}
+                  className="text-ink-faint text-2xs flex flex-wrap items-baseline gap-x-1.5"
+                >
+                  <StatusChip status="warn" variant="quiet" size="sm" />
+                  <LongMessage message={warning} />
                 </li>
               ))}
             </ul>

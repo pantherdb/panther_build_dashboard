@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { Tooltip } from '@mantine/core'
 import { Link } from 'react-router-dom'
-import { StatusChip, StatusIcon } from '@/@panther.core/components'
+import { previewMessage, StatusChip, StatusIcon } from '@/@panther.core/components'
 import { plural } from '@/app/format'
 import { formatDuration, phaseElementId, stepRoute } from '@/features/build/model'
 import type { BuildPhase } from '@/features/build/model'
@@ -182,7 +182,9 @@ export const PhaseNode = ({
                   markers.warnings.length,
                   'warning'
                 )}`}
-                hint={markers.warnings.map(finding => finding.warning.message).join(' — ')}
+                hint={markers.warnings
+                  .map(finding => previewMessage(finding.warning.message))
+                  .join(' — ')}
               />
             )}
             {markers.outOfOrderStepIds.length > 0 && (

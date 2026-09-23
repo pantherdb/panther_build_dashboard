@@ -11,6 +11,9 @@ export {
 } from './mapping'
 export { extractNodeTracking, LOW_OUTLIER_THRESHOLD } from './nodeTracking'
 export { extractRecluster } from './recluster'
+export { extractUnplacedFragments, parseUnplacedFamilyBase } from './gigaUsf'
+export { parseUsfSidecar } from './gigaUsfSidecar'
+export type { UsfSidecarResult, UsfSidecarStatus } from './gigaUsfSidecar'
 export {
   AGGREGATE_OSCODES,
   extractOtherReports,

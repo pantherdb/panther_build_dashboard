@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "target": "target_2026_02_w_select_2026_01_rerun",
+  "generated_at": "2026-09-08T17:40:14Z",
+  "section_id": "giga_usf",
+  "data": {
+    "families": [
+      {
+        "family": "PTHR10000",
+        "unplaced": 4,
+        "tree_leaves": 20,
+        "unplaced_fraction": 0.2,
+        "input_seqs": 24,
+        "members": [
+          "HUMAN|HGNC=1|UniProtKB=P00001",
+          "HUMAN|HGNC=2|UniProtKB=P00002",
+          "MOUSE|MGI=MGI=3|UniProtKB=Q00003",
+          "MOUSE|MGI=MGI=4|UniProtKB=Q00004"
+        ]
+      },
+      {
+        "family": "PTHR10001",
+        "unplaced": 3,
+        "tree_leaves": 50,
+        "unplaced_fraction": 0.06,
+        "input_seqs": 53,
+        "members": [
+          "HUMAN|HGNC=5|UniProtKB=P00005",
+          "HUMAN|HGNC=6|UniProtKB=P00006",
+          "MOUSE|MGI=MGI=7|UniProtKB=Q00007"
+        ]
+      }
+    ]
+  }
+}

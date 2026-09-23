@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { Tooltip } from '@mantine/core'
 import { Link } from 'react-router-dom'
-import { StatusIcon } from '@/@panther.core/components'
+import { previewMessage, StatusIcon } from '@/@panther.core/components'
 import type { StatusShape } from '@/@panther.core/vocabulary'
 import { checkRoute } from '@/features/build/model'
 import type { CheckFinding, CheckWeight } from '@/features/checks/model'
@@ -61,10 +61,15 @@ export const InlineCheckMarker = ({ findings, subject, className }: InlineCheckM
   if (finding === null) return null
 
   const others = findings.length - 1
+  // previewMessage's clipping is for the generator's own long, sometimes multi-line warnings
+  // (see LongMessage's doc comment); a dashboard-authored explanation is never that, so it is
+  // quoted in full here exactly as it was before LongMessage existed.
+  const message =
+    finding.origin === 'generator' ? previewMessage(finding.explanation) : finding.explanation
 
   return (
     <Tooltip
-      label={`${WORD[finding.weight]}: ${finding.explanation}`}
+      label={`${WORD[finding.weight]}: ${message}`}
       withArrow
       multiline
       maw={320}

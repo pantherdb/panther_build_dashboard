@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { Link } from 'react-router-dom'
-import { Disclosure, Provenance } from '@/@panther.core/components'
+import { Disclosure, LongMessage, Provenance } from '@/@panther.core/components'
 import { useSelectSpecies } from '@/features/build/hooks'
 import { checkElementId } from '@/features/build/model'
 import { CheckMark } from '@/features/checks/components/CheckMark'
@@ -69,7 +69,14 @@ export const CheckRow = ({ finding, highlighted = false, compact = false }: Chec
           <Provenance source={provenanceSourceOf(finding)} detail={finding.source} />
         </div>
 
-        <p className="text-ink-muted mt-0.5 max-w-prose text-xs">{finding.explanation}</p>
+        {finding.origin === 'generator' ? (
+          <LongMessage
+            message={finding.explanation}
+            className="text-ink-muted mt-0.5 block max-w-prose text-xs"
+          />
+        ) : (
+          <p className="text-ink-muted mt-0.5 max-w-prose text-xs">{finding.explanation}</p>
+        )}
 
         {showEvidence &&
           (evidence.length > EVIDENCE_INLINE_LIMIT ? (

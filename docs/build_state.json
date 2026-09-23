@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "target": "/scratch2/debert/panther_build/target_seed_fix",
-  "generated_at": "2026-09-15T21:47:15Z",
+  "generated_at": "2026-09-23T19:37:04Z",
   "sections": [
     {
       "id": "config_ledger",
@@ -22,7 +22,7 @@
           "unresolved_vars": []
         },
         "record_count": 3,
-        "text": "**config.mk** contents at this build:\n\n```\n#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_SF_NAMES=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/sfNames.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\nexport SELF_SCORE_HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.3.2/bin/\n\n```",
+        "text": "**config.mk** contents at this build:\n\n```\n#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_SF_NAMES=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/sfNames.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\nexport SELF_SCORE_HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.3.2/bin/\n\n```\n\n**`config_file_contents` diff (first \u2192 current build)**\n\n```diff\n--- config_file_contents @ 2026-09-14T05:09:02Z\n+++ config_file_contents @ 2026-09-15T00:05:41Z\n@@ -59,3 +59,4 @@\n export MAFFT_BINARIES=\n export TRACK_PROCS=1\n export BLAST_CPUS=96\n+export SELF_SCORE_HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.3.2/bin/\n```",
         "rows": [
           {
             "key": "PREV_NODE_DAT",
@@ -70,7 +70,7 @@
           }
         ],
         "warnings": [
-          "config `config_file_contents` changed during this build: `#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_SF_NAMES=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/sfNames.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\n` \u2192 `#export QFO_DATA_DIR=QfO_release_2026_02/external_data/qfo_reference_proteome\nexport QFO_DATA_DIR=QfO_release_2026_02_w_select_2026_01/external_data/qfo_reference_proteome\nexport PTHR_VERSION=20.0\nexport SPECIES_TREE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/species_pthr20_annot.nhx\nexport PREV_GENE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/gene.dat\nexport PREV_ALL_FASTA=all_seqs_19.fasta\nexport PREV_BLAST_FASTA=pthr19_filtered_blast.fasta\nexport PREV_BUILD_FASTA_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/fasta\nexport PREV_RP_TAX_TXT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/external_data/RP_taxonomy_organism_lib_by_proteome.txt\nexport PREV_ORGANISM_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/organism.dat\nexport PREV_GENE_NODE_DAT=gene_node_19_no_XENTR.dat\nexport PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/node.dat\nexport PREV_SF_TO_SEQ=sfToSeq_19_XENTR_dropped\nexport PREV_SF_ANNOT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/annotation_SF.dat\nexport PREV_SF_NAMES=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/sfNames.dat\nexport PREV_FAMILY_NAMES=previous_family_names_19.tsv\nexport PREV_RELEASE_DIR=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0\nexport PREV_REL_NAMES=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/rel/PANTHER19.0/globals/names.tab\nexport PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport HMM_REBUILD_PREV_REF_PROT_MAPPING=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/refProteomePANTHERmapping_post_giga\nexport PREV_LIBRARY_SEQMAP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/nodeForwardTracking/librarySeqMap\nexport PREV_DEV_LIB=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/famlib/dev/PANTHER19.0/lib_19.0\nexport PREV_PREV_DEV_LIB=/project2/pdthomas_136/pdt/pdthomas/panther/famlib/dev/UPL/PANTHER17.0/lib_17.0\nexport PREV_PREV_NODE_DAT=/project2/huaiyumi_14/hm/debert/PANTHER17.0/library_building/target/DBload/node.dat\nexport PREV_PATHWAY_CUR_DAT=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_curation.dat\nexport FAMILY_TREE_SPLIT_POINTS=family_tree_split_points\nexport NEW_CLUSTERS=new_clusters\nexport FAMILY_ASSIGNMENTS=rescoring_2025_family_assignments_type_set.tsv\nexport MERGED_FAMILIES=merged_families.tsv\nexport FAMILIES_TO_REMOVE=families_to_remove\nexport NEW_FAM_NUM_START=48495\nexport FAM_NUM_START_CLUSTERING=48495\nexport MAX_PTN_NUM=009232848\nexport TRIM_GENOME_LIST=new_organisms.txt\nexport TRIM_FAMILIES=trim_families.txt\nexport IBD_GAF=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/IBD\nexport GO_OBO=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go.obo\nexport GO_PLUS=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/go-gaf.owl\nexport PC_ANNOTS_UPDATED=pthr_to_pc_for_20.txt\nexport PC_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_Class_18.0\nexport PC_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER18.0/library_building/Protein_class_relationship_18\nexport PTHWY_CLASS=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/classification_pathway.dat\nexport PTHWY_RELATIONSHIP=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/DBload/pathway_relationship.dat\nexport REACTOME_ANNOT=UniProt2Reactome_All_Levels.txt\nexport REACTOME_CLS_REL=ReactomePathwaysRelation.txt\nexport HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.1b2/binaries/\nexport SEQ_ASSOC_PTHWY_VER=3.6.9\nexport TREERULES_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/TreeRules\nexport UP_ANNOT_FILE=/project2/pdthomas_136/pdt/pdthomas/panther/proj/new_tree_program/version2.4/accs_annotaions_report.txt\nexport HPC_ACCOUNT=pdthomas_136\nexport PFAM_VERSION=36.0\nexport PTHR_FULLGO_ANNOT_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/Pthr_GO_19.0.tsv\nexport INPUT_GO_CLASS_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/inputforGOClassification.tsv\nexport GO_CLASS_REL_TSV=/project2/huaiyumi_14/hm/debert/fullgo_paint_update/2026-08-17_fullgo/goparentchild.tsv\nexport PREV_ENH_GENE_LINK_FILE=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/enhancer_gene_link.tsv\nexport PREV_TREE_DIR=/project2/huaiyumi_14/hm/debert/PANTHER19.0/library_building/target/tree/\nexport MAFFT_PATH=/project2/huaiyumi_14/hm/debert/mafft-7.505/bin/mafft\nexport OSCODE_LKP=new_oscodes_lkp.tsv\nexport MAFFT_BINARIES=\nexport TRACK_PROCS=1\nexport BLAST_CPUS=96\nexport SELF_SCORE_HMMER_PATH=/project2/pdthomas_136/pdt/pdthomas/panther/scripts/hmmer-3.3.2/bin/\n`",
+          "config `config_file_contents` changed during this build: 1 line(s) added, 0 removed \u2014 see the diff under Build configuration",
           "config `panther_build_git_rev` changed during this build: `fcae001cf4a27afc85cd2479ed544b60a66f941f` \u2192 `cc12c3ca5c57153354618f914f4dee96349e1a46`"
         ]
       },
@@ -2334,7 +2334,7 @@
               {
                 "goal": "PTHR20.0_DBload.tar.gz",
                 "status": "done",
-                "mtime": 1789482258.0,
+                "mtime": 1789684157.0,
                 "attempts": []
               },
               {
@@ -2352,7 +2352,8 @@
           "steps_total": 63
         },
         "warnings": [
-          "ftp/PANTHER_HMM_Classification_files/PANTHER20.0_HMM_classifications is older than QfO_OrthoXML.xml, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)"
+          "ftp/PANTHER_HMM_Classification_files/PANTHER20.0_HMM_classifications is older than QfO_OrthoXML.xml, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)",
+          "PANTHER20.0.tar.gz.touch is older than PTHR20.0_DBload.tar.gz, which precedes it in the build \u2014 possibly stale (driver-order heuristic, not a verified dependency)"
         ],
         "definitions": {
           "phases_complete": {
@@ -2512,9 +2513,9 @@
             "stage": "post_giga",
             "mapping_file": "refProteomePANTHERmapping_post_giga",
             "total_seqs": 2292400,
-            "assigned": 1813053,
-            "unassigned": 479347,
-            "pct_assigned": 79.1,
+            "assigned": 1743145,
+            "unassigned": 549255,
+            "pct_assigned": 76.0,
             "n_families": 15790
           }
         ],
@@ -2727,29 +2728,29 @@
           {
             "stage": "post_giga",
             "mechanism": "ID",
-            "count": 1506741
+            "count": 1501055
           },
           {
             "stage": "post_giga",
             "mechanism": "HMM_scoring",
-            "count": 203093
+            "count": 139403
           },
           {
             "stage": "post_giga",
             "mechanism": "BLAST",
-            "count": 100480
+            "count": 100036
           },
           {
             "stage": "post_giga",
             "mechanism": "RECLUSTER_NEW",
-            "count": 2739
+            "count": 2651
           }
         ],
         "headline": {
           "final_stage": "post_giga",
           "final_total_seqs": 2292400,
-          "final_assigned": 1813053,
-          "final_pct_assigned": 79.1,
+          "final_assigned": 1743145,
+          "final_pct_assigned": 76.0,
           "final_n_families": 15790
         },
         "definitions": {
@@ -5818,6 +5819,57 @@
             "value": 15790
           }
         ],
+        "tables": [
+          {
+            "name": "Families with an empty tree",
+            "columns": [
+              "family"
+            ],
+            "rows": [],
+            "truncated": false,
+            "total_rows": 0
+          },
+          {
+            "name": "Families removed after GIGA (single genome)",
+            "columns": [
+              "family"
+            ],
+            "rows": [
+              {
+                "family": "PTHR26391"
+              },
+              {
+                "family": "PTHR33173"
+              },
+              {
+                "family": "PTHR35262"
+              },
+              {
+                "family": "PTHR35374"
+              },
+              {
+                "family": "PTHR35796"
+              },
+              {
+                "family": "PTHR48455"
+              },
+              {
+                "family": "PTHR48537"
+              },
+              {
+                "family": "PTHR48562"
+              },
+              {
+                "family": "PTHR48565"
+              },
+              {
+                "family": "PTHR48645"
+              }
+            ],
+            "truncated": false,
+            "total_rows": 10
+          }
+        ],
         "definitions": {
           "books_total": {
             "label": "Books in the dev library",
@@ -5836,6 +5888,1307 @@
             "definition": "`trees_built` minus `empty_trees`, floored at zero: books that got a real, non-empty tree. The two are not disjoint -- a book with an empty tree file is still counted in `trees_built`, so `trees_built` alone overstates how many families got something usable by however many came back empty."
           }
         }
+      },
+      "message": null,
+      "status": "ok"
+    },
+    {
+      "id": "giga_usf",
+      "title": "Unplaced fragments (GIGA .usf)",
+      "data": {
+        "text": "9299 of 15790 books had sequences GIGA could not place; 69,908 sequences in total.",
+        "headline": {
+          "books_scanned": 15790,
+          "families_with_unplaced": 9299,
+          "unplaced_total": 69908,
+          "unassigned_in_mapping": 69908,
+          "input_mismatch_families": 497
+        },
+        "rows": [
+          {
+            "metric": "books_scanned",
+            "value": 15790
+          },
+          {
+            "metric": "families_with_unplaced",
+            "value": 9299
+          },
+          {
+            "metric": "unplaced_total",
+            "value": 69908
+          },
+          {
+            "metric": "unassigned_in_mapping",
+            "value": 69908
+          },
+          {
+            "metric": "input_mismatch_families",
+            "value": 497
+          }
+        ],
+        "tables": [
+          {
+            "name": "Unplaced fragments by proteome",
+            "columns": [
+              "oscode",
+              "proteome_seqs",
+              "giga_input_seqs",
+              "unplaced",
+              "families",
+              "unplaced_pct_of_proteome",
+              "unplaced_pct_of_giga_input"
+            ],
+            "rows": [
+              {
+                "oscode": "HELAN",
+                "proteome_seqs": 88555,
+                "giga_input_seqs": 55208,
+                "unplaced": 5043,
+                "families": 1439,
+                "unplaced_pct_of_proteome": 5.695,
+                "unplaced_pct_of_giga_input": 9.135
+              },
+              {
+                "oscode": "NEMVE",
+                "proteome_seqs": 24428,
+                "giga_input_seqs": 18906,
+                "unplaced": 3300,
+                "families": 1876,
+                "unplaced_pct_of_proteome": 13.509,
+                "unplaced_pct_of_giga_input": 17.455
+              },
+              {
+                "oscode": "LACSA",
+                "proteome_seqs": 44115,
+                "giga_input_seqs": 32564,
+                "unplaced": 2930,
+                "families": 932,
+                "unplaced_pct_of_proteome": 6.642,
+                "unplaced_pct_of_giga_input": 8.998
+              },
+              {
+                "oscode": "HELRO",
+                "proteome_seqs": 23328,
+                "giga_input_seqs": 14936,
+                "unplaced": 2324,
+                "families": 1214,
+                "unplaced_pct_of_proteome": 9.962,
+                "unplaced_pct_of_giga_input": 15.56
+              },
+              {
+                "oscode": "SOLLC",
+                "proteome_seqs": 34663,
+                "giga_input_seqs": 26298,
+                "unplaced": 2183,
+                "families": 1049,
+                "unplaced_pct_of_proteome": 6.298,
+                "unplaced_pct_of_giga_input": 8.301
+              },
+              {
+                "oscode": "ORYSJ",
+                "proteome_seqs": 43678,
+                "giga_input_seqs": 27067,
+                "unplaced": 2146,
+                "families": 1272,
+                "unplaced_pct_of_proteome": 4.913,
+                "unplaced_pct_of_giga_input": 7.928
+              },
+              {
+                "oscode": "MAIZE",
+                "proteome_seqs": 39209,
+                "giga_input_seqs": 30459,
+                "unplaced": 2068,
+                "families": 926,
+                "unplaced_pct_of_proteome": 5.274,
+                "unplaced_pct_of_giga_input": 6.789
+              },
+              {
+                "oscode": "TOBAC",
+                "proteome_seqs": 60557,
+                "giga_input_seqs": 56150,
+                "unplaced": 2029,
+                "families": 429,
+                "unplaced_pct_of_proteome": 3.351,
+                "unplaced_pct_of_giga_input": 3.614
+              },
+              {
+                "oscode": "GOSHI",
+                "proteome_seqs": 66803,
+                "giga_input_seqs": 62610,
+                "unplaced": 2025,
+                "families": 724,
+                "unplaced_pct_of_proteome": 3.031,
+                "unplaced_pct_of_giga_input": 3.234
+              },
+              {
+                "oscode": "VITVI",
+                "proteome_seqs": 29757,
+                "giga_input_seqs": 23676,
+                "unplaced": 1987,
+                "families": 1011,
+                "unplaced_pct_of_proteome": 6.677,
+                "unplaced_pct_of_giga_input": 8.392
+              },
+              {
+                "oscode": "CIOIN",
+                "proteome_seqs": 16680,
+                "giga_input_seqs": 10460,
+                "unplaced": 1957,
+                "families": 1272,
+                "unplaced_pct_of_proteome": 11.733,
+                "unplaced_pct_of_giga_input": 18.709
+              },
+              {
+                "oscode": "TRIV3",
+                "proteome_seqs": 50190,
+                "giga_input_seqs": 23168,
+                "unplaced": 1866,
+                "families": 302,
+                "unplaced_pct_of_proteome": 3.718,
+                "unplaced_pct_of_giga_input": 8.054
+              },
+              {
+                "oscode": "DAPMA",
+                "proteome_seqs": 26600,
+                "giga_input_seqs": 12351,
+                "unplaced": 1767,
+                "families": 889,
+                "unplaced_pct_of_proteome": 6.643,
+                "unplaced_pct_of_giga_input": 14.307
+              },
+              {
+                "oscode": "POPTR",
+                "proteome_seqs": 58153,
+                "giga_input_seqs": 47801,
+                "unplaced": 1750,
+                "families": 885,
+                "unplaced_pct_of_proteome": 3.009,
+                "unplaced_pct_of_giga_input": 3.661
+              },
+              {
+                "oscode": "SOYBN",
+                "proteome_seqs": 55852,
+                "giga_input_seqs": 48662,
+                "unplaced": 1578,
+                "families": 931,
+                "unplaced_pct_of_proteome": 2.825,
+                "unplaced_pct_of_giga_input": 3.243
+              },
+              {
+                "oscode": "BRAFL",
+                "proteome_seqs": 26616,
+                "giga_input_seqs": 22026,
+                "unplaced": 1457,
+                "families": 670,
+                "unplaced_pct_of_proteome": 5.474,
+                "unplaced_pct_of_giga_input": 6.615
+              },
+              {
+                "oscode": "ANOCA",
+                "proteome_seqs": 21494,
+                "giga_input_seqs": 19952,
+                "unplaced": 1373,
+                "families": 924,
+                "unplaced_pct_of_proteome": 6.388,
+                "unplaced_pct_of_giga_input": 6.882
+              },
+              {
+                "oscode": "MEDTR",
+                "proteome_seqs": 49992,
+                "giga_input_seqs": 33545,
+                "unplaced": 1347,
+                "families": 744,
+                "unplaced_pct_of_proteome": 2.694,
+                "unplaced_pct_of_giga_input": 4.016
+              },
+              {
+                "oscode": "WHEAT",
+                "proteome_seqs": 105080,
+                "giga_input_seqs": 94434,
+                "unplaced": 1343,
+                "families": 509,
+                "unplaced_pct_of_proteome": 1.278,
+                "unplaced_pct_of_giga_input": 1.422
+              },
+              {
+                "oscode": "STRPU",
+                "proteome_seqs": 26461,
+                "giga_input_seqs": 21874,
+                "unplaced": 1133,
+                "families": 503,
+                "unplaced_pct_of_proteome": 4.282,
+                "unplaced_pct_of_giga_input": 5.18
+              },
+              {
+                "oscode": "IXOSC",
+                "proteome_seqs": 25977,
+                "giga_input_seqs": 19227,
+                "unplaced": 1132,
+                "families": 425,
+                "unplaced_pct_of_proteome": 4.358,
+                "unplaced_pct_of_giga_input": 5.888
+              },
+              {
+                "oscode": "BRACM",
+                "proteome_seqs": 40814,
+                "giga_input_seqs": 35883,
+                "unplaced": 1061,
+                "families": 765,
+                "unplaced_pct_of_proteome": 2.6,
+                "unplaced_pct_of_giga_input": 2.957
+              },
+              {
+                "oscode": "HORVV",
+                "proteome_seqs": 34528,
+                "giga_input_seqs": 29926,
+                "unplaced": 1016,
+                "families": 460,
+                "unplaced_pct_of_proteome": 2.943,
+                "unplaced_pct_of_giga_input": 3.395
+              },
+              {
+                "oscode": "SPIOL",
+                "proteome_seqs": 28272,
+                "giga_input_seqs": 24237,
+                "unplaced": 1015,
+                "families": 326,
+                "unplaced_pct_of_proteome": 3.59,
+                "unplaced_pct_of_giga_input": 4.188
+              },
+              {
+                "oscode": "TRIAD",
+                "proteome_seqs": 11518,
+                "giga_input_seqs": 9863,
+                "unplaced": 987,
+                "families": 732,
+                "unplaced_pct_of_proteome": 8.569,
+                "unplaced_pct_of_giga_input": 10.007
+              },
+              {
+                "oscode": "MONDO",
+                "proteome_seqs": 21225,
+                "giga_input_seqs": 20431,
+                "unplaced": 940,
+                "families": 672,
+                "unplaced_pct_of_proteome": 4.429,
+                "unplaced_pct_of_giga_input": 4.601
+              },
+              {
+                "oscode": "ORYLA",
+                "proteome_seqs": 23617,
+                "giga_input_seqs": 22487,
+                "unplaced": 870,
+                "families": 485,
+                "unplaced_pct_of_proteome": 3.684,
+                "unplaced_pct_of_giga_input": 3.869
+              },
+              {
+                "oscode": "LEPOC",
+                "proteome_seqs": 18323,
+                "giga_input_seqs": 17742,
+                "unplaced": 850,
+                "families": 630,
+                "unplaced_pct_of_proteome": 4.639,
+                "unplaced_pct_of_giga_input": 4.791
+              },
+              {
+                "oscode": "PHYRM",
+                "proteome_seqs": 15350,
+                "giga_input_seqs": 10853,
+                "unplaced": 703,
+                "families": 425,
+                "unplaced_pct_of_proteome": 4.58,
+                "unplaced_pct_of_giga_input": 6.477
+              },
+              {
+                "oscode": "THECC",
+                "proteome_seqs": 29235,
+                "giga_input_seqs": 22798,
+                "unplaced": 675,
+                "families": 378,
+                "unplaced_pct_of_proteome": 2.309,
+                "unplaced_pct_of_giga_input": 2.961
+              },
+              {
+                "oscode": "XENLA",
+                "proteome_seqs": 36461,
+                "giga_input_seqs": 33800,
+                "unplaced": 649,
+                "families": 339,
+                "unplaced_pct_of_proteome": 1.78,
+                "unplaced_pct_of_giga_input": 1.92
+              },
+              {
+                "oscode": "DANRE",
+                "proteome_seqs": 26900,
+                "giga_input_seqs": 25490,
+                "unplaced": 648,
+                "families": 216,
+                "unplaced_pct_of_proteome": 2.409,
+                "unplaced_pct_of_giga_input": 2.542
+              },
+              {
+                "oscode": "ORNAN",
+                "proteome_seqs": 17390,
+                "giga_input_seqs": 16860,
+                "unplaced": 624,
+                "families": 494,
+                "unplaced_pct_of_proteome": 3.588,
+                "unplaced_pct_of_giga_input": 3.701
+              },
+              {
+                "oscode": "GORGO",
+                "proteome_seqs": 21788,
+                "giga_input_seqs": 20136,
+                "unplaced": 619,
+                "families": 516,
+                "unplaced_pct_of_proteome": 2.841,
+                "unplaced_pct_of_giga_input": 3.074
+              },
+              {
+                "oscode": "THAPS",
+                "proteome_seqs": 11735,
+                "giga_input_seqs": 7971,
+                "unplaced": 546,
+                "families": 441,
+                "unplaced_pct_of_proteome": 4.653,
+                "unplaced_pct_of_giga_input": 6.85
+              },
+              {
+                "oscode": "JUGRE",
+                "proteome_seqs": 30329,
+                "giga_input_seqs": 29142,
+                "unplaced": 531,
+                "families": 254,
+                "unplaced_pct_of_proteome": 1.751,
+                "unplaced_pct_of_giga_input": 1.822
+              },
+              {
+                "oscode": "PRUPE",
+                "proteome_seqs": 26772,
+                "giga_input_seqs": 23269,
+                "unplaced": 526,
+                "families": 354,
+                "unplaced_pct_of_proteome": 1.965,
+                "unplaced_pct_of_giga_input": 2.261
+              },
+              {
+                "oscode": "PRIPA",
+                "proteome_seqs": 26032,
+                "giga_input_seqs": 14028,
+                "unplaced": 518,
+                "families": 325,
+                "unplaced_pct_of_proteome": 1.99,
+                "unplaced_pct_of_giga_input": 3.693
+              },
+              {
+                "oscode": "MONBE",
+                "proteome_seqs": 9156,
+                "giga_input_seqs": 7291,
+                "unplaced": 516,
+                "families": 422,
+                "unplaced_pct_of_proteome": 5.636,
+                "unplaced_pct_of_giga_input": 7.077
+              },
+              {
+                "oscode": "CAEBR",
+                "proteome_seqs": 19517,
+                "giga_input_seqs": 12677,
+                "unplaced": 505,
+                "families": 321,
+                "unplaced_pct_of_proteome": 2.587,
+                "unplaced_pct_of_giga_input": 3.984
+              },
+              {
+                "oscode": "XENTR",
+                "proteome_seqs": 21863,
+                "giga_input_seqs": 19657,
+                "unplaced": 503,
+                "families": 248,
+                "unplaced_pct_of_proteome": 2.301,
+                "unplaced_pct_of_giga_input": 2.559
+              },
+              {
+                "oscode": "MANES",
+                "proteome_seqs": 32814,
+                "giga_input_seqs": 29306,
+                "unplaced": 497,
+                "families": 287,
+                "unplaced_pct_of_proteome": 1.515,
+                "unplaced_pct_of_giga_input": 1.696
+              },
+              {
+                "oscode": "NELNU",
+                "proteome_seqs": 23991,
+                "giga_input_seqs": 23053,
+                "unplaced": 493,
+                "families": 326,
+                "unplaced_pct_of_proteome": 2.055,
+                "unplaced_pct_of_giga_input": 2.139
+              },
+              {
+                "oscode": "PARTE",
+                "proteome_seqs": 39350,
+                "giga_input_seqs": 21031,
+                "unplaced": 493,
+                "families": 244,
+                "unplaced_pct_of_proteome": 1.253,
+                "unplaced_pct_of_giga_input": 2.344
+              },
+              {
+                "oscode": "BRADI",
+                "proteome_seqs": 34230,
+                "giga_input_seqs": 26781,
+                "unplaced": 484,
+                "families": 339,
+                "unplaced_pct_of_proteome": 1.414,
+                "unplaced_pct_of_giga_input": 1.807
+              },
+              {
+                "oscode": "PIG",
+                "proteome_seqs": 22800,
+                "giga_input_seqs": 21563,
+                "unplaced": 484,
+                "families": 343,
+                "unplaced_pct_of_proteome": 2.123,
+                "unplaced_pct_of_giga_input": 2.245
+              },
+              {
+                "oscode": "TRICA",
+                "proteome_seqs": 16568,
+                "giga_input_seqs": 11570,
+                "unplaced": 443,
+                "families": 306,
+                "unplaced_pct_of_proteome": 2.674,
+                "unplaced_pct_of_giga_input": 3.829
+              },
+              {
+                "oscode": "SORBI",
+                "proteome_seqs": 34043,
+                "giga_input_seqs": 26900,
+                "unplaced": 438,
+                "families": 330,
+                "unplaced_pct_of_proteome": 1.287,
+                "unplaced_pct_of_giga_input": 1.628
+              },
+              {
+                "oscode": "PANTR",
+                "proteome_seqs": 23006,
+                "giga_input_seqs": 21283,
+                "unplaced": 426,
+                "families": 328,
+                "unplaced_pct_of_proteome": 1.852,
+                "unplaced_pct_of_giga_input": 2.002
+              },
+              {
+                "oscode": "HORSE",
+                "proteome_seqs": 21041,
+                "giga_input_seqs": 19684,
+                "unplaced": 425,
+                "families": 271,
+                "unplaced_pct_of_proteome": 2.02,
+                "unplaced_pct_of_giga_input": 2.159
+              },
+              {
+                "oscode": "SCLS1",
+                "proteome_seqs": 14445,
+                "giga_input_seqs": 7639,
+                "unplaced": 424,
+                "families": 290,
+                "unplaced_pct_of_proteome": 2.935,
+                "unplaced_pct_of_giga_input": 5.55
+              },
+              {
+                "oscode": "CHICK",
+                "proteome_seqs": 18372,
+                "giga_input_seqs": 17343,
+                "unplaced": 416,
+                "families": 267,
+                "unplaced_pct_of_proteome": 2.264,
+                "unplaced_pct_of_giga_input": 2.399
+              },
+              {
+                "oscode": "PHYPA",
+                "proteome_seqs": 31356,
+                "giga_input_seqs": 19730,
+                "unplaced": 408,
+                "families": 302,
+                "unplaced_pct_of_proteome": 1.301,
+                "unplaced_pct_of_giga_input": 2.068
+              },
+              {
+                "oscode": "CANLF",
+                "proteome_seqs": 20989,
+                "giga_input_seqs": 19943,
+                "unplaced": 395,
+                "families": 312,
+                "unplaced_pct_of_proteome": 1.882,
+                "unplaced_pct_of_giga_input": 1.981
+              },
+              {
+                "oscode": "FELCA",
+                "proteome_seqs": 19179,
+                "giga_input_seqs": 18124,
+                "unplaced": 393,
+                "families": 275,
+                "unplaced_pct_of_proteome": 2.049,
+                "unplaced_pct_of_giga_input": 2.168
+              },
+              {
+                "oscode": "DICPU",
+                "proteome_seqs": 12347,
+                "giga_input_seqs": 8928,
+                "unplaced": 376,
+                "families": 226,
+                "unplaced_pct_of_proteome": 3.045,
+                "unplaced_pct_of_giga_input": 4.211
+              },
+              {
+                "oscode": "KLENI",
+                "proteome_seqs": 16171,
+                "giga_input_seqs": 10179,
+                "unplaced": 370,
+                "families": 209,
+                "unplaced_pct_of_proteome": 2.288,
+                "unplaced_pct_of_giga_input": 3.635
+              },
+              {
+                "oscode": "PUCGT",
+                "proteome_seqs": 15688,
+                "giga_input_seqs": 7696,
+                "unplaced": 349,
+                "families": 215,
+                "unplaced_pct_of_proteome": 2.225,
+                "unplaced_pct_of_giga_input": 4.535
+              },
+              {
+                "oscode": "BATDJ",
+                "proteome_seqs": 8610,
+                "giga_input_seqs": 6209,
+                "unplaced": 291,
+                "families": 253,
+                "unplaced_pct_of_proteome": 3.38,
+                "unplaced_pct_of_giga_input": 4.687
+              },
+              {
+                "oscode": "ARATH",
+                "proteome_seqs": 27448,
+                "giga_input_seqs": 24602,
+                "unplaced": 274,
+                "families": 208,
+                "unplaced_pct_of_proteome": 0.998,
+                "unplaced_pct_of_giga_input": 1.114
+              },
+              {
+                "oscode": "MACMU",
+                "proteome_seqs": 21893,
+                "giga_input_seqs": 20914,
+                "unplaced": 263,
+                "families": 198,
+                "unplaced_pct_of_proteome": 1.201,
+                "unplaced_pct_of_giga_input": 1.258
+              },
+              {
+                "oscode": "ENTH1",
+                "proteome_seqs": 7967,
+                "giga_input_seqs": 5028,
+                "unplaced": 251,
+                "families": 178,
+                "unplaced_pct_of_proteome": 3.15,
+                "unplaced_pct_of_giga_input": 4.992
+              },
+              {
+                "oscode": "MARPO",
+                "proteome_seqs": 19274,
+                "giga_input_seqs": 11884,
+                "unplaced": 247,
+                "families": 189,
+                "unplaced_pct_of_proteome": 1.282,
+                "unplaced_pct_of_giga_input": 2.078
+              },
+              {
+                "oscode": "DICDI",
+                "proteome_seqs": 12718,
+                "giga_input_seqs": 9494,
+                "unplaced": 242,
+                "families": 121,
+                "unplaced_pct_of_proteome": 1.903,
+                "unplaced_pct_of_giga_input": 2.549
+              },
+              {
+                "oscode": "CHLRE",
+                "proteome_seqs": 17614,
+                "giga_input_seqs": 12302,
+                "unplaced": 224,
+                "families": 159,
+                "unplaced_pct_of_proteome": 1.272,
+                "unplaced_pct_of_giga_input": 1.821
+              },
+              {
+                "oscode": "CAEEL",
+                "proteome_seqs": 19789,
+                "giga_input_seqs": 14606,
+                "unplaced": 218,
+                "families": 184,
+                "unplaced_pct_of_proteome": 1.102,
+                "unplaced_pct_of_giga_input": 1.493
+              },
+              {
+                "oscode": "PHANO",
+                "proteome_seqs": 17429,
+                "giga_input_seqs": 9121,
+                "unplaced": 207,
+                "families": 157,
+                "unplaced_pct_of_proteome": 1.188,
+                "unplaced_pct_of_giga_input": 2.269
+              },
+              {
+                "oscode": "ANOGA",
+                "proteome_seqs": 13029,
+                "giga_input_seqs": 10867,
+                "unplaced": 188,
+                "families": 152,
+                "unplaced_pct_of_proteome": 1.443,
+                "unplaced_pct_of_giga_input": 1.73
+              },
+              {
+                "oscode": "EMENI",
+                "proteome_seqs": 10561,
+                "giga_input_seqs": 8382,
+                "unplaced": 184,
+                "families": 145,
+                "unplaced_pct_of_proteome": 1.742,
+                "unplaced_pct_of_giga_input": 2.195
+              },
+              {
+                "oscode": "RAT",
+                "proteome_seqs": 21759,
+                "giga_input_seqs": 21054,
+                "unplaced": 169,
+                "families": 142,
+                "unplaced_pct_of_proteome": 0.777,
+                "unplaced_pct_of_giga_input": 0.803
+              },
+              {
+                "oscode": "BOVIN",
+                "proteome_seqs": 22666,
+                "giga_input_seqs": 22002,
+                "unplaced": 151,
+                "families": 124,
+                "unplaced_pct_of_proteome": 0.666,
+                "unplaced_pct_of_giga_input": 0.686
+              },
+              {
+                "oscode": "HUMAN",
+                "proteome_seqs": 20652,
+                "giga_input_seqs": 19676,
+                "unplaced": 145,
+                "families": 111,
+                "unplaced_pct_of_proteome": 0.702,
+                "unplaced_pct_of_giga_input": 0.737
+              },
+              {
+                "oscode": "MOUSE",
+                "proteome_seqs": 21852,
+                "giga_input_seqs": 21237,
+                "unplaced": 122,
+                "families": 98,
+                "unplaced_pct_of_proteome": 0.558,
+                "unplaced_pct_of_giga_input": 0.574
+              },
+              {
+                "oscode": "ASPFU",
+                "proteome_seqs": 9647,
+                "giga_input_seqs": 7842,
+                "unplaced": 119,
+                "families": 102,
+                "unplaced_pct_of_proteome": 1.234,
+                "unplaced_pct_of_giga_input": 1.517
+              },
+              {
+                "oscode": "BRADU",
+                "proteome_seqs": 8253,
+                "giga_input_seqs": 5672,
+                "unplaced": 114,
+                "families": 89,
+                "unplaced_pct_of_proteome": 1.381,
+                "unplaced_pct_of_giga_input": 2.01
+              },
+              {
+                "oscode": "DROME",
+                "proteome_seqs": 13826,
+                "giga_input_seqs": 11102,
+                "unplaced": 85,
+                "families": 71,
+                "unplaced_pct_of_proteome": 0.615,
+                "unplaced_pct_of_giga_input": 0.766
+              },
+              {
+                "oscode": "GLOVI",
+                "proteome_seqs": 4406,
+                "giga_input_seqs": 2994,
+                "unplaced": 79,
+                "families": 64,
+                "unplaced_pct_of_proteome": 1.793,
+                "unplaced_pct_of_giga_input": 2.639
+              },
+              {
+                "oscode": "GIAIC",
+                "proteome_seqs": 4900,
+                "giga_input_seqs": 2879,
+                "unplaced": 74,
+                "families": 47,
+                "unplaced_pct_of_proteome": 1.51,
+                "unplaced_pct_of_giga_input": 2.57
+              },
+              {
+                "oscode": "SYNY3",
+                "proteome_seqs": 3508,
+                "giga_input_seqs": 2502,
+                "unplaced": 73,
+                "families": 58,
+                "unplaced_pct_of_proteome": 2.081,
+                "unplaced_pct_of_giga_input": 2.918
+              },
+              {
+                "oscode": "YARLI",
+                "proteome_seqs": 6449,
+                "giga_input_seqs": 5210,
+                "unplaced": 72,
+                "families": 68,
+                "unplaced_pct_of_proteome": 1.116,
+                "unplaced_pct_of_giga_input": 1.382
+              },
+              {
+                "oscode": "METAC",
+                "proteome_seqs": 4468,
+                "giga_input_seqs": 2796,
+                "unplaced": 66,
+                "families": 44,
+                "unplaced_pct_of_proteome": 1.477,
+                "unplaced_pct_of_giga_input": 2.361
+              },
+              {
+                "oscode": "CANAL",
+                "proteome_seqs": 6036,
+                "giga_input_seqs": 4890,
+                "unplaced": 60,
+                "families": 57,
+                "unplaced_pct_of_proteome": 0.994,
+                "unplaced_pct_of_giga_input": 1.227
+              },
+              {
+                "oscode": "LEIMA",
+                "proteome_seqs": 8038,
+                "giga_input_seqs": 5209,
+                "unplaced": 57,
+                "families": 57,
+                "unplaced_pct_of_proteome": 0.709,
+                "unplaced_pct_of_giga_input": 1.094
+              },
+              {
+                "oscode": "SACS2",
+                "proteome_seqs": 2938,
+                "giga_input_seqs": 1889,
+                "unplaced": 56,
+                "families": 41,
+                "unplaced_pct_of_proteome": 1.906,
+                "unplaced_pct_of_giga_input": 2.965
+              },
+              {
+                "oscode": "CRYD1",
+                "proteome_seqs": 6603,
+                "giga_input_seqs": 5433,
+                "unplaced": 55,
+                "families": 50,
+                "unplaced_pct_of_proteome": 0.833,
+                "unplaced_pct_of_giga_input": 1.012
+              },
+              {
+                "oscode": "MYCTU",
+                "proteome_seqs": 3997,
+                "giga_input_seqs": 2744,
+                "unplaced": 55,
+                "families": 40,
+                "unplaced_pct_of_proteome": 1.376,
+                "unplaced_pct_of_giga_input": 2.004
+              },
+              {
+                "oscode": "SCHPO",
+                "proteome_seqs": 5129,
+                "giga_input_seqs": 4422,
+                "unplaced": 55,
+                "families": 51,
+                "unplaced_pct_of_proteome": 1.072,
+                "unplaced_pct_of_giga_input": 1.244
+              },
+              {
+                "oscode": "TRYB2",
+                "proteome_seqs": 8561,
+                "giga_input_seqs": 4736,
+                "unplaced": 51,
+                "families": 50,
+                "unplaced_pct_of_proteome": 0.596,
+                "unplaced_pct_of_giga_input": 1.077
+              },
+              {
+                "oscode": "SCHJY",
+                "proteome_seqs": 4852,
+                "giga_input_seqs": 3741,
+                "unplaced": 50,
+                "families": 48,
+                "unplaced_pct_of_proteome": 1.031,
+                "unplaced_pct_of_giga_input": 1.337
+              },
+              {
+                "oscode": "BACCR",
+                "proteome_seqs": 5240,
+                "giga_input_seqs": 3574,
+                "unplaced": 49,
+                "families": 39,
+                "unplaced_pct_of_proteome": 0.935,
+                "unplaced_pct_of_giga_input": 1.371
+              },
+              {
+                "oscode": "MYCMD",
+                "proteome_seqs": 6788,
+                "giga_input_seqs": 5436,
+                "unplaced": 49,
+                "families": 45,
+                "unplaced_pct_of_proteome": 0.722,
+                "unplaced_pct_of_giga_input": 0.901
+              },
+              {
+                "oscode": "STRCO",
+                "proteome_seqs": 8038,
+                "giga_input_seqs": 5540,
+                "unplaced": 49,
+                "families": 45,
+                "unplaced_pct_of_proteome": 0.61,
+                "unplaced_pct_of_giga_input": 0.884
+              },
+              {
+                "oscode": "XANCP",
+                "proteome_seqs": 4127,
+                "giga_input_seqs": 3064,
+                "unplaced": 47,
+                "families": 41,
+                "unplaced_pct_of_proteome": 1.139,
+                "unplaced_pct_of_giga_input": 1.534
+              },
+              {
+                "oscode": "BACTN",
+                "proteome_seqs": 4782,
+                "giga_input_seqs": 3065,
+                "unplaced": 46,
+                "families": 38,
+                "unplaced_pct_of_proteome": 0.962,
+                "unplaced_pct_of_giga_input": 1.501
+              },
+              {
+                "oscode": "NEUCR",
+                "proteome_seqs": 9759,
+                "giga_input_seqs": 6936,
+                "unplaced": 45,
+                "families": 41,
+                "unplaced_pct_of_proteome": 0.461,
+                "unplaced_pct_of_giga_input": 0.649
+              },
+              {
+                "oscode": "STRR6",
+                "proteome_seqs": 2031,
+                "giga_input_seqs": 1483,
+                "unplaced": 45,
+                "families": 31,
+                "unplaced_pct_of_proteome": 2.216,
+                "unplaced_pct_of_giga_input": 3.034
+              },
+              {
+                "oscode": "EREGS",
+                "proteome_seqs": 4758,
+                "giga_input_seqs": 4022,
+                "unplaced": 41,
+                "families": 38,
+                "unplaced_pct_of_proteome": 0.862,
+                "unplaced_pct_of_giga_input": 1.019
+              },
+              {
+                "oscode": "LEPIN",
+                "proteome_seqs": 3676,
+                "giga_input_seqs": 2192,
+                "unplaced": 41,
+                "families": 36,
+                "unplaced_pct_of_proteome": 1.115,
+                "unplaced_pct_of_giga_input": 1.87
+              },
+              {
+                "oscode": "CHLAA",
+                "proteome_seqs": 3850,
+                "giga_input_seqs": 2955,
+                "unplaced": 39,
+                "families": 32,
+                "unplaced_pct_of_proteome": 1.013,
+                "unplaced_pct_of_giga_input": 1.32
+              },
+              {
+                "oscode": "DEIRA",
+                "proteome_seqs": 3085,
+                "giga_input_seqs": 2134,
+                "unplaced": 38,
+                "families": 35,
+                "unplaced_pct_of_proteome": 1.232,
+                "unplaced_pct_of_giga_input": 1.781
+              },
+              {
+                "oscode": "PYRAE",
+                "proteome_seqs": 2590,
+                "giga_input_seqs": 1384,
+                "unplaced": 37,
+                "families": 36,
+                "unplaced_pct_of_proteome": 1.429,
+                "unplaced_pct_of_giga_input": 2.673
+              },
+              {
+                "oscode": "RHOBA",
+                "proteome_seqs": 7271,
+                "giga_input_seqs": 3336,
+                "unplaced": 37,
+                "families": 32,
+                "unplaced_pct_of_proteome": 0.509,
+                "unplaced_pct_of_giga_input": 1.109
+              },
+              {
+                "oscode": "YEAST",
+                "proteome_seqs": 6066,
+                "giga_input_seqs": 4811,
+                "unplaced": 37,
+                "families": 33,
+                "unplaced_pct_of_proteome": 0.61,
+                "unplaced_pct_of_giga_input": 0.769
+              },
+              {
+                "oscode": "AQUAE",
+                "proteome_seqs": 1553,
+                "giga_input_seqs": 1252,
+                "unplaced": 36,
+                "families": 31,
+                "unplaced_pct_of_proteome": 2.318,
+                "unplaced_pct_of_giga_input": 2.875
+              },
+              {
+                "oscode": "CLOBH",
+                "proteome_seqs": 3590,
+                "giga_input_seqs": 2574,
+                "unplaced": 35,
+                "families": 30,
+                "unplaced_pct_of_proteome": 0.975,
+                "unplaced_pct_of_giga_input": 1.36
+              },
+              {
+                "oscode": "SALTY",
+                "proteome_seqs": 4533,
+                "giga_input_seqs": 3504,
+                "unplaced": 35,
+                "families": 30,
+                "unplaced_pct_of_proteome": 0.772,
+                "unplaced_pct_of_giga_input": 0.999
+              },
+              {
+                "oscode": "METJA",
+                "proteome_seqs": 1786,
+                "giga_input_seqs": 1182,
+                "unplaced": 34,
+                "families": 30,
+                "unplaced_pct_of_proteome": 1.904,
+                "unplaced_pct_of_giga_input": 2.876
+              },
+              {
+                "oscode": "ECOLI",
+                "proteome_seqs": 4403,
+                "giga_input_seqs": 3458,
+                "unplaced": 33,
+                "families": 27,
+                "unplaced_pct_of_proteome": 0.749,
+                "unplaced_pct_of_giga_input": 0.954
+              },
+              {
+                "oscode": "THEKO",
+                "proteome_seqs": 2301,
+                "giga_input_seqs": 1481,
+                "unplaced": 32,
+                "families": 27,
+                "unplaced_pct_of_proteome": 1.391,
+                "unplaced_pct_of_giga_input": 2.161
+              },
+              {
+                "oscode": "PLAF7",
+                "proteome_seqs": 5361,
+                "giga_input_seqs": 3388,
+                "unplaced": 31,
+                "families": 30,
+                "unplaced_pct_of_proteome": 0.578,
+                "unplaced_pct_of_giga_input": 0.915
+              },
+              {
+                "oscode": "GEOSL",
+                "proteome_seqs": 3402,
+                "giga_input_seqs": 2585,
+                "unplaced": 30,
+                "families": 28,
+                "unplaced_pct_of_proteome": 0.882,
+                "unplaced_pct_of_giga_input": 1.161
+              },
+              {
+                "oscode": "STAA8",
+                "proteome_seqs": 2889,
+                "giga_input_seqs": 1900,
+                "unplaced": 28,
+                "families": 19,
+                "unplaced_pct_of_proteome": 0.969,
+                "unplaced_pct_of_giga_input": 1.474
+              },
+              {
+                "oscode": "YERPE",
+                "proteome_seqs": 3909,
+                "giga_input_seqs": 2945,
+                "unplaced": 28,
+                "families": 25,
+                "unplaced_pct_of_proteome": 0.716,
+                "unplaced_pct_of_giga_input": 0.951
+              },
+              {
+                "oscode": "LISMO",
+                "proteome_seqs": 2844,
+                "giga_input_seqs": 2221,
+                "unplaced": 27,
+                "families": 18,
+                "unplaced_pct_of_proteome": 0.949,
+                "unplaced_pct_of_giga_input": 1.216
+              },
+              {
+                "oscode": "NITMS",
+                "proteome_seqs": 1795,
+                "giga_input_seqs": 1100,
+                "unplaced": 27,
+                "families": 25,
+                "unplaced_pct_of_proteome": 1.504,
+                "unplaced_pct_of_giga_input": 2.455
+              },
+              {
+                "oscode": "HALSA",
+                "proteome_seqs": 2427,
+                "giga_input_seqs": 1510,
+                "unplaced": 24,
+                "families": 24,
+                "unplaced_pct_of_proteome": 0.989,
+                "unplaced_pct_of_giga_input": 1.589
+              },
+              {
+                "oscode": "THEYD",
+                "proteome_seqs": 1982,
+                "giga_input_seqs": 1581,
+                "unplaced": 24,
+                "families": 22,
+                "unplaced_pct_of_proteome": 1.211,
+                "unplaced_pct_of_giga_input": 1.518
+              },
+              {
+                "oscode": "BACSU",
+                "proteome_seqs": 4288,
+                "giga_input_seqs": 3012,
+                "unplaced": 23,
+                "families": 21,
+                "unplaced_pct_of_proteome": 0.536,
+                "unplaced_pct_of_giga_input": 0.764
+              },
+              {
+                "oscode": "HAEIN",
+                "proteome_seqs": 1703,
+                "giga_input_seqs": 1431,
+                "unplaced": 23,
+                "families": 20,
+                "unplaced_pct_of_proteome": 1.351,
+                "unplaced_pct_of_giga_input": 1.607
+              },
+              {
+                "oscode": "PSEAE",
+                "proteome_seqs": 5563,
+                "giga_input_seqs": 4446,
+                "unplaced": 23,
+                "families": 22,
+                "unplaced_pct_of_proteome": 0.413,
+                "unplaced_pct_of_giga_input": 0.517
+              },
+              {
+                "oscode": "VIBCH",
+                "proteome_seqs": 3781,
+                "giga_input_seqs": 2762,
+                "unplaced": 21,
+                "families": 19,
+                "unplaced_pct_of_proteome": 0.555,
+                "unplaced_pct_of_giga_input": 0.76
+              },
+              {
+                "oscode": "COXBU",
+                "proteome_seqs": 1812,
+                "giga_input_seqs": 1208,
+                "unplaced": 20,
+                "families": 19,
+                "unplaced_pct_of_proteome": 1.104,
+                "unplaced_pct_of_giga_input": 1.656
+              },
+              {
+                "oscode": "HELPY",
+                "proteome_seqs": 1554,
+                "giga_input_seqs": 987,
+                "unplaced": 18,
+                "families": 18,
+                "unplaced_pct_of_proteome": 1.158,
+                "unplaced_pct_of_giga_input": 1.824
+              },
+              {
+                "oscode": "KORCO",
+                "proteome_seqs": 1602,
+                "giga_input_seqs": 1194,
+                "unplaced": 18,
+                "families": 17,
+                "unplaced_pct_of_proteome": 1.124,
+                "unplaced_pct_of_giga_input": 1.508
+              },
+              {
+                "oscode": "SHEON",
+                "proteome_seqs": 4068,
+                "giga_input_seqs": 3026,
+                "unplaced": 17,
+                "families": 16,
+                "unplaced_pct_of_proteome": 0.418,
+                "unplaced_pct_of_giga_input": 0.562
+              },
+              {
+                "oscode": "FUSNN",
+                "proteome_seqs": 1975,
+                "giga_input_seqs": 1441,
+                "unplaced": 15,
+                "families": 15,
+                "unplaced_pct_of_proteome": 0.759,
+                "unplaced_pct_of_giga_input": 1.041
+              },
+              {
+                "oscode": "NEIMB",
+                "proteome_seqs": 2003,
+                "giga_input_seqs": 1363,
+                "unplaced": 15,
+                "families": 14,
+                "unplaced_pct_of_proteome": 0.749,
+                "unplaced_pct_of_giga_input": 1.101
+              },
+              {
+                "oscode": "THEMA",
+                "proteome_seqs": 1852,
+                "giga_input_seqs": 1493,
+                "unplaced": 14,
+                "families": 14,
+                "unplaced_pct_of_proteome": 0.756,
+                "unplaced_pct_of_giga_input": 0.938
+              },
+              {
+                "oscode": "CHLTR",
+                "proteome_seqs": 895,
+                "giga_input_seqs": 625,
+                "unplaced": 10,
+                "families": 10,
+                "unplaced_pct_of_proteome": 1.117,
+                "unplaced_pct_of_giga_input": 1.6
+              },
+              {
+                "oscode": "MYCGE",
+                "proteome_seqs": 483,
+                "giga_input_seqs": 358,
+                "unplaced": 9,
+                "families": 9,
+                "unplaced_pct_of_proteome": 1.863,
+                "unplaced_pct_of_giga_input": 2.514
+              },
+              {
+                "oscode": "DICTD",
+                "proteome_seqs": 1743,
+                "giga_input_seqs": 1448,
+                "unplaced": 7,
+                "families": 7,
+                "unplaced_pct_of_proteome": 0.402,
+                "unplaced_pct_of_giga_input": 0.483
+              }
+            ],
+            "truncated": false,
+            "total_rows": 131
+          }
+        ],
+        "sidecar": {
+          "file": "build_state.giga_usf.json",
+          "bytes": 4904321,
+          "sha256": "5dd703b52958a5028bbab7c9906c441219218305098cccaa33f4aff7c54c2d2a"
+        },
+        "definitions": {
+          "books_scanned": {
+            "label": "Books scanned",
+            "definition": "Every book directory under the dev library's books/, the same denominator `giga.books_total` uses."
+          },
+          "families_with_unplaced": {
+            "label": "Families with unplaced sequences",
+            "definition": "Books whose <PTHR>.orig.usf is non-empty: GIGA removed at least one sequence from the tree as an unplaced fragment. A zero-byte .usf is a family where GIGA placed everything."
+          },
+          "unplaced_total": {
+            "label": "Sequences unplaced",
+            "definition": "Distinct long IDs across every .usf. They are dropped from the family's final alignment and HMM downstream."
+          },
+          "unassigned_in_mapping": {
+            "label": "Unassigned in the post-GIGA mapping",
+            "definition": "Unplaced sequences whose family column in refProteomePANTHERmapping_post_giga is blank, per reports/usf_unassigned.tsv. Blank when that report does not exist, which means the mapping was never checked -- not that nothing was unassigned."
+          },
+          "unplaced": {
+            "label": "Unplaced",
+            "definition": "Sequences GIGA removed from the tree as an unplaced fragment -- this family's count, or (in the by-proteome table) this proteome's total across every family it appears in."
+          },
+          "tree_leaves": {
+            "label": "In final tree",
+            "definition": "Sequences placed in the family's final GIGA tree, counted from the LEAF rows of its .orig.treeNodes.tab."
+          },
+          "families": {
+            "label": "Families",
+            "definition": "Proteome table only: families with at least one unplaced sequence from that proteome."
+          },
+          "unplaced_fraction": {
+            "label": "Share unplaced",
+            "definition": "unplaced / (unplaced + in final tree): of the sequences GIGA was given for this family, the share it left out of the tree. Blank when the family has no treeNodes.tab to count from."
+          },
+          "input_mismatch_families": {
+            "label": "Families where input != unplaced + in final tree",
+            "definition": "USF families (at least one unplaced sequence) where the row count assigned to that family in the pass2_single_genome mapping stage does not equal unplaced + in final tree; checked only for families that have an in-final-tree value. A mismatch means MAFFT/QC dropped rows between the mapping and the PIR GIGA actually read, or GIGA dropped something outside .usf. Null, not zero, when the pass2_single_genome mapping file is unavailable."
+          },
+          "input_seqs": {
+            "label": "Input sequences",
+            "definition": "Rows assigned to this family (PTHR_family column, split on ':') in the pass2_single_genome mapping stage -- the mapping the orig MSAs, and so the PIRs GIGA read, were built from. Null, not zero, when that mapping file is unavailable."
+          },
+          "proteome_seqs": {
+            "label": "Proteome sequences",
+            "definition": "Every reference-proteome sequence for this oscode recorded in the `id` mapping stage, mapped or not. Null, not zero, when that mapping file is unavailable."
+          },
+          "giga_input_seqs": {
+            "label": "Sent to GIGA",
+            "definition": "Rows for this oscode with a non-blank family column in the pass2_single_genome mapping stage -- what this proteome actually sent into a tree. Null, not zero, when that mapping file is unavailable."
+          },
+          "unplaced_pct_of_proteome": {
+            "label": "Unplaced, % of proteome",
+            "definition": "unplaced / proteome_seqs, as a 0-100 percentage (not a fraction) rounded to 3 decimal places. Null when proteome_seqs is missing or 0."
+          },
+          "unplaced_pct_of_giga_input": {
+            "label": "Unplaced, % of what was sent to GIGA",
+            "definition": "unplaced / giga_input_seqs, as a 0-100 percentage (not a fraction) rounded to 3 decimal places. Null when giga_input_seqs is missing or 0."
+          }
+        },
+        "warnings": [
+          "497 families have input != tree leaves + unplaced (MAFFT/QC may have dropped rows between the mapping and the PIR, or GIGA dropped something outside .usf): PTHR10005, PTHR10063, PTHR10073, PTHR10082, PTHR10121"
+        ]
       },
       "message": null,
       "status": "ok"
