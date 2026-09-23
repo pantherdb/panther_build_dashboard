@@ -8,7 +8,16 @@ export { extractProteomes } from './sections/proteomes'
 
 export { extractRecluster } from './sections/recluster'
 
-export { extractPreviousLibrary } from './sections/library'
+export { extractUnplacedFragments, parseUnplacedFamilyBase } from './sections/gigaUsf'
+export { parseUsfSidecar } from './sections/gigaUsfSidecar'
+export type { UsfSidecarResult, UsfSidecarStatus } from './sections/gigaUsfSidecar'
+
+export { extractLibrary, extractPreviousLibrary, extractTrees } from './sections/library'
+
+export { parseLongId, uniprotUrl } from './longId'
+export type { LongId } from './longId'
+
+export { humaniseTaxonomicName, taxonomicNameByOscode } from './taxonomicName'
 
 export {
   CURRENT_SCHEMA_VERSION,

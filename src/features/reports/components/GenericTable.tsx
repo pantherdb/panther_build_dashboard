@@ -1,6 +1,8 @@
-import { DataTable, DefinedTerm } from '@/@panther.core/components'
+import { DataTable, DefinedTerm, Disclosure } from '@/@panther.core/components'
 import { fileSizeLabel, formatFileSize, isFileSizeKey } from '@/@panther.core/fileSize'
+import { isTruncated } from '@/@panther.core/vocabulary'
 import type { DataColumn } from '@/@panther.core/components'
+import { plural } from '@/app/format'
 import { formatUnknownValue, generatorDefinitionId } from '@/features/build/model'
 import type { GenericTableView } from '@/features/reports/model/genericView'
 
@@ -23,6 +25,13 @@ import type { GenericTableView } from '@/features/reports/model/genericView'
  * `applied_under_ht`. That column alone renders through `DefinedTerm`; every other cell is matched
  * by TYPE (numeric vs identifier), never by value, because a family id or oscode that happened to
  * equal a defined term would otherwise pick up a tooltip that has nothing to do with it.
+ *
+ * A second shape-only exception: a table with exactly ONE column that is not truncated is a plain
+ * list wearing a table shape - a family-id roll call, not something a reader sorts or filters. It
+ * collapses into a `Disclosure` (name + row count in the summary, the same table inside), and a
+ * table with zero rows skips the toggle entirely and just says so. This is decided from the
+ * table's own shape (column count, truncation), never from its name, so an unfamiliar future
+ * single-column table gets the same treatment without anyone teaching this view what it is.
  */
 export interface GenericTableProps {
   table: GenericTableView
@@ -112,18 +121,43 @@ export const GenericTable = ({ table, pageSize = 20 }: GenericTableProps) => {
         'differs from the header.'
       : null
 
-  return (
+  // Shape, not name: a single, untruncated column is a plain list, not a grid worth sorting.
+  const truncated = isTruncated({ included: table.includedRows, total: table.totalRows })
+  const collapsible = table.columns.length === 1 && !truncated
+
+  const dataTable = (
     <DataTable
       columns={columns}
       rows={rows}
       rowKey={entry => String(entry.index)}
       caption={table.name}
-      captionVisible
+      // The collapsed form already shows the name in the disclosure's own summary row; showing it
+      // a second time inside the expanded panel would repeat it for a sighted reader.
+      captionVisible={!collapsible}
       completeness={{ included: table.includedRows, total: table.totalRows }}
       density="tight"
       pageSize={pageSize}
       maxHeight={360}
       footNote={ragged}
     />
+  )
+
+  if (!collapsible) return dataTable
+
+  if (rows.length === 0) {
+    return (
+      <p className="text-ink-muted text-xs">
+        <span className="text-ink">{table.name}</span>: none
+      </p>
+    )
+  }
+
+  return (
+    <Disclosure
+      summary={<span className="text-ink text-xs">{table.name}</span>}
+      count={`${rows.length.toLocaleString()} ${plural(rows.length, 'row')}`}
+    >
+      {dataTable}
+    </Disclosure>
   )
 }

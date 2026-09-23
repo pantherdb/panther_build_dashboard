@@ -38,6 +38,9 @@ const MappingReport = lazy(() => import('@/features/mapping/components/MappingRe
 const NodeTrackingReport = lazy(() => import('@/features/nodes/components/NodeTrackingReport'))
 const ComparisonReport = lazy(() => import('@/features/comparison/components/ComparisonReport'))
 const ProteomesReport = lazy(() => import('@/features/proteomes/components/ProteomesReport'))
+const UnplacedFragmentsReport = lazy(
+  () => import('@/features/trees/components/UnplacedFragmentsReport')
+)
 
 const GenericReport = lazy(() =>
   import('@/features/reports/components/GenericReport').then(module => ({
@@ -71,6 +74,12 @@ export const SPECIALISED_RENDERERS: readonly SpecialisedRenderer[] = [
     title: 'Reference proteomes',
     sectionIds: ['proteomes'],
     Component: ProteomesReport,
+  },
+  {
+    key: 'giga-usf',
+    title: 'Unplaced fragments',
+    sectionIds: ['giga_usf'],
+    Component: UnplacedFragmentsReport,
   },
   {
     key: 'comparison',

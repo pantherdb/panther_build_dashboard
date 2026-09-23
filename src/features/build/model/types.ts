@@ -477,6 +477,83 @@ export interface TreeSummary extends SummaryMeta {
   text: string | null
 }
 
+export interface UnplacedFamilyRow {
+  family: string
+  unplaced: number
+  treeLeaves: number | null
+  unplacedFraction: number | null
+  /**
+   * Rows assigned to this family (the PTHR_family column) in the pass2_single_genome mapping
+   * stage - the mapping the orig MSAs, and so the PIRs GIGA read, were built from. Not "sequences
+   * GIGA received": a mismatch against `treeLeaves + unplaced` means MAFFT/QC or GIGA dropped
+   * something between the mapping and the tree. `null` when that mapping file is unavailable, or
+   * on a report predating this field (both the old in-report shape and an older sidecar) - not the
+   * same as a measured zero.
+   */
+  inputSeqs: number | null
+  /** null when the report left this family's ids out to stay under its size cap */
+  members: string[] | null
+}
+
+export interface UnplacedSpeciesRow {
+  oscode: string
+  unplaced: number
+  families: number
+  /**
+   * Every reference-proteome sequence for this oscode recorded in the `id` mapping stage, mapped
+   * or not. `null` on the old species-table shape, or when the `id` mapping file is unavailable -
+   * not the same as a measured zero.
+   */
+  proteomeSeqs: number | null
+  /**
+   * Rows for this oscode with a non-blank family column in the pass2_single_genome mapping stage -
+   * what this proteome actually sent into GIGA. `null` on the old species-table shape, or when the
+   * pass2 mapping file is unavailable - not the same as a measured zero.
+   */
+  gigaInputSeqs: number | null
+  /** `unplaced` as a percentage (0-100) of `proteomeSeqs`. `null` when the denominator is missing. */
+  unplacedPctOfProteome: number | null
+  /** `unplaced` as a percentage (0-100) of `gigaInputSeqs`. `null` when the denominator is missing. */
+  unplacedPctOfGigaInput: number | null
+}
+
+/**
+ * The main report's own reference to the `giga_usf` sidecar file - `docs/build_state.<id>.json` -
+ * that carries the actual per-family rows. `bytes`/`sha256` are `null` when the generator's own
+ * `data.sidecar` did not carry them cleanly; `file` is the one field a reference needs to mean
+ * anything, so its absence makes the whole reference `null` rather than a half-built object.
+ */
+export interface UnplacedFragmentsSidecarRef {
+  file: string
+  bytes: number | null
+  sha256: string | null
+}
+
+export interface UnplacedFragmentsSummary extends SummaryMeta {
+  booksScanned: number | null
+  familiesWithUnplaced: number | null
+  unplacedTotal: number | null
+  /** null = the post-GIGA mapping was never checked (no reports/usf_unassigned.tsv) */
+  unassignedInMapping: number | null
+  /**
+   * Families where the sidecar's `input_seqs` disagrees with `unplaced + tree_leaves` - a
+   * generator-side cross-check, not something this dashboard recomputes. `null` when the input
+   * mapping the check depends on was unavailable, not the same as a measured zero.
+   */
+  inputMismatchFamilies: number | null
+  membersTruncated: boolean
+  /**
+   * Populated from the OLD in-report shape only (a `Families with unplaced fragments` table plus
+   * `unplaced_members`). A report using the sidecar contract carries neither, so this is `[]` on
+   * one, and `useUnplacedFamilies` is what a view actually reads for the family list either way.
+   */
+  families: UnplacedFamilyRow[]
+  bySpecies: UnplacedSpeciesRow[]
+  /** `null` on a report that has not adopted the sidecar contract - the old in-report shape. */
+  sidecar: UnplacedFragmentsSidecarRef | null
+  warnings: string[]
+}
+
 /* -- Config and provenance ---------------------------------------------------------------- */
 
 export interface ConfigEntry {
@@ -699,6 +776,12 @@ export interface SpeciesRecord {
   links: SpeciesLink[]
   /** Sections that do not cover this species, so a view can say "unknown" rather than "0". */
   missingFrom: string[]
+  /**
+   * GIGA `.usf` fragments this species contributed, joined from `giga_usf`'s per-species table.
+   * `null` means the species has no row in that source - unknown, not zero, the same rule every
+   * other field on this record follows.
+   */
+  unplacedFragments: { unplaced: number; families: number } | null
 }
 
 export interface SpeciesCrossSection extends SummaryMeta {
@@ -910,6 +993,7 @@ export interface BuildReport {
   proteomes: ProteomesSummary
   library: LibrarySummary
   trees: TreeSummary
+  unplacedFragments: UnplacedFragmentsSummary
   config: ConfigSummary
   comparison: ComparisonSummary
   species: SpeciesCrossSection

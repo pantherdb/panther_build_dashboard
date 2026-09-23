@@ -115,31 +115,65 @@ Do not add `@typescript-eslint/parser` or `@typescript-eslint/eslint-plugin` to 
 There are two `build_state.json` files and they do different jobs. Confusing them is the one
 mistake in this repo that costs a day.
 
-| File | Job | Changes |
-| --- | --- | --- |
-| `docs/build_state.json` | **Live production data.** Statically imported by `src/features/build/fixtures/source.ts`, compiled into the bundle, shipped to Pages by `deploy-pages.yml`. | Every build |
-| `tests/fixtures/build_state.reference.json` | **The frozen oracle.** What every test asserts against. | Never, except by deliberate re-verification |
+| File                                        | Job                                                                                                                                                         | Changes                                     |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `docs/build_state.json`                     | **Live production data.** Statically imported by `src/features/build/fixtures/source.ts`, compiled into the bundle, shipped to Pages by `deploy-pages.yml`. | Every build                                 |
+| `tests/fixtures/build_state.reference.json` | **The frozen oracle.** What every test asserts against.                                                                                                     | Never, except by deliberate re-verification |
 
 A `test.alias` in `vite.config.ts` redirects the `source.ts` import to the reference **under Vitest
 only**. That is why `parse.appendix.test.ts` can pin 131 species and 15,795 books while the live
 file is refreshed every build. The production build is unaffected and still compiles the live JSON.
 
+**A section can carry a sidecar file instead of its data.** `giga_usf` is the first: the main
+report keeps only `data.sidecar: {file, bytes, sha256}`, and the actual per-family rows (9,299
+families, 69,908 long ids on a real build — megabytes) live in a sibling file,
+`docs/build_state.giga_usf.json`. `src/features/build/fixtures/sidecars.ts` loads that file
+lazily via `import.meta.glob('/docs/build_state.*.json', ...)`, only when the view that needs it
+mounts (`useUnplacedFamilies`, `src/features/trees/hooks.ts`), so the sidecar's data never enters
+the main bundle. **Refreshing the data now means copying BOTH files** — forgetting the sidecar is
+the failure mode the "referenced but not shipped" state and `liveReport.contract.test.ts`'s sidecar
+invariant both exist to catch. Under Vitest, the specifier `.../features/build/fixtures/sidecars`
+is swapped by a `test.alias` for `tests/support/sidecarsTestSource.ts`, which serves the frozen
+`tests/fixtures/build_state.giga_usf.reference.json` — a whole-module swap rather than a
+single-JSON-specifier one, because `import.meta.glob` scans the literal `docs/` directory at
+transform time and cannot be redirected by aliasing one resolved specifier the way `source.ts`'s
+JSON import can. See the doc comment on `sidecars.ts` for the full reasoning. **Import `loadSidecar`
+from that exact specifier** — `src/features/build/fixtures/index.ts` deliberately does not
+re-export it, because the alias is a regex anchored on the `sidecars` path and does not match the
+barrel; importing it from `@/features/build/fixtures` instead would silently read the live `docs/`
+glob under Vitest rather than the frozen reference.
+
 **Refreshing the data** is now just:
 
 ```bash
 cp /path/to/target/reports/build_state/build_state.json docs/build_state.json
+cp /path/to/target/reports/build_state/build_state.*.json docs/   # every sidecar it references
 npm test        # only liveReport.contract.test.ts can object
 ```
 
-No test expectation moves. If the contract suite goes red, the report contains something the
+No test expectation moves. If the contract suite goes red, either the report contains something the
 dashboard cannot place — a new section id, an unsupported `schema_version` — and the fix is to
-integrate it (add the id to `KNOWN_SECTION_IDS` and give it a `SECTION_BINDINGS` entry), never to
-add an exception to the contract test.
+integrate it (add the id to `KNOWN_SECTION_IDS` and give it a `SECTION_BINDINGS` entry); or a
+section references a sidecar file that was not copied alongside it, and the fix is to copy it.
+Never add an exception to the contract test.
 
 **Re-verifying the oracle** is a separate, rare, deliberate act — copy the live file over the
 reference, re-sanitise `target`, then expect a large red suite and recompute Appendix A of
 `.plans/feature/01-report-model.md` from the new JSON. That is the `update-test-assert-data`
 workflow, kept for when it is actually wanted.
+
+Re-verifying also means refreshing the sidecar fixture: copy the live `build_state.giga_usf.json`
+over `tests/fixtures/build_state.giga_usf.reference.json`, and re-sanitise ITS `target` to match
+whatever the main reference's `target` was just sanitised to — the sidecar contract invariant
+(`sidecarContract.ts`) checks that a sidecar's `target` equals the main report's, but that check
+only ever runs against the live pair in `docs/`, so nothing catches a mismatched `target` between
+the two reference files except this by hand. `sha256`/`bytes` are not re-verified on the reference
+fixture either, for the same reason — the invariant that would check them reads `docs/` with `fs`
+and never touches `tests/fixtures/`. Note also that `withGigaUsf`/`withGigaUsfSidecar`
+(`src/features/build/fixtures/transforms.ts`) are idempotent on a `giga_usf` section that already
+exists: once the reference report carries one for real, both transforms see it and stop injecting
+their synthetic one, so `gigaUsf`/`gigaUsfSidecar` fixture states quietly become "the real report,
+unmodified" rather than erroring or double-inserting.
 
 Never hand-edit either file to make a test pass. Both are generator output.
 

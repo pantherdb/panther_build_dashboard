@@ -375,6 +375,34 @@ export function toWarning(): BuildStateTransform {
   }
 }
 
+/**
+ * A single generator warning long enough, and multi-line enough, that it needs the dashboard's
+ * own collapsing rather than the generator's wording to stay readable. Modelled on the real
+ * `config_file_contents` config-ledger warning
+ * (`panther_build/scripts/build_state_collectors/config_ledger.py`): the whole config.mk snapshot
+ * quoted twice, once before and once after a mid-build change. The warning text itself is exactly
+ * what a generator's own multi-line report looks like, quoted verbatim - this fixture exists so a
+ * test can exercise the collapsed rendering without waiting for a real target to reproduce it.
+ */
+export function toLongGeneratorWarning(): BuildStateTransform {
+  return state => {
+    if (!isRecord(state)) return state
+    const next = clone(state)
+
+    const configSnapshot = (label: string) =>
+      Array.from({ length: 14 }, (_, index) => `${label}_SETTING_${index} = value_${index}`).join(
+        '\n'
+      )
+
+    appendWarning(
+      dataOf(next, 'config_ledger'),
+      'config `config_file_contents` changed during this build: ' +
+        `\`${configSnapshot('BEFORE')}\` → \`${configSnapshot('AFTER')}\``
+    )
+    return next
+  }
+}
+
 /** Removes a section entirely, which is a harder case than a section reported absent. */
 export function stripSection(sectionId: string): BuildStateTransform {
   return state => {
@@ -598,6 +626,274 @@ export function withRecluster(): BuildStateTransform {
       status: 'ok',
       message: null,
       data: reclusterPayload(),
+    }
+    const insertAt = at < 0 ? sections.length : at + 1
+    next.sections = [
+      ...sections.slice(0, insertAt),
+      addition,
+      ...sections.slice(insertAt),
+    ] as RawSection[]
+    return next
+  }
+}
+
+/** A small, shaped `giga_usf` payload. The frozen reference predates the section. */
+export function gigaUsfPayload(overrides: Record<string, unknown> = {}) {
+  const headline = {
+    books_scanned: 15790,
+    families_with_unplaced: 3,
+    unplaced_total: 9,
+    unassigned_in_mapping: 9,
+    members_included: 3,
+    members_truncated: true,
+  }
+  return {
+    text: '3 of 15790 books had sequences GIGA could not place; 9 sequences in total.',
+    headline,
+    rows: Object.entries(headline).map(([metric, value]) => ({ metric, value })),
+    tables: [
+      {
+        name: 'Families with unplaced fragments',
+        columns: ['family', 'unplaced', 'tree_leaves', 'unplaced_fraction'],
+        rows: [
+          { family: 'PTHR10000', unplaced: 6, tree_leaves: 20, unplaced_fraction: 0.2308 },
+          { family: 'PTHR10001', unplaced: 1, tree_leaves: 50, unplaced_fraction: 0.0196 },
+          { family: 'PTHR10002', unplaced: 2, tree_leaves: null, unplaced_fraction: null },
+        ],
+        truncated: false,
+        total_rows: 3,
+      },
+      {
+        name: 'Unplaced fragments by species',
+        columns: ['oscode', 'unplaced', 'families'],
+        rows: [
+          { oscode: 'HUMAN', unplaced: 4, families: 3 },
+          { oscode: 'MOUSE', unplaced: 5, families: 1 },
+        ],
+        truncated: false,
+        total_rows: 2,
+      },
+    ],
+    unplaced_members: {
+      // PTHR10000 left out: exercises members === null (truncated)
+      PTHR10001: ['HUMAN|HGNC=7|UniProtKB=P00007'],
+      PTHR10002: ['HUMAN|HGNC=8|UniProtKB=P00008', 'MOUSE|MGI=MGI=9|UniProtKB=Q00009'],
+    },
+    warnings: [
+      'Long IDs for 1 family (PTHR10000) were left out to keep the report under 3 IDs; their ' +
+        'counts are complete.',
+    ],
+    ...overrides,
+  }
+}
+
+/** The sidecar file name the fixture's `giga_usf` section references - see `withGigaUsfSidecar`. */
+export const GIGA_USF_SIDECAR_FILE = 'build_state.giga_usf.json'
+
+/**
+ * The `giga_usf` main-report payload under the SIDECAR contract: headline, the by-proteome table
+ * and a `sidecar` reference - no family table, no `unplaced_members`, no `members_*` headline
+ * keys. The actual family rows live in the frozen `tests/fixtures/build_state.giga_usf.reference.json`,
+ * served under Vitest by `tests/support/sidecarsTestSource.ts` in place of a live fetch.
+ *
+ * The by-proteome table (pipeline issue: proteome/input counts) replaces the old three-column
+ * "Unplaced fragments by species" table - kept only in `gigaUsfPayload` (the old-shape fixture)
+ * as the fallback path's test data. DANRE carries 0 unplaced on purpose: a zero-unplaced oscode is
+ * a real, measured row and must not be dropped like an absent one.
+ */
+export function gigaUsfSidecarMainPayload(overrides: Record<string, unknown> = {}) {
+  const headline = {
+    books_scanned: 15790,
+    families_with_unplaced: 2,
+    unplaced_total: 7,
+    unassigned_in_mapping: 5,
+    input_mismatch_families: 0,
+  }
+  return {
+    text: '2 of 15790 books had sequences GIGA could not place; 7 sequences in total.',
+    headline,
+    rows: Object.entries(headline).map(([metric, value]) => ({ metric, value })),
+    tables: [
+      {
+        name: 'Unplaced fragments by proteome',
+        columns: [
+          'oscode',
+          'proteome_seqs',
+          'giga_input_seqs',
+          'unplaced',
+          'families',
+          'unplaced_pct_of_proteome',
+          'unplaced_pct_of_giga_input',
+        ],
+        // Deliberately not in unplaced-desc order: the view's default sort must reorder these,
+        // not merely preserve the report's own row order.
+        rows: [
+          {
+            oscode: 'DANRE',
+            proteome_seqs: 15000,
+            giga_input_seqs: 14500,
+            unplaced: 0,
+            families: 0,
+            unplaced_pct_of_proteome: 0,
+            unplaced_pct_of_giga_input: 0,
+          },
+          {
+            oscode: 'MOUSE',
+            proteome_seqs: 18000,
+            giga_input_seqs: 17500,
+            unplaced: 3,
+            families: 1,
+            unplaced_pct_of_proteome: 0.033,
+            unplaced_pct_of_giga_input: 0.041,
+          },
+          {
+            oscode: 'HUMAN',
+            proteome_seqs: 20000,
+            giga_input_seqs: 19000,
+            unplaced: 4,
+            families: 2,
+            unplaced_pct_of_proteome: 0.02,
+            unplaced_pct_of_giga_input: 0.058,
+          },
+        ],
+        truncated: false,
+        total_rows: 3,
+      },
+    ],
+    sidecar: { file: GIGA_USF_SIDECAR_FILE, bytes: 512, sha256: 'fixture-sha256' },
+    definitions: {
+      books_scanned: { label: 'Books scanned', definition: 'Families whose .orig.usf was read.' },
+      families_with_unplaced: {
+        label: 'Families with unplaced fragments',
+        definition: 'Families where GIGA left at least one leaf unplaced.',
+      },
+      unplaced_total: { label: 'Unplaced total', definition: 'Sequences GIGA could not place.' },
+      unassigned_in_mapping: {
+        label: 'Unassigned in mapping',
+        definition: 'Of those, how many are also unassigned in the post-GIGA mapping.',
+      },
+      input_mismatch_families: {
+        label: 'Input mismatch families',
+        definition:
+          'Families where the sidecar input_seqs disagrees with unplaced + in final tree - a ' +
+          'generator-side cross-check.',
+      },
+      input_seqs: {
+        label: 'Input seqs',
+        definition:
+          'Rows assigned to this family in the pass2_single_genome mapping stage - the ' +
+          'mapping the orig MSAs, and so the PIRs GIGA read, were built from. Not sequences ' +
+          'GIGA received.',
+      },
+      unplaced_fraction: {
+        label: 'Share unplaced',
+        definition: 'Unplaced sequences as a fraction of unplaced + sequences in the final tree.',
+      },
+      proteome_seqs: {
+        label: 'Proteome seqs',
+        definition:
+          'Total sequences in this proteome, independent of GIGA. Null, not zero, when the ' +
+          'id mapping file is unavailable.',
+      },
+      giga_input_seqs: {
+        label: 'Sent to GIGA',
+        definition:
+          'Sequences from this proteome actually sent into GIGA. Null, not zero, when the ' +
+          'pass2 mapping file is unavailable.',
+      },
+      unplaced_pct_of_proteome: {
+        label: '% of proteome',
+        definition: 'Unplaced sequences as a percentage of this proteome’s total sequences.',
+      },
+      unplaced_pct_of_giga_input: {
+        label: '% of GIGA input',
+        definition: 'Unplaced sequences as a percentage of the sequences sent into GIGA.',
+      },
+    },
+    warnings: [],
+    ...overrides,
+  }
+}
+
+/**
+ * Adds `giga_usf` right after `giga`, under the CURRENT sidecar contract - the real report plus a
+ * reference to `build_state.giga_usf.json`, distinct from the `gigaUsf` fixture state's OLD
+ * in-report shape. Idempotent, like every transform here.
+ */
+export function withGigaUsfSidecar(): BuildStateTransform {
+  return state => {
+    if (!isRecord(state)) return state
+    const next = clone(state)
+    const sections = asArray(next.sections)
+    if (sections.filter(isRecord).some(section => asString(section.id) === 'giga_usf')) return next
+    const at = sections.findIndex(section => isRecord(section) && asString(section.id) === 'giga')
+    const addition: RawSection = {
+      id: 'giga_usf',
+      title: 'Unplaced fragments (GIGA .usf)',
+      status: 'ok',
+      message: null,
+      data: gigaUsfSidecarMainPayload(),
+    }
+    const insertAt = at < 0 ? sections.length : at + 1
+    next.sections = [
+      ...sections.slice(0, insertAt),
+      addition,
+      ...sections.slice(insertAt),
+    ] as RawSection[]
+    return next
+  }
+}
+
+/**
+ * The two family-list tables Tasks 6-7 of the pipeline plan add to the EXISTING `giga` section:
+ * which families came back with an empty tree (none, on this fixture - `empty_trees` in its
+ * headline already reads 0), and which were removed after GIGA for carrying a single genome.
+ * Guarded on the empty-tree table's presence, so a second application does not duplicate either.
+ */
+function addGigaFamilyLists(next: BuildState): void {
+  const giga = sectionOf(next, 'giga')
+  if (giga === null) return
+  const data = isRecord(giga.data) ? { ...giga.data } : {}
+  const existingTables = asArray(data.tables).filter(isRecord)
+  const alreadyApplied = existingTables.some(
+    table => asString(table.name) === 'Families with an empty tree'
+  )
+  if (alreadyApplied) return
+  data.tables = [
+    ...existingTables,
+    {
+      name: 'Families with an empty tree',
+      columns: ['family'],
+      rows: [],
+      truncated: false,
+      total_rows: 0,
+    },
+    {
+      name: 'Families removed after GIGA (single genome)',
+      columns: ['family'],
+      rows: [{ family: 'PTHR30001' }, { family: 'PTHR30002' }],
+      truncated: false,
+      total_rows: 2,
+    },
+  ]
+  giga.data = data
+}
+
+/** Adds `giga_usf` right after `giga`, where the generator's REGISTRY emits it. Idempotent. */
+export function withGigaUsf(): BuildStateTransform {
+  return state => {
+    if (!isRecord(state)) return state
+    const next = clone(state)
+    addGigaFamilyLists(next)
+    const sections = asArray(next.sections)
+    if (sections.filter(isRecord).some(section => asString(section.id) === 'giga_usf')) return next
+    const at = sections.findIndex(section => isRecord(section) && asString(section.id) === 'giga')
+    const addition: RawSection = {
+      id: 'giga_usf',
+      title: 'Unplaced fragments (GIGA .usf)',
+      status: 'ok',
+      message: null,
+      data: gigaUsfPayload(),
     }
     const insertAt = at < 0 ? sections.length : at + 1
     next.sections = [

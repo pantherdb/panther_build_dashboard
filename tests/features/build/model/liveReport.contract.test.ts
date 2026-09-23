@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { KNOWN_SECTION_IDS, parseBuildState, UNATTACHED_PHASE_ID } from '@/features/build/model'
 import { CHECK_RULES, runChecks } from '@/features/checks/model'
 import { expectWellFormed } from '@tests/support/reportShape'
+import { findSidecarContractOffenders } from '@tests/support/sidecarContract'
 import type { BuildReport } from '@/features/build/model'
 
 /**
@@ -172,6 +173,23 @@ describe('every derived check survives this data', () => {
     expect(Array.isArray(result.checks)).toBe(true)
     expect(result.summary).toBeTypeOf('object')
     expect(result.summary).not.toBeNull()
+  })
+})
+
+describe('every sidecar a section references is actually shipped', () => {
+  /**
+   * `giga_usf` is the first section to use the sidecar mechanism (`docs/build_state.giga_usf.json`),
+   * and the "Transport is a manual copy" step this enforces is easy to half-do: copy
+   * `build_state.json` and forget the sidecar it now references. This is generic over every
+   * section, not hardcoded to `giga_usf`, because the mechanism is: any collector may opt in. The
+   * live report references no sidecar at all today (`giga_usf` is "registered ahead of its data" -
+   * see the workspace CLAUDE.md), so this currently passes on an empty list; `sidecarContract.test.ts`
+   * exercises every failure mode this checks for against a synthetic report, since the live file
+   * cannot demonstrate a failure it does not have.
+   */
+  it('ships, parses and matches every referenced sidecar file', () => {
+    const offenders = findSidecarContractOffenders(live, path.join(process.cwd(), 'docs'))
+    expect(offenders, `sidecar problems:\n${offenders.join('\n') || '(none)'}`).toEqual([])
   })
 })
 

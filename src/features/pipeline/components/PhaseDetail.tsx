@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import {
   KeyValueList,
+  LongMessage,
   Panel,
   Provenance,
   SectionHeading,
@@ -122,9 +123,10 @@ export const PhaseDetail = ({ phase, highlightId }: PhaseDetailProps) => {
                   className="bg-status-warn-wash rounded-hair flex flex-wrap items-baseline gap-x-2 gap-y-1 px-2 py-1"
                 >
                   <StatusChip status="warn" variant="plain" />
-                  <span className="text-ink text-2xs min-w-0 flex-1">
-                    {finding.warning.message}
-                  </span>
+                  <LongMessage
+                    message={finding.warning.message}
+                    className="text-ink text-2xs min-w-0 flex-1"
+                  />
                   {finding.stepId !== null && (
                     <Link to={stepRoute(finding.stepId)} className="text-accent text-2xs">
                       go to step

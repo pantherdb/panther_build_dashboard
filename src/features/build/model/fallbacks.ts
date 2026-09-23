@@ -32,6 +32,7 @@ import type {
   TreeSummary,
   UniprotMatchRow,
   UniRuleRow,
+  UnplacedFragmentsSummary,
 } from './types'
 
 export function absentPipeline(meta: SummaryMeta): PipelineSummary {
@@ -124,6 +125,22 @@ export function absentTrees(meta: SummaryMeta): TreeSummary {
     emptyTrees: null,
     usableTreePct: null,
     text: null,
+  }
+}
+
+export function absentUnplacedFragments(meta: SummaryMeta): UnplacedFragmentsSummary {
+  return {
+    ...meta,
+    booksScanned: null,
+    familiesWithUnplaced: null,
+    unplacedTotal: null,
+    unassignedInMapping: null,
+    inputMismatchFamilies: null,
+    membersTruncated: false,
+    families: [],
+    bySpecies: [],
+    sidecar: null,
+    warnings: [],
   }
 }
 

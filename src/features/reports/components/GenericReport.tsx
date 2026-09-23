@@ -3,6 +3,7 @@ import {
   CodeBlock,
   Disclosure,
   EmptyState,
+  LongMessage,
   Panel,
   Provenance,
   SectionHeading,
@@ -150,7 +151,7 @@ export const GenericReport = ({ report, anchors = true, highlightId }: GenericRe
               {reading.warnings.map(message => (
                 <li key={message} className="flex flex-wrap items-baseline gap-x-2">
                   <StatusChip status="warn" />
-                  <span className="text-ink text-xs">{message}</span>
+                  <LongMessage message={message} className="text-ink text-xs" />
                   <Provenance source="generator" variant="marker" detail={report.sectionId} />
                 </li>
               ))}

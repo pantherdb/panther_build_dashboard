@@ -126,6 +126,16 @@ const BINDINGS: readonly SectionBinding[] = [
     rationale: 'GIGA statistics describe tree building.',
   },
   {
+    sectionId: 'giga_usf',
+    placement: 'phase',
+    primaryPhaseId: PHASE_IDS.treeBuilding,
+    contributingPhaseIds: [],
+    rationale:
+      'The sequences GIGA removed from each tree as unplaced fragments, read from the .usf it ' +
+      'writes beside the tree. Same phase as `giga`, which stays first: `giga` says how many ' +
+      'books got a tree, this says who was left out of them.',
+  },
+  {
     sectionId: 'node_tracking',
     placement: 'phase',
     primaryPhaseId: PHASE_IDS.nodeForwardTracking,

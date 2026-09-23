@@ -1,4 +1,5 @@
 import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { MetricDefinitionsProvider } from '@/@panther.core/components'
 import { curatedRegistry } from '@/app/metricRegistry'
@@ -258,5 +259,45 @@ describe('byte values are shown as file sizes', () => {
     expect(screen.getByText('book')).toBeInTheDocument()
     expect(screen.getByText('PTHR10015')).toBeInTheDocument()
     expect(screen.getByText('3')).toBeInTheDocument()
+  })
+})
+
+describe('GenericReport, the giga section family-id lists', () => {
+  // "Families with an empty tree" and "Families removed after GIGA (single genome)" moved here
+  // from the bespoke Unplaced-fragments view: they are `giga`'s own tables, not `giga_usf`'s, and
+  // the generic renderer now collapses any single-column, untruncated table on its shape alone.
+  // The `gigaUsf` fixture state is the one that carries them (`addGigaFamilyLists`).
+
+  it('renders both family-id tables as collapsed disclosures with counts', () => {
+    renderReport(entryFrom('gigaUsf', 'giga'))
+
+    const empty = screen.getByText(/families with an empty tree/i)
+    expect(empty).toBeInTheDocument()
+    expect(screen.getByText(/none/i)).toBeInTheDocument()
+    // Zero rows: no toggle for this one.
+    expect(screen.queryByRole('button', { name: /families with an empty tree/i })).toBeNull()
+
+    const removedToggle = screen.getByRole('button', { name: /removed after giga/i })
+    expect(removedToggle).toHaveTextContent('2')
+    expect(removedToggle).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  it('reveals the family ids once the removed-after-GIGA disclosure is opened', async () => {
+    renderReport(entryFrom('gigaUsf', 'giga'))
+    const toggle = screen.getByRole('button', { name: /removed after giga/i })
+    // The panel stays mounted while closed (Disclosure.tsx) and jsdom loads no CSS, so
+    // `toBeVisible()` alone would pass even behind the `hidden` class. Assert the real
+    // mechanism directly: `aria-expanded` and the `hidden` class on the panel itself.
+    const panel = screen.getByText('PTHR30001').closest('[data-pb-disclosure-panel]')
+    expect(panel).not.toBeNull()
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    expect(panel).toHaveClass('hidden')
+
+    await userEvent.click(toggle)
+
+    expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    expect(panel).not.toHaveClass('hidden')
+    expect(screen.getByText('PTHR30001')).toBeVisible()
+    expect(screen.getByText('PTHR30002')).toBeVisible()
   })
 })

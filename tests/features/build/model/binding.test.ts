@@ -284,3 +284,16 @@ describe('the recluster section', () => {
     expect(getBinding('recluster')?.contributingPhaseIds).toEqual([])
   })
 })
+
+describe('giga_usf', () => {
+  it('is a known section', () => {
+    expect(KNOWN_SECTION_IDS).toContain('giga_usf')
+  })
+
+  it('binds to tree building, primary, with no contributing phases', () => {
+    const binding = SECTION_BINDINGS.find(entry => entry.sectionId === 'giga_usf')
+    expect(binding?.placement).toBe('phase')
+    expect(binding?.primaryPhaseId).toBe(PHASE_IDS.treeBuilding)
+    expect(binding?.contributingPhaseIds).toEqual([])
+  })
+})

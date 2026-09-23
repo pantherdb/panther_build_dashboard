@@ -34,6 +34,7 @@ import {
   absentRecluster,
   absentSpecies,
   absentTrees,
+  absentUnplacedFragments,
   unknownFreshness,
 } from './fallbacks'
 import { createNoteSink, describeThrown, errorMeta, makeMeta } from './notes'
@@ -51,6 +52,7 @@ import {
   extractProteomes,
   extractRecluster,
   extractTrees,
+  extractUnplacedFragments,
   buildRegistryEntry,
   readPhaseIds,
   readSections,
@@ -86,6 +88,7 @@ export const KNOWN_SECTION_IDS: readonly string[] = [
   'library',
   'prev_lib',
   'giga',
+  'giga_usf',
   'other_reports',
 ]
 
@@ -404,6 +407,12 @@ export function parseBuildState(raw: unknown): BuildReport {
     () => extractTrees(pick('giga'), sink),
     reason => absentTrees(errorMeta('giga', reason))
   )
+  const unplacedFragments = safe(
+    sink,
+    'section:giga_usf',
+    () => extractUnplacedFragments(pick('giga_usf'), sink),
+    reason => absentUnplacedFragments(errorMeta('giga_usf', reason))
+  )
   const previousLibrary = safe(
     sink,
     'section:prev_lib',
@@ -425,6 +434,8 @@ export function parseBuildState(raw: unknown): BuildReport {
         nodeTracking,
         speciesCounts: otherReports.speciesCounts,
         uniprotMatch: otherReports.uniprotMatch,
+        unplacedFragments: unplacedFragments.bySpecies,
+        unplacedFragmentsAvailability: unplacedFragments.availability,
         sink,
       }),
     reason => absentSpecies(errorMeta(null, reason))
@@ -518,6 +529,7 @@ export function parseBuildState(raw: unknown): BuildReport {
     proteomes,
     library,
     trees,
+    unplacedFragments,
     config,
     comparison,
     species,

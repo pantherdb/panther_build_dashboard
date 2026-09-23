@@ -12,7 +12,7 @@ import {
   StatusChip,
 } from '@/@panther.core/components'
 import type { KeyValueItem } from '@/@panther.core/components'
-import { formatCount } from '@/app/format'
+import { formatCount, plural } from '@/app/format'
 import { speciesElementId } from '@/features/build/model'
 import { useBuildReport, useSelectSpecies, useSpeciesRecord } from '@/features/build/hooks'
 import { formatPercent } from '@/features/species/model/format'
@@ -286,6 +286,30 @@ export const SpeciesDetail = ({ oscode, onClose }: SpeciesDetailProps) => {
                 label: 'No previous match',
                 value: formatCount(uniprot?.noPreviousMatch ?? null),
                 attention: uniprot?.allUnmatched === true,
+              },
+            ]}
+          />
+
+          <SourceBlock
+            title="Unplaced fragments (GIGA)"
+            provenanceLine="giga_usf · Unplaced fragments by species"
+            present={record.unplacedFragments !== null}
+            absentNote={
+              'The giga_usf section (“Unplaced fragments by species”) is not available on this ' +
+              `report, so how many of ${oscode}'s sequences GIGA could not place is UNKNOWN - not ` +
+              'zero. Once available, a disproportionate share here is a QC signal about the ' +
+              'proteome, not the family.'
+            }
+            items={[
+              {
+                key: 'unplaced',
+                label: 'Unplaced by GIGA',
+                value:
+                  record.unplacedFragments === null
+                    ? undefined
+                    : `${formatCount(record.unplacedFragments.unplaced)} across ` +
+                      `${formatCount(record.unplacedFragments.families)} ` +
+                      `${plural(record.unplacedFragments.families, 'family', 'families')}`,
               },
             ]}
           />
